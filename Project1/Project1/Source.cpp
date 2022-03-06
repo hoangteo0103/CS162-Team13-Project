@@ -1,7 +1,6 @@
-#include "SFML/Graphics.hpp"
-#include<iostream>
-using namespace std;
+#include "Core.h"
 int main()
 {
-	cout << 1;
+	Core core; 
+	core.run(); 
 }
