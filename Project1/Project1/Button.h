@@ -15,8 +15,6 @@ class Button
 {
 private:
     short unsigned buttonState;
-    bool pressed;
-    bool hover;
     RectangleShape shape;
     Font* font;
     Text text;
