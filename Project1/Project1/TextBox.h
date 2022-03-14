@@ -75,21 +75,30 @@ public:
 	void update(const Vector2f mousePos)
 
 	{
-		isClicked = false;
-		if (shape.getGlobalBounds().contains(mousePos))
+		//cout << this->shape.getGlobalBounds().left << ' ' << this->shape.getGlobalBounds().top << '\n';
+		//isClicked = false;
+		//bool leftPress = false;
+		if (Mouse::isButtonPressed(Mouse::Left))
 		{
-			bool leftPress = false;
-			while (Mouse::isButtonPressed(Mouse::Left))
-			{
-				leftPress = true;
+			//leftPress = true;
+			//cout << mousePos.x << ' ' << mousePos.y << '\n';
+			if (this->shape.getGlobalBounds().contains(mousePos)) {
+				//isClicked = true;
+				//cout << "Hey I'm being clicked\n";
+				setSelected(true);
 			}
-			if (leftPress)  isClicked = true;
+			else {
+				setSelected(false);
+			}
 		}
-		if(isClicked)
-			setSelected(isClicked); 
+		/*if (shape.getGlobalBounds().contains(mousePos))
+		{
+			
+			if (leftPress)  isClicked = true;
+		}*/
 	}
 	void setSelected(bool sel) {
-		isSelected = sel;
+		this->isSelected = sel;
 
 		// If not selected, remove the '_' at the end:
 		if (!sel) {
@@ -103,7 +112,7 @@ public:
 	}
 	bool isChoosed()
 	{
-		return isSelected; 
+		return this->isSelected; 
 	}
 
 	string getText() {

@@ -17,7 +17,7 @@ private:
     Sprite logoImage;
     String accountInput, passwordInput; 
     Text accountText, passwordText; 
-    Textbox *account, *password; 
+    map<string, Textbox* > loginText;
     bool isUpdated;
     bool ok;
     void initFonts();
@@ -29,11 +29,11 @@ public:
     // Functions
     void updateKeyBinds(); 
     void updateButtons();
+    void updateLoginText();
     void endState();
     void update();
     void render(RenderTarget* target = NULL);
     void renderButtons(RenderTarget* target = NULL);
-
 };
 #endif
 

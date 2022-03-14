@@ -17,18 +17,18 @@ LoginState::LoginState(RenderWindow* app, stack<State*>* states)
     this->logoImage.setPosition(0.f, 0.f);
     this->buttons["LOGIN_BUTTON"] = new Button(300, 480, 450, 50, &this->font, "LOGIN", Color(100, 100, 100, 100)
         , Color(10, 10, 10, 10), Color(20, 20, 20, 200)); 
-    this->account = new Textbox(300, 300, 450, 50, 20 , Color::Red, false, &this->font);
-    this->password = new Textbox(300, 360 , 450, 50, 20, Color::Red, false, &this->font);
-
-
+    this->loginText["ACCOUNT"] = new Textbox(300, 300, 450, 50, 20, Color::Red, false, &this->font);
+    this->loginText["PASSWORD"] = new Textbox(300, 360, 450, 50, 20, Color::Red, false, &this->font);
 }
 
 LoginState ::~LoginState()
 {
     //delete this->pmenu;
-    auto it = this->buttons.begin();
-    for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
+    for (auto it = this->buttons.begin(); it != this->buttons.end(); ++it)
     {
+        delete it->second;
+    }
+    for (auto it = this->loginText.begin(); it != this->loginText.end(); ++it) {
         delete it->second;
     }
 }
@@ -58,34 +58,61 @@ void LoginState::updateButtons()
     }
 }
 
+void LoginState::updateLoginText() {
+    //int cnt = 0;
+    //for (auto i : this->loginText) {
+    //    //cout << "Update for the " << cnt << " time\n";
+    //    //cout << "Here is the mousePos : " << mousePosView.x << ' ' << mousePosView.y << '\n';
+    //    //system("pause");
+    //    i.second->update(this->mousePosView);
+    //}
+
+    for (auto& i : this->loginText) {
+        i.second->update(this->mousePosView);
+    }
+}
+
 void LoginState::update()
 {
     this->updateButtons();
+    this->updateLoginText();
     this->updateMousePositions();
     this->updateKeyBinds();
-    this->account->update(mousePosView); 
-    this->password->update(mousePosView);
-    cout << mousePosView.x << ' ' << mousePosView.y << endl; 
-    Event e; 
+    //this->account->update(mousePosView); 
+    //this->password->update(mousePosView);
+    //cout << mousePosView.x << ' ' << mousePosView.y << endl;
+
+    Event e;
     while (this->app->pollEvent(e))
     {
-        if (e.type == Event::TextEntered)
-        {
-            if (this->account->isChoosed())
-            {
-                if (Keyboard::isKeyPressed(Keyboard::Return))
-                    this->account->setSelected(false);
-                else
-                    this->account->typedOn(e);
-            }
-            if (this->password->isChoosed())
-            {
-                if (Keyboard::isKeyPressed(Keyboard::Return))
-                    this->password->setSelected(false);
-                else
-                    this->password->typedOn(e);
+        if (e.type == Event::TextEntered) {
+            for (auto i = this->loginText.begin(); i != this->loginText.end(); i++) {
+                if (i->second->isChoosed()) {
+                    if (Keyboard::isKeyPressed(Keyboard::Return))
+                        i->second->setSelected(false);
+                    else
+                        i->second->typedOn(e);
+                }
             }
         }
+
+        /*if (e.type == Event::TextEntered)
+        {
+            if (this->loginText["ACCOUNT"]->isChoosed())
+            {
+                if (Keyboard::isKeyPressed(Keyboard::Return))
+                    this->loginText["ACCOUNT"]->setSelected(false);
+                else
+                    this->loginText["ACCOUNT"]->typedOn(e);
+            }
+            if (this->loginText["PASSWORD"]->isChoosed())
+            {
+                if (Keyboard::isKeyPressed(Keyboard::Return))
+                    this->loginText["PASSWORD"]->setSelected(false);
+                else
+                    this->loginText["PASSWORD"]->typedOn(e);
+            }
+        }*/
     }
 }
 
@@ -106,8 +133,9 @@ void LoginState::render(RenderTarget* target)
         target = this->app;
     target->clear(Color::White);
     target->draw(this->logoImage);
-    this->account->drawTo(target); 
-    this->password->drawTo(target);
+    for (auto& i : this->loginText) {
+        i.second->drawTo(target);
+    }
     this->renderButtons(target);
 }
 

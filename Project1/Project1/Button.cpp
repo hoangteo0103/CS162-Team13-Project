@@ -38,6 +38,8 @@ void Button::update(const Vector2f mousePos)
 
 {
     //IDLE
+
+    //cerr << shape.getGlobalBounds().left << ' ' << shape.getGlobalBounds().top << '\n';
     this->buttonState = BTN_IDLE;
     if (this->shape.getGlobalBounds().contains(mousePos))
     {

@@ -1,65 +1,66 @@
 ﻿  Core.cpp
-D:\Project - CS162\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
   LoginState.cpp
-D:\Project - CS162\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
   Source.cpp
-D:\Project - CS162\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Project - CS162\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
+  State.cpp
   Generating Code...
-  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
+  Project1.vcxproj -> C:\Work\CS162\Group_Project\Project1\x64\Debug\Project1.exe
