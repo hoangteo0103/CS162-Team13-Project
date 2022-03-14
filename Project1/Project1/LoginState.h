@@ -3,6 +3,7 @@
 #define LoginState_H
 #include "State.h"
 #include "Button.h"
+#include "TextBox.h"
 
 
 class LoginState :
@@ -11,11 +12,12 @@ class LoginState :
 private:
     map<string, Button* > buttons;
     Font font;
+    //Textbox account, password; 
     Texture textureLogo;
     Sprite logoImage;
     String accountInput, passwordInput; 
     Text accountText, passwordText; 
-
+    Textbox *account, *password; 
     bool isUpdated;
     bool ok;
     void initFonts();

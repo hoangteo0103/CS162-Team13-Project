@@ -1,3 +1,4 @@
+
 #include "Button.h"
 
 Button::Button(float x, float y, float width, float height, Font* font,
@@ -34,6 +35,7 @@ void Button::updateText(string t)
     this->text.setString(t);
 }
 void Button::update(const Vector2f mousePos)
+
 {
     //IDLE
     this->buttonState = BTN_IDLE;

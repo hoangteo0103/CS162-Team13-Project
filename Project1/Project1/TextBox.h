@@ -1,8 +1,11 @@
 #pragma once
-
+#ifndef TEXTBOX_H
+#define TEXTBOX_H
 #include <iostream>
 #include <sstream>
 #include <SFML/Graphics.hpp>
+using namespace std; 
+using namespace sf;
 
 // Define keys:
 #define DELETE_KEY 8
@@ -10,93 +13,13 @@
 #define ESCAPE_KEY 27
 
 class Textbox {
-public:
-	Textbox(int size, sf::Color color, bool sel) {
-		textbox.setCharacterSize(size);
-		textbox.setFillColor(color);
-		isSelected = sel;
-
-		// Check if the textbox is selected upon creation and display it accordingly:
-		if (isSelected)
-			textbox.setString("_");
-		else
-			textbox.setString("");
-	}
-
-	// Make sure font is passed by reference:
-	void setFont(sf::Font& fonts) {
-		textbox.setFont(fonts);
-	}
-
-	void setPosition(sf::Vector2f point) {
-		textbox.setPosition(point);
-	}
-
-	// Set char limits:
-	void setLimit(bool ToF) {
-		hasLimit = ToF;
-	}
-
-	void setLimit(bool ToF, int lim) {
-		hasLimit = ToF;
-		limit = lim - 1;
-	}
-
-	// Change selected state:
-	void setSelected(bool sel) {
-		isSelected = sel;
-
-		// If not selected, remove the '_' at the end:
-		if (!sel) {
-			std::string t = text.str();
-			std::string newT = "";
-			for (int i = 0; i < t.length(); i++) {
-				newT += t[i];
-			}
-			textbox.setString(newT);
-		}
-	}
-
-	std::string getText() {
-		return text.str();
-	}
-
-	void drawTo(sf::RenderWindow& window) {
-		window.draw(textbox);
-	}
-
-	// Function for event loop:
-	void typedOn(sf::Event input) {
-		if (isSelected) {
-			int charTyped = input.text.unicode;
-
-			// Only allow normal inputs:
-			if (charTyped < 128) {
-				if (hasLimit) {
-					// If there's a limit, don't go over it:
-					if (text.str().length() <= limit) {
-						inputLogic(charTyped);
-					}
-					// But allow for char deletions:
-					else if (text.str().length() > limit && charTyped == DELETE_KEY) {
-						deleteLastChar();
-					}
-				}
-				// If no limit exists, just run the function:
-				else {
-					inputLogic(charTyped);
-				}
-			}
-		}
-	}
 private:
-	sf::Text textbox;
-
-	std::ostringstream text;
-	bool isSelected = false;
+	Text textbox;
+	RectangleShape shape; 
+	ostringstream text;
 	bool hasLimit = false;
 	int limit = 0;
-
+	bool isClicked  = false , isSelected = false  ; 
 	// Delete the last character of the text:
 	void deleteLastChar() {
 		std::string t = text.str();
@@ -124,4 +47,97 @@ private:
 		// Set the textbox text:
 		textbox.setString(text.str() + "_");
 	}
+public:
+	Textbox(int x , int y , int width , int height ,int size, Color color, bool sel , Font *fonts) {
+		shape.setPosition(Vector2f(x, y));
+		shape.setSize(Vector2f(width, height));
+		shape.setFillColor(Color::Red); 
+		textbox.setCharacterSize(size);
+		textbox.setFillColor(Color::Black);
+		textbox.setFont(*fonts); 
+		isClicked = sel;
+
+		// Check if the textbox is selected upon creation and display it accordingly:
+		if (isClicked)
+			textbox.setString("_");
+		else
+			textbox.setString("");
+		textbox.setPosition(
+			shape.getPosition().x + 5,
+			shape.getPosition().y + height/2 - 2 
+		);
+	}
+
+	// Set char limits:
+	
+
+	// Change selected state:
+	void update(const Vector2f mousePos)
+
+	{
+		isClicked = false;
+		if (shape.getGlobalBounds().contains(mousePos))
+		{
+			bool leftPress = false;
+			while (Mouse::isButtonPressed(Mouse::Left))
+			{
+				leftPress = true;
+			}
+			if (leftPress)  isClicked = true;
+		}
+		if(isClicked)
+			setSelected(isClicked); 
+	}
+	void setSelected(bool sel) {
+		isSelected = sel;
+
+		// If not selected, remove the '_' at the end:
+		if (!sel) {
+			std::string t = text.str();
+			std::string newT = "";
+			for (int i = 0; i < t.length(); i++) {
+				newT += t[i];
+			}
+			textbox.setString(newT);
+		}
+	}
+	bool isChoosed()
+	{
+		return isSelected; 
+	}
+
+	string getText() {
+		return text.str();
+	}
+
+	void drawTo(sf::RenderTarget* target) {
+		target->draw(shape);
+		target->draw(textbox);
+	}
+
+	// Function for event loop:
+	void typedOn(sf::Event input) {
+		if (isSelected) {
+			int charTyped = input.text.unicode;
+
+			// Only allow normal inputs:
+			if (charTyped < 128) {
+				if (hasLimit) {
+					// If there's a limit, don't go over it:
+					if (text.str().length() <= limit) {
+						inputLogic(charTyped);
+					}
+					// But allow for char deletions:
+					else if (text.str().length() > limit && charTyped == DELETE_KEY) {
+						deleteLastChar();
+					}
+				}
+				// If no limit exists, just run the function:
+				else {
+					inputLogic(charTyped);
+				}
+			}
+		}
+	}
 };
+#endif
