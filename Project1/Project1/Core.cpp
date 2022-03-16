@@ -1,7 +1,7 @@
 #include "Core.h"
 void Core::initWindow()
 {
-	string title = "test"; 
+	std::string title = "test"; 
 	VideoMode Size(1000, 1000); 
 	this->app = new RenderWindow(Size, title); 
 }

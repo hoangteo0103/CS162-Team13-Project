@@ -1,23 +1,26 @@
 #pragma once
 #ifndef LoginState_H
 #define LoginState_H
+#include<string.h>
+#include<fstream>
 #include "State.h"
 #include "Button.h"
+#include "AccountList.h"
 #include "TextBox.h"
-
 
 class LoginState :
     public State
 {
 private:
-    map<string, Button* > buttons;
+    map<std::string, Button* > buttons;
     Font font;
     //Textbox account, password; 
     Texture textureLogo;
     Sprite logoImage;
     String accountInput, passwordInput; 
     Text accountText, passwordText; 
-    map<string, Textbox* > loginText;
+    map<std::string, Textbox* > loginText;
+    Account* listHead = nullptr, * listLast = nullptr;
     bool isUpdated;
     bool ok;
     void initFonts();
@@ -34,6 +37,11 @@ public:
     void update();
     void render(RenderTarget* target = NULL);
     void renderButtons(RenderTarget* target = NULL);
+
+    void loadAccount();
+    bool checkLoginAcc(std::string accnt, std::string psswrd);
 };
+
+
 #endif
 

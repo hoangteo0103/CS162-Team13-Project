@@ -3,6 +3,7 @@
 #define CORE_H
 #include <iostream>
 #include<stack>
+#include<string>
 #include <SFML/Graphics.hpp>
 #include "LoginState.h"
 using namespace sf;
