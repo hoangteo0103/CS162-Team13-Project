@@ -59,7 +59,12 @@ void LoginState::updateButtons()
        std::string tmpAccount = loginText["ACCOUNT"]->getText();
        std::string tmpPassword = loginText["PASSWORD"]->getText();
        bool check = checkLoginAcc(tmpAccount, tmpPassword);
-       std::cout << check << '\n';
+       cout << check << endl;
+       if (check)
+       {
+           this->states->push(new MainMenuState(this->app, this->states));
+       }
+       
     }
 }
 
@@ -86,9 +91,8 @@ void LoginState::update()
     //this->account->update(mousePosView); 
     //this->password->update(mousePosView);
     //cout << mousePosView.x << ' ' << mousePosView.y << endl;
-
     Event e;
-    while (this->app->pollEvent(e))
+    while(this->app->pollEvent(e))
     {
         if (e.type == Event::TextEntered) {
             for (auto i = this->loginText.begin(); i != this->loginText.end(); i++) {
@@ -100,7 +104,6 @@ void LoginState::update()
                 }
             }
         }
-
         /*if (e.type == Event::TextEntered)
         {
             if (this->loginText["ACCOUNT"]->isChoosed())
