@@ -21,7 +21,7 @@ public:
     void updateKeyBinds();
     void updateButtons();
     void endState();
-    void update();
+    void update(sf::Event *event = nullptr);
     void render(RenderTarget* target = NULL);
     void renderButtons(RenderTarget* target = NULL);
 

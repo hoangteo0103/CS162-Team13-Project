@@ -25,7 +25,7 @@ public:
     virtual void updateKeyBinds() =  0;
     virtual void updateMousePositions();
     virtual void endState() = 0;
-    virtual void update() = 0;
+    virtual void update(sf::Event* event = nullptr) = 0;
     virtual void render(RenderTarget* target = nullptr) = 0;
 
 };

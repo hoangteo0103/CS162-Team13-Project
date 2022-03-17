@@ -11,10 +11,9 @@ using namespace std;
 class Core
 {
 private : 
-	RenderWindow* app; 
-	Event sfEvent;
+	RenderWindow* app;
 	stack<State*> states;
-
+	Event sfEvent;
 	void initWindow();
 	void initStates(); 
 public :

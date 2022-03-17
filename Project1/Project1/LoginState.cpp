@@ -82,7 +82,7 @@ void LoginState::updateLoginText() {
     }
 }
 
-void LoginState::update()
+void LoginState::update(sf::Event* event)
 {
     this->updateButtons();
     this->updateLoginText();
@@ -92,36 +92,36 @@ void LoginState::update()
     //this->password->update(mousePosView);
     //cout << mousePosView.x << ' ' << mousePosView.y << endl;
     Event e;
-    while(this->app->pollEvent(e))
-    {
-        if (e.type == Event::TextEntered) {
-            for (auto i = this->loginText.begin(); i != this->loginText.end(); i++) {
-                if (i->second->isChoosed()) {
-                    if (Keyboard::isKeyPressed(Keyboard::Return))
-                        i->second->setSelected(false);
-                    else
-                        i->second->typedOn(e);
-                }
-            }
-        }
-        /*if (e.type == Event::TextEntered)
-        {
-            if (this->loginText["ACCOUNT"]->isChoosed())
-            {
-                if (Keyboard::isKeyPressed(Keyboard::Return))
-                    this->loginText["ACCOUNT"]->setSelected(false);
-                else
-                    this->loginText["ACCOUNT"]->typedOn(e);
-            }
-            if (this->loginText["PASSWORD"]->isChoosed())
-            {
-                if (Keyboard::isKeyPressed(Keyboard::Return))
-                    this->loginText["PASSWORD"]->setSelected(false);
-                else
-                    this->loginText["PASSWORD"]->typedOn(e);
-            }
-        }*/
-    }
+    if (event) e = *event;
+	if (event && e.type == Event::TextEntered) {
+        //cerr << "Yeah I was here u know\n";
+		for (auto i = this->loginText.begin(); i != this->loginText.end(); i++) {
+			if (i->second->isChoosed()) {
+				if (Keyboard::isKeyPressed(Keyboard::Return))
+					i->second->setSelected(false);
+				else
+					i->second->typedOn(e);
+			}
+		}
+	}
+
+	/*if (e.type == Event::TextEntered)
+	{
+		if (this->loginText["ACCOUNT"]->isChoosed())
+		{
+			if (Keyboard::isKeyPressed(Keyboard::Return))
+				this->loginText["ACCOUNT"]->setSelected(false);
+			else
+				this->loginText["ACCOUNT"]->typedOn(e);
+		}
+		if (this->loginText["PASSWORD"]->isChoosed())
+		{
+			if (Keyboard::isKeyPressed(Keyboard::Return))
+				this->loginText["PASSWORD"]->setSelected(false);
+			else
+				this->loginText["PASSWORD"]->typedOn(e);
+		}
+	}*/
 }
 
 void LoginState::renderButtons(RenderTarget* target)

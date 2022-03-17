@@ -45,7 +45,7 @@ void MainMenuState::updateButtons()
     }
 }
 
-void MainMenuState::update()
+void MainMenuState::update(sf::Event *event)
 {
     this->updateMousePositions();
     this->updateKeyBinds();

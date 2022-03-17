@@ -19,7 +19,7 @@ private:
 	ostringstream text;
 	bool hasLimit = false;
 	int limit = 0;
-	bool isClicked  = false , isSelected = false  ; 
+	bool isClicked  = false , isSelected = false; 
 	// Delete the last character of the text:
 	void deleteLastChar() {
 		std::string t = text.str();
