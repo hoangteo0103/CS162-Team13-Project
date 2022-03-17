@@ -1,6 +1,5 @@
 #include "LoginState.h"
 
-
 void LoginState::initFonts()
 {
     if (!this->font.loadFromFile("raleway.ttf"))
@@ -19,6 +18,8 @@ LoginState::LoginState(RenderWindow* app, stack<State*>* states)
         , Color(10, 10, 10, 10), Color(20, 20, 20, 200)); 
     this->loginText["ACCOUNT"] = new Textbox(300, 300, 450, 50, 20, Color::Red, false, &this->font);
     this->loginText["PASSWORD"] = new Textbox(300, 360, 450, 50, 20, Color::Red, false, &this->font);
+
+    loadAccount();
 }
 
 LoginState ::~LoginState()
@@ -54,7 +55,16 @@ void LoginState::updateButtons()
     }
     if (this->buttons["LOGIN_BUTTON"]->isPressed())
     {
-        //cout << 1; 
+        
+       std::string tmpAccount = loginText["ACCOUNT"]->getText();
+       std::string tmpPassword = loginText["PASSWORD"]->getText();
+       bool check = checkLoginAcc(tmpAccount, tmpPassword);
+       cout << check << endl;
+       if (check)
+       {
+           this->states->push(new MainMenuState(this->app, this->states));
+       }
+       
     }
 }
 
@@ -72,7 +82,7 @@ void LoginState::updateLoginText() {
     }
 }
 
-void LoginState::update()
+void LoginState::update(sf::Event* event)
 {
     this->updateButtons();
     this->updateLoginText();
@@ -81,39 +91,37 @@ void LoginState::update()
     //this->account->update(mousePosView); 
     //this->password->update(mousePosView);
     //cout << mousePosView.x << ' ' << mousePosView.y << endl;
-
     Event e;
-    while (this->app->pollEvent(e))
-    {
-        if (e.type == Event::TextEntered) {
-            for (auto i = this->loginText.begin(); i != this->loginText.end(); i++) {
-                if (i->second->isChoosed()) {
-                    if (Keyboard::isKeyPressed(Keyboard::Return))
-                        i->second->setSelected(false);
-                    else
-                        i->second->typedOn(e);
-                }
-            }
-        }
+    if (event) e = *event;
+	if (event && e.type == Event::TextEntered) {
+        //cerr << "Yeah I was here u know\n";
+		for (auto i = this->loginText.begin(); i != this->loginText.end(); i++) {
+			if (i->second->isChoosed()) {
+				if (Keyboard::isKeyPressed(Keyboard::Return))
+					i->second->setSelected(false);
+				else
+					i->second->typedOn(e);
+			}
+		}
+	}
 
-        /*if (e.type == Event::TextEntered)
-        {
-            if (this->loginText["ACCOUNT"]->isChoosed())
-            {
-                if (Keyboard::isKeyPressed(Keyboard::Return))
-                    this->loginText["ACCOUNT"]->setSelected(false);
-                else
-                    this->loginText["ACCOUNT"]->typedOn(e);
-            }
-            if (this->loginText["PASSWORD"]->isChoosed())
-            {
-                if (Keyboard::isKeyPressed(Keyboard::Return))
-                    this->loginText["PASSWORD"]->setSelected(false);
-                else
-                    this->loginText["PASSWORD"]->typedOn(e);
-            }
-        }*/
-    }
+	/*if (e.type == Event::TextEntered)
+	{
+		if (this->loginText["ACCOUNT"]->isChoosed())
+		{
+			if (Keyboard::isKeyPressed(Keyboard::Return))
+				this->loginText["ACCOUNT"]->setSelected(false);
+			else
+				this->loginText["ACCOUNT"]->typedOn(e);
+		}
+		if (this->loginText["PASSWORD"]->isChoosed())
+		{
+			if (Keyboard::isKeyPressed(Keyboard::Return))
+				this->loginText["PASSWORD"]->setSelected(false);
+			else
+				this->loginText["PASSWORD"]->typedOn(e);
+		}
+	}*/
 }
 
 void LoginState::renderButtons(RenderTarget* target)
@@ -139,4 +147,26 @@ void LoginState::render(RenderTarget* target)
     this->renderButtons(target);
 }
 
+void LoginState::loadAccount() {
+    ifstream fin1;
+    fin1.open("Account.txt");
+    ifstream fin2;
+    fin2.open("Password.txt");
+    while (!fin1.eof()) {
+        std::string tmpAcc, tmpPwrd;
+        fin1 >> tmpAcc; fin2 >> tmpPwrd;
+        addAccount(this->listHead, this->listLast, tmpAcc, tmpPwrd);
+    }
+    fin1.close(); fin2.close();
+}
 
+bool LoginState::checkLoginAcc(std::string accnt, std::string psswrd) {
+    for (Account* i = this->listHead; i; i = i->nextStudent) {
+        if (!(i->accnt.compare(accnt)) && !(i->psswrd.compare(psswrd))) {
+            delList(this->listHead);
+            this->listHead = this->listLast = nullptr;
+            return true;
+        }
+    }
+    return false;
+}

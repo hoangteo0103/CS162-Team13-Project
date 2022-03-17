@@ -64,9 +64,16 @@ void Student::modifyStudentInfo()
     
 }
 
-void inputFileStudentInfo(ifstream fin)
+void Student::inputFileStudentInfo(ifstream fin)
 {
-
+    // fin.get(No,',');
+    // fin.get(studentID,',');
+    // char firstName[NAMELENGTH];
+    // char lastName[NAMELENGTH];
+    // bool gender;
+    // DateofBirth DoB;
+    // int socialID;
+    // char specificClass[NAMELENGTH];
 }
 
 void limitCoursesCanEnroll()
@@ -85,8 +92,12 @@ void SpecificClass::inputFileClassInfo()
     fin.ignore(999,'\n');
     Student* curStudent = classStudent;
     while (!EOF)
-    {}
-        inputFileStudentInfo(fin);
+    {
+        // curStudent->inputFileStudentInfo(fin);
+        curStudent->nextStudent = new Student;
+        curStudent = curStudent->nextStudent;
+    }
+    fin.close();
 }
 
 void outputToScreenClassInfo()

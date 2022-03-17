@@ -1,7 +1,7 @@
 #include "Core.h"
 void Core::initWindow()
 {
-	string title = "test"; 
+	std::string title = "test"; 
 	VideoMode Size(1000, 1000); 
 	this->app = new RenderWindow(Size, title); 
 }
@@ -20,7 +20,6 @@ Core::Core()
 Core::~Core()
 {
 	delete this->app;
-
 }
 
 void Core::endApplication()
@@ -34,6 +33,18 @@ void Core::updateSFMLEvents()
 	{
 		if (this->sfEvent.type == Event::Closed)
 			this->app->close(); 
+		if (this->sfEvent.type == Event::TextEntered) {
+			if (!this->states.empty())
+			{
+				this->states.top()->update(&sfEvent);
+				if (this->states.top()->getQuit())
+				{
+					this->states.top()->endState();
+					delete this->states.top();
+					this->states.pop();
+				}
+			}
+		}
 	}
 }
 

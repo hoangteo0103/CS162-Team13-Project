@@ -3,6 +3,7 @@
 #define CORE_H
 #include <iostream>
 #include<stack>
+#include<string>
 #include <SFML/Graphics.hpp>
 #include "LoginState.h"
 using namespace sf;
@@ -10,10 +11,9 @@ using namespace std;
 class Core
 {
 private : 
-	RenderWindow* app; 
-	Event sfEvent;
+	RenderWindow* app;
 	stack<State*> states;
-
+	Event sfEvent;
 	void initWindow();
 	void initStates(); 
 public :

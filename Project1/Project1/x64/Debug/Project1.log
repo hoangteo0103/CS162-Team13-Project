@@ -1,1 +1,26 @@
+<<<<<<< HEAD
 ﻿  Project1.vcxproj -> E:\Study\CS162\FinalProject\Project1\x64\Debug\Project1.exe
+=======
+﻿  LoginState.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Project1.vcxproj -> C:\Work\CS162\Group_Project\Project1\x64\Debug\Project1.exe
+>>>>>>> 2a99127635fd9b379b3e60cb58f7ee4411af4f93

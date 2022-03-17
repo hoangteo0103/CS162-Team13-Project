@@ -19,8 +19,8 @@ class Student
         int socialID;
         char specificClass[NAMELENGTH];
         int totalCredits = 0;
-        Student* nextStudent = nullptr;
     public:
+        Student* nextStudent = nullptr;
         void addNewStudent(Student* pHeadStudent);  // function for staff only
         void inputFileStudentInfo(ifstream fin);
         // void outputToScreenStudentInfo();
@@ -34,8 +34,8 @@ class SpecificClass
     private:
         char className[NAMELENGTH];
         char classCODE[NAMELENGTH];
-        Student* classStudent;
-        SpecificClass* nextClass;
+        Student* classStudent = new Student;
+        SpecificClass* nextClass = nullptr;
     public:
         void inputFileClassInfo();
         void outputToScreenClassInfo();

@@ -33,6 +33,15 @@
     <ClCompile Include="Semester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="AccountList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> 2a99127635fd9b379b3e60cb58f7ee4411af4f93
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -50,8 +59,25 @@
     <ClInclude Include="TextBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Semester.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+    <ClInclude Include="AccountList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Account.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Password.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+>>>>>>> 2a99127635fd9b379b3e60cb58f7ee4411af4f93
   </ItemGroup>
 </Project>
