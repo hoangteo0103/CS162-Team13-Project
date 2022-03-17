@@ -2,14 +2,6 @@
 
 #include "Student.h"
 
-#define NAMELENGTH 20
-#define FULLNAMELENGTH 50
-#define MAXSTUDENTNUM 50
-#define S1 7.30
-#define S2 9.30
-#define S3 13.30
-#define S4 15.30
-
 class Course
 {
     private:
@@ -29,5 +21,4 @@ class Course
         void importScoreBoard();
         void viewScourBoard();
         void updateResult();
-
 };
