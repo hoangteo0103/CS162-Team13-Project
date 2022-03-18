@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string.h>
 #include "Constanst.h"
 
 struct DateofBirth
@@ -21,12 +22,17 @@ class Student
         int totalCredits = 0;
     public:
         Student* nextStudent = nullptr;
+        Student();
+        Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
+                int sID, char sClass[], int credit);
         void addNewStudent(Student* pHeadStudent);  // function for staff only
         void inputFileStudentInfo(ifstream &fin);
         // void outputToScreenStudentInfo();
         void modifyStudentInfo();   // function for both student and staff
         void limitCoursesCanEnroll(); //function for staff
         void enrollCourse();    // function for student
+        void getInfomation(int& no, int& ID, string& fName, string& lName, bool& gen, DateofBirth& dob,
+                           int& sID, string& sClass, int& credit);
 };
 
 class SpecificClass
