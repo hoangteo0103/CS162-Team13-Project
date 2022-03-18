@@ -1,3 +1,49 @@
 ﻿  Courses.cpp
-C:\Work\CS162\Group_Project\Project1\Project1\Courses.cpp(8,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Project1.vcxproj -> C:\Work\CS162\Group_Project\Project1\x64\Debug\Project1.exe
+D:\Project - CS162\Project1\Project1\Courses.cpp(8,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Project - CS162\Project1\Project1\Courses.cpp(151,47): error C2511: 'void Course::exportStudentList(std::fstream &)': overloaded member function not found in 'Course'
+D:\Project - CS162\Project1\Project1\Courses.h(8): message : see declaration of 'Course'
+D:\Project - CS162\Project1\Project1\Courses.cpp(152,2): error C2671: 'Course::exportStudentList': static member functions do not have 'this' pointers
+  SchoolYear.cpp
+D:\Project - CS162\Project1\Project1\Student.h(29,35): error C2061: syntax error: identifier 'ifstream'
+D:\Project - CS162\Project1\Project1\Student.h(34,46): error C2061: syntax error: identifier 'string'
+D:\Project - CS162\Project1\Project1\Courses.h(23,22): error C2061: syntax error: identifier 'string'
+D:\Project - CS162\Project1\Project1\Courses.h(28,32): error C2061: syntax error: identifier 'ifstream'
+D:\Project - CS162\Project1\Project1\Courses.h(33,28): error C2061: syntax error: identifier 'string'
+  Semester.cpp
+D:\Project - CS162\Project1\Project1\Semester.cpp(72,1): error C2589: 'end of file': illegal token on right side of '::'
+D:\Project - CS162\Project1\Project1\Semester.cpp(70): error C2062: type 'unknown-type' unexpected
+  Source.cpp
+D:\Project - CS162\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Project - CS162\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Project - CS162\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Project - CS162\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Student.cpp
+D:\Project - CS162\Project1\Project1\Student.cpp(114,18): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(114,18): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(116,25): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(116,25): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(125,24): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(125,24): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(127,25): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(127,25): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(129,24): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(129,24): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(131,24): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(131,24): warning C4302: 'type cast': truncation from 'char *' to 'int'
+  Generating Code...

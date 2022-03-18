@@ -3,6 +3,7 @@
 #include <vector>
 #include <sstream>
 #include "Student.h"
+#include <string>
 
 class Course
 {
@@ -17,6 +18,7 @@ class Course
     public:
         Course();
         Course(int ID, char cName[], char tName[], int credit, int ss1, int ss2, int mStudent = 0);
+        Course* nextCourse = nullptr; 
         void addNewStudent(Student* student);
         int strToNum(string* num);
         void delListStudent();

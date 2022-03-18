@@ -41,8 +41,8 @@ class SpecificClass
         char className[NAMELENGTH];
         char classCODE[NAMELENGTH];
         Student* classStudent = new Student;
-        SpecificClass* nextClass = nullptr;
     public:
+        SpecificClass* nextClass = nullptr;
         void inputFileClassInfo();
         void outputToScreenClassInfo();
 };

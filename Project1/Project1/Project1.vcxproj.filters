@@ -11,6 +11,7 @@
     <ClCompile Include="State.cpp" />
     <ClCompile Include="Courses.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="SchoolYear.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -22,6 +23,7 @@
     <ClInclude Include="State.h" />
     <ClInclude Include="Courses.h" />
     <ClInclude Include="Student.h" />
+    <ClInclude Include="SchoolYear.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Account.txt" />

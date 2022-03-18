@@ -162,6 +162,7 @@
     <ClCompile Include="Courses.cpp" />
     <ClCompile Include="LoginState.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="SchoolYear.cpp" />
     <ClCompile Include="Semester.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="State.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="AccountList.h" />
     <ClInclude Include="Courses.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="SchoolYear.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="LoginState.h" />

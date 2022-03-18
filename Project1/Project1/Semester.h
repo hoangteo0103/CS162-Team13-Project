@@ -23,19 +23,14 @@ class Semester
         int No;
         int startDate, endDate;
         int startSchoolYear, endSchoolYear;
-        Course* newCourse = nullptr;
-        Semester* nextSemester = nullptr;
+        Course* nowCourse = nullptr;
+ 
     public:
+        Semester(int startDate , int endDate);
+        Semester* nextSemester = nullptr;
         void viewCourseList();
-        void deleteCourse();
+        void deleteCourse(Course*& nowCourse, Course* course);
+        void delListCourse(Course*& nowCourse);
+        void addNewCourse(Course*& nowCourse, Course* course);
 };
 
-class SchoolYear
-{
-    private:
-        int startYear, endYear;
-        Semester* Smt = nullptr;
-        SchoolYear* nextSchoolYear;
-    public:
-        void createSchoolYear();
-};
