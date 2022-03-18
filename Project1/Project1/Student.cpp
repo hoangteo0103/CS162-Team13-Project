@@ -11,8 +11,15 @@ void Student::addNewStudent(Student* pHeadStudent)
     while (curStudent != nullptr)
         curStudent = curStudent->nextStudent;
     curStudent = new Student;
-    // cout << "Please input the student No: ";
-    // cin >> curStudent->No;
+    cin >> curStudent->No;
+    cin >> curStudent->studentID;
+    cin.get(firstName, NAMELENGTH);
+    cin.get(lastName, NAMELENGTH);
+    cin >> gender;
+    cin >> DoB.date;
+    cin >> DoB.month;
+    cin >> DoB.year;
+    cin >> socialID;
 }
 
 void Student::modifyStudentInfo()
@@ -64,16 +71,29 @@ void Student::modifyStudentInfo()
     
 }
 
-void Student::inputFileStudentInfo(ifstream fin)
+void Student::inputFileStudentInfo(ifstream &fin)
 {
-    // fin.get(No,',');
-    // fin.get(studentID,',');
-    // char firstName[NAMELENGTH];
-    // char lastName[NAMELENGTH];
-    // bool gender;
-    // DateofBirth DoB;
-    // int socialID;
-    // char specificClass[NAMELENGTH];
+    char tmp[NAMELENGTH];
+    fin.get(tmp,',');
+    No = (int)tmp;
+    fin.get(tmp,',');
+    studentID = (int)tmp;
+    fin.get(firstName, ',');
+    fin.get(lastName, ',');
+    fin.get(tmp, ',');
+    if (tmp == "1")
+        gender = true;
+    else
+        gender = false;
+    fin.get(tmp, '/');
+    DoB.date = (int)tmp;
+    fin.get(tmp, '/');
+    DoB.month = (int)tmp;
+    fin.get(tmp, ',');
+    DoB.year = (int)tmp;
+    fin.get(tmp, ',');
+    socialID = (int)tmp;
+    fin.get(specificClass, '\n');
 }
 
 void limitCoursesCanEnroll()
@@ -91,9 +111,9 @@ void SpecificClass::inputFileClassInfo()
     ifstream fin (classCODE[NAMELENGTH] + ".txt");
     fin.ignore(999,'\n');
     Student* curStudent = classStudent;
-    while (!EOF)
+    while (!fin.eof())
     {
-        // curStudent->inputFileStudentInfo(fin);
+        curStudent->inputFileStudentInfo(fin);
         curStudent->nextStudent = new Student;
         curStudent = curStudent->nextStudent;
     }

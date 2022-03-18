@@ -22,7 +22,7 @@ class Student
     public:
         Student* nextStudent = nullptr;
         void addNewStudent(Student* pHeadStudent);  // function for staff only
-        void inputFileStudentInfo(ifstream fin);
+        void inputFileStudentInfo(ifstream &fin);
         // void outputToScreenStudentInfo();
         void modifyStudentInfo();   // function for both student and staff
         void limitCoursesCanEnroll(); //function for staff
