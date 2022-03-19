@@ -67,5 +67,4 @@ void Semester::addNewCourse(Course*& nowCourse, Course* course)
 	nowCourse = course; 
 }
 
-void Semester::
 

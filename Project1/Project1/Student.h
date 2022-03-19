@@ -2,7 +2,7 @@
 
 #include <string.h>
 #include "Constanst.h"
-
+using namespace std;
 struct DateofBirth
 {
     int date, month, year;
