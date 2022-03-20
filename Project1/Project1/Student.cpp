@@ -22,6 +22,42 @@ void Student::addNewStudent(Student* pHeadStudent)
     cin >> socialID;
 }
 
+Student::Student() {
+
+}
+
+Student::Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
+                 int sID, char sClass[], int credit) {
+    this->No = no;
+    this->socialID = ID;
+    strcpy_s(this->firstName, fName);
+    strcpy_s(this->lastName, lName);
+    this->gender = gen;
+    this->DoB = dob;
+    this->socialID = sID;
+    strcpy_s(this->specificClass, sClass);
+    this->totalCredits = credit;
+}
+
+void Student::getInfomation(int& no, int& ID, string& fName, string& lName, bool& gen, DateofBirth& dob,
+    int& sID, string& sClass, int& credit) {
+    no = this->No;
+    ID = this->studentID;
+    for (int i = 0; i < strlen(this->firstName); i++) {
+        fName.push_back(firstName[i]);
+    }
+    for (int i = 0; i < strlen(this->lastName); i++) {
+        lName.push_back(lastName[i]);
+    }
+    gen = this->gender;
+    dob = this->DoB;
+    sID = this->socialID;
+    for (int i = 0; i < strlen(this->lastName); i++) {
+        sClass.push_back(lastName[i]);
+    }
+    credit = this->totalCredits;
+}
+
 void Student::modifyStudentInfo()
 {
     int action;
