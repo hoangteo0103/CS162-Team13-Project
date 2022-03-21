@@ -3,7 +3,6 @@
 #define MAINMENUSTATE_H
 #include "State.h"
 #include "Button.h"
-#include "TextBox.h"
 class MainMenuState :
     public State
 {
@@ -12,8 +11,6 @@ private:
     Sprite background;
     Font font;
     map<string, Button* > buttons;
-    map<string, Textbox*> textboxes;
-    bool werePressed; //Only show textboxed when this is true
     void initFonts();
     void initButtons();
 
@@ -23,7 +20,6 @@ public:
     // Functions
     void updateKeyBinds();
     void updateButtons();
-    void updateTextBoxes();
     void endState();
     void update(sf::Event *event = nullptr);
     void render(RenderTarget* target = NULL);

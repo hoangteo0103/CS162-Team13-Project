@@ -24,7 +24,6 @@
     <ClInclude Include="Courses.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="SchoolYear.h" />
-    <ClInclude Include="Semester.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Account.txt" />

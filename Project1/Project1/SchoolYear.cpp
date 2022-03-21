@@ -7,7 +7,7 @@ SchoolYear::SchoolYear(int startYear , int endYear)
 	this->nowSemester = nullptr; 
 }
 
-void SchoolYear::addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)
+void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)
 {
 	if(!nowClass)
 	{
@@ -18,7 +18,7 @@ void SchoolYear::addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firs
 	nowClass = firstYearClass; 
 }
 
-void SchoolYear::createNewSemester(Semester *&nowSemester , int startDate , int endDate )
+void createNewSemester(Semester *&nowSemester , int startDate , int endDate )
 {
 	if (!nowSemester)
 	{
@@ -30,7 +30,7 @@ void SchoolYear::createNewSemester(Semester *&nowSemester , int startDate , int 
 	nowSemester = newSemester;
 }
 
-void SchoolYear::delListSemester(Semester*& nowSemester)
+void delListSemester(Semester*& nowSemester)
 {
 	if (!nowSemester) return; 
 	while (nowSemester->nextSemester)
@@ -42,7 +42,7 @@ void SchoolYear::delListSemester(Semester*& nowSemester)
 	delete nowSemester; 
 }
 
-void SchoolYear::deleteSemester(Semester*& nowSemester, Semester* semester)
+void deleteSemester(Semester*& nowSemester, Semester* semester)
 {
 	if (!nowSemester) return; 
 	if (nowSemester == semester)

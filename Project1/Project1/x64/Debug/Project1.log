@@ -1,22 +1,19 @@
-﻿  MainMenuState.cpp
-C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(52,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Work\CS162\Group_Project\Project1\Project1\TextBox.h(53,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Project1.vcxproj -> C:\Work\CS162\Group_Project\Project1\x64\Debug\Project1.exe
+﻿  Courses.cpp
+D:\Project - CS162\Project1\Project1\Courses.cpp(8,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  SchoolYear.cpp
+  Semester.cpp
+  Student.cpp
+D:\Project - CS162\Project1\Project1\Student.cpp(114,18): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(114,18): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(116,25): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(116,25): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(125,24): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(125,24): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(127,25): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(127,25): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(129,24): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(129,24): warning C4302: 'type cast': truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(131,24): warning C4311: 'type cast': pointer truncation from 'char *' to 'int'
+D:\Project - CS162\Project1\Project1\Student.cpp(131,24): warning C4302: 'type cast': truncation from 'char *' to 'int'
+  Generating Code...
+  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
