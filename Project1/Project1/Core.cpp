@@ -8,7 +8,7 @@ void Core::initWindow()
 
 void Core::initStates()
 {
-	this->states.push(new LoginState(this->app, &this->states)); 
+	this->states.push(new MainMenuState(this->app, &this->states)); 
 }
 
 Core::Core()

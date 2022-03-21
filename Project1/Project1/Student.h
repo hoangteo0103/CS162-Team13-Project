@@ -35,7 +35,7 @@ class Student
         void enrollCourse();    // function for student
         void getInfomation(int& no, int& ID, string& fName, string& lName, bool& gen, DateofBirth& dob,
                            int& sID, string& sClass, int& credit);
-                           
+        void outputScreenInfo();
         DateofBirth getDoB(string* dob);
 };
 
@@ -46,6 +46,7 @@ class SpecificClass
         char classCODE[NAMELENGTH];
         Student* classStudent = new Student;
     public:
+        void changeClassCode(char* classCode); 
         SpecificClass* nextClass = nullptr;
         void inputFileClassInfo();
         void outputToScreenClassInfo();

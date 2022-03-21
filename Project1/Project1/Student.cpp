@@ -14,7 +14,6 @@ void Student::addNewStudent(Student* addStudent)
 }
 
 Student::Student() {
-
 }
 
 Student::Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
@@ -91,6 +90,11 @@ void Student::inputFileStudentInfo(ifstream &fin)
 	
 }
 
+void Student::outputScreenInfo()
+{
+	cout << this->No << ' ' << this->studentID << ' ' << this->firstName << ' ' << this->lastName << ' ' << this->gender << endl;
+}
+
 void limitCoursesCanEnroll()
 {
 
@@ -101,21 +105,27 @@ void enrollCourse()
 
 }
 
+void SpecificClass::changeClassCode(char* classCode)
+{
+	strcpy_s(this->classCODE, classCode);
+}
+
 void SpecificClass::inputFileClassInfo()
 {
-    ifstream fin (classCODE[NAMELENGTH] + ".csv");
-
+	 ifstream fin ("SchoolYears/Year2021-2022/SpecificClasses/21CTT1.csv");
     Student* curStudent = classStudent;
 
     string line, word;
+	int num = 0;
 
 	while (getline(fin, line)) {
 		stringstream str(line);
-
+		num++; 
 		int cnt = 0;
-		int no, ID, sID, credit;
-		bool gen;
+		int no = 0 , ID = 0 , sID = 0 , credit = 0;
+		bool gen = true ;
 		DateofBirth dob;
+		dob.date = dob.month = dob.year = 0;
 		char fName[NAMELENGTH];
 		char lName[NAMELENGTH];
 		char sClass[NAMELENGTH];
@@ -159,15 +169,21 @@ void SpecificClass::inputFileClassInfo()
 			default:
 				break;
 			}
-
-			Student* addStudent = new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit);
-            this->classStudent->addNewStudent(addStudent);
+			if (num != 1)
+			{
+				Student* addStudent = new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit);
+				this->classStudent->addNewStudent(addStudent);
+			}
 		}
 	}
     fin.close();
 }
 
-void outputToScreenClassInfo()
+void SpecificClass::outputToScreenClassInfo()
 {
-
+	cout << this->classCODE << endl; 
+	for (Student* cur = this->classStudent; cur != NULL; cur = cur->nextStudent)
+	{
+		cur->outputScreenInfo();
+	}
 }

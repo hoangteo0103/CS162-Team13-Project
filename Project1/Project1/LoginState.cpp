@@ -1,3 +1,4 @@
+
 #include "LoginState.h"
 
 void LoginState::initFonts()
