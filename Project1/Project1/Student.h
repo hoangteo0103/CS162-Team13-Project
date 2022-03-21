@@ -1,5 +1,6 @@
 #pragma once
 
+#include <sstream>
 #include <string.h>
 #include "Constanst.h"
 using namespace std;
@@ -25,14 +26,17 @@ class Student
         Student();
         Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
                 int sID, char sClass[], int credit);
-        void addNewStudent(Student* pHeadStudent);  // function for staff only
+        void addNewStudent(Student* addStudent);  // function for staff only
         void inputFileStudentInfo(ifstream &fin);
         // void outputToScreenStudentInfo();
-        void modifyStudentInfo();   // function for both student and staff
+        void modifyStudentInfo(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
+                            int sID, char sClass[], int credit);   // function for both student and staff
         void limitCoursesCanEnroll(); //function for staff
         void enrollCourse();    // function for student
         void getInfomation(int& no, int& ID, string& fName, string& lName, bool& gen, DateofBirth& dob,
                            int& sID, string& sClass, int& credit);
+                           
+        DateofBirth getDoB(string* dob);
 };
 
 class SpecificClass
