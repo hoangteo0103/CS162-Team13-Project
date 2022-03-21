@@ -175,6 +175,7 @@
     <ClInclude Include="Courses.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="SchoolYear.h" />
+    <ClInclude Include="Semester.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="LoginState.h" />

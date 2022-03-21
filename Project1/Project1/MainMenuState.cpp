@@ -18,8 +18,10 @@ MainMenuState::MainMenuState(RenderWindow* app, stack<State*>* states)
     :State(app, states)
 {
     this->initFonts();
-  
-
+    this->werePressed = false;
+    this->buttons["CREATE_SCHOOL_YEAR"] = new Button(300, 480, 450, 50, &this->font, "Create School Year", Color(100, 100, 100, 100)
+        , Color(10, 10, 10, 10), Color(20, 20, 20, 200));
+    this->textboxes["SCHOOL_YEAR"] = new Textbox(300, 600, 450, 50, 20, Color::Red, false, &this->font);
 }
 MainMenuState ::~MainMenuState()
 {
@@ -27,6 +29,9 @@ MainMenuState ::~MainMenuState()
     for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
     {
         delete it->second;
+    }
+    for (auto tmp = this->textboxes.begin(); tmp != this->textboxes.end(); ++tmp) {
+        delete tmp->second;
     }
 }
 void MainMenuState::updateKeyBinds()
@@ -43,16 +48,42 @@ void MainMenuState::updateButtons()
     {
         it.second->update(this->mousePosView);
     }
+    if (this->buttons["CREATE_SCHOOL_YEAR"]->isPressed())
+    {
+        this->werePressed = true;
+    }
+}
+
+void MainMenuState::updateTextBoxes() {
+    if (!this->werePressed) return;
+    for (auto& i : this->textboxes) {
+        i.second->update(this->mousePosView);
+    }
 }
 
 void MainMenuState::update(sf::Event *event)
 {
+    this->updateButtons();
+    this->updateTextBoxes();
     this->updateMousePositions();
     this->updateKeyBinds();
-    this->updateButtons();
+
+    if (!this->werePressed) return;
+
+    Event e;
+    if (event) e = *event;
+    if (event && e.type == Event::TextEntered) {
+        for (auto i = this->textboxes.begin(); i != this->textboxes.end(); i++) {
+            if (i->second->isChoosed()) {
+                if (Keyboard::isKeyPressed(Keyboard::Return))
+                    i->second->setSelected(false);
+                else
+                    i->second->typedOn(e);
+            }
+        }
+    }
     //system("cls") ;
     //cout << mousePosView.x <<' ' << mousePosView.y <<endl;
-
 }
 void MainMenuState::renderButtons(RenderTarget* target)
 {
@@ -65,9 +96,13 @@ void MainMenuState::render(RenderTarget* target)
 {
     if (!target)
         target = this->app;
-
+    target->clear(Color::White);
     target->draw(this->background);
     this->renderButtons(target);
+    if (!this->werePressed) return;
+    for (auto& i : this->textboxes) {
+        i.second->drawTo(target);
+    }
 }
 
 

@@ -13,5 +13,5 @@ public:
     void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearclass);
     void createNewSemester(Semester *&nowSemester, int startDate, int endDate);
     void delListSemester(Semester*& nowSemester);
-    void deleteSemester(Semester*& nowSemester, Semester semester);
+    void deleteSemester(Semester*& nowSemester, Semester* semester);
 };
