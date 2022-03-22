@@ -19,7 +19,11 @@ LoginState::LoginState(RenderWindow* app, stack<State*>* states)
         , Color(10, 10, 10, 10), Color(20, 20, 20, 200)); 
     this->loginText["ACCOUNT"] = new Textbox(300, 300, 450, 50, 20, Color::Red, false, &this->font);
     this->loginText["PASSWORD"] = new Textbox(300, 360, 450, 50, 20, Color::Red, false, &this->font);
-
+    this->wrongPassText.setFont(this->font);
+    this->wrongPassText.setFillColor(Color::Red); 
+    this->wrongPassText.setCharacterSize(20);
+    this->wrongPassText.setPosition(Vector2f(300, 430));
+    this->wrongPassText.setString("sai mat khau roi em oi");
     loadAccount();
 }
 
@@ -54,9 +58,10 @@ void LoginState::updateButtons()
     {
         it.second->update(this->mousePosView);
     }
+    
     if (this->buttons["LOGIN_BUTTON"]->isPressed())
     {
-        
+       this->wrongPass = false;
        std::string tmpAccount = loginText["ACCOUNT"]->getText();
        std::string tmpPassword = loginText["PASSWORD"]->getText();
        bool check = checkLoginAcc(tmpAccount, tmpPassword);
@@ -65,8 +70,11 @@ void LoginState::updateButtons()
        {
            this->states->push(new MainMenuState(this->app, this->states));
        }
-       
+       else {
+           this->wrongPass = true; 
+       }
     }
+    cout << this->wrongPass; 
 }
 
 void LoginState::updateLoginText() {
@@ -91,7 +99,8 @@ void LoginState::update(sf::Event* event)
     this->updateKeyBinds();
     //this->account->update(mousePosView); 
     //this->password->update(mousePosView);
-    //cout << mousePosView.x << ' ' << mousePosView.y << endl;
+    system("cls");
+    cout << mousePosView.x << ' ' << mousePosView.y << endl;
     Event e;
     if (event) e = *event;
 	if (event && e.type == Event::TextEntered) {
@@ -146,6 +155,7 @@ void LoginState::render(RenderTarget* target)
         i.second->drawTo(target);
     }
     this->renderButtons(target);
+    if(this->wrongPass) target->draw(this->wrongPassText);
 }
 
 void LoginState::loadAccount() {

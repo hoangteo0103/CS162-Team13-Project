@@ -19,11 +19,12 @@ private:
     Texture textureLogo;
     Sprite logoImage;
     String accountInput, passwordInput; 
-    Text accountText, passwordText; 
+    Text wrongPassText; 
     map<std::string, Textbox* > loginText;
     Account* listHead = nullptr, * listLast = nullptr;
     bool isUpdated;
     bool ok;
+    bool wrongPass = false; 
     void initFonts();
     void initButtons();
 
