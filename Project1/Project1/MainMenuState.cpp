@@ -24,7 +24,7 @@ MainMenuState::MainMenuState(RenderWindow* app, stack<State*>* states)
     loadListofSpecificClasses(nowClass);
     for (SpecificClass* cur = nowClass; cur != NULL; cur = cur->nextClass)
     {
-        cout << 1; 
+        //cout << 1; 
         cur->outputToScreenClassInfo(); 
     }
 }
@@ -45,13 +45,17 @@ void MainMenuState::endState()
     cout << "End MainMenu" << endl;
 }
 
-void MainMenuState::addSpecificCLass(SpecificClass*& nowClass, char classCode[NAMELENGTH])
+void MainMenuState::addSpecificCLass(SpecificClass*& nowClass, char classCode[])
 {
     SpecificClass* newClass = new SpecificClass;
-    newClass->changeClassCode( classCode ) ;
+    newClass->changeClassCode(classCode);
+    //cerr << classCode << '\n';
+    //system("pause");
     newClass->inputFileClassInfo();
+    //newClass->outputToScreenClassInfo();
     if (nowClass == NULL)
     {
+        
         nowClass = newClass; 
         return; 
     }
@@ -61,10 +65,12 @@ void MainMenuState::addSpecificCLass(SpecificClass*& nowClass, char classCode[NA
 
 void MainMenuState::loadListofSpecificClasses(SpecificClass*& nowClass)
 {
-    ifstream fin ("SchoolYears/Year2021-2022/SpecificClasses/ListOfClassCode.txt") ;
+    ifstream fin ("SchoolYears/2021-2022/SpecificClasses/ListOfClassCode.txt");
     char classCode[NAMELENGTH]; 
     while (fin.get(classCode, NAMELENGTH, '\n'))
     {
+        //cerr << classCode << '\n';
+        //system("pause");
         addSpecificCLass(nowClass, classCode);
     }
 }

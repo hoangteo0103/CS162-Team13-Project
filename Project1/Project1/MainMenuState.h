@@ -32,10 +32,8 @@ public:
     void renderButtons(RenderTarget* target = NULL);
 
     // School functions 
-    void addSpecificCLass(SpecificClass*& nowClass, char classCode[NAMELENGTH]);
+    void addSpecificCLass(SpecificClass*& nowClass, char classCode[]);
     void loadListofSpecificClasses(SpecificClass*& nowClass);
-
-
 };
 
 #endif // MAINMENUSTATE_H

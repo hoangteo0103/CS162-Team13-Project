@@ -26,7 +26,7 @@ class Student
         Student();
         Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
                 int sID, char sClass[], int credit);
-        void addNewStudent(Student* addStudent);  // function for staff only
+        void addNewStudent(Student*& curStudent, Student* addStudent);  // function for staff only
         void inputFileStudentInfo(ifstream &fin);
         // void outputToScreenStudentInfo();
         void modifyStudentInfo(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
@@ -44,7 +44,7 @@ class SpecificClass
     private:
         char className[NAMELENGTH];
         char classCODE[NAMELENGTH];
-        Student* classStudent = new Student;
+        Student* classStudent = nullptr;
     public:
         void changeClassCode(char* classCode); 
         SpecificClass* nextClass = nullptr;

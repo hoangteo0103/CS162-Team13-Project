@@ -5,12 +5,15 @@ using namespace std;
 
 #include "Student.h"
 
-void Student::addNewStudent(Student* addStudent)
+void Student::addNewStudent(Student*& curStudent, Student* addStudent)
 {
-    Student* curStudent = this;
-    while (curStudent != nullptr)
-        curStudent = curStudent->nextStudent;
-    curStudent = addStudent;
+	if (!curStudent) {
+		curStudent = addStudent;
+	}
+	Student* i = curStudent;
+    while (i != nullptr)
+        i = i->nextStudent;
+    i = addStudent;
 }
 
 Student::Student() {
@@ -105,22 +108,26 @@ void enrollCourse()
 
 }
 
-void SpecificClass::changeClassCode(char* classCode)
+void SpecificClass::changeClassCode(char classCode[])
 {
 	strcpy_s(this->classCODE, classCode);
 }
 
 void SpecificClass::inputFileClassInfo()
 {
-	 ifstream fin ("SchoolYears/Year2021-2022/SpecificClasses/21CTT1.csv");
-    Student* curStudent = classStudent;
+	ifstream fin ("SchoolYears/2021-2022/SpecificClasses/21CTT1.csv");
 
     string line, word;
 	int num = 0;
 
 	while (getline(fin, line)) {
+		num++;
+		if (num == 1) {
+			//cerr << "Lmao\n";
+			continue;
+		}
+		//cerr << line << '\n';
 		stringstream str(line);
-		num++; 
 		int cnt = 0;
 		int no = 0 , ID = 0 , sID = 0 , credit = 0;
 		bool gen = true ;
@@ -142,12 +149,16 @@ void SpecificClass::inputFileClassInfo()
 			case 3:
 				for (int i = 0; i < word.length(); i++) {
 					fName[i] = word[i];
+					//cerr << fName[i];
 				}
+				fName[word.length()] = '\0';
+				//cerr << strlen(fName) << '\n';
 				break;
 			case 4:
 				for (int i = 0; i < word.length(); i++) {
 					lName[i] = word[i];
 				}
+				lName[word.length()] = '\0';
 				break;
 			case 5:
 				stoint >> gen;
@@ -162,6 +173,7 @@ void SpecificClass::inputFileClassInfo()
 				for (int i = 0; i < word.length(); i++) {
 					sClass[i] = word[i];
 				}
+				sClass[word.length()] = '\0';
 				break;
 			case 9:
 				stoint >> credit;
@@ -169,12 +181,13 @@ void SpecificClass::inputFileClassInfo()
 			default:
 				break;
 			}
-			if (num != 1)
-			{
-				Student* addStudent = new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit);
-				this->classStudent->addNewStudent(addStudent);
-			}
 		}
+		//cerr << no << ' ' << ID << ' ' << sID << ' ' << credit << '\n';
+		//cerr << fName << ' ' << lName << '\n';
+		//cerr << gen << '\n';
+		//cerr << dob.date << ' ' << dob.month << ' ' << dob.year << '\n';
+		this->classStudent->addNewStudent(this->classStudent, new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit));
+		//cerr << (this->classStudent == nullptr) << '\n';
 	}
     fin.close();
 }
@@ -182,8 +195,10 @@ void SpecificClass::inputFileClassInfo()
 void SpecificClass::outputToScreenClassInfo()
 {
 	cout << this->classCODE << endl; 
-	for (Student* cur = this->classStudent; cur != NULL; cur = cur->nextStudent)
+	//cerr << (this->classStudent == nullptr) << '\n';
+	for (Student* cur = this->classStudent; cur != nullptr; cur = cur->nextStudent)
 	{
+		//cerr << "Lmao\n";
 		cur->outputScreenInfo();
 	}
 }
