@@ -9,14 +9,14 @@ void Student::addNewStudent(Student*& curStudent, Student* addStudent)
 {
 	if (!curStudent) {
 		curStudent = addStudent;
+		return;
 	}
-	Student* i = curStudent;
-    while (i != nullptr)
-        i = i->nextStudent;
-    i = addStudent;
+	addStudent->nextStudent = curStudent;
+	curStudent = addStudent;
 }
 
 Student::Student() {
+	this->nextStudent = nullptr;
 }
 
 Student::Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
@@ -113,9 +113,10 @@ void SpecificClass::changeClassCode(char classCode[])
 	strcpy_s(this->classCODE, classCode);
 }
 
-void SpecificClass::inputFileClassInfo()
+void SpecificClass::inputFileClassInfo(string year)
 {
-	ifstream fin ("SchoolYears/2021-2022/SpecificClasses/21CTT1.csv");
+	//cerr << "SchoolYears/" + year + this->classCODE + ".csv" << '\n';
+	ifstream fin ("SchoolYears/" + year + "/" + this->classCODE + ".csv");
 
     string line, word;
 	int num = 0;

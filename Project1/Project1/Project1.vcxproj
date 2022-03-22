@@ -181,8 +181,8 @@
     <ClInclude Include="State.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Account.txt" />
-    <Text Include="Password.txt" />
+    <Text Include="StudentAccount.txt" />
+    <Text Include="StudentPassword.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

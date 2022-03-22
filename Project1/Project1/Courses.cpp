@@ -100,11 +100,13 @@ void Course::inputFileClassInfo() {
 				for (int i = 0; i < word.length(); i++) {
 					fName[i] = word[i];
 				}
+				fName[word.length()] = '\0';
 				break;
 			case 4:
 				for (int i = 0; i < word.length(); i++) {
 					lName[i] = word[i];
 				}
+				lName[word.length()] = '\0';
 				break;
 			case 5:
 				gen = strToNum(&word);
@@ -119,6 +121,7 @@ void Course::inputFileClassInfo() {
 				for (int i = 0; i < word.length(); i++) {
 					sClass[i] = word[i];
 				}
+				sClass[word.length()] = '\0';
 				break;
 			case 9:
 				credit = this->strToNum(&word);

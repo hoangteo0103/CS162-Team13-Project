@@ -1,13 +1,14 @@
 #include "SchoolYear.h"
 
-SchoolYear::SchoolYear(int startYear , int endYear)
+SchoolYear::SchoolYear(int startYear, int endYear)
 {
 	this->startYear = startYear;
 	this->endYear = endYear;
 	this->nowSemester = nullptr; 
+	this->nowClass = nullptr;
 }
 
-void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)
+void SchoolYear::addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)
 {
 	if(!nowClass)
 	{
@@ -18,7 +19,15 @@ void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)
 	nowClass = firstYearClass; 
 }
 
-void createNewSemester(Semester *&nowSemester , int startDate , int endDate )
+void SchoolYear::outputClassedInfo() {
+	cout << this->startYear << '-' << this->endYear << '\n';
+	for (SpecificClass* i = this->nowClass; i != nullptr; i = i->nextClass) {
+		i->outputToScreenClassInfo();
+		cout << '\n';
+	}
+}
+
+void SchoolYear::createNewSemester(Semester *&nowSemester , int startDate , int endDate )
 {
 	if (!nowSemester)
 	{
@@ -42,7 +51,7 @@ void delListSemester(Semester*& nowSemester)
 	delete nowSemester; 
 }
 
-void deleteSemester(Semester*& nowSemester, Semester* semester)
+void SchoolYear::deleteSemester(Semester*& nowSemester, Semester* semester)
 {
 	if (!nowSemester) return; 
 	if (nowSemester == semester)
@@ -64,4 +73,31 @@ void deleteSemester(Semester*& nowSemester, Semester* semester)
 		}
 		cur = cur->nextSemester;
 	}
+}
+
+void SchoolYear::addSpecificCLass(SpecificClass*& nowClass, char classCode[], string year) {
+	SpecificClass* newClass = new SpecificClass;
+	newClass->changeClassCode(classCode);
+	newClass->inputFileClassInfo(year);
+	if (nowClass == nullptr)
+	{
+		nowClass = newClass;
+		return;
+	}
+	newClass->nextClass = nowClass;
+	nowClass = newClass;
+}
+
+void SchoolYear::loadListofSpecificClasses(string year) {
+	ifstream fin("SchoolYears/" + year + "/ListOfClassCode.txt");
+	//cerr << year << '\n';
+	char classCode[NAMELENGTH];
+	while (fin.get(classCode, NAMELENGTH, '\n'))
+	{
+		//cerr << classCode << '\n';
+		this->addSpecificCLass(this->nowClass, classCode, year);
+		fin.get();
+	}
+	//cerr << "That's all for this year\n";
+	//cerr << '\n';
 }

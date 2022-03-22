@@ -48,6 +48,6 @@ class SpecificClass
     public:
         void changeClassCode(char* classCode); 
         SpecificClass* nextClass = nullptr;
-        void inputFileClassInfo();
+        void inputFileClassInfo(string year);
         void outputToScreenClassInfo();
 };

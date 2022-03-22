@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <fstream>
 #include "Semester.h"
 #include "Student.h"
 class SchoolYear
@@ -13,5 +15,8 @@ public:
     void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearclass);
     void createNewSemester(Semester *&nowSemester, int startDate, int endDate);
     void delListSemester(Semester*& nowSemester);
-    void deleteSemester(Semester*& nowSemester, Semester semester);
+    void deleteSemester(Semester*& nowSemester, Semester* semester);
+    void addSpecificCLass(SpecificClass*& nowClass, char classCode[], string year);
+    void loadListofSpecificClasses(string year);
+    void outputClassedInfo();
 };

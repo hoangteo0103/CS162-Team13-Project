@@ -11,7 +11,7 @@ class MainMenuState :
 {
 private:
     // Graphics 
-    Texture t;
+    Texture t, textureBackground;
     Sprite background;
     Font font;
     map<string, Button* > buttons;
@@ -28,12 +28,13 @@ public:
     void updateButtons();
     void endState();
     void update(sf::Event *event = nullptr);
-    void render(RenderTarget* target = NULL);
-    void renderButtons(RenderTarget* target = NULL);
+    void render(RenderTarget* target = nullptr);
+    void renderButtons(RenderTarget* target = nullptr);
 
     // School functions 
-    void addSpecificCLass(SpecificClass*& nowClass, char classCode[]);
-    void loadListofSpecificClasses(SpecificClass*& nowClass);
+    //void addSpecificCLass(SpecificClass*& nowClass, char classCode[]);
+    //void loadListofSpecificClasses(SpecificClass*& nowClass, string className);
+    void loadListofSchoolYears(SchoolYear*& schoolYear);
 };
 
 #endif // MAINMENUSTATE_H

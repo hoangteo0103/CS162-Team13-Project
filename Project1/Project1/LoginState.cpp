@@ -1,4 +1,3 @@
-
 #include "LoginState.h"
 
 void LoginState::initFonts()
@@ -28,7 +27,7 @@ LoginState::LoginState(RenderWindow* app, stack<State*>* states)
     this->wrongPassText.setFillColor(Color::Red); 
     this->wrongPassText.setCharacterSize(20);
     this->wrongPassText.setPosition(Vector2f(300, 430));
-    this->wrongPassText.setString("sai mat khau roi em oi");
+    this->wrongPassText.setString("Sai mat khau roi em oi");
     loadAccount();
 }
 
@@ -70,7 +69,7 @@ void LoginState::updateButtons()
        std::string tmpAccount = loginText["ACCOUNT"]->getText();
        std::string tmpPassword = loginText["PASSWORD"]->getText();
        bool check = checkLoginAcc(tmpAccount, tmpPassword);
-       cout << check << endl;
+       //cout << check << endl;
        if (check)
        {
            this->states->push(new MainMenuState(this->app, this->states));
@@ -79,7 +78,7 @@ void LoginState::updateButtons()
            this->wrongPass = true; 
        }
     }
-    cout << this->wrongPass; 
+    //cout << this->wrongPass; 
 }
 
 void LoginState::updateLoginText() {
@@ -104,8 +103,8 @@ void LoginState::update(sf::Event* event)
     this->updateKeyBinds();
     //this->account->update(mousePosView); 
     //this->password->update(mousePosView);
-    system("cls");
-    cout << mousePosView.x << ' ' << mousePosView.y << endl;
+    //system("cls");
+    //cout << mousePosView.x << ' ' << mousePosView.y << endl;
     Event e;
     if (event) e = *event;
 	if (event && e.type == Event::TextEntered) {
@@ -166,9 +165,9 @@ void LoginState::render(RenderTarget* target)
 
 void LoginState::loadAccount() {
     ifstream fin1;
-    fin1.open("Account.txt");
+    fin1.open("StudentAccount.txt");
     ifstream fin2;
-    fin2.open("Password.txt");
+    fin2.open("StudentPassword.txt");
     while (!fin1.eof()) {
         std::string tmpAcc, tmpPwrd;
         fin1 >> tmpAcc; fin2 >> tmpPwrd;
