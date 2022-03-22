@@ -16,8 +16,8 @@ private:
     map<std::string, Button* > buttons;
     Font font;
     //Textbox account, password; 
-    Texture textureLogo;
-    Sprite logoImage;
+    Texture textureLogo , textureHeader;
+    Sprite logoImage , headerlogoImage;
     String accountInput, passwordInput; 
     Text wrongPassText; 
     map<std::string, Textbox* > loginText;

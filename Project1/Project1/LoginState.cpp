@@ -9,16 +9,21 @@ void LoginState::initFonts()
     }
     textureLogo.loadFromFile("logo.png");
     this->logoImage.setTexture(textureLogo);
+    textureHeader.loadFromFile("headerlogo.png");
+    this->headerlogoImage.setTexture(textureHeader);
 }
 LoginState::LoginState(RenderWindow* app, stack<State*>* states)
     :State(app, states)
 {
     this->initFonts();
     this->logoImage.setPosition(0.f, 0.f);
+    this->headerlogoImage.setPosition(300.f, 170.f);
+    //this->headerlogoImage.setScale(100, 100); 
     this->buttons["LOGIN_BUTTON"] = new Button(300, 480, 450, 50, &this->font, "LOGIN", Color(100, 100, 100, 100)
         , Color(10, 10, 10, 10), Color(20, 20, 20, 200)); 
     this->loginText["ACCOUNT"] = new Textbox(300, 300, 450, 50, 20, Color::Red, false, &this->font);
     this->loginText["PASSWORD"] = new Textbox(300, 360, 450, 50, 20, Color::Red, false, &this->font);
+
     this->wrongPassText.setFont(this->font);
     this->wrongPassText.setFillColor(Color::Red); 
     this->wrongPassText.setCharacterSize(20);
@@ -151,6 +156,7 @@ void LoginState::render(RenderTarget* target)
         target = this->app;
     target->clear(Color::White);
     target->draw(this->logoImage);
+    target->draw(this->headerlogoImage);
     for (auto& i : this->loginText) {
         i.second->drawTo(target);
     }
