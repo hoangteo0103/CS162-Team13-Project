@@ -39,13 +39,15 @@ Course::Course() {
 	this->classStudents = nullptr;
 }
 
-Course::Course(int ID, char cName[], char tName[], int credit, int ss1, int ss2, int mStudent) {
+Course::Course(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent) {
 	this->courseID = ID;
 	strcpy_s(this->courseName, cName);
 	strcpy_s(this->teacherName, tName);
 	this->credits = credit;
 	this->session1 = ss1;
+	this->session1Day = ss1Day;
 	this->session2 = ss2;
+	this->session2Day = ss2Day;
 	if (mStudent > 0) {
 		this->maximumStudentNum = mStudent;
 	}
@@ -135,13 +137,15 @@ void Course::inputFileClassInfo() {
 	}
 }
 
-void Course::updateCourseInfo(int ID, char cName[], char tName[], int credit, int ss1, int ss2, int mStudent) {
+void Course::updateCourseInfo(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent) {
 	this->courseID = ID;
 	strcpy_s(this->courseName, cName);
 	strcpy_s(this->teacherName, tName);
 	this->credits = credit;
 	this->session1 = ss1;
+	this->session1Day = ss1Day;
 	this->session2 = ss2;
+	this->session2Day = ss2Day;
 	if (mStudent > 0) {
 		this->maximumStudentNum = mStudent;
 	}
