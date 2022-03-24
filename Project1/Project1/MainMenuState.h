@@ -21,7 +21,9 @@ private:
     SchoolYear *schoolYear;
     SpecificClass *nowClass;
 public:
-    MainMenuState(RenderWindow* app, stack<State*>* states);
+    std::string curStudentID; //Current logging in student
+
+    MainMenuState(RenderWindow* app, stack<State*>* states, std::string sID);
     virtual ~MainMenuState();
     // Functions
     void updateKeyBinds();

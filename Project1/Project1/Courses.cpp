@@ -1,5 +1,4 @@
 #include <fstream>
-
 using namespace std;
 
 #include "Courses.h"
@@ -36,7 +35,7 @@ DateofBirth Course::getDoB(string* dob) {
 }
 
 Course::Course() {
-	this->classStudents = nullptr;
+	this->nextID = nullptr;
 }
 
 Course::Course(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent) {
@@ -51,90 +50,38 @@ Course::Course(int ID, char cName[], char tName[], int credit, int ss1, int ss1D
 	if (mStudent > 0) {
 		this->maximumStudentNum = mStudent;
 	}
-	this->classStudents = nullptr;
+	this->nextID = nullptr;
 }
 
-void Course::addNewStudent(Student* student) {
-	if (!this->classStudents) {
-		classStudents = student;
+void Course::addNewStudent(IDNode* student) {
+	if (!this->nextID) {
+		nextID = student;
 		return;
 	}
-	student->nextStudent = this->classStudents->nextStudent;
-	this->classStudents->nextStudent = student;
+	student->nextNode = this->nextID;
+	this->nextID = student;
 }
 
 void Course::delListStudent() {
-	if (!this->classStudents) return;
-	while (this->classStudents->nextStudent) {
-		Student* tmp = this->classStudents->nextStudent;
-		this->classStudents->nextStudent = tmp->nextStudent;
+	if (!this->nextID) return;
+	while (this->nextID->nextNode) {
+		IDNode* tmp = this->nextID->nextNode;
+		this->nextID = tmp->nextNode;
 		delete tmp;
 	}
-	delete this->classStudents;
+	delete this->nextID;
 }
 
-void Course::inputFileClassInfo() {
-	fstream fin;
-	fin.open("Students.csv", ios::in);
-
-	string line, word;
-
-	while (getline(fin, line)) {
-		stringstream str(line);
-
-		int cnt = 0;
-		int no, ID, sID, credit;
-		bool gen;
-		DateofBirth dob;
-		char fName[NAMELENGTH];
-		char lName[NAMELENGTH];
-		char sClass[NAMELENGTH];
-		while (getline(str, word, ',')) {
-			cnt++;
-			switch (cnt) {
-			case 1:
-				no = this->strToNum(&word);
-				break;
-			case 2:
-				ID = this->strToNum(&word);
-				break;
-			case 3:
-				for (int i = 0; i < word.length(); i++) {
-					fName[i] = word[i];
-				}
-				fName[word.length()] = '\0';
-				break;
-			case 4:
-				for (int i = 0; i < word.length(); i++) {
-					lName[i] = word[i];
-				}
-				lName[word.length()] = '\0';
-				break;
-			case 5:
-				gen = strToNum(&word);
-				break;
-			case 6:
-				dob = this->getDoB(&word);
-				break;
-			case 7:
-				sID = this->strToNum(&word);
-				break;
-			case 8:
-				for (int i = 0; i < word.length(); i++) {
-					sClass[i] = word[i];
-				}
-				sClass[word.length()] = '\0';
-				break;
-			case 9:
-				credit = this->strToNum(&word);
-			default:
-				break;
-			}
-
-			Student* student = new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit);
-			this->addNewStudent(student);
-		}
+void Course::inputFileClassInfo(string curDir) {
+	ifstream fin(curDir + "ListStudentID.txt");
+	int ID;
+	while (fin >> ID) {
+		IDNode* nNode = new IDNode;
+		nNode->nextNode = nullptr;
+		nNode->sID = ID;
+		addNewStudent(nNode);
 	}
+	fin.close();
 }
 
 void Course::updateCourseInfo(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent) {
@@ -156,7 +103,7 @@ void Course::outputToScreenClassInfo() {
 }
 
 void Course::exportStudentList(fstream& fout) {
-	for (Student* i = this->classStudents; i; i = i->nextStudent) {
+	/*for (Student* i = this->classStudents; i; i = i->nextStudent) {
 		int no, ID, sID, credit;
 		bool gen;
 		DateofBirth dob;
@@ -172,7 +119,7 @@ void Course::exportStudentList(fstream& fout) {
 		fout << sID << ',';
 		fout << sClass << ',';
 		fout << credit << '\n';
-	}
+	}*/
 }
 
 void importScoreBoard();

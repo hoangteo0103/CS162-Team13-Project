@@ -134,9 +134,9 @@ void SpecificClass::inputFileClassInfo(string year)
 		bool gen = true ;
 		DateofBirth dob;
 		dob.date = dob.month = dob.year = 0;
-		char fName[NAMELENGTH];
-		char lName[NAMELENGTH];
-		char sClass[NAMELENGTH];
+		char fName[FULLNAMELENGTH];
+		char lName[FULLNAMELENGTH];
+		char sClass[FULLNAMELENGTH];
 		while (getline(str, word, ',')) {
 			cnt++;
             stringstream stoint(word);

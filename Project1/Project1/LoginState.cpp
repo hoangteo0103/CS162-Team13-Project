@@ -16,17 +16,17 @@ LoginState::LoginState(RenderWindow* app, stack<State*>* states)
 {
     this->initFonts();
     this->logoImage.setPosition(0.f, 0.f);
-    this->headerlogoImage.setPosition(300.f, 170.f);
+    this->headerlogoImage.setPosition(450.f, 170.f);
     //this->headerlogoImage.setScale(100, 100); 
-    this->buttons["LOGIN_BUTTON"] = new Button(300, 480, 450, 50, &this->font, "LOGIN", Color(100, 100, 100, 100)
+    this->buttons["LOGIN_BUTTON"] = new Button(450, 480, 450, 50, &this->font, "LOGIN", Color(100, 100, 100, 100)
         , Color(10, 10, 10, 10), Color(20, 20, 20, 200)); 
-    this->loginText["ACCOUNT"] = new Textbox(300, 300, 450, 50, 20, Color::Red, false, &this->font);
-    this->loginText["PASSWORD"] = new Textbox(300, 360, 450, 50, 20, Color::Red, false, &this->font);
+    this->loginText["ACCOUNT"] = new Textbox(450, 300, 450, 50, 20, Color::Red, false, &this->font);
+    this->loginText["PASSWORD"] = new Textbox(450, 360, 450, 50, 20, Color::Red, false, &this->font);
 
     this->wrongPassText.setFont(this->font);
     this->wrongPassText.setFillColor(Color::Red); 
     this->wrongPassText.setCharacterSize(20);
-    this->wrongPassText.setPosition(Vector2f(300, 430));
+    this->wrongPassText.setPosition(Vector2f(450, 430));
     this->wrongPassText.setString("Sai mat khau roi em oi");
     loadAccount();
 }
@@ -72,7 +72,7 @@ void LoginState::updateButtons()
        //cout << check << endl;
        if (check)
        {
-           this->states->push(new MainMenuState(this->app, this->states));
+           this->states->push(new MainMenuState(this->app, this->states, tmpAccount));
        }
        else {
            this->wrongPass = true; 

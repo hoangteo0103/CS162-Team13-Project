@@ -14,18 +14,19 @@ void MainMenuState::initButtons()
 {
 
 }
-MainMenuState::MainMenuState(RenderWindow* app, stack<State*>* states)
+MainMenuState::MainMenuState(RenderWindow* app, stack<State*>* states, std::string sID)
     :State(app, states)
 {
+    this->curStudentID = sID;
     this->initFonts();
-    this->buttons["SEE_COURSES"] = new Button(300, 700, 450, 50, &this->font, "See enrolled courses", Color(100, 100, 100, 100)
+    this->buttons["SEE_COURSES"] = new Button(450, 700, 450, 50, &this->font, "See enrolled courses", Color(100, 100, 100, 100)
         , Color(10, 10, 10, 10), Color(20, 20, 20, 200));
     nowClass = nullptr;
     loadListofSchoolYears(this->schoolYear);
     //loadListofSpecificClasses(this->nowClass);
     for (SchoolYear* cur = this->schoolYear; cur != nullptr; cur = cur->nextSchoolYear)
     { 
-        cur->outputClassedInfo();
+        //cur->outputClassedInfo();
     }
 }
 MainMenuState ::~MainMenuState()
@@ -77,15 +78,25 @@ void MainMenuState::loadListofSchoolYears(SchoolYear*& schoolYear) {
             else { yearEnd *= 10; yearEnd += year[i] - '0'; }
         }
 
-        SchoolYear* tmp = new SchoolYear(yearStart, yearEnd);
-        tmp->loadListofSpecificClasses(year);
+        //cerr << "SchoolYears/" + year + "ListOfSemester.txt" << '\n';
+        ifstream fin1("SchoolYears/" + year + "/ListOfSemester.txt");
+        int amount;
+        fin1 >> amount;
+        fin1.close();
+
+        //cerr << amount << '\n';
+        
+        SchoolYear* tmpYear = new SchoolYear(yearStart, yearEnd);
+        tmpYear->loadListofSpecificClasses(year);
+        //cerr << 1 << '\n';
+        tmpYear->loadListofSemester(amount, year);
 
         if (!schoolYear) {
-            schoolYear = tmp;
+            schoolYear = tmpYear;
         }
         else {
-            tmp->nextSchoolYear = schoolYear;
-            schoolYear = tmp;
+            tmpYear->nextSchoolYear = schoolYear;
+            schoolYear = tmpYear;
         }
     }
     yearInput.close();

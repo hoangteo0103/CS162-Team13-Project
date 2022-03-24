@@ -101,3 +101,101 @@ void SchoolYear::loadListofSpecificClasses(string year) {
 	//cerr << "That's all for this year\n";
 	//cerr << '\n';
 }
+
+void SchoolYear::addNewSemester(Semester*& semester) {
+	if (!this->nowSemester) {
+		this->nowSemester = semester;
+		return;
+	}
+	semester->nextSemester = this->nowSemester;
+	this->nowSemester = semester;
+}
+
+void SchoolYear::loadListofSemester(int amount, string year) {
+	//cerr << 1 << '\n';
+	for (int i = 1; i <= amount; i++) {
+
+		Semester* semester = new Semester(2020, 2021);
+
+		string curDir = "SchoolYears/" + year + "/Semester" + (char)(i + '0') + "/Courses/";
+		cerr << curDir << '\n';
+
+		ifstream fin;
+		fin.open(curDir + "Courses.csv");
+
+		string line, word;
+		int num = 0;
+
+		while (getline(fin, line)) {
+			num++;
+			if (num == 1) {
+				//cerr << "Lmao\n";
+				continue;
+			}
+			//cerr << line << '\n';
+			stringstream str(line);
+			int cnt = 0;
+			
+			int ID = 0, credit = 0, ss1 = 0, ss1Day = 0, ss2 = 0, ss2Day = 0, mStudent = 0;
+			char cName[FULLNAMELENGTH];
+			char tName[FULLNAMELENGTH];
+
+			while (getline(str, word, ',')) {
+				//cerr << word << '\n';
+				cnt++;
+				stringstream stoint(word);
+				switch (cnt) {
+				case 1:
+					stoint >> ID;
+					break;
+				case 2:
+					for (int i = 0; i < word.length(); i++) {
+						cName[i] = word[i];
+					}
+					cName[word.length()] = '\0';
+					//cerr << strlen(cName) << '\n';
+					break;
+				case 3:
+					for (int i = 0; i < word.length(); i++) {
+						tName[i] = word[i];
+					}
+					tName[word.length()] = '\0';
+					//cerr << strlen(tName) << '\n';
+					break;
+				case 4: 
+					stoint >> credit;
+				case 5:
+					stoint >> mStudent;
+					break;
+				case 6:
+					stoint >> ss1;
+					break;
+				case 7:
+					stoint >> ss1Day;
+					break;
+				case 8:
+					stoint >> ss2;
+					break;
+				case 9:
+					stoint >> ss2Day;
+					break;
+				default:
+					break;
+				}
+			}
+			
+			cerr << ID << ' ' << cName << ' ' << tName << '\n';
+
+			Course* course = new Course(ID, cName, tName, credit, ss1, ss1Day, ss2, ss2Day, mStudent);
+			//course->inputFileClassInfo(curDir);
+			//this->nowSemester->addNewStudent(this->classStudent, new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit));
+			//cerr << (this->classStudent == nullptr) << '\n';
+			
+			semester->addNewCourse(course);
+
+			//cerr << "Lmao haha ded vl\n";
+		}
+
+		this->addNewSemester(semester);
+	}
+}

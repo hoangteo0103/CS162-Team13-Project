@@ -31,6 +31,6 @@ class Semester
         void viewCourseList();
         void deleteCourse(Course*& nowCourse, Course* course);
         void delListCourse(Course*& nowCourse);
-        void addNewCourse(Course*& nowCourse, Course* course);
+        void addNewCourse(Course* course);
 };
 

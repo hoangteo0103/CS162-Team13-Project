@@ -1,5 +1,5 @@
 #include <fstream>
-
+#include <iostream>
 using namespace std;
 
 #include "Semester.h"
@@ -56,15 +56,16 @@ void Semester::delListCourse(Course*& nowCourse)
 	delete nowCourse;
 }
 
-void Semester::addNewCourse(Course*& nowCourse, Course* course)
+void Semester::addNewCourse(Course* course)
 {
-	if (!nowCourse)
+	//cerr << 1 << '\n';
+	if (!this->nowCourse)
 	{
 		nowCourse = course;
 		return; 
 	}
-	course->nextCourse = nowCourse;
-	nowCourse = course; 
+	course->nextCourse = this->nowCourse;
+	this->nowCourse = course; 
 }
 
 

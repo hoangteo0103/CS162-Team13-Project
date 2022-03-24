@@ -5,25 +5,32 @@
 #include "Student.h"
 #include <string>
 using namespace std; 
+
+struct IDNode {
+    int sID;
+    IDNode* nextNode = nullptr;
+};
+
 class Course
 {
     private:
         int courseID;
-        char courseName[NAMELENGTH];
-        char teacherName[NAMELENGTH];
+        char courseName[FULLNAMELENGTH];
+        char teacherName[FULLNAMELENGTH];
         int credits;
         int currentStudentNum = 0;
         int maximumStudentNum = MAXSTUDENTNUM;
         int session1, session1Day, session2, session2Day;
-        Student* classStudents;
+        IDNode* nextID = nullptr;
+
     public:
         Course();
         Course(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent = 0);
         Course* nextCourse = nullptr; 
-        void addNewStudent(Student* student);
+        void addNewStudent(IDNode* student);
         int strToNum(string* num);
         void delListStudent();
-        void inputFileClassInfo();
+        void inputFileClassInfo(string curDir);
         void updateCourseInfo(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent);
         void outputToScreenClassInfo();
         void exportStudentList(fstream& fout);
