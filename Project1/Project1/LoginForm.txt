@@ -1,0 +1,100 @@
+Renderer.1 {
+    CaretColor = rgb(110, 110, 255);
+    DefaultTextColor = rgb(120, 120, 120);
+    Padding = (6, 4, 6, 4);
+    SelectedTextBackgroundColor = rgb( 10, 110, 255);
+    SelectedTextColor = White;
+    TextColor = rgb(190, 190, 190);
+    Texture = "themes/Black.png" Part(34, 246, 60, 40) Middle(15, 0) Smooth;
+    TextureDisabled = None;
+    TextureFocused = "themes/Black.png" Part(0, 288, 60, 40) Middle(15, 0) Smooth;
+    TextureHover = "themes/Black.png" Part(62, 288, 60, 40) Middle(15, 0) Smooth;
+}
+
+Picture.Picture1 {
+    Position = (0, 10);
+    Size = (290, 213.684);
+
+    Renderer {
+        Texture = "logo.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+EditBox.EditBox1 {
+    Alignment = Center;
+    DefaultText = Username;
+    Position = (490, 440);
+    Renderer = &1;
+    Size = (290, 34);
+    TextSize = 10;
+}
+
+EditBox.EditBox2 {
+    Alignment = Center;
+    DefaultText = Password;
+    PasswordCharacter = "*";
+    Position = (490, 520);
+    Renderer = &1;
+    Size = (290, 34);
+    TextSize = 10;
+}
+
+TextArea.TextArea1 {
+    DefaultText = "Text Go Here";
+    HorizontalScrollbarPolicy = Never;
+    MaximumCharacters = 0;
+    Position = (490, 340);
+    Size = (288, 55);
+    Text = "";
+    TextSize = 10;
+
+    Renderer {
+        BackgroundColor = rgb(210, 210, 210);
+        BorderColor = White;
+        Borders = (2, 2, 2, 2);
+        CaretColor = rgb(145, 180, 190);
+        SelectedTextBackgroundColor = rgb(190, 225, 235);
+        SelectedTextColor = rgb(150, 150, 150);
+        TextColor = rgb(100, 100, 100);
+        TextureBackground = None;
+
+        Scrollbar {
+            TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
+            TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
+            TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
+            TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
+        }
+    }
+}
+
+Button.Button1 {
+    Position = (520, 598.625);
+    Size = (220, 53.375);
+    Text = Login;
+    TextSize = 10;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
