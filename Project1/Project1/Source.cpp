@@ -11,7 +11,7 @@ void updateTextSize(tgui::BackendGui& gui)
 {
     // Update the text size of all widgets in the gui, based on the current window height
     const float windowHeight = gui.getView().getRect().height;
-    gui.setTextSize(static_cast<unsigned int>(0.07f * windowHeight)); // 7% of height
+    gui.setTextSize(static_cast<unsigned int>(0.02f * windowHeight)); // 2% of height
 }
 
 void loadWidgets(tgui::BackendGui& gui)
@@ -41,7 +41,7 @@ bool runExample(tgui::BackendGui& gui)
 
 int main()
 {
-    sf::RenderWindow window{ {800, 600}, "TGUI example - SFML_GRAPHICS backend" };
+    sf::RenderWindow window{ {1300, 800}, "TGUI example - SFML_GRAPHICS backend" };
 
     tgui::Gui gui{ window };
     if (runExample(gui))
