@@ -30,12 +30,13 @@ void addAccount(Account*& listHead, std::string account, std::string password) {
 }
 
 bool findStudent(Account* listHead, std::string accnt, std::string psswrd) {
-	return true;
-	for (Account* i = listHead; i; i = i->nextStudent) {
+	//std::cerr << accnt << ' ' << psswrd << '\n';
+	for (Account* i = listHead; i != nullptr; i = i->nextStudent) {
 		if (!(i->accnt.compare(accnt)) && !(i->psswrd.compare(psswrd))) {
 			return true;
 		}
 	}
+
 	return false;
 }
 

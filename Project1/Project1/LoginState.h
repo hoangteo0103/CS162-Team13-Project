@@ -56,3 +56,4 @@ using namespace tgui;
 using namespace std;
 
 bool run_login(BackendGui& gui);
+void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account* accounts);

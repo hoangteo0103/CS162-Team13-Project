@@ -188,8 +188,9 @@
 //}
 
 #include "LoginState.h"
-void login(BackendGui& gui , tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account*& accounts )
+void login(BackendGui& gui , tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account* accounts )
 {
+    //cerr << accounts << '\n';
     //std::cout << "Username: " << username->getText() << std::endl;
     //std::cout << "Password: " << password->getText() << std::endl;
     tgui::String usrnme = username->getText();
@@ -221,21 +222,22 @@ void loadWidgets(tgui::BackendGui& gui, Account*& accounts)
     // We want the text size to be updated when the window is resized
     gui.onViewChange([&gui] { updateTextSize(gui); });
     bool ok = false; 
-    gui.get<tgui::Button>("Button1")->onPress(&login,ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), std::ref(accounts) );
+    //cerr << accounts << '\n';
+    gui.get<tgui::Button>("Button1")->onPress(&login,ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts);
 }
 
 bool run_login(BackendGui& gui)
 {
 	try
-		    {
-                Account* accounts = nullptr;
-                loadAccount(accounts);
-		        loadWidgets(gui, accounts);
-		        return true;
-		    }
-		    catch (const tgui::Exception& e)
-		    {
-		        std::cerr << "Failed to load TGUI widgets: " << e.what() << std::endl;
-		        return false;
-		    }
+	{
+		Account* accounts = nullptr;
+		loadAccount(accounts);
+		loadWidgets(gui, accounts);
+		return true;
+	}
+	catch (const tgui::Exception& e)
+	{
+		std::cerr << "Failed to load TGUI widgets: " << e.what() << std::endl;
+		return false;
+	}
 }
