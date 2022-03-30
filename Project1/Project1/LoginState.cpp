@@ -28,7 +28,7 @@ LoginState::LoginState(RenderWindow* app, stack<State*>* states)
     this->wrongPassText.setCharacterSize(20);
     this->wrongPassText.setPosition(Vector2f(450, 430));
     this->wrongPassText.setString("Sai mat khau roi em oi");
-    loadAccount();
+    //loadAccount();
 }
 
 LoginState ::~LoginState()
@@ -163,18 +163,18 @@ void LoginState::render(RenderTarget* target)
     if(this->wrongPass) target->draw(this->wrongPassText);
 }
 
-void LoginState::loadAccount() {
-    ifstream fin1;
-    fin1.open("StudentAccount.txt");
-    ifstream fin2;
-    fin2.open("StudentPassword.txt");
-    while (!fin1.eof()) {
-        std::string tmpAcc, tmpPwrd;
-        fin1 >> tmpAcc; fin2 >> tmpPwrd;
-        addAccount(this->listHead, this->listLast, tmpAcc, tmpPwrd);
-    }
-    fin1.close(); fin2.close();
-}
+//void LoginState::loadAccount() {
+//    ifstream fin1;
+//    fin1.open("StudentAccount.txt");
+//    ifstream fin2;
+//    fin2.open("StudentPassword.txt");
+//    while (!fin1.eof()) {
+//        std::string tmpAcc, tmpPwrd;
+//        fin1 >> tmpAcc; fin2 >> tmpPwrd;
+//        addAccount(this->listHead, this->listLast, tmpAcc, tmpPwrd);
+//    }
+//    fin1.close(); fin2.close();
+//}
 
 bool LoginState::checkLoginAcc(std::string accnt, std::string psswrd) {
     for (Account* i = this->listHead; i; i = i->nextStudent) {

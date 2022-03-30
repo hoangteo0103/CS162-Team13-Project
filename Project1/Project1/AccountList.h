@@ -1,6 +1,8 @@
 #pragma once
 #ifndef AccountList_H
 #define AccountList_H
+#include<iostream>
+#include<fstream>
 #include<string>
 
 struct Account {
@@ -9,7 +11,8 @@ struct Account {
 	Account* nextStudent = nullptr;
 };
 
-void addAccount(Account*& listHead, Account*& listLast, std::string account, std::string password);
+void loadAccount(Account*& accounts);
+void addAccount(Account*& listHead, std::string account, std::string password);
 bool findStudent(Account* listHead, std::string accnt, std::string psswrd);
 void delList(Account* listHead);
 #endif

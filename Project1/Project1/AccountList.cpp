@@ -1,21 +1,32 @@
 #include "AccountList.h"
 
-void addAccount(Account*& listHead, Account*& listLast, std::string account, std::string password) {
+void loadAccount(Account*& accounts) {
+	std::ifstream fin1;
+	fin1.open("StudentAccount.txt");
+	std::ifstream fin2;
+	fin2.open("StudentPassword.txt");
+	while (!fin1.eof()) {
+		std::string tmpAcc, tmpPwrd;
+		fin1 >> tmpAcc; fin2 >> tmpPwrd;
+		addAccount(accounts, tmpAcc, tmpPwrd);
+	}
+	fin1.close(); fin2.close();
+}
+
+void addAccount(Account*& listHead, std::string account, std::string password) {
 	if (!listHead) {
 		listHead = new Account;
 		listHead->accnt = account;
 		listHead->psswrd = password;
 		listHead->nextStudent = nullptr;
-		listLast = listHead;
 		return;
 	}
 
 	Account* tmp = new Account;
 	tmp->accnt = account;
 	tmp->psswrd = password;
-	tmp->nextStudent = nullptr;
-	listLast->nextStudent = tmp;
-	listLast = listLast->nextStudent;
+	tmp->nextStudent = listHead;
+	listHead = tmp;
 }
 
 bool findStudent(Account* listHead, std::string accnt, std::string psswrd) {
