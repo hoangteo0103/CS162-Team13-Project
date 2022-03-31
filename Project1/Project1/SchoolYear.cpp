@@ -118,7 +118,7 @@ void SchoolYear::loadListofSemester(int amount, string year) {
 		Semester* semester = new Semester(2020, 2021);
 
 		string curDir = "SchoolYears/" + year + "/Semester" + (char)(i + '0') + "/Courses/";
-		cerr << curDir << '\n';
+		//cerr << curDir << '\n';
 
 		ifstream fin;
 		fin.open(curDir + "Courses.csv");
@@ -184,7 +184,7 @@ void SchoolYear::loadListofSemester(int amount, string year) {
 				}
 			}
 			
-			cerr << ID << ' ' << cName << ' ' << tName << '\n';
+			//cerr << ID << ' ' << cName << ' ' << tName << '\n';
 
 			Course* course = new Course(ID, cName, tName, credit, ss1, ss1Day, ss2, ss2Day, mStudent);
 			//course->inputFileClassInfo(curDir);

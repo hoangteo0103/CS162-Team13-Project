@@ -6,11 +6,12 @@
 class SchoolYear
 {
 private:
-    int startYear, endYear;
-    Semester* nowSemester = nullptr;
-    SpecificClass *nowClass = nullptr;
+    
 public:
+    int startYear, endYear;
     SchoolYear* nextSchoolYear;
+    Semester* nowSemester = nullptr;
+    SpecificClass* nowClass = nullptr;
     SchoolYear(int startYear, int endYear);
     void addNewSemester(Semester*& semester);
     void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearclass);

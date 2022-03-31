@@ -13,7 +13,6 @@ class Student
 {
     private:
         int No;
-        int studentID;
         char firstName[NAMELENGTH];
         char lastName[NAMELENGTH];
         bool gender;
@@ -22,6 +21,7 @@ class Student
         char specificClass[NAMELENGTH];
         int totalCredits = 0;
     public:
+        int studentID;
         Student* nextStudent = nullptr;
         Student();
         Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
@@ -42,11 +42,12 @@ class Student
 class SpecificClass
 {
     private:
-        char className[NAMELENGTH];
         char classCODE[NAMELENGTH];
         Student* classStudent = nullptr;
     public:
+        char className[NAMELENGTH];
         void changeClassCode(char* classCode); 
+        bool findStudent(string studentID);
         SpecificClass* nextClass = nullptr;
         void inputFileClassInfo(string year);
         void outputToScreenClassInfo();

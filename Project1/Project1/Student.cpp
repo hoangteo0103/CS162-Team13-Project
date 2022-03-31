@@ -22,7 +22,7 @@ Student::Student() {
 Student::Student(int no, int ID, char fName[], char lName[], bool gen, DateofBirth dob,
                  int sID, char sClass[], int credit) {
     this->No = no;
-    this->socialID = ID;
+    this->studentID = ID;
     strcpy_s(this->firstName, fName);
     strcpy_s(this->lastName, lName);
     this->gender = gen;
@@ -95,7 +95,9 @@ void Student::inputFileStudentInfo(ifstream &fin)
 
 void Student::outputScreenInfo()
 {
-	cout << this->No << ' ' << this->studentID << ' ' << this->firstName << ' ' << this->lastName << ' ' << this->gender << endl;
+	cout << this->No << ' ' << this->studentID << '\n';
+	cout << this->firstName << ' ' << this->lastName << ' ' << this->gender << '\n';
+	cout << this->DoB.date << ' ' << this->DoB.month << ' ' << this->DoB.year << '\n';
 }
 
 void limitCoursesCanEnroll()
@@ -146,6 +148,7 @@ void SpecificClass::inputFileClassInfo(string year)
 				break;
 			case 2:
 				stoint >> ID;
+				//cerr << ID << '\n';
 				break;
 			case 3:
 				for (int i = 0; i < word.length(); i++) {
@@ -202,4 +205,20 @@ void SpecificClass::outputToScreenClassInfo()
 		//cerr << "Lmao\n";
 		cur->outputScreenInfo();
 	}
+}
+
+bool SpecificClass::findStudent(string studentID) {
+	int num = 0;
+	//cerr << studentID << '\n';
+	for (int i = 0; i < studentID.length(); i++) {
+		num *= 10;
+		num += studentID[i] - '0';
+	}
+
+	for (Student* i = this->classStudent; i != nullptr; i = i->nextStudent) {
+		i->outputScreenInfo();
+		if (num == i->studentID) return true;
+	}
+
+	return false;
 }

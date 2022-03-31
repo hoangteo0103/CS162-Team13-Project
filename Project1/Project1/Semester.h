@@ -23,11 +23,11 @@ class Semester
         int No;
         int startDate, endDate;
         int startSchoolYear, endSchoolYear;
-        Course* nowCourse = nullptr;
  
     public:
         Semester(int startDate , int endDate);
         Semester* nextSemester = nullptr;
+        Course* nowCourse = nullptr;
         void viewCourseList();
         void deleteCourse(Course*& nowCourse, Course* course);
         void delListCourse(Course*& nowCourse);

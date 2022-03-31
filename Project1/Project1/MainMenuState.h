@@ -5,7 +5,6 @@
 //#include "sstream"
 //#include "State.h"
 //#include "Button.h"
-//#include "SchoolYear.h"
 //class MainMenuState :
 //    public State
 //{
@@ -34,9 +33,7 @@
 //    void renderButtons(RenderTarget* target = nullptr);
 //
 //    // School functions 
-//    //void addSpecificCLass(SpecificClass*& nowClass, char classCode[]);
-//    //void loadListofSpecificClasses(SpecificClass*& nowClass, string className);
-//    void loadListofSchoolYears(SchoolYear*& schoolYear);
+    
 //};
 //
 //#endif // MAINMENUSTATE_H
@@ -49,8 +46,17 @@
 #pragma once 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
+
+#include "SchoolYear.h"
+
 using namespace sf;
 using namespace tgui;
 using namespace std;
 
-void run_mainmenu(BackendGui& gui);
+void run_mainmenu(BackendGui& gui, tgui::String studentID);
+
+void loadListofSchoolYears(SchoolYear*& schoolYear);
+void addSpecificClass(SpecificClass*& nowClass, char classCode[], string year);
+void loadListofSpecificClasses(SpecificClass*& nowClass, string className);
+
+bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID);

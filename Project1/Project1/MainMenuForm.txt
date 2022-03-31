@@ -1,5 +1,5 @@
 Button.Button1 {
-    Position = (410, 150);
+    Position = (660, 120);
     Text = Button;
     TextSize = 13;
 

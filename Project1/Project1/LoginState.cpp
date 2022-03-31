@@ -199,7 +199,7 @@ void login(BackendGui& gui , tgui::EditBox::Ptr username, tgui::EditBox::Ptr pas
     bool check = findStudent(accounts, usrnme.toStdString(), psswrd.toStdString());
     if (check) {
         std::cout << "Chuan roi do\n";
-        run_mainmenu(gui);
+        run_mainmenu(gui, usrnme);
     }
     else {
         std::cout << "Sai roi man\n";
