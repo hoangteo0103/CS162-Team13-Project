@@ -90,13 +90,13 @@
 //
 #include "MainMenuState.h"
 
-void onTabSelected(tgui::BackendGui& gui, std::string selectedTab)
+void onTabSelected(tgui::BackendGui& gui, tgui::String selectedTab)
 {  
-    cerr << selectedTab << '\n';
     if (selectedTab == "Semester 1") {
         gui.get("Courses1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
     }
-    else {
+    else
+    {
         gui.get("Courses1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
     }
 }
@@ -231,9 +231,9 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     }
 
     //tabs->select("Semester 1");
-    gui.add(listBox, "Courses1");
-
-    tabs->onTabSelect(&onTabSelected, ref(gui), tabs->getSelected().toStdString());
+    gui.add(listBox, "Courses1");  
+    listBox->setPosition({ tgui::bindLeft(tabs), tgui::bindBottom(tabs) });
+    tabs->onTabSelect(&onTabSelected, ref(gui));
 
     // The scrollable area / content size is now 400x900 because of the pictures inside it.
     // If you wish to manually specify the size then you can call the setContentSize function.
