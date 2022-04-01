@@ -92,12 +92,12 @@
 
 void onTabSelected(tgui::BackendGui& gui, tgui::String selectedTab)
 {  
-    if (selectedTab == "Semester 1") {
-        gui.get("Courses1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
+    if (selectedTab == "Courses Infomation") {
+        gui.get<tgui::TreeView>("TreeView1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
     }
     else
     {
-        gui.get("Courses1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
+        gui.get<tgui::TreeView>("TreeView1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
     }
 }
 
@@ -181,20 +181,27 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     tabs->setRenderer(theme.getRenderer("Tabs"));
     tabs->setTabHeight(30);
     tabs->setPosition(10, 40);
-    tabs->add("Semester 1");
-    tabs->add("Semester 2");
-    tabs->add("Semester 3");
+    tabs->add("Courses Infomation");
+    tabs->add("Student Infomation");
 
     gui.add(tabs);
+
+    //gui.get<tgui::TreeView>("TreeView1")->addItem({ "This", "Is", "Similar" });
+    //gui.get<tgui::TreeView>("TreeView1")->addItem({ "This", "Tree" });
 
     tgui::String className;
 
     SchoolYear* curSchoolYear = nullptr;
 
     for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
-        if (i->nowClass->findStudent(studentID.toStdString())) {
-            curSchoolYear = i;
-            tgui::String t = tgui::String(i->startYear) + "-" + tgui::String(i->endYear);
+        string studentName;
+
+        tgui::String years = tgui::String(i->startYear) + '-' + tgui::String(i->endYear);
+        gui.get<tgui::TreeView>("TreeView1")->addItem({years});
+
+        if (i->nowClass->findStudent(studentID.toStdString(), studentName)) {
+            curSchoolYear = i; 
+            tgui::String t = studentName;
             label->setText(t);
         }
     }
@@ -211,14 +218,22 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     listBox->setRenderer(theme.getRenderer("ListBox"));
     listBox->setSize(400, 300);
     listBox->setItemHeight(50);
-    listBox->setPosition(10, 100);
+    listBox->setPosition(10, 100);  
 
     // Create some pictures to place inside the scrollable panel
     if (!curSchoolYear) return false;
+
+    tgui::String curYears = tgui::String(curSchoolYear->startYear) + '-' + tgui::String(curSchoolYear->endYear);
+
+    int curSemester = 0;
     for (Semester* i = curSchoolYear->nowSemester; i; i = i->nextSemester) {
+        curSemester++;
+        tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
+        gui.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr });
         for (Course* j = i->nowCourse; j; j = j->nextCourse) {
             tgui::String item = j->courseName;
             listBox->addItem(item);
+            gui.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });
         }
 
         //tgui::String item = "Item " + tgui::String(i);
@@ -230,9 +245,10 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
         
     }
 
-    //tabs->select("Semester 1");
-    gui.add(listBox, "Courses1");  
+    tabs->select("Semester 1");
+    //gui.add(listBox, "Courses1");  
     listBox->setPosition({ tgui::bindLeft(tabs), tgui::bindBottom(tabs) });
+
     tabs->onTabSelect(&onTabSelected, ref(gui));
 
     // The scrollable area / content size is now 400x900 because of the pictures inside it.

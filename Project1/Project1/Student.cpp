@@ -207,7 +207,7 @@ void SpecificClass::outputToScreenClassInfo()
 	}
 }
 
-bool SpecificClass::findStudent(string studentID) {
+bool SpecificClass::findStudent(string studentID, std::string& studentName) {
 	int num = 0;
 	//cerr << studentID << '\n';
 	for (int i = 0; i < studentID.length(); i++) {
@@ -216,9 +216,15 @@ bool SpecificClass::findStudent(string studentID) {
 	}
 
 	for (Student* i = this->classStudent; i != nullptr; i = i->nextStudent) {
-		i->outputScreenInfo();
-		if (num == i->studentID) return true;
+		//i->outputScreenInfo();
+		if (num == i->studentID) {
+			studentName = i->firstName;
+			studentName += ' ';
+			studentName += i->lastName;
+			return true;
+		}
 	}
 
+	studentName = "";
 	return false;
 }

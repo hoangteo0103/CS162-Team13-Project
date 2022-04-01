@@ -27,3 +27,16 @@ Button.Button1 {
         TextureHover = None;
     }
 }
+
+TreeView.TreeView1 {
+    ItemHeight = 30;
+    Position = (20, 210);
+    Size = (380, 512);
+    TextSize = 13;
+
+    Renderer {
+        TextureBranchCollapsed = None;
+        TextureBranchExpanded = None;
+        TextureLeaf = None;
+    }
+}
