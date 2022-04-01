@@ -232,8 +232,13 @@ bool run_login(BackendGui& gui)
 	{
 		Account* accounts = nullptr;
 		loadAccount(accounts);
-		loadWidgets(gui, accounts);
-		return true;
+		//loadWidgets(gui, accounts);
+        auto tview = tgui::TreeView::create();
+        tview->setSize("&.size");
+        tview->addItem({ "This", "Is", "Similar", "To", "MenuBars" });
+        tview->addItem({ "Optional", "Parameter", "createParents" }, true);
+        gui.add(tview);
+        return true;
 	}
 	catch (const tgui::Exception& e)
 	{

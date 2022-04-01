@@ -1,16 +1,3 @@
-﻿  AccountList.cpp
-  Button.cpp
-  Core.cpp
-E:\Study\CS162\FinalProject\Project1\Project1\LoginState.h(52,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Courses.cpp
-E:\Study\CS162\FinalProject\Project1\Project1\Courses.cpp(7,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  LoginState.cpp
-E:\Study\CS162\FinalProject\Project1\Project1\LoginState.h(52,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  MainMenuState.cpp
-  SchoolYear.cpp
-  Semester.cpp
-  Source.cpp
-  State.cpp
-  Student.cpp
-  Generating Code...
-  Project1.vcxproj -> E:\Study\CS162\FinalProject\Project1\x64\Debug\Project1.exe
+﻿  LoginState.cpp
+D:\Project - CS162\Project1\Project1\LoginState.h(52,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
