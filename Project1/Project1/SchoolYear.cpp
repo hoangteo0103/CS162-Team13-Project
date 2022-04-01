@@ -34,9 +34,12 @@ void SchoolYear::createNewSemester(Semester *&nowSemester , int startDate , int 
 		Semester *newSemester = new Semester(startDate , endDate);
 		nowSemester = newSemester;
 	}
-	Semester *newSemester = new Semester(startDate, endDate);
-	newSemester->nextSemester = nowSemester;
-	nowSemester = newSemester;
+	else
+	{
+		Semester *newSemester = new Semester(startDate, endDate);
+		newSemester->nextSemester = nowSemester;
+		nowSemester = newSemester;
+	}
 }
 
 void delListSemester(Semester*& nowSemester)
@@ -45,7 +48,7 @@ void delListSemester(Semester*& nowSemester)
 	while (nowSemester->nextSemester)
 	{
 		Semester *delptr = nowSemester;
-		nowSemester->nextSemester = delptr->nextSemester;
+		nowSemester = delptr->nextSemester;
 		delete delptr;
 	}
 	delete nowSemester; 
