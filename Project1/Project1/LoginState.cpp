@@ -198,11 +198,12 @@ void login(BackendGui& gui , tgui::EditBox::Ptr username, tgui::EditBox::Ptr pas
     //cout << usrnme.toStdString();
     bool check = findStudent(accounts, usrnme.toStdString(), psswrd.toStdString());
     if (check) {
-        std::cout << "Chuan roi do\n";
+        //std::cout << "Chuan roi do\n";
         run_mainmenu(gui, usrnme);
     }
     else {
-        std::cout << "Sai roi man\n";
+        gui.get<tgui::TextArea>("TextArea1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
+        //std::cout << "Sai roi man\n";
     }
 }
 
@@ -218,6 +219,8 @@ void loadWidgets(tgui::BackendGui& gui, Account*& accounts)
     gui.loadWidgetsFromFile("LoginForm.txt");
     // Specify an initial text size instead of using the default value
     updateTextSize(gui);
+
+    gui.get<tgui::TextArea>("TextArea1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
 
     // We want the text size to be updated when the window is resized
     gui.onViewChange([&gui] { updateTextSize(gui); });

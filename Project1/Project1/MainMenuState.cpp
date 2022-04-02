@@ -101,6 +101,40 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String selectedTab)
     }
 }
 
+void onItemSelected(tgui::BackendGui& gui, SchoolYear* schoolYears, tgui::String selectedItem) {
+    string sItem = selectedItem.toStdString();
+    bool check = false;
+    auto tArea = tgui::TextArea::create();
+    tArea->setTextSize(15);
+    tgui::String courseInformation = "";
+
+    for (SchoolYear* i = schoolYears; i != nullptr && !check; i = i->nextSchoolYear) {
+        for (Semester* j = i->nowSemester; j != nullptr && !check; j = j->nextSemester) {
+            for (Course* k = j->nowCourse; k != nullptr && !check; k = k->nextCourse) {
+                if (!sItem.compare(k->courseName)) {
+                    check = true;
+                    courseInformation += tgui::String(k->courseID) + '\n';
+                    cerr << courseInformation << '\n';
+                    courseInformation += tgui::String(k->courseName) + '\n';
+                    cerr << k->courseName << '\n';
+                    courseInformation += tgui::String(k->teacherName) + '\n';
+                    cerr << k->teacherName << '\n';
+                    courseInformation += tgui::String(k->getFirstSessionDate()) + '\n';
+                    courseInformation += tgui::String(k->getSecondSessionDate()) + '\n';
+                }
+            }
+        }
+    }
+
+    if (check) {
+        tArea->setText(courseInformation);
+        gui.get<tgui::ScrollablePanel>("ScrollablePanel1")->add(tArea, "TArea");
+    }
+    else {
+        gui.get<tgui::ScrollablePanel>("ScrollablePanel1")->removeAllWidgets();
+    }
+}
+
 
 void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
 {
@@ -205,6 +239,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
             label->setText(t);
         }
     }
+
     label->setPosition(10, 10);
     label->setTextSize(20);
     gui.add(label);
@@ -226,6 +261,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     tgui::String curYears = tgui::String(curSchoolYear->startYear) + '-' + tgui::String(curSchoolYear->endYear);
 
     int curSemester = 0;
+
     for (Semester* i = curSchoolYear->nowSemester; i; i = i->nextSemester) {
         curSemester++;
         tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
@@ -251,6 +287,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     tabs->onTabSelect(&onTabSelected, ref(gui));
 
+    gui.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(gui), schoolYears);
     // The scrollable area / content size is now 400x900 because of the pictures inside it.
     // If you wish to manually specify the size then you can call the setContentSize function.
 

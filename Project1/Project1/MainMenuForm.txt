@@ -1,36 +1,16 @@
-Button.Button1 {
-    Position = (660, 120);
-    Text = Button;
-    TextSize = 13;
+Picture.Picture1 {
+    Position = (-50, -20);
+    Size = (1901, 1000);
 
     Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
-        Texture = None;
-        TextureDisabled = None;
-        TextureDown = None;
-        TextureDownFocused = None;
-        TextureDownHover = None;
-        TextureFocused = None;
-        TextureHover = None;
+        Texture = "images/KHTN.png" Smooth;
+        TransparentTexture = false;
     }
 }
 
 TreeView.TreeView1 {
     ItemHeight = 30;
-    Position = (20, 210);
+    Position = (30, 190);
     Size = (380, 512);
     TextSize = 13;
 
@@ -38,5 +18,15 @@ TreeView.TreeView1 {
         TextureBranchCollapsed = None;
         TextureBranchExpanded = None;
         TextureLeaf = None;
+    }
+}
+
+ScrollablePanel.ScrollablePanel1 {
+    ContentSize = (0, 0);
+    Position = (530, 230);
+    Size = (550, 420);
+
+    Renderer {
+        TextureBackground = None;
     }
 }

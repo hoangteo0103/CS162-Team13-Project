@@ -14,16 +14,16 @@ struct IDNode {
 class Course
 {
     private:
+        IDNode* nextID = nullptr;
+
+    public:
+        char courseName[FULLNAMELENGTH];
         int courseID;
         char teacherName[FULLNAMELENGTH];
         int credits;
         int currentStudentNum = 0;
         int maximumStudentNum = MAXSTUDENTNUM;
         int session1, session1Day, session2, session2Day;
-        IDNode* nextID = nullptr;
-
-    public:
-        char courseName[FULLNAMELENGTH];
         Course();
         Course(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent = 0);
         Course* nextCourse = nullptr; 
@@ -37,6 +37,7 @@ class Course
         void importScoreBoard();
         void viewScourBoard();
         void updateResult();
-
+        string getFirstSessionDate();
+        string getSecondSessionDate();
         DateofBirth getDoB(string* dob);
 };
