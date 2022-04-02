@@ -15,7 +15,6 @@ class Course
 {
     private:
         int courseID;
-        char teacherName[FULLNAMELENGTH];
         int credits;
         int currentStudentNum = 0;
         int maximumStudentNum = MAXSTUDENTNUM;
@@ -24,6 +23,7 @@ class Course
 
     public:
         char courseName[FULLNAMELENGTH];
+        char teacherName[FULLNAMELENGTH];
         Course();
         Course(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent = 0);
         Course* nextCourse = nullptr; 
