@@ -103,7 +103,6 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String selectedTab)
     }
 }
 
-<<<<<<< HEAD
 void onItemSelected(tgui::BackendGui& gui, vector<tgui::String> getSelectedItem )
 {
     if (getSelectedItem.empty() || getSelectedItem.size() != 3)
@@ -116,7 +115,9 @@ void onItemSelected(tgui::BackendGui& gui, vector<tgui::String> getSelectedItem 
         gui.get<tgui::ScrollablePanel>("Panel1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
         cout << typeid(getSelectedItem.back()).name();
         gui.get<Label>("TeacherName")->setText(mp[getSelectedItem.back()]->teacherName);
-=======
+    }
+}
+
 void onItemSelected(tgui::BackendGui& gui, SchoolYear* schoolYears, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
@@ -148,7 +149,6 @@ void onItemSelected(tgui::BackendGui& gui, SchoolYear* schoolYears, tgui::String
     }
     else {
         gui.get<tgui::ScrollablePanel>("ScrollablePanel1")->removeAllWidgets();
->>>>>>> c3f76ec832f6b8bef305ee462be47a3bc9c52f5d
     }
 }
 
@@ -304,12 +304,9 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     listBox->setPosition({ tgui::bindLeft(tabs), tgui::bindBottom(tabs) });
 
     tabs->onTabSelect(&onTabSelected, ref(gui));
-<<<<<<< HEAD
-    gui.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(gui) );
-=======
 
     gui.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(gui), schoolYears);
->>>>>>> c3f76ec832f6b8bef305ee462be47a3bc9c52f5d
+    gui.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(gui) );
     // The scrollable area / content size is now 400x900 because of the pictures inside it.
     // If you wish to manually specify the size then you can call the setContentSize function.
 
