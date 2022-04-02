@@ -93,21 +93,14 @@
 void onTabSelected(tgui::BackendGui& gui, tgui::String selectedTab)
 {
     if (selectedTab == "Courses Information") {
-        gui.get<Button>("ChangePassword")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<Button>("RegistrationCourse")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<Button>("ScoreBoard")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<Button>("Button1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<ScrollablePanel>("ScrollablePanel1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<tgui::TreeView>("TreeView1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
+        gui.removeAllWidgets();
+        cout << "DM"; 
+        gui.loadWidgetsFromFile("Temporary.txt");
     }
     else
     {
-        gui.get<Button>("ChangePassword")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<Button>("RegistrationCourse")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<Button>("ScoreBoard")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<Button>("Button1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<ScrollablePanel>("ScrollablePanel1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-        gui.get<tgui::TreeView>("TreeView1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
+        gui.removeAllWidgets();
+        gui.loadWidgetsFromFile("StudentInformationForm.txt");
     }
 }
 
@@ -286,6 +279,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     //gui.add(listBox, "Courses1");  
     listBox->setPosition({ tgui::bindLeft(gui.get<Tabs>("Tabs1")), tgui::bindBottom(gui.get<Tabs>("Tabs1")) });
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui));
+    gui.get<Tabs>("Tabs2")->onTabSelect(&onTabSelected, ref(gui));
     gui.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(gui), schoolYears);
     // The scrollable area / content size is now 400x900 because of the pictures inside it.
     // If you wish to manually specify the size then you can call the setContentSize function.
@@ -295,7 +289,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     // Note that by removing the horizontal scrollbar you won't be able to see the small part
     // of the picture that ends up below the vertical scrollbar.
     //panel->setHorizontalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
-    
+    gui.saveWidgetsToFile("Temporary.txt");
     return true;
 }
 
@@ -304,11 +298,6 @@ void updateTextSizeMainMenu(tgui::BackendGui& gui)
     // Update the text size of all widgets in the gui, based on the current window height
     const float windowHeight = gui.getView().getRect().height;
     gui.setTextSize(static_cast<unsigned int>(0.02f * windowHeight)); // 2% of height
-    gui.get<Button>("ChangePassword")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-    gui.get<Button>("RegistrationCourse")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-    gui.get<Button>("ScoreBoard")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-    gui.get<Button>("Button1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-
 }
 
 void loadWidgetsMainMenu(tgui::BackendGui& gui)
@@ -325,9 +314,8 @@ void loadWidgetsMainMenu(tgui::BackendGui& gui)
 
 void run_mainmenu(BackendGui& gui, tgui::String studentID)
 {
-    //loadWidgetsMainMenu(gui);
-    //gui.saveWidgetsToFile("Temporary.txt");
-    gui.loadWidgetsFromFile("Temporary.txt");
+    loadWidgetsMainMenu(gui);
+    //gui.loadWidgetsFromFile("Temporary.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
     /*for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {

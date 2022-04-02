@@ -1,15 +1,3 @@
-Renderer.1 {
-    TextColor = rgb(190, 190, 190);
-    TextColorHover = rgb(250, 250, 250);
-    Texture = "themes/Black.png" Part(50, 22, 45, 50) Middle(10, 0) Smooth;
-    TextureDisabled = None;
-    TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
-    TextureDownFocused = None;
-    TextureDownHover = None;
-    TextureFocused = "themes/Black.png" Part(47, 74, 45, 50) Middle(10, 0) Smooth;
-    TextureHover = "themes/Black.png" Part(0, 126, 45, 50) Middle(10, 0) Smooth;
-}
-
 Picture.Picture1 {
     Position = (-50, -20);
     Size = (1901, 1000);
@@ -21,36 +9,15 @@ Picture.Picture1 {
     }
 }
 
-Button.ScoreBoard {
-    Position = (190, 190);
-    Renderer = &1;
-    Size = (340, 114);
-    Text = ScoreBoard;
+ScrollablePanel.ScrollablePanel1 {
+    ContentSize = (0, 0);
+    Position = (510, 190);
+    Size = (550, 420);
     TextSize = 16;
-}
 
-Button.ChangePassword {
-    Position = (190, 320);
-    Renderer = &1;
-    Size = (340, 114);
-    Text = "Change Password";
-    TextSize = 16;
-}
-
-Button.Button1 {
-    Position = (670, 320);
-    Renderer = &1;
-    Size = (340, 114);
-    Text = Button;
-    TextSize = 16;
-}
-
-Button.RegistrationCourse {
-    Position = (670, 190);
-    Renderer = &1;
-    Size = (340, 114);
-    Text = "Registration Course";
-    TextSize = 16;
+    Renderer {
+        TextureBackground = None;
+    }
 }
 
 TreeView.TreeView1 {
@@ -63,6 +30,33 @@ TreeView.TreeView1 {
         TextureBranchCollapsed = None;
         TextureBranchExpanded = None;
         TextureLeaf = None;
+    }
+
+    Item {
+        Text = "2021-2022";
+
+        Item {
+            Items = ["Scientific Socialism", "Introduction to Linear Algebra", "Data Structure"];
+            Text = "Semester 1";
+        }
+
+        Item {
+            Items = [Laws, "Calculus 2", "Computer Science 2"];
+            Text = "Semester 2";
+        }
+
+        Item {
+            Items = ["Max-Lenin Philosophy", "Calculus 1", "Computer Science 1"];
+            Text = "Semester 3";
+        }
+    }
+
+    Item {
+        Text = "2020-2021";
+    }
+
+    Item {
+        Text = "2019-2020";
     }
 }
 
@@ -85,13 +79,25 @@ Tabs.Tabs1 {
     }
 }
 
-ScrollablePanel.ScrollablePanel1 {
-    ContentSize = (0, 0);
-    Position = (510, 190);
-    Size = (550, 420);
+Label {
+    AutoSize = true;
+    Position = (10, 10);
+    Size = (109.8, 21);
+    Text = "Tran Duy Anh";
     TextSize = 16;
 
     Renderer {
-        TextureBackground = None;
+        TextColor = rgb(190, 190, 190);
+
+        Scrollbar {
+            TextureArrowDown = "themes/Black.png" Part(0, 0, 20, 20) Middle(0, 1, 20, 19) Smooth;
+            TextureArrowDownHover = "themes/Black.png" Part(22, 0, 20, 20) Middle(0, 1, 20, 19) Smooth;
+            TextureArrowUp = "themes/Black.png" Part(44, 0, 20, 20) Middle(0, 0, 20, 19) Smooth;
+            TextureArrowUpHover = "themes/Black.png" Part(66, 0, 20, 20) Middle(0, 0, 20, 19) Smooth;
+            TextureThumb = "themes/Black.png" Part(68, 465, 20, 20) Smooth;
+            TextureThumbHover = "themes/Black.png" Part(90, 465, 20, 20) Smooth;
+            TextureTrack = "themes/Black.png" Part(0, 499, 20, 20) Smooth;
+            TextureTrackHover = "themes/Black.png" Part(22, 499, 20, 20) Smooth;
+        }
     }
 }
