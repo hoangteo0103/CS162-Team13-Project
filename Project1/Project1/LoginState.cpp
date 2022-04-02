@@ -188,7 +188,7 @@
 //}
 
 #include "LoginState.h"
-void login(BackendGui& gui , tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account* accounts )
+void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account* accounts)
 {
     //cerr << accounts << '\n';
     //std::cout << "Username: " << username->getText() << std::endl;
@@ -221,28 +221,28 @@ void loadWidgets(tgui::BackendGui& gui, Account*& accounts)
 
     // We want the text size to be updated when the window is resized
     gui.onViewChange([&gui] { updateTextSize(gui); });
-    bool ok = false; 
+    bool ok = false;
     //cerr << accounts << '\n';
-    gui.get<tgui::Button>("Button1")->onPress(&login,ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts);
+    gui.get<tgui::Button>("Button1")->onPress(&login, ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts);
 }
 
 bool run_login(BackendGui& gui)
 {
-	try
-	{
-		Account* accounts = nullptr;
-		loadAccount(accounts);
-		loadWidgets(gui, accounts);
+    try
+    {
+        Account* accounts = nullptr;
+        loadAccount(accounts);
+        loadWidgets(gui, accounts);
         //auto tview = tgui::TreeView::create();
         //tview->setSize("&.size");
         //tview->addItem({ "This", "Is", "Similar", "To", "MenuBars" });
         //tview->addItem({ "Optional", "Parameter", "createParents" }, true);
         //gui.add(tview);
         return true;
-	}
-	catch (const tgui::Exception& e)
-	{
-		std::cerr << "Failed to load TGUI widgets: " << e.what() << std::endl;
-		return false;
-	}
+    }
+    catch (const tgui::Exception& e)
+    {
+        std::cerr << "Failed to load TGUI widgets: " << e.what() << std::endl;
+        return false;
+    }
 }

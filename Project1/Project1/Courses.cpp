@@ -122,6 +122,96 @@ void Course::exportStudentList(fstream& fout) {
 	}*/
 }
 
+string Course::getFirstSessionDate() {
+	string ans = "";
+	switch (this->session1) {
+	case 1:
+		ans += "7:30 ";
+		break;
+	case 2:
+		ans += "9:30 ";
+		break;
+	case 3:
+		ans += "13:30 ";
+		break;
+	case 4:
+		ans += "15:30 ";
+		break;
+	default:
+		break;
+	}
+
+	switch (this->session1Day) {
+	case 2:
+		ans += "Monday";
+		break;
+	case 3:
+		ans += "Tuesday";
+		break;
+	case 4:
+		ans += "Wednesday";
+		break;
+	case 5:
+		ans += "Thursday";
+		break;
+	case 6:
+		ans += "Friday";
+		break;
+	case 7:
+		ans += "Saturday";
+		break;
+	default:
+		break;
+	}
+
+	return ans;
+}
+
+string Course::getSecondSessionDate() {
+	string ans = "";
+	switch (this->session2) {
+	case 1:
+		ans += "7:30 ";
+		break;
+	case 2:
+		ans += "9:30 ";
+		break;
+	case 3:
+		ans += "13:30 ";
+		break;
+	case 4:
+		ans += "15:30 ";
+		break;
+	default:
+		break;
+	}
+
+	switch (this->session2Day) {
+	case 2:
+		ans += "Monday";
+		break;
+	case 3:
+		ans += "Tuesday";
+		break;
+	case 4:
+		ans += "Wednesday";
+		break;
+	case 5:
+		ans += "Thursday";
+		break;
+	case 6:
+		ans += "Friday";
+		break;
+	case 7:
+		ans += "Saturday";
+		break;
+	default:
+		break;
+	}
+
+	return ans;
+}
+
 void importScoreBoard();
 void viewScourBoard();
 void updateResult();

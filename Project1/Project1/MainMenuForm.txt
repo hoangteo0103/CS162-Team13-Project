@@ -1,6 +1,19 @@
+<<<<<<< HEAD
+=======
+Picture.Picture1 {
+    Position = (-50, -20);
+    Size = (1901, 1000);
+
+    Renderer {
+        Texture = "images/KHTN.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+>>>>>>> c3f76ec832f6b8bef305ee462be47a3bc9c52f5d
 TreeView.TreeView1 {
     ItemHeight = 30;
-    Position = (20, 210);
+    Position = (30, 190);
     Size = (380, 512);
     TextSize = 13;
 
@@ -11,6 +24,7 @@ TreeView.TreeView1 {
     }
 }
 
+<<<<<<< HEAD
 ScrollablePanel.Panel1 {
     ContentSize = (0, 0);
     Position = (400, 210);
@@ -81,6 +95,14 @@ Label.TeacherName {
         BorderColor = #3C3C3C;
         Borders = (0, 0, 0, 0);
         TextColor = #3C3C3C;
+=======
+ScrollablePanel.ScrollablePanel1 {
+    ContentSize = (0, 0);
+    Position = (530, 230);
+    Size = (550, 420);
+
+    Renderer {
+>>>>>>> c3f76ec832f6b8bef305ee462be47a3bc9c52f5d
         TextureBackground = None;
     }
 }
