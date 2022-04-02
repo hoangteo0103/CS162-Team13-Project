@@ -1,15 +1,2 @@
-﻿  Core.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(52,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Project - CS162\Project1\Project1\Courses.h(4,10): fatal error C1014: too many include files: depth = 1024
-  Courses.cpp
-D:\Project - CS162\Project1\Project1\Courses.h(4,10): fatal error C1014: too many include files: depth = 1024
-  LoginState.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(52,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Project - CS162\Project1\Project1\Courses.h(4,10): fatal error C1014: too many include files: depth = 1024
-  MainMenuState.cpp
-D:\Project - CS162\Project1\Project1\Courses.h(4,10): fatal error C1014: too many include files: depth = 1024
-  SchoolYear.cpp
-D:\Project - CS162\Project1\Project1\Courses.h(4,10): fatal error C1014: too many include files: depth = 1024
-  Semester.cpp
-D:\Project - CS162\Project1\Project1\Courses.h(4,10): fatal error C1014: too many include files: depth = 1024
-  Generating Code...
+﻿  MainMenuState.cpp
+  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe

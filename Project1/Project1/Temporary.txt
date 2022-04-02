@@ -1,0 +1,97 @@
+Renderer.1 {
+    TextColor = rgb(190, 190, 190);
+    TextColorHover = rgb(250, 250, 250);
+    Texture = "themes/Black.png" Part(50, 22, 45, 50) Middle(10, 0) Smooth;
+    TextureDisabled = None;
+    TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = "themes/Black.png" Part(47, 74, 45, 50) Middle(10, 0) Smooth;
+    TextureHover = "themes/Black.png" Part(0, 126, 45, 50) Middle(10, 0) Smooth;
+}
+
+Picture.Picture1 {
+    Position = (-50, -20);
+    Size = (1901, 1000);
+    TextSize = 16;
+
+    Renderer {
+        Texture = "images/KHTN.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Button.ScoreBoard {
+    Position = (190, 190);
+    Renderer = &1;
+    Size = (340, 114);
+    Text = ScoreBoard;
+    TextSize = 16;
+}
+
+Button.ChangePassword {
+    Position = (190, 320);
+    Renderer = &1;
+    Size = (340, 114);
+    Text = "Change Password";
+    TextSize = 16;
+}
+
+Button.Button1 {
+    Position = (670, 320);
+    Renderer = &1;
+    Size = (340, 114);
+    Text = Button;
+    TextSize = 16;
+}
+
+Button.RegistrationCourse {
+    Position = (670, 190);
+    Renderer = &1;
+    Size = (340, 114);
+    Text = "Registration Course";
+    TextSize = 16;
+}
+
+TreeView.TreeView1 {
+    ItemHeight = 30;
+    Position = (30, 190);
+    Size = (380, 512);
+    TextSize = 16;
+
+    Renderer {
+        TextureBranchCollapsed = None;
+        TextureBranchExpanded = None;
+        TextureLeaf = None;
+    }
+}
+
+Tabs.Tabs1 {
+    AutoSize = 0;
+    Position = (80, 50);
+    Size = (400, 30);
+    Tabs = ["Courses Information", "Student Information"];
+    TextSize = 16;
+
+    Renderer {
+        DistanceToSide = 8;
+        SelectedTextColor = White;
+        TextColor = rgb(190, 190, 190);
+        TextureDisabledTab = None;
+        TextureSelectedTab = "themes/Black.png" Part(62, 546, 60, 32) Middle(16, 0) Smooth;
+        TextureSelectedTabHover = None;
+        TextureTab = "themes/Black.png" Part(0, 546, 60, 32) Middle(16, 0) Smooth;
+        TextureTabHover = None;
+    }
+}
+
+ScrollablePanel.ScrollablePanel1 {
+    ContentSize = (0, 0);
+    Position = (510, 190);
+    Size = (550, 420);
+    TextSize = 16;
+
+    Renderer {
+        TextureBackground = None;
+    }
+}
