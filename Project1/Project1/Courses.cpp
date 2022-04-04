@@ -1,4 +1,3 @@
-#include <fstream>
 using namespace std;
 
 #include "Courses.h"
@@ -210,6 +209,26 @@ string Course::getSecondSessionDate() {
 	}
 
 	return ans;
+}
+
+bool Course::findStudent(string curDir, string studentID) {
+	ifstream fin;
+	//std::cerr << curDir + this->courseName + ".txt" << '\n';
+	fin.open(curDir + this->courseName + ".txt");
+	long val = 0;
+	for (int i = 0; i < studentID.length(); i++) {
+		val *= 10;
+		val += studentID[i] - '0';
+	}
+	bool check = false;
+	while (!fin.eof()) {
+		int num;
+		fin >> num;
+		check = check || (num == val);
+	}
+	fin.close();
+
+	return check;
 }
 
 void importScoreBoard();

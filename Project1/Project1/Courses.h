@@ -1,5 +1,6 @@
 #pragma once
-
+#include <iostream>
+#include <fstream>
 #include <vector>
 #include <sstream>
 #include "Student.h"
@@ -34,6 +35,7 @@ public:
     void updateCourseInfo(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent);
     void outputToScreenClassInfo();
     void exportStudentList(fstream& fout);
+    bool findStudent(string curDir, string studentID);
     void importScoreBoard();
     void viewScourBoard();
     void updateResult();

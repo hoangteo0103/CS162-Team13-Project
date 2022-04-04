@@ -198,11 +198,11 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
     //cout << usrnme.toStdString();
     bool check = findStudent(accounts, usrnme.toStdString(), psswrd.toStdString());
     if (check) {
-        std::cout << "Chuan roi do\n";
+        //std::cout << "Chuan roi do\n";
         run_mainmenu(gui, usrnme);
     }
     else {
-        std::cout << "Sai roi man\n";
+        gui.get<tgui::TextArea>("TextArea1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
     }
 }
 
@@ -223,6 +223,7 @@ void loadWidgets(tgui::BackendGui& gui, Account*& accounts)
     gui.onViewChange([&gui] { updateTextSize(gui); });
     bool ok = false;
     //cerr << accounts << '\n';
+    gui.get<tgui::TextArea>("TextArea1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
     gui.get<tgui::Button>("Button1")->onPress(&login, ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts);
 }
 

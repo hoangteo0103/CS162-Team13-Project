@@ -288,41 +288,34 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     tgui::String curYears = tgui::String(curSchoolYear->startYear) + '-' + tgui::String(curSchoolYear->endYear);
 
-    int curSemester = 0;
+    int curSemester = 4;
+
+    tgui::String curDirectory = "SchoolYears/" + tgui::String(curSchoolYear->startYear) + "-" + tgui::String(curSchoolYear->endYear);
 
     for (Semester* i = curSchoolYear->nowSemester; i; i = i->nextSemester) {
-        curSemester++;
+        curSemester--;
         tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
+        string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
+        //cerr << curDir << '\n';
         gui.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr });
         for (Course* j = i->nowCourse; j; j = j->nextCourse) {
-            tgui::String item = j->courseName;
-            listBox->addItem(item);
-            gui.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });
+            if (j->findStudent(curDir, studentID.toStdString())) {
+                //cerr << 1 << '\n';
+                tgui::String item = j->courseName;
+                listBox->addItem(item);
+                gui.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });
+            }
         }
-
-        //tgui::String item = "Item " + tgui::String(i);
-        //listBox->addItem(item);
-        //gui.add(label);
-        //auto pic = tgui::Picture::create("Image" + tgui::String(i + 1) + ".png");
-        //pic->setSize(400, 300);
-        //pic->setPosition(0, i * 300);
 
     }
 
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
     *curSelectedTab = "Courses Information";
-    //gui.add(listBox, "Courses1");  
+    
     listBox->setPosition({ tgui::bindLeft(gui.get<Tabs>("Tabs1")), tgui::bindBottom(gui.get<Tabs>("Tabs1")) });
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab);
     gui.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(gui), schoolYears);
-    // The scrollable area / content size is now 400x900 because of the pictures inside it.
-    // If you wish to manually specify the size then you can call the setContentSize function.
-    // Hide the horizontal scrollbar. Since the pictures have the same width as the panel,
-    // the pictures won't fit inside the panel anymore when the vertical scrollbar is visible.
-    // Note that by removing the horizontal scrollbar you won't be able to see the small part
-    // of the picture that ends up below the vertical scrollbar.
-    //panel->setHorizontalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 
     return true;
 }
@@ -356,10 +349,5 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     loadWidgetsMainMenu(gui);
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
-    /*for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
-        i->outputClassedInfo();
-    }*/
-
     addComponents(gui, schoolYears, studentID);
-    //runExample(gui);
 }
