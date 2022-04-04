@@ -1,0 +1,28 @@
+Picture.Picture1 {
+    Position = (-40, 0);
+    Size = (1901, 1000);
+
+    Renderer {
+        Texture = "images/KHTN.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Tabs.Tabs1 {
+    AutoSize = 0;
+    Position = (80, 50);
+    Size = (400, 30);
+    Tabs = ["Courses Information", "Student Information"];
+    TextSize = 13;
+
+    Renderer {
+        DistanceToSide = 8;
+        SelectedTextColor = White;
+        TextColor = rgb(190, 190, 190);
+        TextureDisabledTab = None;
+        TextureSelectedTab = "themes/Black.png" Part(62, 546, 60, 32) Middle(16, 0) Smooth;
+        TextureSelectedTabHover = None;
+        TextureTab = "themes/Black.png" Part(0, 546, 60, 32) Middle(16, 0) Smooth;
+        TextureTabHover = None;
+    }
+}
