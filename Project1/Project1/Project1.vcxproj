@@ -186,6 +186,8 @@
   <ItemGroup>
     <Text Include="StudentAccount.txt" />
     <Text Include="StudentPassword.txt" />
+    <Text Include="TeacherAccount.txt" />
+    <Text Include="TeacherPassword.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

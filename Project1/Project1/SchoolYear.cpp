@@ -99,6 +99,7 @@ void SchoolYear::loadListofSpecificClasses(string year) {
 	{
 		//cerr << classCode << '\n';
 		this->addSpecificCLass(this->nowClass, classCode, year);
+		//cerr << this->nowClass->className << '\n';
 		fin.get();
 	}
 	//cerr << "That's all for this year\n";
@@ -116,9 +117,23 @@ void SchoolYear::addNewSemester(Semester*& semester) {
 
 void SchoolYear::loadListofSemester(int amount, string year) {
 	//cerr << 1 << '\n';
+
+	int curInd = 0;
+	int startYear = 0, endYear = 0;
+	for (curInd; curInd < year.length() && year[curInd] != '-'; curInd++) {
+		startYear *= 10;
+		startYear += year[curInd] - '0';
+	}
+	for (++curInd; curInd < year.length(); curInd++) {
+		endYear *= 10;
+		endYear += year[curInd] - '0';
+	}
+
+	//cout << startYear << ' ' << endYear << '\n';
+
 	for (int i = 1; i <= amount; i++) {
 
-		Semester* semester = new Semester(2020, 2021);
+		Semester* semester = new Semester(startYear, endYear);
 
 		string curDir = "SchoolYears/" + year + "/Semester" + (char)(i + '0') + "/Courses/";
 		//cerr << curDir << '\n';

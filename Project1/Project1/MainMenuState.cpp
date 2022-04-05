@@ -63,7 +63,6 @@ void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
     //newclass->outputtoscreenclassinfo();
     if (nowclass == nullptr)
     {
-
         nowclass = newClass;
         return;
     }
@@ -117,12 +116,14 @@ void loadListofSpecificClasses(SpecificClass*& nowClass, string year)
     char classCode[NAMELENGTH];
     while (fin.get(classCode, NAMELENGTH, '\n'))
     {
+        //cerr << classCode << '\n';
         addSpecificClass(nowClass, classCode, year);
     }
 }
 
 bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID , tgui::Group& group_course , tgui::Group& group_student)
 {
+
     tgui::Theme theme{ "themes/Black.txt" };
 
     auto label = tgui::Label::create();
@@ -136,15 +137,23 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     SchoolYear* curSchoolYear = nullptr;
 
     for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
+        //cerr << "I'm right here duh\n";
+
         string studentName;
 
         tgui::String years = tgui::String(i->startYear) + '-' + tgui::String(i->endYear);
-        group_course.get<tgui::TreeView>("TreeView1")->addItem({ years });
 
-        if (i->nowClass->findStudent(studentID.toStdString(), studentName)) {
-            curSchoolYear = i;
-            tgui::String t = studentName;
-            label->setText(t);
+        //cerr << i->nowClass->classCODE;
+        for (SpecificClass* j = i->nowClass; j; j = j->nextClass) {
+            if (j->findStudent(studentID.toStdString(), studentName)) {
+                //cerr << 1 << '\n';
+                //cerr << years << '\n';
+                group_course.get<tgui::TreeView>("TreeView1")->addItem({ years });
+                curSchoolYear = i;
+                tgui::String t = studentName;
+                label->setText(t);
+                break;
+            }
         }
     }
 

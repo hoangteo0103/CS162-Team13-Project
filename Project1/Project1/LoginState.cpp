@@ -1,5 +1,6 @@
 #include "LoginState.h"
-void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account* accounts_student )
+
+void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account* accounts_student, Account* accounts_teacher)
 {
     //cerr << accounts << '\n';
     //std::cout << "Username: " << username->getText() << std::endl;
@@ -7,10 +8,15 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
     tgui::String usrnme = username->getText();
     tgui::String psswrd = password->getText();
     //cout << usrnme.toStdString();
-    bool check = findStudent(accounts_student, usrnme.toStdString(), psswrd.toStdString());
-    if (check) {
+    bool checkStudent = findStudent(accounts_student, usrnme.toStdString(), psswrd.toStdString());
+    bool checkTeacher = findTeacher(accounts_teacher, usrnme.toStdString(), psswrd.toStdString());
+    if (checkStudent) {
         //std::cout << "Chuan roi do\n";
         run_mainmenu(gui, usrnme);
+    }
+    else if (checkTeacher) {
+        cout << "Chuan rui\n";
+        //run teacher main menu or smth 
     }
     else {
         gui.get<tgui::TextArea>("TextArea1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
@@ -35,8 +41,7 @@ void loadWidgets(tgui::BackendGui& gui, Account*& accounts_student, Account*& ac
     bool ok = false;
     //cerr << accounts << '\n';
     gui.get<tgui::TextArea>("TextArea1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-    //gui.get<tgui::Button>("Button1")->onPress(&login, ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts_student , accounts_teacher);
-    gui.get<tgui::Button>("Button1")->onPress(&login, ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts_student);
+    gui.get<tgui::Button>("Button1")->onPress(&login, ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts_student, accounts_teacher);
 }
 
 bool run_login(BackendGui& gui)
@@ -47,6 +52,7 @@ bool run_login(BackendGui& gui)
         Account* accounts_teacher = nullptr;
         loadAccountStudent(accounts_student);
         loadAccountTeacher(accounts_teacher);
+
         loadWidgets(gui, accounts_student , accounts_teacher);
         //auto tview = tgui::TreeView::create();
         //tview->setSize("&.size");

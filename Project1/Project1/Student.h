@@ -42,9 +42,9 @@ class Student
 class SpecificClass
 {
     private:
-        char classCODE[NAMELENGTH];
         Student* classStudent = nullptr;
     public:
+        char classCODE[NAMELENGTH];
         char className[NAMELENGTH];
         void changeClassCode(char* classCode); 
         bool findStudent(string studentID, string& studentName);

@@ -110,7 +110,7 @@ void enrollCourse()
 
 }
 
-void SpecificClass::changeClassCode(char classCode[])
+void SpecificClass::changeClassCode(char* classCode)
 {
 	strcpy_s(this->classCODE, classCode);
 }
@@ -208,6 +208,8 @@ void SpecificClass::outputToScreenClassInfo()
 }
 
 bool SpecificClass::findStudent(string studentID, std::string& studentName) {
+	//cerr << this->classCODE << '\n';
+
 	int num = 0;
 	//cerr << studentID << '\n';
 	for (int i = 0; i < studentID.length(); i++) {
