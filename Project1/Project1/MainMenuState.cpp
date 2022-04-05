@@ -149,7 +149,6 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
                 //cerr << 1 << '\n';
                 //cerr << years << '\n';
                 group_course.get<tgui::TreeView>("TreeView1")->addItem({ years });
-                curSchoolYear = i;
                 tgui::String t = studentName;
                 label->setText(t);
                 break;
@@ -209,7 +208,7 @@ void updateTextSizeMainMenu(tgui::BackendGui& gui)
 
 void loadWidgetsMainMenu(tgui::BackendGui& gui )
 {
-    gui.loadWidgetsFromFile("MainMenuForm2.txt");
+    gui.loadWidgetsFromFile("MainMenuForm.txt");
 
     // Specify an initial text size instead of using the default value
     updateTextSizeMainMenu(gui);

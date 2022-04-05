@@ -12,7 +12,7 @@ Tabs.Tabs1 {
     AutoSize = 0;
     Position = (80, 50);
     Size = (400, 30);
-    Tabs = ["Courses Information", "Student Information"];
+    Tabs = ["Courses Information", "Teacher Information"];
     TextSize = 13;
 
     Renderer {

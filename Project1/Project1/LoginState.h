@@ -3,6 +3,7 @@
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include "AccountList.h";
 #include "MainMenuState.h"
+#include "MainMenuStateTeacher.h"
 using namespace sf;
 using namespace tgui;
 using namespace std;

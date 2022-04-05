@@ -16,7 +16,7 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
     }
     else if (checkTeacher) {
         cout << "Chuan rui\n";
-        //run teacher main menu or smth 
+        run_mainmenu_teacher(gui , usrnme);
     }
     else {
         gui.get<tgui::TextArea>("TextArea1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
