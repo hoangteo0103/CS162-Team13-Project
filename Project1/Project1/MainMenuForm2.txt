@@ -11,11 +11,12 @@ Picture.Picture1 {
 Tabs.Tabs1 {
     AutoSize = 0;
     Position = (80, 50);
-    Size = (400, 30);
+    Size = (710, 53);
     Tabs = ["Courses Information", "Teacher Information"];
     TextSize = 13;
 
     Renderer {
+        Borders = (0, 0, 0, 0);
         DistanceToSide = 8;
         SelectedTextColor = White;
         TextColor = rgb(190, 190, 190);

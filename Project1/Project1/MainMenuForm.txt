@@ -11,7 +11,7 @@ Picture.Picture1 {
 Tabs.Tabs1 {
     AutoSize = 0;
     Position = (80, 50);
-    Size = (400, 30);
+    Size = (710, 53);
     Tabs = ["Courses Information", "Student Information"];
     TextSize = 13;
 
