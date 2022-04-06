@@ -164,6 +164,7 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="MainMenuStateTeacher.cpp" />
     <ClCompile Include="SchoolYear.cpp" />
+    <ClCompile Include="Scoreboard.cpp" />
     <ClCompile Include="Semester.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="State.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MainMenuStateTeacher.h" />
     <ClInclude Include="SchoolYear.h" />
+    <ClInclude Include="Scoreboard.h" />
     <ClInclude Include="Semester.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="TextBox.h" />

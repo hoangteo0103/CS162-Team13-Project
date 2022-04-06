@@ -13,6 +13,7 @@
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="SchoolYear.cpp" />
     <ClCompile Include="MainMenuStateTeacher.cpp" />
+    <ClCompile Include="Scoreboard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="SchoolYear.h" />
     <ClInclude Include="Semester.h" />
     <ClInclude Include="MainMenuStateTeacher.h" />
+    <ClInclude Include="Scoreboard.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />
