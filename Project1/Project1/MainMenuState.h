@@ -4,6 +4,7 @@
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include "MainMenuState.h"
 #include "SchoolYear.h"
+#include "Scoreboard.h"
 
 using namespace sf;
 using namespace tgui;
