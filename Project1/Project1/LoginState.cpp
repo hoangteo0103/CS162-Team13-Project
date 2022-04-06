@@ -1,5 +1,27 @@
 #include "LoginState.h"
 
+void saveToFile(tgui::String usrnme, tgui::String psswrd)
+{
+    ofstream fout;
+    fout.open("Remember Username.txt"); 
+    fout << usrnme.toStdString() << endl;
+    fout << psswrd.toStdString();
+}
+
+bool loadFromFile(tgui::String& usrnme, tgui::String& psswrd)
+{
+    ifstream fin;
+    fin.open("Remember Username.txt");
+    cout << 1;
+
+    if (fin.eof()) return false;
+    string user, pass; 
+    fin >> user >> pass;
+    usrnme = tgui::String(user); 
+    psswrd = tgui::String(pass); 
+    return true;
+}
+
 void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr password, Account* accounts_student, Account* accounts_teacher)
 {
     //cerr << accounts << '\n';
@@ -10,8 +32,10 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
     //cout << usrnme.toStdString();
     bool checkStudent = findStudent(accounts_student, usrnme.toStdString(), psswrd.toStdString());
     bool checkTeacher = findTeacher(accounts_teacher, usrnme.toStdString(), psswrd.toStdString());
-    if (checkStudent) {
+    if (checkStudent ) {
         //std::cout << "Chuan roi do\n";
+        if (gui.get<tgui::CheckBox>("CheckBox1")->isChecked())
+            saveToFile(usrnme, psswrd);
         run_mainmenu(gui, usrnme);
     }
     else if (checkTeacher) {
@@ -35,7 +59,13 @@ void loadWidgets(tgui::BackendGui& gui, Account*& accounts_student, Account*& ac
     gui.loadWidgetsFromFile("LoginForm.txt");
     // Specify an initial text size instead of using the default value
     updateTextSize(gui);
-
+    tgui::String user, pass;
+    if (loadFromFile(user, pass))
+    {
+        gui.get<tgui::CheckBox>("CheckBox1")->setChecked(true);
+        gui.get<tgui::EditBox>("EditBox1")->setText(user);
+        gui.get<tgui::EditBox>("EditBox2")->setText(pass);
+    }
     // We want the text size to be updated when the window is resized
     gui.onViewChange([&gui] { updateTextSize(gui); });
     bool ok = false;
