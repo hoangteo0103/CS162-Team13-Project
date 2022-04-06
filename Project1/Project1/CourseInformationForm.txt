@@ -5,6 +5,11 @@ TreeView.TreeView1 {
     TextSize = 13;
 
     Renderer {
+        BackgroundColor = #5BD3FF;
+        BorderColor = black;
+        Borders = (2, 2, 2, 2);
+        SelectedBackgroundColor = #7D60FF;
+        TextColor = black;
         TextureBranchCollapsed = None;
         TextureBranchExpanded = None;
         TextureLeaf = None;
@@ -17,6 +22,9 @@ ScrollablePanel.ScrollablePanel1 {
     Size = (550, 420);
 
     Renderer {
+        BackgroundColor = #5BD3FF;
+        Borders = (2, 2, 2, 2);
+        Padding = (0, 0, 0, 0);
         TextureBackground = None;
     }
 }
