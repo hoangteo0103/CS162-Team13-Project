@@ -8,8 +8,6 @@ TreeView.TreeView1 {
         BackgroundColor = #5BD3FF;
         BorderColor = black;
         Borders = (2, 2, 2, 2);
-        Opacity = 1;
-        Padding = (0, 0, 0, 0);
         SelectedBackgroundColor = #7D60FF;
         TextColor = black;
         TextureBranchCollapsed = None;

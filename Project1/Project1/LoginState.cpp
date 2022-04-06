@@ -34,7 +34,7 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
     bool checkTeacher = findTeacher(accounts_teacher, usrnme.toStdString(), psswrd.toStdString());
     if (checkStudent ) {
         //std::cout << "Chuan roi do\n";
-        if (gui.get<tgui::CheckBox>("CheckBox1")->isChecked())
+        if (gui.get<tgui::CheckBox>("CheckBox_RememberUser")->isChecked())
             saveToFile(usrnme, psswrd);
         run_mainmenu(gui, usrnme);
     }
@@ -43,7 +43,7 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
         run_mainmenu_teacher(gui , usrnme);
     }
     else {
-        gui.get<tgui::TextArea>("TextArea1")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
+        gui.get<tgui::TextArea>("TextArea_WrongLogin")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
     }
 }
 
@@ -62,16 +62,16 @@ void loadWidgets(tgui::BackendGui& gui, Account*& accounts_student, Account*& ac
     tgui::String user, pass;
     if (loadFromFile(user, pass))
     {
-        gui.get<tgui::CheckBox>("CheckBox1")->setChecked(true);
-        gui.get<tgui::EditBox>("EditBox1")->setText(user);
-        gui.get<tgui::EditBox>("EditBox2")->setText(pass);
+        gui.get<tgui::CheckBox>("CheckBox_RememberUser")->setChecked(true);
+        gui.get<tgui::EditBox>("EditBox_Usename")->setText(user);
+        gui.get<tgui::EditBox>("EditBox_Password")->setText(pass);
     }
     // We want the text size to be updated when the window is resized
     gui.onViewChange([&gui] { updateTextSize(gui); });
     bool ok = false;
     //cerr << accounts << '\n';
-    gui.get<tgui::TextArea>("TextArea1")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
-    gui.get<tgui::Button>("Button1")->onPress(&login, ref(gui), gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), accounts_student, accounts_teacher);
+    gui.get<tgui::TextArea>("TextArea_WrongLogin")->hideWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));
+    gui.get<tgui::Button>("Button_Login")->onPress(&login, ref(gui), gui.get<tgui::EditBox>("EditBox_Usename"), gui.get<tgui::EditBox>("EditBox_Password"), accounts_student, accounts_teacher);
 }
 
 bool run_login(BackendGui& gui)
