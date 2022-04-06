@@ -1,22 +1,22 @@
 #include "MainMenuState.h"      
 
-void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, tgui::Group& group_course, tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::String selectedTab)
+void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab,vector<Group> &vc ,  tgui::String selectedTab)
 {
     //cerr << *curSelectedTab << '\n';
     //cerr << selectedTab << '\n';
+    int selectedIndex = 0;
     if (selectedTab == tgui::String("Courses Information")) {
         *curSelectedTab = tgui::String("Courses Information");
-        group_course.setVisible(true);
-        group_scoreboard.setVisible(false);
-        group_student.setVisible(false);
+        selectedIndex = 0; 
     }
     else if (selectedTab == tgui::String("Student Information"))
     {
         *curSelectedTab = tgui::String("Student Information");
-        //cerr << *curSelectedTab << '\n';
-        group_course.setVisible(false);
-        group_scoreboard.setVisible(false);
-        group_student.setVisible(true);
+        selectedIndex = 1;
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        vc[i].setVisible(i == selectedIndex);
     }
 }
 
@@ -228,8 +228,12 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
     *curSelectedTab = "Courses Information";
+    vector<Group> vc;
+    vc.push_back(group_course);
+    vc.push_back(group_student);
+    vc.push_back(group_scoreboard);
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears);
-    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, ref(group_course), ref(group_student), ref(group_scoreboard));
+    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, ref(vc));
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
 
     return true;

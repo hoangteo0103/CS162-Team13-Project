@@ -36,6 +36,7 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
         for (Semester* i = cSYear->nowSemester; i; i = i->nextSemester) {
             curSemester--;
             group_scoreboard.get<tgui::ComboBox>("ComboBox1")->addItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(cSYear->startYear) + "-" + tgui::String(cSYear->endYear));
+            group_scoreboard.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(cSYear->startYear) + "-" + tgui::String(cSYear->endYear));
             tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
             string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
             //group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr });
