@@ -230,3 +230,20 @@ bool SpecificClass::findStudent(string studentID, std::string& studentName) {
 	studentName = "";
 	return false;
 }
+
+bool SpecificClass::findStudentByName(string& studentName, int& sID) {
+	for (Student* i = this->classStudent; i != nullptr; i = i->nextStudent) {
+		string curName = i->firstName;
+		curName += ' ';
+		curName += i->lastName;
+
+		//cerr << curName << '\n';
+
+		if (curName == studentName) {
+			sID = i->studentID;
+			return true;
+		}
+	}
+	
+	return false;
+}

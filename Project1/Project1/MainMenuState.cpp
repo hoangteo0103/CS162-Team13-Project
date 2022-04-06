@@ -134,23 +134,37 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     tgui::String className;
 
-    SchoolYear* curSchoolYear = nullptr;
+    queue<pair<SchoolYear*, int>> curSchoolYear;
+
+    string studentName;
 
     for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
-        //cerr << "I'm right here duh\n";
+        bool findCheck = false;
 
-        string studentName;
+        //tgui::String years = tgui::String(i->startYear) + '-' + tgui::String(i->endYear);
 
-        tgui::String years = tgui::String(i->startYear) + '-' + tgui::String(i->endYear);
-
-        //cerr << i->nowClass->classCODE;
         for (SpecificClass* j = i->nowClass; j; j = j->nextClass) {
             if (j->findStudent(studentID.toStdString(), studentName)) {
-                //cerr << 1 << '\n';
-                //cerr << years << '\n';
-                group_course.get<tgui::TreeView>("TreeView1")->addItem({ years });
                 tgui::String t = studentName;
                 label->setText(t);
+                findCheck = true;
+                //group_course.get<tgui::TreeView>("TreeView1")->addItem({ years });
+                break;
+            }
+        }
+        
+        if (findCheck) break;
+    }
+
+    for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
+        tgui::String years = tgui::String(i->startYear) + '-' + tgui::String(i->endYear);
+
+        //cerr << years << '\n';
+        int ID;
+        for (SpecificClass* j = i->nowClass; j; j = j->nextClass) {
+            if (j->findStudentByName(studentName, ID)) {
+                curSchoolYear.push(make_pair(i, ID));
+                group_course.get<tgui::TreeView>("TreeView1")->addItem({ years });
                 break;
             }
         }
@@ -165,28 +179,47 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     panel->setSize(400, 500);
     *///gui.add(panel);
     // Create some pictures to place inside the scrollable panel
-    if (!curSchoolYear) return false;
+    if (curSchoolYear.empty()) return false;
 
-    tgui::String curYears = tgui::String(curSchoolYear->startYear) + '-' + tgui::String(curSchoolYear->endYear);
+    while (!curSchoolYear.empty()) {
 
-    int curSemester = 4;
+        SchoolYear* cSYear = curSchoolYear.front().first;
+        int sID = curSchoolYear.front().second;
+        curSchoolYear.pop();
 
-    tgui::String curDirectory = "SchoolYears/" + tgui::String(curSchoolYear->startYear) + "-" + tgui::String(curSchoolYear->endYear);
 
-    for (Semester* i = curSchoolYear->nowSemester; i; i = i->nextSemester) {
-        curSemester--;
-        tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
-        string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
-        //cerr << curDir << '\n';
-        group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr });
-        for (Course* j = i->nowCourse; j; j = j->nextCourse) {
-            if (j->findStudent(curDir, studentID.toStdString())) {
-                //cerr << 1 << '\n';
-                tgui::String item = j->courseName;
-                group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });
-            }
+        string strID = "";
+        while (sID) {
+            strID += (char)((sID % 10) + '0');
+            sID /= 10;
         }
+        reverse(strID.begin(), strID.end());
 
+        tgui::String curYears = tgui::String(cSYear->startYear) + '-' + tgui::String(cSYear->endYear);
+
+        //cerr << curYears << '\n';
+
+        int curSemester = 4;
+
+        tgui::String curDirectory = "SchoolYears/" + tgui::String(cSYear->startYear) + "-" + tgui::String(cSYear->endYear);
+
+        for (Semester* i = cSYear->nowSemester; i; i = i->nextSemester) {
+            curSemester--;
+            tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
+            string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
+            //cerr << curDir << '\n';
+            group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr });
+            for (Course* j = i->nowCourse; j; j = j->nextCourse) {
+                
+
+                if (j->findStudent(curDir, strID)) {
+                    //cerr << 1 << '\n';
+                    tgui::String item = j->courseName;
+                    group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });
+                }
+            }
+
+        }
     }
 
     gui.get<Tabs>("Tabs1")->select("Courses Information");

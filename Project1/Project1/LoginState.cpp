@@ -15,7 +15,7 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
         run_mainmenu(gui, usrnme);
     }
     else if (checkTeacher) {
-        cout << "Chuan rui\n";
+        //cout << "Chuan rui\n";
         run_mainmenu_teacher(gui , usrnme);
     }
     else {

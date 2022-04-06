@@ -48,6 +48,7 @@ class SpecificClass
         char className[NAMELENGTH];
         void changeClassCode(char* classCode); 
         bool findStudent(string studentID, string& studentName);
+        bool findStudentByName(string& studentName, int& sID);
         SpecificClass* nextClass = nullptr;
         void inputFileClassInfo(string year);
         void outputToScreenClassInfo();

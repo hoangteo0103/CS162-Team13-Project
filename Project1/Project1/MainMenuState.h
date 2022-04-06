@@ -1,4 +1,5 @@
 #pragma once 
+#include <queue>
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include "MainMenuState.h"
