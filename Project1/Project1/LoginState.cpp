@@ -12,7 +12,7 @@ bool loadFromFile(tgui::String& usrnme, tgui::String& psswrd)
 {
     ifstream fin;
     fin.open("Remember Username.txt");
-    cout << 1;
+    //cout << 1;
 
     if (fin.eof()) return false;
     string user, pass; 

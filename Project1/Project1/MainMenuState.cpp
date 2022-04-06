@@ -1,9 +1,12 @@
 #include "MainMenuState.h"      
 
-void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab,vector<Group> &vc ,  tgui::String selectedTab)
+void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group>* vc,  tgui::String selectedTab)
 {
     //cerr << *curSelectedTab << '\n';
     //cerr << selectedTab << '\n';
+
+    //cerr << vc->size() << '\n';
+
     int selectedIndex = 0;
     if (selectedTab == tgui::String("Courses Information")) {
         *curSelectedTab = tgui::String("Courses Information");
@@ -14,10 +17,16 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab,vector<Gr
         *curSelectedTab = tgui::String("Student Information");
         selectedIndex = 1;
     }
+
+    cerr << selectedIndex << '\n';
+
     for (int i = 0; i < 3; i++)
     {
-        vc[i].setVisible(i == selectedIndex);
+        (*vc)[i].setVisible(false);
     }
+    
+   //(*vc)[1] = 5;
+   (*vc)[selectedIndex].setVisible(true);
 }
 
 void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::String selectedItem) {
@@ -228,12 +237,15 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
     *curSelectedTab = "Courses Information";
-    vector<Group> vc;
-    vc.push_back(group_course);
-    vc.push_back(group_student);
-    vc.push_back(group_scoreboard);
+    vector<tgui::Group>* vc = new vector<tgui::Group>;
+    vc->push_back(group_course);
+    vc->push_back(group_student);
+    vc->push_back(group_scoreboard);
+    //cerr << vc.size() << '\n';
+    
+
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears);
-    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, ref(vc));
+    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
 
     return true;
