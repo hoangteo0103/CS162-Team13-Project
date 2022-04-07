@@ -2,7 +2,6 @@
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include <queue>
-#pragma once
 #include "SchoolYear.h"
 
 using namespace sf;

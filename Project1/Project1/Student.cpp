@@ -207,7 +207,7 @@ void SpecificClass::outputToScreenClassInfo()
 	}
 }
 
-bool SpecificClass::findStudent(string studentID, std::string& studentName) {
+bool SpecificClass::findStudent(string studentID, std::string& studentName, Student& student) {
 	//cerr << this->classCODE << '\n';
 
 	int num = 0;
@@ -223,6 +223,7 @@ bool SpecificClass::findStudent(string studentID, std::string& studentName) {
 			studentName = i->firstName;
 			studentName += ' ';
 			studentName += i->lastName;
+			student = *i;
 			return true;
 		}
 	}

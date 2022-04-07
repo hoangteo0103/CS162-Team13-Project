@@ -20,7 +20,7 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<t
 
     //cerr << selectedIndex << '\n';
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < (*vc).size(); i++)
     {
         (*vc)[i]->setVisible(false);
     }
@@ -134,7 +134,8 @@ void loadListofSpecificClasses(SpecificClass*& nowClass, string year)
     }
 }
 
-bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID, tgui::Group& group_course, tgui::Group& group_student, tgui::Group& group_scoreboard)
+bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID, tgui::Group& group_course, 
+                   tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo)
 {
 
     tgui::Theme theme{ "themes/Black.txt" };
@@ -151,13 +152,15 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     string studentName;
 
+    Student neededStudent;
+
     for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
         bool findCheck = false;
 
         //tgui::String years = tgui::String(i->startYear) + '-' + tgui::String(i->endYear);
 
         for (SpecificClass* j = i->nowClass; j; j = j->nextClass) {
-            if (j->findStudent(studentID.toStdString(), studentName)) {
+            if (j->findStudent(studentID.toStdString(), studentName, neededStudent)) {
                 tgui::String t = studentName;
                 label->setText(t);
                 findCheck = true;
@@ -187,6 +190,10 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     // Create some pictures to place inside the scrollable panel
     loadwidget(group_scoreboard, curSchoolYear);
+    loadInfoWidget(group_studentInfo, neededStudent);
+
+    //cerr << group_studentInfo.get<tgui::Label>("Label1")->getText() << '\n';
+
     if (curSchoolYear.empty()) return false;
 
     while (!curSchoolYear.empty()) {
@@ -238,9 +245,10 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     vc->push_back(&group_course);
     vc->push_back(&group_student);
     vc->push_back(&group_scoreboard);
-
+    vc->push_back(&group_studentInfo);
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears);
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
+    group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
 
     return true;
@@ -271,15 +279,18 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     auto group_course = tgui::Group::create();
     auto group_student = tgui::Group::create();
     auto group_scoreboard = tgui::Group::create();
+    auto group_studentInfo = tgui::Group::create();
     group_student->loadWidgetsFromFile("StudentInformationForm.txt");
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
-    addComponents(gui, schoolYears, studentID, *group_course, *group_student, *group_scoreboard);
+    addComponents(gui, schoolYears, studentID, *group_course, *group_student, *group_scoreboard, *group_studentInfo);
     gui.add(group_course);
     gui.add(group_student);
     gui.add(group_scoreboard);
+    gui.add(group_studentInfo);
     group_course->setVisible(true);
     group_student->setVisible(false);
     group_scoreboard->setVisible(false);
+    group_studentInfo->setVisible(false);
 }
