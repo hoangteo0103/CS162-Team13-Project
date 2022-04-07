@@ -3,6 +3,7 @@
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include "MainMenuState.h"
+#include "LoginState.h"
 #include "SchoolYear.h"
 #include "Scoreboard.h"
 #include "StudentInfo.h"

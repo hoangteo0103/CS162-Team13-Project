@@ -1,5 +1,10 @@
 #include "MainMenuState.h"      
 
+void onClickedLogout(BackendGui& gui)
+{
+    run_login(gui);
+}
+
 void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc,  tgui::String selectedTab)
 {
     //cerr << *curSelectedTab << '\n';
@@ -142,8 +147,8 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     auto label = tgui::Label::create();
     label->setRenderer(theme.getRenderer("Label"));
-    label->setSize(500, 500);
-    label->setPosition(1100, 10);
+    label->setSize(150, 150);
+    label->setPosition(1020, 10);
     label->setTextSize(20);
 
     tgui::String className;
@@ -250,7 +255,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
-
+    gui.get<Button>("Logout")->onClick(&onClickedLogout, ref(gui));
     return true;
 }
 
