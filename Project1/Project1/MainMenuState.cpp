@@ -1,6 +1,6 @@
 #include "MainMenuState.h"      
 
-void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group>* vc,  tgui::String selectedTab)
+void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc,  tgui::String selectedTab)
 {
     //cerr << *curSelectedTab << '\n';
     //cerr << selectedTab << '\n';
@@ -18,21 +18,23 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<t
         selectedIndex = 1;
     }
 
-    cerr << selectedIndex << '\n';
+    //cerr << selectedIndex << '\n';
 
     for (int i = 0; i < 3; i++)
     {
-        (*vc)[i].setVisible(false);
+        (*vc)[i]->setVisible(false);
     }
     
    //(*vc)[1] = 5;
-   (*vc)[selectedIndex].setVisible(true);
+   (*vc)[selectedIndex]->setVisible(true);
 }
 
 void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
     auto tArea = tgui::TextArea::create();
+    tArea->setSize(600, 450);
+    tArea->setReadOnly();
     tArea->setTextSize(15);
     tgui::String courseInformation = "";
 
@@ -139,9 +141,9 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     auto label = tgui::Label::create();
     label->setRenderer(theme.getRenderer("Label"));
-
-    //gui.get<tgui::TreeView>("TreeView1")->addItem({ "This", "Is", "Similar" });
-    //gui.get<tgui::TreeView>("TreeView1")->addItem({ "This", "Tree" });
+    label->setSize(500, 500);
+    label->setPosition(1100, 10);
+    label->setTextSize(20);
 
     tgui::String className;
 
@@ -181,14 +183,8 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
         }
     }
 
-    label->setPosition(10, 10);
-    label->setTextSize(20);
     group_course.add(label);
 
-    /*auto panel = tgui::ScrollablePanel::create();
-    panel->setPosition(100, 50);
-    panel->setSize(400, 500);
-    *///gui.add(panel);
     // Create some pictures to place inside the scrollable panel
     loadwidget(group_scoreboard, curSchoolYear);
     if (curSchoolYear.empty()) return false;
@@ -237,16 +233,15 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
     *curSelectedTab = "Courses Information";
-    vector<tgui::Group>* vc = new vector<tgui::Group>;
-    vc->push_back(group_course);
-    vc->push_back(group_student);
-    vc->push_back(group_scoreboard);
     //cerr << vc.size() << '\n';
-    
+    vector<tgui::Group*>* vc = new vector<tgui::Group*>;
+    vc->push_back(&group_course);
+    vc->push_back(&group_student);
+    vc->push_back(&group_scoreboard);
 
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears);
-    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
+    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
 
     return true;
 }
