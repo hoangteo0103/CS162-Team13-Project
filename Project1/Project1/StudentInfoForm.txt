@@ -1,4 +1,12 @@
 Renderer.1 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+}
+
+Renderer.2 {
     BackgroundColor = #F5F5F5;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorHover = white;
@@ -20,14 +28,6 @@ Renderer.1 {
     TextureHover = None;
 }
 
-Renderer.2 {
-    BackgroundColor = transparent;
-    BorderColor = #3C3C3C;
-    Borders = (0, 0, 0, 0);
-    TextColor = #3C3C3C;
-    TextureBackground = None;
-}
-
 Panel.Panel1 {
     Position = (30, 144.286);
     Size = (1150, 607.143);
@@ -39,8 +39,8 @@ Panel.Panel1 {
     }
 
     Label.Label1 {
-        Position = (150, 160);
-        Renderer = &2;
+        Position = (150, 110);
+        Renderer = &1;
         Size = (127.2, 38);
         Text = "Student ID";
         TextSize = 15;
@@ -48,17 +48,17 @@ Panel.Panel1 {
 
     EditBox.StudentIDBox {
         Alignment = Center;
-        Position = (70, 190);
+        Position = (70, 140);
         ReadOnly = true;
-        Renderer = &1;
+        Renderer = &2;
         Size = (250, 32);
         TextSize = 13;
     }
 
     Label.Label2 {
         AutoSize = true;
-        Position = (150, 230);
-        Renderer = &2;
+        Position = (150, 180);
+        Renderer = &1;
         Size = (87.6, 20);
         Text = "First Name";
         TextSize = 15;
@@ -66,17 +66,17 @@ Panel.Panel1 {
 
     EditBox.FirstNameBox {
         Alignment = Center;
-        Position = (70, 260);
+        Position = (70, 210);
         ReadOnly = true;
-        Renderer = &1;
+        Renderer = &2;
         Size = (250, 32);
         TextSize = 13;
     }
 
     Label.Label3 {
         AutoSize = true;
-        Position = (150, 300);
-        Renderer = &2;
+        Position = (150, 250);
+        Renderer = &1;
         Size = (85.6, 20);
         Text = "Last Name";
         TextSize = 15;
@@ -84,17 +84,17 @@ Panel.Panel1 {
 
     EditBox.LastNameBox {
         Alignment = Center;
-        Position = (70, 330);
+        Position = (70, 280);
         ReadOnly = true;
-        Renderer = &1;
+        Renderer = &2;
         Size = (250, 32);
         TextSize = 13;
     }
 
     Label.Label4 {
         AutoSize = true;
-        Position = (160, 370);
-        Renderer = &2;
+        Position = (160, 320);
+        Renderer = &1;
         Size = (58.6, 20);
         Text = Gender;
         TextSize = 15;
@@ -102,17 +102,17 @@ Panel.Panel1 {
 
     EditBox.GenderBox {
         Alignment = Center;
-        Position = (70, 400);
+        Position = (70, 350);
         ReadOnly = true;
-        Renderer = &1;
+        Renderer = &2;
         Size = (250, 32);
         TextSize = 13;
     }
 
     Label.Label5 {
         AutoSize = true;
-        Position = (160, 440);
-        Renderer = &2;
+        Position = (160, 390);
+        Renderer = &1;
         Size = (70.6, 20);
         Text = "Social ID";
         TextSize = 15;
@@ -120,17 +120,17 @@ Panel.Panel1 {
 
     EditBox.SocialIDBox {
         Alignment = Center;
-        Position = (70, 470);
+        Position = (70, 420);
         ReadOnly = true;
-        Renderer = &1;
+        Renderer = &2;
         Size = (250, 32);
         TextSize = 13;
     }
 
     Label.Label6 {
         AutoSize = true;
-        Position = (140, 510);
-        Renderer = &2;
+        Position = (140, 460);
+        Renderer = &1;
         Size = (104.6, 20);
         Text = "Date of Birth";
         TextSize = 15;
@@ -138,15 +138,15 @@ Panel.Panel1 {
 
     EditBox.DoBBox {
         Alignment = Center;
-        Position = (70, 540);
+        Position = (70, 490);
         ReadOnly = true;
-        Renderer = &1;
+        Renderer = &2;
         Size = (250, 32);
         TextSize = 13;
     }
 
     Button.UpdateButton {
-        Position = (620, 520);
+        Position = (620, 470);
         Size = (210, 52);
         Text = "Update Infomation";
         TextSize = 15;
@@ -179,7 +179,7 @@ Panel.Panel1 {
     Label.Label7 {
         AutoSize = true;
         Position = (700, 360);
-        Renderer = &2;
+        Renderer = &1;
         Size = (51.6, 20);
         Text = Credit;
         TextSize = 15;
@@ -189,8 +189,18 @@ Panel.Panel1 {
         Alignment = Center;
         Position = (600, 390);
         ReadOnly = true;
-        Renderer = &1;
+        Renderer = &2;
         Size = (250, 32);
         TextSize = 13;
+    }
+}
+
+Picture.Picture1 {
+    Position = (660, 290);
+    Size = (180, 180);
+
+    Renderer {
+        Texture = "images/ProfilePicture.jpg" Smooth;
+        TransparentTexture = false;
     }
 }
