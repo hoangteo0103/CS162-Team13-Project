@@ -13,6 +13,13 @@ void init_group(Group& group_scoreboard)
 void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchoolYear)
 {
     init_group(group_scoreboard);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Semester" ,200); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course ID" ,100 ); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course" ,300 ); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Credit" ,90 ); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("ABC" ,50 ); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("10" ,50 ); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("4" ,50 ); 
     while (!curSchoolYear.empty())
     {
         SchoolYear* cSYear = curSchoolYear.front().first;
@@ -39,13 +46,12 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
             group_scoreboard.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(cSYear->startYear) + "-" + tgui::String(cSYear->endYear));
             tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
             string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
-            //group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr });
             for (Course* j = i->nowCourse; j; j = j->nextCourse) {
 
 
                 if (j->findStudent(curDir, strID)) {
                     tgui::String item = j->courseName;
-                    //group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });
+                    group_scoreboard.get<tgui::ListView>("ListView1")->addItem({ curSemesterStr + "/" + curYears, tgui::String(j->courseID) , item , tgui::String(j->credits) ,"A" , tgui::String(j->score) , "4"});
                 }
             }
 

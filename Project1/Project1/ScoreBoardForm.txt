@@ -1,14 +1,16 @@
 ListView.ListView1 {
-    ExpandLastColumn = 0;
-    HeaderHeight = 0;
+    ExpandLastColumn = 1;
+    GridLinesWidth = 6;
+    HeaderHeight = 70;
     HeaderSeparatorHeight = 0;
     HeaderVisible = true;
-    ItemHeight = 20;
-    Position = (250, 250);
-    SeparatorWidth = 1;
+    ItemHeight = 50;
+    Position = (120, 210);
+    SeparatorWidth = 2;
     ShowVerticalGridLines = 1;
-    Size = (790, 417);
+    Size = (1020, 537);
     TextSize = 13;
+    UserData = "";
 
     Renderer {
         Scrollbar {

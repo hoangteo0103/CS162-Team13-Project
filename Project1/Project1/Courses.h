@@ -22,6 +22,7 @@ public:
     int courseID;
     char teacherName[FULLNAMELENGTH];
     int credits;
+    int score = 0 ; 
     int currentStudentNum = 0;
     int maximumStudentNum = MAXSTUDENTNUM;
     int session1, session1Day, session2, session2Day;
@@ -39,6 +40,7 @@ public:
     void importScoreBoard();
     void viewScourBoard();
     void updateResult();
+    string convertoABC(int score); 
     string getFirstSessionDate();
     string getSecondSessionDate();
     DateofBirth getDoB(string* dob);

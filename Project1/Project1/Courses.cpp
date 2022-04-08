@@ -230,7 +230,13 @@ bool Course::findStudent(string curDir, string studentID) {
 
 	return check;
 }
+string Course::convertoABC(int score)
+{
+	if (score >= 9.5) return "A+";
+	if (score >= 8.5) return "A";
+	if (score >= 7.5) return "B+"; 
 
+}
 void importScoreBoard();
 void viewScourBoard();
 void updateResult();
