@@ -11,4 +11,4 @@ using namespace std;
 
 void onScoreboardSelected(Group& group_scoreboard, Group& group_student);
 void init_group(Group& group_scoreboard);
-void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchoolYear);
+void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchoolYear, string& studentName);

@@ -102,7 +102,7 @@ void loadListofSchoolYears(SchoolYear*& schoolYear) {
             else { yearEnd *= 10; yearEnd += year[i] - '0'; }
         }
 
-        //cerr << year << '\n';
+        //cerr << year << '\n'
 
         //cerr << "SchoolYears/" + year + "ListOfSemester.txt" << '\n';
         ifstream fin1("SchoolYears/" + year + "/ListOfSemester.txt");
@@ -194,7 +194,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     group_course.add(label);
 
     // Create some pictures to place inside the scrollable panel
-    loadwidget(group_scoreboard, curSchoolYear);
+    loadwidget(group_scoreboard, curSchoolYear, studentName);
     loadInfoWidget(group_studentInfo, neededStudent);
 
     //cerr << group_studentInfo.get<tgui::Label>("Label1")->getText() << '\n';

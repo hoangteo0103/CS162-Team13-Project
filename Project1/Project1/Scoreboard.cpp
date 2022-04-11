@@ -28,16 +28,17 @@ void init_group(Group& group_scoreboard)
 {
     group_scoreboard.loadWidgetsFromFile("ScoreBoardForm.txt");
 }
-void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchoolYear)
+void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchoolYear, string& studentName)
 {
     init_group(group_scoreboard);
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Semester" ,200); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course ID" ,100 ); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course" ,300 ); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Credit" ,90 ); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("ABC" ,50 ); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("10" ,50 ); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("4" ,50 ); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course ID", 100);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course" , 300); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Midterm", 70); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Final", 70); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Other", 70); 
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Total", 70); 
+    //group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("4", 50);
+
     while (!curSchoolYear.empty())
     {
         SchoolYear* cSYear = curSchoolYear.front().first;
@@ -45,12 +46,13 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
         curSchoolYear.pop();
 
 
-        string strID = "";
+        /*string strID = "";
         while (sID) {
             strID += (char)((sID % 10) + '0');
             sID /= 10;
         }
         reverse(strID.begin(), strID.end());
+        */
         tgui::String curYears = tgui::String(cSYear->startYear) + '-' + tgui::String(cSYear->endYear);
 
         int curSemester = 4;
@@ -63,7 +65,7 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
             group_scoreboard.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(cSYear->startYear) + "-" + tgui::String(cSYear->endYear));
             tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
             string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
-            for (Course* j = i->nowCourse; j; j = j->nextCourse) {
+            /*for (Course* j = i->nowCourse; j; j = j->nextCourse) {
 
                 vector<tgui::String> tmp;
                 if (j->findStudent(curDir, strID)) {
@@ -72,6 +74,75 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
                     mp[curSemesterStr + "/" + curYears].push_back(tmp);
                     group_scoreboard.get<tgui::ListView>("ListView1")->addItem(tmp);
                 }
+            }*/
+
+            for (Course* j = i->nowCourse; j; j = j->nextCourse) {
+                string cName = curDir + j->courseName;
+                ifstream fin;
+                fin.open(cName + ".csv");
+
+                //cerr << cName + ".csv\n";
+
+                string line, word;
+                int num = 0;
+
+                while (getline(fin, line)) {
+                    num++;
+                    if (num == 1) {
+                        //cerr << "Lmao\n";
+                        continue;
+                    }
+
+                    stringstream str(line);
+                    int cnt = 0;
+
+                    int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0, tMark = 0;
+                    char stdName[FULLNAMELENGTH];
+
+                    while (getline(str, word, ',')) {
+                        cnt++;
+                        stringstream stoint(word);
+                        switch (cnt) {
+                        case 1:
+                            stoint >> no;
+                            break;
+                        case 2:
+                            stoint >> stdID;
+                            break;
+                        case 3:
+                            for (int i = 0; i < word.length(); i++) {
+                                stdName[i] = word[i];
+                            }
+                            stdName[word.length()] = '\0';
+                            break;
+                        case 4:
+                            stoint >> mTerm;
+                            break;
+                        case 5:
+                            stoint >> fMark;
+                            break;
+                        case 6:
+                            stoint >> oMark;
+                            break;
+                        case 7:
+                            stoint >> tMark;
+                            break;
+                        default:
+                            break;
+                        }
+                    }
+                    
+                    //cerr << no << ' ' << stdID << ' ' << mTerm << ' ' << fMark << ' ' << oMark << ' ' << tMark << '\n';
+                    //cerr << stdName << '\n';
+                    vector<tgui::String> tmp;
+                    if (!studentName.compare(stdName)) {
+                        tgui::String item = j->courseName;
+                        tmp = { tgui::String(j->courseID), item, tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) };
+                        mp[curSemesterStr + "/" + curYears].push_back(tmp);
+                        group_scoreboard.get<tgui::ListView>("ListView1")->addItem(tmp);
+                    }
+                }
+
             }
         }
     }
