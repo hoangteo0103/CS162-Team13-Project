@@ -1,11 +1,11 @@
 TreeView.TreeView1 {
     ItemHeight = 30;
-    Position = (30, 190);
-    Size = (380, 512);
+    Position = (40, 190);
+    Size = (380, 611);
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = #5BD3FF;
+        BackgroundColor = white;
         BorderColor = black;
         Borders = (2, 2, 2, 2);
         SelectedBackgroundColor = #7D60FF;
@@ -18,13 +18,47 @@ TreeView.TreeView1 {
 
 ScrollablePanel.ScrollablePanel1 {
     ContentSize = (550, 420);
-    Position = (510, 190);
-    Size = (550, 420);
+    Position = (420, 190);
+    Size = (780, 610);
 
     Renderer {
-        BackgroundColor = #5BD3FF;
+        BackgroundColor = white;
         Borders = (2, 2, 2, 2);
         Padding = (0, 0, 0, 0);
         TextureBackground = None;
+    }
+}
+
+Label."Course Name" {
+    Position = (440, 200);
+    ScrollbarPolicy = Never;
+    Size = (747.2, 100);
+    TextSize = 40;
+    VerticalAlignment = Center;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (1, 1, 1, 1);
+        TextColor = #117A65;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
     }
 }

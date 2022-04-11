@@ -29,7 +29,7 @@ void onComboBoxSelected(Group& group_scoreboard, tgui::String getSelectedItem)
 void onScoreboardSelected(Group& group_scoreboard, Group& group_student)
 {
     group_scoreboard.setVisible(true);
-    group_student.setVisible(false);    
+    group_student.setVisible(false);   
 }
 
 void init_group(Group& group_scoreboard)

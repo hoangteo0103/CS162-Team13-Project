@@ -37,10 +37,6 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<t
 void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
-    auto tArea = tgui::TextArea::create();
-    tArea->setSize(600, 450);
-    tArea->setReadOnly();
-    tArea->setTextSize(15);
     tgui::String courseInformation = "";
 
     for (SchoolYear* i = schoolYears; i != nullptr && !check; i = i->nextSchoolYear) {
@@ -48,6 +44,9 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::St
             for (Course* k = j->nowCourse; k != nullptr && !check; k = k->nextCourse) {
                 if (!sItem.compare(k->courseName)) {
                     check = true;
+                    group_course.get<Label>("Course Name")->setTextSize(30);
+                    group_course.get<Label>("Course Name")->setText(k->courseName);
+                    continue; 
                     courseInformation += tgui::String(k->courseID) + '\n';
                     //cerr << courseInformation << '\n';
                     courseInformation += tgui::String(k->courseName) + '\n';
@@ -61,13 +60,8 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::St
         }
     }
 
-    if (check) {
-        tArea->setText(courseInformation);
-        group_course.get<tgui::ScrollablePanel>("ScrollablePanel1")->add(tArea, "TArea");
-    }
-    else {
-        group_course.get<tgui::ScrollablePanel>("ScrollablePanel1")->removeAllWidgets();
-    }
+    group_course.get<Label>("Course Name")->setVisible(check);
+
 }
 
 
@@ -298,4 +292,5 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     group_student->setVisible(false);
     group_scoreboard->setVisible(false);
     group_studentInfo->setVisible(false);
+    group_course->get<Label>("Course Name")->setVisible(false);
 }
