@@ -7,6 +7,7 @@
 #include "SchoolYear.h"
 #include "Scoreboard.h"
 #include "StudentInfo.h"
+#include "Action.h"
 using namespace sf;
 using namespace tgui;
 using namespace std;

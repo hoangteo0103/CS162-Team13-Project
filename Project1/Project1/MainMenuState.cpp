@@ -1,70 +1,5 @@
 #include "MainMenuState.h"      
 
-void onClickedLogout(BackendGui& gui )
-{
-    run_login(gui);
-}
-
-void onShowParticipants();
-
-void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc,  tgui::String selectedTab)
-{
-    //cerr << *curSelectedTab << '\n';
-    //cerr << selectedTab << '\n';
-
-    //cerr << vc->size() << '\n';
-
-    int selectedIndex = 0;
-    if (selectedTab == tgui::String("Courses Information")) {
-        *curSelectedTab = tgui::String("Courses Information");
-        selectedIndex = 0; 
-    }
-    else if (selectedTab == tgui::String("Student Information"))
-    {
-        *curSelectedTab = tgui::String("Student Information");
-        selectedIndex = 1;
-    }
-
-    //cerr << selectedIndex << '\n';
-
-    for (int i = 0; i < (*vc).size(); i++)
-    {
-        (*vc)[i]->setVisible(false);
-    }
-    
-   //(*vc)[1] = 5;
-   (*vc)[selectedIndex]->setVisible(true);
-}
-
-void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::String selectedItem) {
-    string sItem = selectedItem.toStdString();
-    bool check = false;
-    tgui::String courseInformation = "";
-    for (SchoolYear* i = schoolYears; i != nullptr && !check; i = i->nextSchoolYear) {
-        for (Semester* j = i->nowSemester; j != nullptr && !check; j = j->nextSemester) {
-            for (Course* k = j->nowCourse; k != nullptr && !check; k = k->nextCourse) {
-                if (!sItem.compare(k->courseName)) {
-                    check = true;
-                    group_course.get<Label>("Course Name")->setTextSize(30);
-                    group_course.get<Label>("Course Name")->setText(k->courseName);
-                    group_course.get<Label>("Teacher Name")->setTextSize(13);
-                    group_course.get<Label>("Teacher Name")->setText(k->teacherName);
-                    continue; 
-                    //cerr << k->teacherName << '\n';
-                    courseInformation += tgui::String(k->getFirstSessionDate()) + '\n';
-                    courseInformation += tgui::String(k->getSecondSessionDate()) + '\n';
-                }
-            }
-        }
-    }
-
-    group_course.get<Label>("Course Name")->setVisible(check);
-    group_course.get<Label>("Teacher Name")->setVisible(check);
-
-
-}
-
-
 void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
 {
     SpecificClass* newClass = new SpecificClass;
@@ -133,8 +68,8 @@ void loadListofSpecificClasses(SpecificClass*& nowClass, string year)
     }
 }
 
-bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID, tgui::Group& group_course, 
-                   tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo)
+bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID, tgui::Group& group_course,
+    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo)
 {
 
     tgui::Theme theme{ "themes/Black.txt" };
@@ -245,8 +180,9 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     vc->push_back(&group_student);
     vc->push_back(&group_scoreboard);
     vc->push_back(&group_studentInfo);
-    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears);
-    //group_course.get<tgui::Button>("Participants")->onClick(&onShowParticipants , group_course.get<tgui::TreeView>("TreeView1")->getSelectedItem());
+    Course* curCourse = new Course;
+    group_course.get<Button>("Participants")->onClick(&onParticipants , ref(group_course) ,curCourse);
+    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears , curCourse);
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
@@ -273,6 +209,18 @@ void loadWidgetsMainMenu(tgui::BackendGui& gui)
     //gui.get<tgui::Button>("Button1")->onPress(&login, gui, gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), std::ref(accounts));
 }
 
+void hideGroupCourse(Group& group_course)
+{
+    group_course.get<Label>("Course Name")->setVisible(false);
+    group_course.get<Label>("Teacher Name")->setVisible(false);
+    group_course.get<Label>("People")->setVisible(false);
+    group_course.get<Picture>("Picture1")->setVisible(false);
+    group_course.get<Picture>("Picture2")->setVisible(false);
+    group_course.get<TextArea>("TextArea1")->setVisible(false);
+    group_course.get<Button>("Participants")->setVisible(false);
+    group_course.get<ListView>("PaList")->setVisible(false);
+}
+
 void run_mainmenu(BackendGui& gui, tgui::String studentID)
 {
     loadWidgetsMainMenu(gui);
@@ -293,6 +241,5 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     group_student->setVisible(false);
     group_scoreboard->setVisible(false);
     group_studentInfo->setVisible(false);
-    group_course->get<Label>("Course Name")->setVisible(false);
-    group_course->get<Label>("Teacher Name")->setVisible(false);
+    hideGroupCourse(*group_course);
 }

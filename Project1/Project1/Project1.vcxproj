@@ -157,6 +157,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AccountList.cpp" />
+    <ClCompile Include="Action.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Courses.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="StudentInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="AccountList.h" />
