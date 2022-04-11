@@ -1,9 +1,11 @@
 #include "MainMenuState.h"      
 
-void onClickedLogout(BackendGui& gui)
+void onClickedLogout(BackendGui& gui )
 {
     run_login(gui);
 }
+
+void onShowParticipants();
 
 void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc,  tgui::String selectedTab)
 {
@@ -38,7 +40,6 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::St
     string sItem = selectedItem.toStdString();
     bool check = false;
     tgui::String courseInformation = "";
-
     for (SchoolYear* i = schoolYears; i != nullptr && !check; i = i->nextSchoolYear) {
         for (Semester* j = i->nowSemester; j != nullptr && !check; j = j->nextSemester) {
             for (Course* k = j->nowCourse; k != nullptr && !check; k = k->nextCourse) {
@@ -245,6 +246,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     vc->push_back(&group_scoreboard);
     vc->push_back(&group_studentInfo);
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears);
+    //group_course.get<tgui::Button>("Participants")->onClick(&onShowParticipants , group_course.get<tgui::TreeView>("TreeView1")->getSelectedItem());
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);

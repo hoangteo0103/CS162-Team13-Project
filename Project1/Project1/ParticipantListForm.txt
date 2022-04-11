@@ -134,8 +134,8 @@ Button.Participants {
 }
 
 Picture.Picture1 {
-    Position = (930, 514.737);
-    Size = (38, 25.2632);
+    Position = (920, 514.737);
+    Size = (48, 25.2632);
 
     Renderer {
         Texture = "images/participants.PNG" Smooth;
@@ -153,18 +153,17 @@ Picture.Picture2 {
     }
 }
 
-ListView.PaList {
+ListView.ListView1 {
     ExpandLastColumn = 0;
     HeaderHeight = 0;
     HeaderSeparatorHeight = 0;
     HeaderVisible = true;
     ItemHeight = 20;
-    Position = (470, 360);
+    Position = (460, 360);
     SeparatorWidth = 1;
     ShowVerticalGridLines = 1;
-    Size = (420, 407);
+    Size = (450, 387);
     TextSize = 13;
-    Visible = false;
 
     Renderer {
         BackgroundColor = #F5F5F5;
@@ -172,7 +171,7 @@ ListView.PaList {
         BorderColor = black;
         Borders = (0, 0, 0, 0);
         HeaderBackgroundColor = #117A65;
-        HeaderTextColor = white;
+        HeaderTextColor = black;
         Padding = (0, 0, 0, 0);
         SelectedBackgroundColor = #006EFF;
         SelectedBackgroundColorHover = #1E96FF;
