@@ -1,20 +1,28 @@
 #include "Scoreboard.h"
 map <tgui::String, vector<vector<tgui::String>>> mp; 
 
-void onComboBoxSelected(Group& group_scoreboard , tgui::String getSelectedItem)
+void onComboBoxSelected(Group& group_scoreboard, tgui::String getSelectedItem)
 {
     if (getSelectedItem == "All Semesters")
     {
         group_scoreboard.get<tgui::ListView>("ListView1")->removeAllItems();
+        int width = 0;
         for (auto t : mp)
         {
+            cout << t.second.size() << endl;
+            width += t.second.size();
             group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(t.second);
 
         }
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, 50 * width + 80);
+
     }
     else {
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, 50);
         group_scoreboard.get<tgui::ListView>("ListView1")->removeAllItems();
         group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(mp[getSelectedItem]);
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, 50 * mp[getSelectedItem].size() + 80);
+
     }
 }
 
@@ -31,13 +39,17 @@ void init_group(Group& group_scoreboard)
 void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchoolYear, string& studentName)
 {
     init_group(group_scoreboard);
+    
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Semester", 200);
     group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course ID", 100);
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course" , 300); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Midterm", 70); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Final", 70); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Other", 70); 
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Total", 70); 
-    //group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("4", 50);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course", 270);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Credit", 70);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Midterm", 90);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Final", 70);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Other", 60);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("10", 30);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("ABC", 40);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("4", 50);
 
     while (!curSchoolYear.empty())
     {
@@ -137,7 +149,7 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
                     vector<tgui::String> tmp;
                     if (!studentName.compare(stdName)) {
                         tgui::String item = j->courseName;
-                        tmp = { tgui::String(j->courseID), item, tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) };
+                        tmp = { curSemesterStr + "/" + curYears, tgui::String(j->courseID) , item ,tgui::String(j->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) ,tgui::String(j->score) ,   "4" ,  "A" };
                         mp[curSemesterStr + "/" + curYears].push_back(tmp);
                         group_scoreboard.get<tgui::ListView>("ListView1")->addItem(tmp);
                     }
