@@ -46,12 +46,9 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::St
                     check = true;
                     group_course.get<Label>("Course Name")->setTextSize(30);
                     group_course.get<Label>("Course Name")->setText(k->courseName);
+                    group_course.get<Label>("Teacher Name")->setTextSize(13);
+                    group_course.get<Label>("Teacher Name")->setText(k->teacherName);
                     continue; 
-                    courseInformation += tgui::String(k->courseID) + '\n';
-                    //cerr << courseInformation << '\n';
-                    courseInformation += tgui::String(k->courseName) + '\n';
-                    //cerr << k->courseName << '\n';
-                    courseInformation += tgui::String(k->teacherName) + '\n';
                     //cerr << k->teacherName << '\n';
                     courseInformation += tgui::String(k->getFirstSessionDate()) + '\n';
                     courseInformation += tgui::String(k->getSecondSessionDate()) + '\n';
@@ -61,6 +58,8 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, tgui::St
     }
 
     group_course.get<Label>("Course Name")->setVisible(check);
+    group_course.get<Label>("Teacher Name")->setVisible(check);
+
 
 }
 
@@ -293,4 +292,5 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     group_scoreboard->setVisible(false);
     group_studentInfo->setVisible(false);
     group_course->get<Label>("Course Name")->setVisible(false);
+    group_course->get<Label>("Teacher Name")->setVisible(false);
 }
