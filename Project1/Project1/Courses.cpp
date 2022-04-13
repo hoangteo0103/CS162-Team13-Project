@@ -83,6 +83,89 @@ void Course::inputFileClassInfo(string curDir) {
 	fin.close();
 }
 
+void Course::addNewStudentClass(SpecificClass* nowClass, string curDir) {
+	//cerr << curDir << '\n';
+	
+	ifstream fin;
+	fin.open(curDir);
+
+	string line, word;
+	int num = 0;
+
+	while (getline(fin, line)) {
+		num++;
+		if (num == 1) {
+			continue;
+		}
+
+		stringstream str(line);
+		int cnt = 0;
+
+		int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0, tMark = 0;
+		char stdName[FULLNAMELENGTH];
+
+		while (getline(str, word, ',')) {
+			cnt++;
+			stringstream stoint(word);
+			switch (cnt) {
+			case 1:
+				stoint >> no;
+				break;
+			case 2:
+				stoint >> stdID;
+				break;
+			case 3:
+				for (int i = 0; i < word.length(); i++) {
+					stdName[i] = word[i];
+				}
+				stdName[word.length()] = '\0';
+				break;
+			case 4:
+				stoint >> mTerm;
+				break;
+			case 5:
+				stoint >> fMark;
+				break;
+			case 6:
+				stoint >> oMark;
+				break;
+			case 7:
+				stoint >> tMark;
+				break;
+			default:
+				break;
+			}
+		}
+
+		for (SpecificClass* i = nowClass; i; i = i->nextClass) {
+			for (Student* j = i->classStudent; j; j = j->nextStudent) {
+				string studentName = j->firstName;
+				studentName += ' ';
+				studentName += j->lastName;
+
+				//cerr << j->firstName << '\n';
+
+				if (!studentName.compare(stdName)) {
+
+					if (!this->nxtStudent) {
+						this->nxtStudent = new Student(j->No, j->studentID, j->firstName, j->lastName, j->gender, j->DoB, j->socialID, j->specificClass, j->totalCredits);
+						this->nxtStudent->nextStudent = nullptr;
+					}
+					else {
+
+						Student* tmp = new Student(j->No, j->studentID, j->firstName, j->lastName, j->gender, j->DoB, j->socialID, j->specificClass, j->totalCredits);
+						tmp->nextStudent = this->nxtStudent;
+						this->nxtStudent = tmp;
+					}
+
+				}
+			}
+		}
+	}
+
+	fin.close();
+}
+
 void Course::updateCourseInfo(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent) {
 	this->courseID = ID;
 	strcpy_s(this->courseName, cName);

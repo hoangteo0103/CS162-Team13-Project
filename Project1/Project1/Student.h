@@ -12,8 +12,9 @@ struct DateofBirth
 class Student
 {
     private:
-        int No;
+       
     public:
+        int No;
         char specificClass[NAMELENGTH];
         int socialID;
         bool gender;
@@ -42,8 +43,9 @@ class Student
 class SpecificClass
 {
     private:
-        Student* classStudent = nullptr;
+        
     public:
+        Student* classStudent = nullptr;
         char classCODE[NAMELENGTH];
         char className[NAMELENGTH];
         void changeClassCode(char* classCode); 

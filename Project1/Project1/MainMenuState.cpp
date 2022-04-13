@@ -31,19 +31,13 @@ void loadListofSchoolYears(SchoolYear*& schoolYear) {
             else { yearEnd *= 10; yearEnd += year[i] - '0'; }
         }
 
-        //cerr << year << '\n'
-
-        //cerr << "SchoolYears/" + year + "ListOfSemester.txt" << '\n';
         ifstream fin1("SchoolYears/" + year + "/ListOfSemester.txt");
         int amount;
         fin1 >> amount;
         fin1.close();
 
-        //cerr << amount << '\n';
-
         SchoolYear* tmpYear = new SchoolYear(yearStart, yearEnd);
         tmpYear->loadListofSpecificClasses(year);
-        //cerr << 1 << '\n';
         tmpYear->loadListofSemester(amount, year);
 
         if (!schoolYear) {

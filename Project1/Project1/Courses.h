@@ -18,6 +18,7 @@ private:
     IDNode* nextID = nullptr;
 
 public:
+    Student* nxtStudent = nullptr;
     char courseName[FULLNAMELENGTH];
     int courseID;
     char teacherName[FULLNAMELENGTH];
@@ -30,6 +31,7 @@ public:
     Course(int ID, char cName[], char tName[], int credit, int ss1, int ss1Day, int ss2, int ss2Day, int mStudent = 0);
     Course* nextCourse = nullptr;
     void addNewStudent(IDNode* student);
+    void addNewStudentClass(SpecificClass* nowClass, string curDir);
     int strToNum(string* num);
     void delListStudent();
     void inputFileClassInfo(string curDir);

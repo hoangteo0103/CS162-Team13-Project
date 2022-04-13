@@ -147,10 +147,8 @@ void SchoolYear::loadListofSemester(int amount, string year) {
 		while (getline(fin, line)) {
 			num++;
 			if (num == 1) {
-				//cerr << "Lmao\n";
 				continue;
 			}
-			//cerr << line << '\n';
 			stringstream str(line);
 			int cnt = 0;
 			
@@ -159,7 +157,6 @@ void SchoolYear::loadListofSemester(int amount, string year) {
 			char tName[FULLNAMELENGTH];
 
 			while (getline(str, word, ',')) {
-				//cerr << word << '\n';
 				cnt++;
 				stringstream stoint(word);
 				switch (cnt) {
@@ -205,10 +202,15 @@ void SchoolYear::loadListofSemester(int amount, string year) {
 			//cerr << ID << ' ' << cName << ' ' << tName << '\n';
 
 			Course* course = new Course(ID, cName, tName, credit, ss1, ss1Day, ss2, ss2Day, mStudent);
-			//course->inputFileClassInfo(curDir);
-			//this->nowSemester->addNewStudent(this->classStudent, new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit));
-			//cerr << (this->classStudent == nullptr) << '\n';
-			
+			//cerr << 1 << '\n';
+			course->addNewStudentClass(this->nowClass, curDir + course->courseName + ".csv");
+
+			//cerr << 1 << '\n';
+
+			/*for (Student* i = course->nxtStudent; i; i = i->nextStudent) {
+				cerr << i->firstName << ' ' << i->lastName << '\n';
+			}*/
+
 			semester->addNewCourse(course);
 
 			//cerr << "Lmao haha ded vl\n";
