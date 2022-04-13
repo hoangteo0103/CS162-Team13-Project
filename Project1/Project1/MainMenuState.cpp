@@ -214,8 +214,11 @@ void hideGroupCourse(Group& group_course)
     group_course.get<Label>("Course Name")->setVisible(false);
     group_course.get<Label>("Teacher Name")->setVisible(false);
     group_course.get<Label>("People")->setVisible(false);
+    group_course.get<Label>("Date")->setVisible(false);
+    group_course.get<TextArea>("TextArea2")->setVisible(false);
     group_course.get<Picture>("Picture1")->setVisible(false);
     group_course.get<Picture>("Picture2")->setVisible(false);
+    group_course.get<Picture>("Picture3")->setVisible(false);
     group_course.get<TextArea>("TextArea1")->setVisible(false);
     group_course.get<Button>("Participants")->setVisible(false);
     group_course.get<ListView>("PaList")->setVisible(false);
