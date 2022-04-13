@@ -1,29 +1,37 @@
-#include "MainMenuStateTeacher.h"
+#include "MainMenuState.h"      
 
-void onTabSelected2(tgui::BackendGui& gui, tgui::String* curSelectedTab, tgui::Group& group_course, tgui::Group& group_student, tgui::String selectedTab)
+void onTabSelected2(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc, tgui::String selectedTab)
 {
     //cerr << *curSelectedTab << '\n';
     //cerr << selectedTab << '\n';
+
+    //cerr << vc->size() << '\n';
+
+    int selectedIndex = 0;
     if (selectedTab == tgui::String("Courses Information")) {
         *curSelectedTab = tgui::String("Courses Information");
-        group_course.setVisible(true);
-        group_student.setVisible(false);
+        selectedIndex = 0;
     }
     else if (selectedTab == tgui::String("Teacher Information"))
     {
         *curSelectedTab = tgui::String("Teacher Information");
-        cout << 1 << endl; 
-        //cerr << *curSelectedTab << '\n';
-        group_course.setVisible(false);
-        group_student.setVisible(true);
+        selectedIndex = 1;
     }
+
+    //cerr << selectedIndex << '\n';
+
+    for (int i = 0; i < (*vc).size(); i++)
+    {
+        (*vc)[i]->setVisible(false);
+    }
+
+    //(*vc)[1] = 5;
+    (*vc)[selectedIndex]->setVisible(true);
 }
 
-void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, tgui::String selectedItem) {
+void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
-    auto tArea = tgui::TextArea::create();
-    tArea->setTextSize(15);
     tgui::String courseInformation = "";
 
     for (SchoolYear* i = schoolYears; i != nullptr && !check; i = i->nextSchoolYear) {
@@ -31,39 +39,32 @@ void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, tgui::S
             for (Course* k = j->nowCourse; k != nullptr && !check; k = k->nextCourse) {
                 if (!sItem.compare(k->courseName)) {
                     check = true;
-                    courseInformation += tgui::String(k->courseID) + '\n';
-                    //cerr << courseInformation << '\n';
-                    courseInformation += tgui::String(k->courseName) + '\n';
-                    //cerr << k->courseName << '\n';
-                    courseInformation += tgui::String(k->teacherName) + '\n';
-                    //cerr << k->teacherName << '\n';
-                    courseInformation += tgui::String(k->getFirstSessionDate()) + '\n';
+                    curCourse = k;
+                    group_course.get<Label>("Course Name")->setTextSize(30);
+                    group_course.get<Label>("Course Name")->setText(k->courseName);
+                    group_course.get<Label>("Teacher Name")->setTextSize(13);
+                    group_course.get<Label>("Teacher Name")->setText(k->teacherName);
+                    courseInformation += '\n' + tgui::String(k->getFirstSessionDate()) + '\n' + '\n' + '\n';
                     courseInformation += tgui::String(k->getSecondSessionDate()) + '\n';
+                    group_course.get<TextArea>("TextArea2")->setText(courseInformation);
+                    group_course.get<TextArea>("TextArea2")->setTextSize(30);
+                    continue;
+                    //cerr << k->teacherName << '\n';
                 }
             }
         }
     }
-
-    if (check) {
-        tArea->setText(courseInformation);
-        group_course.get<tgui::ScrollablePanel>("ScrollablePanel1")->add(tArea, "TArea");
-    }
-    else {
-        group_course.get<tgui::ScrollablePanel>("ScrollablePanel1")->removeAllWidgets();
-    }
+    showGroupCourse(group_course, check);
 }
 
-
-bool addComponents2(tgui::BackendGui& gui,tgui::String teacher_name , SchoolYear*& schoolYears,  tgui::Group& group_course, tgui::Group& group_student)
+bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String teacherName, tgui::Group& group_course,
+    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo)
 {
     tgui::Theme theme{ "themes/Black.txt" };
 
     auto label = tgui::Label::create();
     label->setRenderer(theme.getRenderer("Label"));
-    tgui::String className;
-
-
-    label->setText(teacher_name); 
+    label->setText(teacherName);
     label->setPosition(10, 10);
     label->setTextSize(20);
     group_course.add(label);
@@ -91,13 +92,23 @@ bool addComponents2(tgui::BackendGui& gui,tgui::String teacher_name , SchoolYear
 
         }
     }
-
+    
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
     *curSelectedTab = "Courses Information";
-    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected2, ref(group_course), schoolYears);
-    
-    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected2, ref(gui), curSelectedTab, ref(group_course), ref(group_student));
+    //cerr << vc.size() << '\n';
+    vector<tgui::Group*>* vc = new vector<tgui::Group*>;
+    vc->push_back(&group_course);
+    vc->push_back(&group_student);
+    vc->push_back(&group_scoreboard);
+    vc->push_back(&group_studentInfo);
+    Course* curCourse = new Course;
+    group_course.get<Button>("Participants")->onClick(&onParticipants, ref(group_course), curCourse);
+    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected2, ref(group_course), schoolYears, curCourse);
+    //group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
+    //group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
+    gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected2, ref(gui), curSelectedTab, vc);
+    gui.get<Button>("Logout")->onClick(&onClickedLogout, ref(gui));
     return true;
 }
 
@@ -117,20 +128,43 @@ void loadWidgetsMainMenuTeacher(tgui::BackendGui& gui)
 
     // We want the text size to be updated when the window is resized
     gui.onViewChange([&gui] { updateTextSizeMainMenuTeacher(gui); });
+    //gui.get<tgui::Button>("Button1")->onPress(&login, gui, gui.get<tgui::EditBox>("EditBox1"), gui.get<tgui::EditBox>("EditBox2"), std::ref(accounts));
 }
 
-void run_mainmenu_teacher(BackendGui& gui, tgui::String teacher_name)
+void hideGroupCourseTeacher(Group& group_course)
+{
+    group_course.get<Label>("Course Name")->setVisible(false);
+    group_course.get<Label>("Teacher Name")->setVisible(false);
+    group_course.get<Label>("People")->setVisible(false);
+    group_course.get<Label>("Date")->setVisible(false);
+    group_course.get<TextArea>("TextArea2")->setVisible(false);
+    group_course.get<Picture>("Picture1")->setVisible(false);
+    group_course.get<Picture>("Picture2")->setVisible(false);
+    group_course.get<Picture>("Picture3")->setVisible(false);
+    group_course.get<TextArea>("TextArea1")->setVisible(false);
+    group_course.get<Button>("Participants")->setVisible(false);
+    group_course.get<ListView>("PaList")->setVisible(false);
+}
+
+void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
 {
     loadWidgetsMainMenuTeacher(gui);
     auto group_course = tgui::Group::create();
     auto group_student = tgui::Group::create();
+    auto group_scoreboard = tgui::Group::create();
+    auto group_studentInfo = tgui::Group::create();
     group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
-    addComponents2(gui,teacher_name, schoolYears, *group_course, *group_student);
+    addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentInfo);
     gui.add(group_course);
     gui.add(group_student);
+    gui.add(group_scoreboard);
+    gui.add(group_studentInfo);
     group_course->setVisible(true);
     group_student->setVisible(false);
+    group_scoreboard->setVisible(false);
+    group_studentInfo->setVisible(false);
+    hideGroupCourseTeacher(*group_course);
 }

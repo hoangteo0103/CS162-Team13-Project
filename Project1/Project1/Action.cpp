@@ -8,9 +8,9 @@ void onParticipants(Group& group_course, Course* curCourse)
 {
     group_course.get<ListView>("PaList")->setVisible(true);
     group_course.get<ListView>("PaList")->removeAllColumns();
-    group_course.get<ListView>("PaList")->addColumn("Name" , 100 , ListView::ColumnAlignment::Center);
-    group_course.get<ListView>("PaList")->addColumn("Roles" , 100 , ListView::ColumnAlignment::Center);
-    group_course.get<ListView>("PaList")->addColumn("Group" , 100 , ListView::ColumnAlignment::Center);
+    group_course.get<ListView>("PaList")->addColumn("Name", 100, ListView::ColumnAlignment::Center);
+    group_course.get<ListView>("PaList")->addColumn("Roles", 100, ListView::ColumnAlignment::Center);
+    group_course.get<ListView>("PaList")->addColumn("Group", 100, ListView::ColumnAlignment::Center);
     //for(IDNode* )
 }
 
@@ -43,7 +43,7 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<t
     (*vc)[selectedIndex]->setVisible(true);
 }
 
-void showGroupCourse(Group& group_course , bool check)
+void showGroupCourse(Group& group_course, bool check)
 {
 
     group_course.get<ListView>("PaList")->setVisible(false);
@@ -84,5 +84,5 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* 
             }
         }
     }
-    showGroupCourse(group_course ,check);
+    showGroupCourse(group_course, check);
 }
