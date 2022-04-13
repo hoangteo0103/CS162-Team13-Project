@@ -40,6 +40,8 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
     }
     else if (checkTeacher) {
         //cout << "Chuan rui\n";
+        if (gui.get<tgui::CheckBox>("CheckBox_RememberUser")->isChecked())
+            saveToFile(usrnme, psswrd);
         run_mainmenu_teacher(gui , usrnme);
     }
     else {
