@@ -14,7 +14,7 @@ using namespace std;
 void onParticipants(Group& group_course , Course* curCourse);
 void onClickedLogout(BackendGui& gui);
 void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc, tgui::String selectedTab);
-void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, tgui::String selectedItem);
+void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, Student student, tgui::String selectedItem);
 
 
 

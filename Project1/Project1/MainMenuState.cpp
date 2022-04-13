@@ -86,7 +86,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     string studentName;
 
-    Student neededStudent;
+    Student neededStudent  ;
 
     for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
         bool findCheck = false;
@@ -182,7 +182,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     vc->push_back(&group_studentInfo);
     Course* curCourse = new Course;
     group_course.get<Button>("Participants")->onClick(&onParticipants , ref(group_course) ,curCourse);
-    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears , curCourse);
+    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears , curCourse , neededStudent);
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);

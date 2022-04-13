@@ -83,6 +83,7 @@ TextArea.TextArea1 {
     HorizontalScrollbarPolicy = Never;
     MaximumCharacters = 0;
     Position = (920, 400);
+    ReadOnly = true;
     Size = (268, 155);
     Text = " Teacher\n\n\n\n Participants\n";
     TextSize = 18;
@@ -173,12 +174,13 @@ ListView.PaList {
     GridLinesWidth = 0;
     HeaderHeight = 60;
     HeaderSeparatorHeight = 0;
+    HeaderTextSize = 30;
     HeaderVisible = true;
     ItemHeight = 20;
     Position = (450, 360);
     SeparatorWidth = 0;
     ShowVerticalGridLines = 0;
-    Size = (430, 377);
+    Size = (430, 437);
     TextSize = 13;
 
     Renderer {

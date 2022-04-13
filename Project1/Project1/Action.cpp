@@ -11,7 +11,7 @@ void onParticipants(Group& group_course, Course* curCourse)
     group_course.get<ListView>("PaList")->addColumn("Name" , 100 , ListView::ColumnAlignment::Center);
     group_course.get<ListView>("PaList")->addColumn("Roles" , 100 , ListView::ColumnAlignment::Center);
     group_course.get<ListView>("PaList")->addColumn("Group" , 100 , ListView::ColumnAlignment::Center);
-    for(Student* curStudent )
+    //for(IDNode* )
 }
 
 void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc, tgui::String selectedTab)
@@ -56,7 +56,7 @@ void showGroupCourse(Group& group_course , bool check)
     group_course.get<Button>("Participants")->setVisible(check);
 }
 
-void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, tgui::String selectedItem) {
+void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, Student student, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
     tgui::String courseInformation = "";
@@ -68,7 +68,7 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* 
                     check = true;
                     curCourse = k;
                     group_course.get<Label>("Course Name")->setTextSize(30);
-                    group_course.get<Label>("Course Name")->setText(k->courseName);
+                    group_course.get<Label>("Course Name")->setText(k->courseName + tgui::String("  -  ") + student.specificClass);
                     group_course.get<Label>("Teacher Name")->setTextSize(13);
                     group_course.get<Label>("Teacher Name")->setText(k->teacherName);
                     continue;

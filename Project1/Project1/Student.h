@@ -13,8 +13,8 @@ class Student
 {
     private:
         int No;
-        char specificClass[NAMELENGTH];
     public:
+        char specificClass[NAMELENGTH];
         int socialID;
         bool gender;
         DateofBirth DoB;
