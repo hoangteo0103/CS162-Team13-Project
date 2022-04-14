@@ -35,11 +35,6 @@ TreeView.TreeView1 {
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = white;
-        BorderColor = black;
-        Borders = (2, 2, 2, 2);
-        SelectedBackgroundColor = #7D60FF;
-        TextColor = black;
         TextureBranchCollapsed = None;
         TextureBranchExpanded = None;
         TextureLeaf = None;

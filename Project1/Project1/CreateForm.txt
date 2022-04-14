@@ -1,4 +1,10 @@
 Renderer.1 {
+    BackgroundColor = white;
+    BorderColor = black;
+    TextureBackground = None;
+}
+
+Renderer.2 {
     BackgroundColor = #2A89DE;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorDown = #EBEBEB;
@@ -27,16 +33,17 @@ Renderer.1 {
 
 Panel.Panel1 {
     Position = (110, 180);
-    Size = (360, 330);
+    Size = (360, 450);
 
     Renderer {
-        BackgroundColor = rgba(180, 180, 180, 215);
+        BackgroundColor = white;
+        BorderColor = black;
         TextureBackground = None;
     }
 
     Button."Create School Year" {
-        Position = (50, 70);
-        Renderer = &1;
+        Position = (50, 100);
+        Renderer = &2;
         Size = (260, 52);
         Text = "Create School Year";
         TextSize = 13;
@@ -77,20 +84,94 @@ Panel.Panel1 {
             }
         }
     }
+
+    Panel.Panel2 {
+        Position = (400, 0);
+        Renderer = &1;
+        Size = (150, 150);
+    }
 }
 
 Button.Button1 {
-    Position = (160, 370);
-    Renderer = &1;
-    Size = (260, 52);
+    Position = (160, 450);
+    Renderer = &2;
+    Size = (260, 62);
     Text = "Create Course";
     TextSize = 13;
 }
 
 Button.Button2 {
-    Position = (160, 310);
-    Renderer = &1;
+    Position = (160, 370);
+    Renderer = &2;
     Size = (260, 52);
     Text = "Create Semester";
     TextSize = 13;
+}
+
+Panel.Panel3 {
+    Position = (510, 180);
+    Renderer = &1;
+    Size = (640, 450);
+
+    Label.Year {
+        HorizontalAlignment = Center;
+        Position = (40, 42);
+        Size = (177.2, 18);
+        Text = "Input School Year";
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    EditBox.EditBox1 {
+        Position = (220, 40);
+        Size = (250, 22);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            CaretColor = black;
+            CaretWidth = 1;
+            DefaultTextColor = #A0A0A0;
+            Padding = (0, 0, 0, 0);
+            SelectedTextBackgroundColor = #006EFF;
+            SelectedTextColor = white;
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            Texture = None;
+            TextureDisabled = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
 }
