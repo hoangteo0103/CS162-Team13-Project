@@ -26,11 +26,11 @@ Button."Teacher Info" {
     TextSize = 13;
 }
 
-Button."Create Course Registration" {
+Button.Create {
     Position = (640, 190);
     Renderer = &1;
     Size = (340, 114);
-    Text = "Create Course Registration";
+    Text = "Create SchoolYear/Semester/Course";
     TextSize = 13;
 }
 

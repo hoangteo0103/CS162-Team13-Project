@@ -7,8 +7,10 @@ void onClickedLogout(BackendGui& gui)
 
 void onParticipants(Group& group_course, Course* &curCourse)
 {
+    
     group_course.get<ListView>("PaList")->setVisible(true);
     group_course.get<ListView>("PaList")->removeAllColumns();
+    group_course.get<ListView>("PaList")->removeAllItems();
     group_course.get<ListView>("PaList")->addColumn("First" + tgui::String("\n") + "Name", 100);
     group_course.get<ListView>("PaList")->addColumn("Last" + tgui::String("\n") + "Name", 100);
     group_course.get<ListView>("PaList")->addColumn("Class", 80);
@@ -18,10 +20,8 @@ void onParticipants(Group& group_course, Course* &curCourse)
     group_course.get<Label>("Date")->setVisible(false);
     group_course.get<Picture>("Picture3")->setVisible(false);
     group_course.get<TextArea>("TextArea2")->setVisible(false);
-    cout << curCourse->courseName << endl; 
-    for (Student* cur = curCourse->nxtStudent; cur; cur = cur->nextStudent)
+    for (Student* cur = curCourse->nxtStudent; cur!=NULL; cur = cur->nextStudent)
     {
-        cout << 1;
         group_course.get<ListView>("PaList")->addItem({ cur->firstName , cur->lastName ,cur->specificClass , tgui::String(cur->studentID) , "student"});
     }
 }
@@ -50,8 +50,6 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<t
     {
         (*vc)[i]->setVisible(false);
     }
-
-    //(*vc)[1] = 5;
     (*vc)[selectedIndex]->setVisible(true);
 }
 
@@ -102,10 +100,6 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* 
 // Teacher action
 void onTabSelected2(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc, tgui::String selectedTab)
 {
-    //cerr << *curSelectedTab << '\n';
-    //cerr << selectedTab << '\n';
-
-    //cerr << vc->size() << '\n';
 
     int selectedIndex = 0;
     if (selectedTab == tgui::String("Courses Information")) {
@@ -124,12 +118,10 @@ void onTabSelected2(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<
     {
         (*vc)[i]->setVisible(false);
     }
-
-    //(*vc)[1] = 5;
     (*vc)[selectedIndex]->setVisible(true);
 }
 
-void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, tgui::String selectedItem) {
+void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course* &curCourse, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
     tgui::String courseInformation = "";

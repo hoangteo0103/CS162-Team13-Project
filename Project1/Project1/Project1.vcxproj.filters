@@ -16,6 +16,7 @@
     <ClCompile Include="Scoreboard.cpp" />
     <ClCompile Include="StudentInfo.cpp" />
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="CreateRegistration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="Scoreboard.h" />
     <ClInclude Include="StudentInfo.h" />
     <ClInclude Include="Action.h" />
+    <ClInclude Include="CreateRegistration.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />

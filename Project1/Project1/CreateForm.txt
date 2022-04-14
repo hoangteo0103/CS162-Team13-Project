@@ -1,0 +1,96 @@
+Renderer.1 {
+    BackgroundColor = #2A89DE;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #B4B4B4D7;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    RoundedBorderRadius = 8;
+    TextColor = white;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
+    TextOutlineThickness = 2;
+    TextStyle = Italic;
+    Texture = None;
+    TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+Panel.Panel1 {
+    Position = (110, 180);
+    Size = (360, 330);
+
+    Renderer {
+        BackgroundColor = rgba(180, 180, 180, 215);
+        TextureBackground = None;
+    }
+
+    Button."Create School Year" {
+        Position = (50, 70);
+        Renderer = &1;
+        Size = (260, 52);
+        Text = "Create School Year";
+        TextSize = 13;
+    }
+
+    Label.Task {
+        HorizontalAlignment = Center;
+        Position = (80, 20);
+        ScrollbarPolicy = Never;
+        Size = (193.2, 28);
+        Text = Task;
+        TextSize = 25;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextStyle = Bold;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+}
+
+Button.Button1 {
+    Position = (160, 370);
+    Renderer = &1;
+    Size = (260, 52);
+    Text = "Create Course";
+    TextSize = 13;
+}
+
+Button.Button2 {
+    Position = (160, 310);
+    Renderer = &1;
+    Size = (260, 52);
+    Text = "Create Semester";
+    TextSize = 13;
+}
