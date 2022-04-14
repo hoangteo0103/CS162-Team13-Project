@@ -11,8 +11,9 @@ void onParticipants(Group& group_course, Course* &curCourse)
     group_course.get<ListView>("PaList")->removeAllColumns();
     group_course.get<ListView>("PaList")->addColumn("First" + tgui::String("\n") + "Name", 100);
     group_course.get<ListView>("PaList")->addColumn("Last" + tgui::String("\n") + "Name", 100);
+    group_course.get<ListView>("PaList")->addColumn("Class", 80);
     group_course.get<ListView>("PaList")->addColumn("StudentID", 120);
-    group_course.get<ListView>("PaList")->addColumn("Roles", 100);
+    group_course.get<ListView>("PaList")->addColumn("Roles", 70);
     // Date 
     group_course.get<Label>("Date")->setVisible(false);
     group_course.get<Picture>("Picture3")->setVisible(false);
@@ -21,7 +22,7 @@ void onParticipants(Group& group_course, Course* &curCourse)
     for (Student* cur = curCourse->nxtStudent; cur; cur = cur->nextStudent)
     {
         cout << 1;
-        group_course.get<ListView>("PaList")->addItem({ cur->firstName , cur->lastName , tgui::String(cur->studentID) , "student"});
+        group_course.get<ListView>("PaList")->addItem({ cur->firstName , cur->lastName ,cur->specificClass , tgui::String(cur->studentID) , "student"});
     }
 }
 

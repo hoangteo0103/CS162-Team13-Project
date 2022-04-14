@@ -202,10 +202,10 @@ ListView.PaList {
     HeaderTextSize = 20;
     HeaderVisible = true;
     ItemHeight = 20;
-    Position = (430, 340);
+    Position = (440, 340);
     SeparatorWidth = 0;
     ShowVerticalGridLines = 0;
-    Size = (484.2, 407);
+    Size = (474.2, 407);
     TextSize = 13;
 
     Renderer {
