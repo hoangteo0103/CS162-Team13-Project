@@ -1,17 +1,28 @@
 #include "Action.h"
+
 void onClickedLogout(BackendGui& gui)
 {
     run_login(gui);
 }
 
-void onParticipants(Group& group_course, Course* curCourse)
+void onParticipants(Group& group_course, Course* &curCourse)
 {
     group_course.get<ListView>("PaList")->setVisible(true);
     group_course.get<ListView>("PaList")->removeAllColumns();
-    group_course.get<ListView>("PaList")->addColumn("Name", 100, ListView::ColumnAlignment::Center);
-    group_course.get<ListView>("PaList")->addColumn("Roles", 100, ListView::ColumnAlignment::Center);
-    group_course.get<ListView>("PaList")->addColumn("Group", 100, ListView::ColumnAlignment::Center);
-    //for(IDNode* )
+    group_course.get<ListView>("PaList")->addColumn("First" + tgui::String("\n") + "Name", 100);
+    group_course.get<ListView>("PaList")->addColumn("Last" + tgui::String("\n") + "Name", 100);
+    group_course.get<ListView>("PaList")->addColumn("StudentID", 120);
+    group_course.get<ListView>("PaList")->addColumn("Roles", 100);
+    // Date 
+    group_course.get<Label>("Date")->setVisible(false);
+    group_course.get<Picture>("Picture3")->setVisible(false);
+    group_course.get<TextArea>("TextArea2")->setVisible(false);
+    cout << curCourse->courseName << endl; 
+    for (Student* cur = curCourse->nxtStudent; cur; cur = cur->nextStudent)
+    {
+        cout << 1;
+        group_course.get<ListView>("PaList")->addItem({ cur->firstName , cur->lastName , tgui::String(cur->studentID) , "student"});
+    }
 }
 
 void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc, tgui::String selectedTab)
@@ -59,7 +70,7 @@ void showGroupCourse(Group& group_course, bool check)
     group_course.get<Button>("Participants")->setVisible(check);
 }
 
-void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, Student student, tgui::String selectedItem) {
+void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* &curCourse, Student student, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
     tgui::String courseInformation = "";
@@ -72,6 +83,64 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* 
                     curCourse = k;
                     group_course.get<Label>("Course Name")->setTextSize(30);
                     group_course.get<Label>("Course Name")->setText(k->courseName + tgui::String("  -  ") + student.specificClass);
+                    group_course.get<Label>("Teacher Name")->setTextSize(15);
+                    group_course.get<Label>("Teacher Name")->setText(k->teacherName);
+                    courseInformation += '\n' + tgui::String(k->getFirstSessionDate()) + '\n' + '\n' + '\n';
+                    courseInformation += tgui::String(k->getSecondSessionDate()) + '\n';
+                    group_course.get<TextArea>("TextArea2")->setText(courseInformation);
+                    group_course.get<TextArea>("TextArea2")->setTextSize(30);
+                    continue;
+                    //cerr << k->teacherName << '\n';
+                }
+            }
+        }
+    }
+    showGroupCourse(group_course, check);
+}
+
+// Teacher action
+void onTabSelected2(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc, tgui::String selectedTab)
+{
+    //cerr << *curSelectedTab << '\n';
+    //cerr << selectedTab << '\n';
+
+    //cerr << vc->size() << '\n';
+
+    int selectedIndex = 0;
+    if (selectedTab == tgui::String("Courses Information")) {
+        *curSelectedTab = tgui::String("Courses Information");
+        selectedIndex = 0;
+    }
+    else if (selectedTab == tgui::String("Teacher Information"))
+    {
+        *curSelectedTab = tgui::String("Teacher Information");
+        selectedIndex = 1;
+    }
+
+    //cerr << selectedIndex << '\n';
+
+    for (int i = 0; i < (*vc).size(); i++)
+    {
+        (*vc)[i]->setVisible(false);
+    }
+
+    //(*vc)[1] = 5;
+    (*vc)[selectedIndex]->setVisible(true);
+}
+
+void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course* curCourse, tgui::String selectedItem) {
+    string sItem = selectedItem.toStdString();
+    bool check = false;
+    tgui::String courseInformation = "";
+
+    for (SchoolYear* i = schoolYears; i != nullptr && !check; i = i->nextSchoolYear) {
+        for (Semester* j = i->nowSemester; j != nullptr && !check; j = j->nextSemester) {
+            for (Course* k = j->nowCourse; k != nullptr && !check; k = k->nextCourse) {
+                if (!sItem.compare(k->courseName)) {
+                    check = true;
+                    curCourse = k;
+                    group_course.get<Label>("Course Name")->setTextSize(30);
+                    group_course.get<Label>("Course Name")->setText(k->courseName);
                     group_course.get<Label>("Teacher Name")->setTextSize(13);
                     group_course.get<Label>("Teacher Name")->setText(k->teacherName);
                     courseInformation += '\n' + tgui::String(k->getFirstSessionDate()) + '\n' + '\n' + '\n';

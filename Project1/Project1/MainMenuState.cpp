@@ -1,4 +1,5 @@
 #include "MainMenuState.h"      
+Course* curCourse = new Course;
 
 void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
 {
@@ -174,9 +175,8 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     vc->push_back(&group_student);
     vc->push_back(&group_scoreboard);
     vc->push_back(&group_studentInfo);
-    Course* curCourse = new Course;
-    group_course.get<Button>("Participants")->onClick(&onParticipants , ref(group_course) ,curCourse);
-    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears , curCourse , neededStudent);
+    group_course.get<Button>("Participants")->onClick(&onParticipants , ref(group_course) ,ref(curCourse));
+    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears , ref(curCourse) , neededStudent);
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
@@ -208,11 +208,14 @@ void hideGroupCourse(Group& group_course)
     group_course.get<Label>("Course Name")->setVisible(false);
     group_course.get<Label>("Teacher Name")->setVisible(false);
     group_course.get<Label>("People")->setVisible(false);
+    // Date 
     group_course.get<Label>("Date")->setVisible(false);
+    group_course.get<Picture>("Picture3")->setVisible(false);
     group_course.get<TextArea>("TextArea2")->setVisible(false);
+
     group_course.get<Picture>("Picture1")->setVisible(false);
     group_course.get<Picture>("Picture2")->setVisible(false);
-    group_course.get<Picture>("Picture3")->setVisible(false);
+   
     group_course.get<TextArea>("TextArea1")->setVisible(false);
     group_course.get<Button>("Participants")->setVisible(false);
     group_course.get<ListView>("PaList")->setVisible(false);

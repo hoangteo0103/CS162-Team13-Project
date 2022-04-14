@@ -1,6 +1,3 @@
-﻿  Courses.cpp
-C:\Work\CS162\Group_Project\Project1\Project1\Courses.cpp(6,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  SchoolYear.cpp
-  Generating Code...
-C:\Work\CS162\Group_Project\Project1\Project1\Courses.cpp(322): warning C4715: 'Course::convertoABC': not all control paths return a value
-  Project1.vcxproj -> C:\Work\CS162\Group_Project\Project1\x64\Debug\Project1.exe
+﻿  Action.cpp
+D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
