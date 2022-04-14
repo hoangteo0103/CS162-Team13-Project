@@ -5,9 +5,9 @@ void onClickedLogout(BackendGui& gui)
     run_login(gui);
 }
 
-void onParticipants(Group& group_course, Course* &curCourse)
+void onParticipants(Group& group_course, Course*& curCourse)
 {
-    
+
     group_course.get<ListView>("PaList")->setVisible(true);
     group_course.get<ListView>("PaList")->removeAllColumns();
     group_course.get<ListView>("PaList")->removeAllItems();
@@ -20,9 +20,9 @@ void onParticipants(Group& group_course, Course* &curCourse)
     group_course.get<Label>("Date")->setVisible(false);
     group_course.get<Picture>("Picture3")->setVisible(false);
     group_course.get<TextArea>("TextArea2")->setVisible(false);
-    for (Student* cur = curCourse->nxtStudent; cur!=NULL; cur = cur->nextStudent)
+    for (Student* cur = curCourse->nxtStudent; cur != NULL; cur = cur->nextStudent)
     {
-        group_course.get<ListView>("PaList")->addItem({ cur->firstName , cur->lastName ,cur->specificClass , tgui::String(cur->studentID) , "student"});
+        group_course.get<ListView>("PaList")->addItem({ cur->firstName , cur->lastName ,cur->specificClass , tgui::String(cur->studentID) , "student" });
     }
 }
 
@@ -69,7 +69,7 @@ void showGroupCourse(Group& group_course, bool check)
     group_course.get<Button>("Participants")->setVisible(check);
 }
 
-void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course* &curCourse, Student student, tgui::String selectedItem) {
+void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course*& curCourse, Student student, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
     tgui::String courseInformation = "";
@@ -121,7 +121,7 @@ void onTabSelected2(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<
     (*vc)[selectedIndex]->setVisible(true);
 }
 
-void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course* &curCourse, tgui::String selectedItem) {
+void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course*& curCourse, tgui::String selectedItem) {
     string sItem = selectedItem.toStdString();
     bool check = false;
     tgui::String courseInformation = "";

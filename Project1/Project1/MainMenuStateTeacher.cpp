@@ -2,7 +2,7 @@
 
 
 bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String teacherName, tgui::Group& group_course,
-    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo , tgui::Group& group_create)
+    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo, tgui::Group& group_create)
 {
     tgui::Theme theme{ "themes/Black.txt" };
 
@@ -38,7 +38,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     }
 
     loadcreatewidget(group_create);
-    
+
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
     *curSelectedTab = "Courses Information";
@@ -104,12 +104,12 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
     auto group_student = tgui::Group::create();
     auto group_scoreboard = tgui::Group::create();
     auto group_studentInfo = tgui::Group::create();
-    auto group_create= tgui::Group::create();
+    auto group_create = tgui::Group::create();
     group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
-    addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentInfo , *group_create);
+    addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentInfo, *group_create);
     gui.add(group_course);
     gui.add(group_student);
     gui.add(group_scoreboard);

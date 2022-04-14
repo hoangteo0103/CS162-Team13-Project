@@ -1,6 +1,6 @@
 Picture.Picture1 {
-    Position = (-40, 0);
-    Size = (1901, 1000);
+    Position = (-40, 30);
+    Size = (1900, 1000);
 
     Renderer {
         Texture = "images/KHTN.png" Smooth;
@@ -8,40 +8,59 @@ Picture.Picture1 {
     }
 }
 
+Picture.Picture2 {
+    Size = (1300, 130);
+
+    Renderer {
+        Texture = "mainmenuBackgroundImage.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
 Tabs.Tabs1 {
     AutoSize = 0;
-    Position = (80, 50);
-    Size = (710, 53);
+    Position = (150, 70);
+    Size = (400, 40);
     Tabs = ["Courses Information", "Student Information"];
-    TextSize = 13;
+    TextSize = 16;
 
     Renderer {
         DistanceToSide = 8;
         SelectedTextColor = White;
-        TextColor = rgb(190, 190, 190);
+        TextColor = white;
         TextureDisabledTab = None;
-        TextureSelectedTab = "themes/Black.png" Part(62, 546, 60, 32) Middle(16, 0) Smooth;
+        TextureSelectedTab = "mainmenuTabHoverImage.png" Smooth;
         TextureSelectedTabHover = None;
-        TextureTab = "themes/Black.png" Part(0, 546, 60, 32) Middle(16, 0) Smooth;
-        TextureTabHover = None;
+        TextureTab = "mainmenuTabImage.png" Smooth;
+        TextureTabHover = "mainmenuTabHoverImage.png" Smooth;
     }
 }
 
 Button.Logout {
-    Position = (1220, 10);
-    Size = (70, 22);
-    Text = Logout;
+    Position = (1200, 15);
+    Size = (80, 20);
+    Text = "Log out";
     TextSize = 13;
 
     Renderer {
         TextColor = rgb(190, 190, 190);
-        TextColorHover = rgb(250, 250, 250);
-        Texture = "themes/Black.png" Part(50, 22, 45, 50) Middle(10, 0) Smooth;
+        TextColorHover = #4FA2FF;
+        Texture = "logoutBackground.png" Smooth;
         TextureDisabled = None;
-        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDown = "logoutBackground.png" Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
-        TextureFocused = "themes/Black.png" Part(47, 74, 45, 50) Middle(10, 0) Smooth;
-        TextureHover = "themes/Black.png" Part(0, 126, 45, 50) Middle(10, 0) Smooth;
+        TextureFocused = "logoutBackground.png" Smooth;
+        TextureHover = "logoutBackground.png" Smooth;
+    }
+}
+
+Picture.Picture3 {
+    Position = (1185, 15);
+    Size = (20, 20);
+
+    Renderer {
+        Texture = "logoutIcon.png" Smooth;
+        TransparentTexture = false;
     }
 }
