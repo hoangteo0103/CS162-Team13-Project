@@ -12,7 +12,7 @@ ScrollablePanel.ScrollablePanel1 {
 }
 
 Label.Date {
-    Position = (440, 340);
+    Position = (440, 360);
     ScrollbarPolicy = Never;
     Size = (474.2, 39.4605);
     Text = "       Date";
@@ -81,7 +81,7 @@ Label."Course Name" {
 }
 
 Label.People {
-    Position = (920, 340);
+    Position = (920, 360);
     Size = (267.2, 48);
     Text = "  People";
     TextSize = 20;
@@ -99,7 +99,7 @@ Label.People {
 TextArea.TextArea1 {
     HorizontalScrollbarPolicy = Never;
     MaximumCharacters = 0;
-    Position = (920, 380);
+    Position = (920, 400);
     ReadOnly = true;
     Size = (268, 155);
     Text = " Teacher\n\n\n\n Participants\n";
@@ -121,7 +121,7 @@ TextArea.TextArea1 {
 }
 
 Button.Participants {
-    Position = (970, 495);
+    Position = (970, 515);
     Size = (168, 20);
     Text = "Show participants list";
     TextSize = 14;
@@ -152,7 +152,7 @@ Button.Participants {
 }
 
 Picture.Picture1 {
-    Position = (920, 494.737);
+    Position = (920, 514.737);
     Size = (48, 25.2632);
 
     Renderer {
@@ -162,7 +162,7 @@ Picture.Picture1 {
 }
 
 Picture.Picture2 {
-    Position = (930, 420);
+    Position = (930, 430);
     Size = (42, 36);
 
     Renderer {
@@ -172,40 +172,32 @@ Picture.Picture2 {
 }
 
 Label."Teacher Name" {
-    Position = (970, 430);
+    Position = (970, 440);
     ScrollbarPolicy = Never;
     Size = (217.2, 18);
-    TextSize = 15;
+    TextSize = 13;
 
     Renderer {
-        TextColor = black;
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
         TextureBackground = None;
-
-        Scrollbar {
-            TextureArrowDown = "themes/Black.png" Part(0, 0, 20, 20) Middle(0, 1, 20, 19) Smooth;
-            TextureArrowDownHover = "themes/Black.png" Part(22, 0, 20, 20) Middle(0, 1, 20, 19) Smooth;
-            TextureArrowUp = "themes/Black.png" Part(44, 0, 20, 20) Middle(0, 0, 20, 19) Smooth;
-            TextureArrowUpHover = "themes/Black.png" Part(66, 0, 20, 20) Middle(0, 0, 20, 19) Smooth;
-            TextureThumb = "themes/Black.png" Part(68, 465, 20, 20) Smooth;
-            TextureThumbHover = "themes/Black.png" Part(90, 465, 20, 20) Smooth;
-            TextureTrack = "themes/Black.png" Part(0, 499, 20, 20) Smooth;
-            TextureTrackHover = "themes/Black.png" Part(22, 499, 20, 20) Smooth;
-        }
     }
 }
 
 ListView.PaList {
     ExpandLastColumn = 0;
     GridLinesWidth = 0;
-    HeaderHeight = 75;
+    HeaderHeight = 60;
     HeaderSeparatorHeight = 0;
-    HeaderTextSize = 20;
+    HeaderTextSize = 30;
     HeaderVisible = true;
     ItemHeight = 20;
-    Position = (440, 340);
+    Position = (440, 360);
     SeparatorWidth = 0;
     ShowVerticalGridLines = 0;
-    Size = (474.2, 407);
+    Size = (430, 437);
     TextSize = 13;
 
     Renderer {
@@ -226,7 +218,7 @@ ListView.PaList {
 }
 
 Picture.Picture3 {
-    Position = (450, 345);
+    Position = (450, 365);
     Size = (29, 32);
 
     Renderer {
