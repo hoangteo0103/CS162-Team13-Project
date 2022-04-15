@@ -35,6 +35,7 @@
     <ClInclude Include="StudentInfo.h" />
     <ClInclude Include="Action.h" />
     <ClInclude Include="CreateRegistration.h" />
+    <ClInclude Include="OpenFileDialog.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />
