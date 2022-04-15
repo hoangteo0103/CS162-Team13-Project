@@ -1,9 +1,9 @@
 #pragma once
-#pragma once
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include <queue>
 #include <vector>
+#include "OpenFile.h"
 #include "SchoolYear.h"
 
 using namespace sf;
