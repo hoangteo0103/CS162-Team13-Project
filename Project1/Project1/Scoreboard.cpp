@@ -14,14 +14,14 @@ void onComboBoxSelected(Group& group_scoreboard, tgui::String getSelectedItem)
             group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(t.second);
 
         }
-        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, 50 * width + 80);
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, min(50 * width + 80LL , 600LL));
 
     }
     else {
         group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, 50);
         group_scoreboard.get<tgui::ListView>("ListView1")->removeAllItems();
         group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(mp[getSelectedItem]);
-        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, 50 * mp[getSelectedItem].size() + 80);
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1020, min(50LL * long long (mp[getSelectedItem].size()) + 80 , 600LL));
 
     }
 }
