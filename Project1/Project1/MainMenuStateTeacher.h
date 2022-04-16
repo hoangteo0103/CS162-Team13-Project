@@ -4,6 +4,7 @@
 #include "SchoolYear.h"
 #include "Action.h"
 #include "CreateRegistration.h"
+#include "TeacherScoreboard.h"
 
 using namespace sf;
 using namespace tgui;

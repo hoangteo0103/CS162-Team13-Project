@@ -173,6 +173,7 @@
     <ClCompile Include="State.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentInfo.cpp" />
+    <ClCompile Include="TeacherScoreboard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="Semester.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentInfo.h" />
+    <ClInclude Include="TeacherScoreboard.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="LoginState.h" />
     <ClInclude Include="State.h" />
