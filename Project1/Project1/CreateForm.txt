@@ -1,5 +1,27 @@
 Renderer.1 {
     BackgroundColor = #F5F5F5;
+    BackgroundColorHover = white;
+    BorderColor = black;
+    Borders = (1, 1, 1, 1);
+    HeaderBackgroundColor = #E6E6E6;
+    HeaderTextColor = black;
+    Padding = (0, 0, 0, 0);
+    SelectedBackgroundColor = #006EFF;
+    SelectedBackgroundColorHover = #1E96FF;
+    SelectedTextColor = white;
+    SeparatorColor = #C8C8C8;
+    TextColor = #3C3C3C;
+    TextColorHover = black;
+}
+
+Renderer.2 {
+    BackgroundColor = white;
+    BorderColor = black;
+    TextureBackground = None;
+}
+
+Renderer.3 {
+    BackgroundColor = #F5F5F5;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorHover = white;
     BorderColor = #3C3C3C;
@@ -20,13 +42,31 @@ Renderer.1 {
     TextureHover = None;
 }
 
-Renderer.2 {
-    BackgroundColor = white;
-    BorderColor = black;
-    TextureBackground = None;
+Renderer.4 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
+    Texture = None;
+    TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = None;
 }
 
-Renderer.3 {
+Renderer.5 {
     BackgroundColor = #2A89DE;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorDown = #EBEBEB;
@@ -53,7 +93,7 @@ Renderer.3 {
     TextureHover = None;
 }
 
-Renderer.4 {
+Renderer.6 {
     BackgroundColor = transparent;
     BorderColor = #3C3C3C;
     Borders = (0, 0, 0, 0);
@@ -86,7 +126,7 @@ Panel.Panel1 {
 
     Button."Create School Year" {
         Position = (50, 100);
-        Renderer = &3;
+        Renderer = &5;
         Size = (260, 52);
         Text = "Create School Year";
         TextSize = 13;
@@ -131,7 +171,7 @@ Panel.Panel1 {
     Label.Label2 {
         AutoSize = true;
         Position = (620, 120);
-        Renderer = &4;
+        Renderer = &6;
         Size = (37.2, 18);
         Text = Label;
         TextSize = 13;
@@ -140,7 +180,7 @@ Panel.Panel1 {
 
 Button.Button1 {
     Position = (160, 450);
-    Renderer = &3;
+    Renderer = &5;
     Size = (260, 62);
     Text = "Create Course";
     TextSize = 13;
@@ -148,20 +188,20 @@ Button.Button1 {
 
 Button.Button2 {
     Position = (160, 370);
-    Renderer = &3;
+    Renderer = &5;
     Size = (260, 52);
     Text = "Create Semester";
     TextSize = 13;
 }
 
 Panel.Panel2 {
-    Position = (510, 180);
+    Position = (510, 170);
     Renderer = &2;
     Size = (640, 600);
 
     Label.Error {
         HorizontalAlignment = Center;
-        Position = (70, 200);
+        Position = (360, 155);
         Size = (397.2, 32.5161);
         Text = "Error : Unindentified file";
         TextSize = 13;
@@ -197,7 +237,7 @@ Panel.Panel2 {
     Label.Year {
         HorizontalAlignment = Center;
         Position = (40, 42);
-        Renderer = &4;
+        Renderer = &6;
         ScrollbarPolicy = Never;
         Size = (177.2, 18);
         Text = "Input School Year";
@@ -206,7 +246,7 @@ Panel.Panel2 {
 
     EditBox.EditBox1 {
         Position = (220, 40);
-        Renderer = &1;
+        Renderer = &3;
         Size = (250, 22);
         TextSize = 13;
     }
@@ -246,13 +286,6 @@ Panel.Panel2 {
         }
     }
 
-    EditBox.ClassCode {
-        Position = (220, 120);
-        Renderer = &1;
-        Size = (250, 22);
-        TextSize = 13;
-    }
-
     Label.Import {
         HorizontalAlignment = Center;
         Position = (40, 162);
@@ -290,32 +323,9 @@ Panel.Panel2 {
 
     Button.Load {
         Position = (400, 160);
+        Renderer = &4;
         Text = "Load FIle";
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = #F5F5F5;
-            BackgroundColorDisabled = #E6E6E6;
-            BackgroundColorDown = #EBEBEB;
-            BackgroundColorHover = white;
-            BorderColor = #3C3C3C;
-            BorderColorDisabled = #7D7D7D;
-            BorderColorDown = black;
-            BorderColorFocused = #1E1EB4;
-            BorderColorHover = black;
-            Borders = (1, 1, 1, 1);
-            TextColor = #3C3C3C;
-            TextColorDisabled = #7D7D7D;
-            TextColorDown = black;
-            TextColorHover = black;
-            Texture = None;
-            TextureDisabled = None;
-            TextureDown = None;
-            TextureDownFocused = None;
-            TextureDownHover = None;
-            TextureFocused = None;
-            TextureHover = None;
-        }
     }
 
     Label.File {
@@ -351,32 +361,49 @@ Panel.Panel2 {
         }
     }
 
+    ListView.ListClasses {
+        AutoScroll = false;
+        ExpandLastColumn = 0;
+        HeaderHeight = 0;
+        HeaderSeparatorHeight = 0;
+        HeaderVisible = true;
+        ItemHeight = 20;
+        Position = (30, 200);
+        Renderer = &1;
+        SeparatorWidth = 1;
+        ShowVerticalGridLines = 1;
+        Size = (570, 67);
+        TextSize = 13;
+        Visible = false;
+    }
+
     ListView.ListView1 {
         ExpandLastColumn = 0;
         HeaderHeight = 0;
         HeaderSeparatorHeight = 0;
         HeaderVisible = true;
         ItemHeight = 20;
-        Position = (30, 190);
+        Position = (30, 200);
+        Renderer = &1;
         SeparatorWidth = 1;
         ShowVerticalGridLines = 1;
-        Size = (550, 87);
+        Size = (570, 67);
         TextSize = 13;
+    }
 
-        Renderer {
-            BackgroundColor = #F5F5F5;
-            BackgroundColorHover = white;
-            BorderColor = black;
-            Borders = (1, 1, 1, 1);
-            HeaderBackgroundColor = #E6E6E6;
-            HeaderTextColor = black;
-            Padding = (0, 0, 0, 0);
-            SelectedBackgroundColor = #006EFF;
-            SelectedBackgroundColorHover = #1E96FF;
-            SelectedTextColor = white;
-            SeparatorColor = #C8C8C8;
-            TextColor = #3C3C3C;
-            TextColorHover = black;
-        }
+    Button.AddClass {
+        Position = (270, 400);
+        Renderer = &4;
+        Size = (100, 22);
+        Text = Add;
+        TextSize = 13;
+        Visible = false;
+    }
+
+    EditBox.ClassName {
+        Position = (220, 120);
+        Renderer = &3;
+        Size = (250, 22);
+        TextSize = 13;
     }
 }

@@ -1,1 +1,3 @@
-﻿  Project1.vcxproj -> E:\Study\CS162\FinalProject\Project1\x64\Debug\Project1.exe
+﻿  CreateRegistration.cpp
+D:\Project - CS162\Project1\Project1\CreateRegistration.cpp(166,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe

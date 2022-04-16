@@ -2,11 +2,23 @@
 #include "Scoreboard.h"
 #include "Student.h"
 
-SpecificClass* Class = new SpecificClass;
+SpecificClass* Class = new SpecificClass ;
+SpecificClass* nowClass ;
 
-void delListClass()
+void addNewClassToList(SpecificClass*& curClass , SpecificClass* &now)
 {
-	Student* student = Class->classStudent;
+	if (curClass->classStudent == nullptr)
+	{
+		curClass = now; 
+		return; 
+	}
+	now->nextClass = curClass;
+	curClass = now; 
+}
+
+void delListClass(SpecificClass* &delClass)
+{
+	Student* student = delClass->classStudent;
 	if (student == nullptr) return; 
 	while (student->nextStudent)
 	{
@@ -15,7 +27,23 @@ void delListClass()
 		delete delptr;
 	}
 	delete student;
-	Class->classStudent = nullptr;
+	delClass->classStudent = nullptr;
+}
+
+void createListOfClasses(Group& group_create)
+{
+	group_create.get<ListView>("ListClasses")->removeAllColumns();
+	group_create.get<ListView>("ListClasses")->addColumn("List of First-Year Classes" , 570 , ListView::ColumnAlignment::Center);
+	if (Class->classStudent == nullptr)
+	{
+		group_create.get<ListView>("ListClasses")->addItem("None");
+		return;
+	}
+	for (SpecificClass* cur = Class; cur; cur = cur->nextClass)
+	{
+		cout << 1;
+		group_create.get<ListView>("ListClasses")->addItem(cur->className);
+	}
 }
 
 void createListView(Group& group_create)
@@ -28,10 +56,10 @@ void createListView(Group& group_create)
 	group_create.get<ListView>("ListView1")->addColumn("Firt Name", 100);
 	group_create.get<ListView>("ListView1")->addColumn("Last Name", 100);
 	group_create.get<ListView>("ListView1")->addColumn("Gender", 70);
-	group_create.get<ListView>("ListView1")->addColumn("DOB", 80);
+	group_create.get<ListView>("ListView1")->addColumn("DOB", 100);
 	group_create.get<ListView>("ListView1")->addColumn("SocialId", 80);
 	int cnt = 0; 
-	for (Student* cur = Class->classStudent; cur; cur = cur->nextStudent)
+	for (Student* cur = nowClass->classStudent; cur; cur = cur->nextStudent)
 	{
 		cout << cur->firstName << endl;
 		cnt++; 
@@ -39,7 +67,12 @@ void createListView(Group& group_create)
 		tgui::String dob = tgui::String(cur->DoB.date) + "/" + tgui::String(cur->DoB.month) + "/" + tgui::String(cur->DoB.year);
 		group_create.get<ListView>("ListView1")->addItem({ tgui::String(cnt) , tgui::String(cur->studentID) , cur->firstName , cur->lastName , gender , dob , tgui::String(cur->socialID) });
 	}
-	group_create.get<ListView>("ListView1")->setSize(550, cnt * 20 + 25);
+	group_create.get<ListView>("ListView1")->setSize(570, cnt * 25 + 25);
+}
+
+void change(SpecificClass* now, SpecificClass*& nowClass)
+{
+	nowClass = now;
 }
 
 bool inputFileFromCSV(string file_path)
@@ -48,7 +81,7 @@ bool inputFileFromCSV(string file_path)
 	ifstream fin(file_path);
 	string line, word;
 	int num = 0;
-	delListClass();
+	SpecificClass* now = new SpecificClass; 
 
 	while (getline(fin, line)) {
 		num++;
@@ -94,24 +127,36 @@ bool inputFileFromCSV(string file_path)
 				stoint >> gen;
 				break;
 			case 6:
-				dob = Class->classStudent->getDoB(&word);
+				dob = now->classStudent->getDoB(&word);
 				break;
 			case 7:
 				stoint >> sID;
-				Class->classStudent->addNewStudent(Class->classStudent, new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit));
+				now->classStudent->addNewStudent(now->classStudent, new Student(no, ID, fName, lName, gen, dob, sID, sClass, credit));
 				break;
 			}
 		}
 	}
+	now->nextClass = nullptr;
+	change(now, nowClass);
 	fin.close();
-
 	return true;
+	
 }
 
 void onCreateSelected(Group& group_create, Group& group_student)
 {
 	group_create.setVisible(true);
 	group_student.setVisible(false);
+}
+void onAddClass(Group& group_create)
+{
+	group_create.get<ListView>("ListView1")->setVisible(false); 
+	group_create.get<Button>("AddClass")->setVisible(false); 
+	group_create.get<ListView>("ListClasses")->setVisible(true);
+	string classname =group_create.get<tgui::EditBox>("ClassName")->getText().toStdString();
+	strcpy(nowClass->className , classname.c_str());
+	addNewClassToList(Class, nowClass);
+	createListOfClasses(group_create);
 }
 
 void onLoad(Group& group_create)
@@ -131,16 +176,20 @@ void onLoad(Group& group_create)
 	if (inputFileFromCSV(file_path))
 	{
 		group_create.get<Label>("Error")->setVisible(false);
+		group_create.get<Button>("AddClass")->setVisible(true);
 		createListView(group_create);
 	}
 	else {
 		group_create.get<Label>("Error")->setVisible(true);
 	}
+	group_create.get<ListView>("ListClasses")->setVisible(false);
 }
 
 void init_group_create(Group& group_create)
 {
 	group_create.loadWidgetsFromFile("CreateForm.txt");
+	Class->classStudent = nullptr;
+	Class->nextClass = nullptr;
 }
 
 void loadcreatewidget(Group& group_create)
@@ -149,5 +198,7 @@ void loadcreatewidget(Group& group_create)
 	group_create.get<ListView>("ListView1")->setVisible(false);
 	group_create.get<Label>("Error")->setVisible(false);
 	group_create.get<tgui::Button>("Load")->onClick(&onLoad, ref(group_create));
+	group_create.get<tgui::Button>("AddClass")->onClick(&onAddClass , ref(group_create));
+	createListOfClasses(group_create);
 
 }
