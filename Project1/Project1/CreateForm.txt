@@ -1,10 +1,4 @@
 Renderer.1 {
-    BackgroundColor = white;
-    BorderColor = black;
-    TextureBackground = None;
-}
-
-Renderer.2 {
     BackgroundColor = #F5F5F5;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorHover = white;
@@ -26,33 +20,13 @@ Renderer.2 {
     TextureHover = None;
 }
 
-Renderer.3 {
-    BackgroundColor = transparent;
-    BorderColor = #3C3C3C;
-    Borders = (0, 0, 0, 0);
-    TextColor = #3C3C3C;
+Renderer.2 {
+    BackgroundColor = white;
+    BorderColor = black;
     TextureBackground = None;
-
-    Scrollbar {
-        ArrowBackgroundColor = #F5F5F5;
-        ArrowBackgroundColorHover = white;
-        ArrowColor = #3C3C3C;
-        ArrowColorHover = black;
-        TextureArrowDown = None;
-        TextureArrowDownHover = None;
-        TextureArrowUp = None;
-        TextureArrowUpHover = None;
-        TextureThumb = None;
-        TextureThumbHover = None;
-        TextureTrack = None;
-        TextureTrackHover = None;
-        ThumbColor = #DCDCDC;
-        ThumbColorHover = #E6E6E6;
-        TrackColor = #F5F5F5;
-    }
 }
 
-Renderer.4 {
+Renderer.3 {
     BackgroundColor = #2A89DE;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorDown = #EBEBEB;
@@ -79,14 +53,40 @@ Renderer.4 {
     TextureHover = None;
 }
 
+Renderer.4 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+
+    Scrollbar {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        TextureArrowDown = None;
+        TextureArrowDownHover = None;
+        TextureArrowUp = None;
+        TextureArrowUpHover = None;
+        TextureThumb = None;
+        TextureThumbHover = None;
+        TextureTrack = None;
+        TextureTrackHover = None;
+        ThumbColor = #DCDCDC;
+        ThumbColorHover = #E6E6E6;
+        TrackColor = #F5F5F5;
+    }
+}
+
 Panel.Panel1 {
     Position = (110, 180);
-    Renderer = &1;
+    Renderer = &2;
     Size = (360, 590);
 
     Button."Create School Year" {
         Position = (50, 100);
-        Renderer = &4;
+        Renderer = &3;
         Size = (260, 52);
         Text = "Create School Year";
         TextSize = 13;
@@ -131,7 +131,7 @@ Panel.Panel1 {
     Label.Label2 {
         AutoSize = true;
         Position = (620, 120);
-        Renderer = &3;
+        Renderer = &4;
         Size = (37.2, 18);
         Text = Label;
         TextSize = 13;
@@ -140,7 +140,7 @@ Panel.Panel1 {
 
 Button.Button1 {
     Position = (160, 450);
-    Renderer = &4;
+    Renderer = &3;
     Size = (260, 62);
     Text = "Create Course";
     TextSize = 13;
@@ -148,7 +148,7 @@ Button.Button1 {
 
 Button.Button2 {
     Position = (160, 370);
-    Renderer = &4;
+    Renderer = &3;
     Size = (260, 52);
     Text = "Create Semester";
     TextSize = 13;
@@ -156,13 +156,48 @@ Button.Button2 {
 
 Panel.Panel2 {
     Position = (510, 180);
-    Renderer = &1;
+    Renderer = &2;
     Size = (640, 600);
+
+    Label.Error {
+        HorizontalAlignment = Center;
+        Position = (70, 200);
+        Size = (397.2, 32.5161);
+        Text = "Error : Unindentified file";
+        TextSize = 13;
+        VerticalAlignment = Center;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #FF0800;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
 
     Label.Year {
         HorizontalAlignment = Center;
         Position = (40, 42);
-        Renderer = &3;
+        Renderer = &4;
         ScrollbarPolicy = Never;
         Size = (177.2, 18);
         Text = "Input School Year";
@@ -171,7 +206,7 @@ Panel.Panel2 {
 
     EditBox.EditBox1 {
         Position = (220, 40);
-        Renderer = &2;
+        Renderer = &1;
         Size = (250, 22);
         TextSize = 13;
     }
@@ -213,7 +248,7 @@ Panel.Panel2 {
 
     EditBox.ClassCode {
         Position = (220, 120);
-        Renderer = &2;
+        Renderer = &1;
         Size = (250, 22);
         TextSize = 13;
     }
@@ -295,6 +330,24 @@ Panel.Panel2 {
             Borders = (0, 0, 0, 0);
             TextColor = #3C3C3C;
             TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
         }
     }
 
@@ -304,10 +357,10 @@ Panel.Panel2 {
         HeaderSeparatorHeight = 0;
         HeaderVisible = true;
         ItemHeight = 20;
-        Position = (40, 200);
+        Position = (30, 190);
         SeparatorWidth = 1;
         ShowVerticalGridLines = 1;
-        Size = (550, 307);
+        Size = (550, 87);
         TextSize = 13;
 
         Renderer {
