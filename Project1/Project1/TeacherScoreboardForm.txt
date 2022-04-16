@@ -26,7 +26,7 @@ ComboBox.ComboBox1 {
 }
 
 ComboBox.ComboBox2 {
-    ChangeItemOnScroll = false;
+    ChangeItemOnScroll = true;
     ItemsToDisplay = 0;
     MaximumItems = 0;
     Position = (390, 140);
