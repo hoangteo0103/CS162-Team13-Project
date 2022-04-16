@@ -1,5 +1,7 @@
 #include "MainMenuState.h"      
 
+Course* curCourse1;
+
 void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
 {
     SpecificClass* newClass = new SpecificClass;
@@ -174,9 +176,9 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     vc->push_back(&group_student);
     vc->push_back(&group_scoreboard);
     vc->push_back(&group_studentInfo);
-    Course* curCourse = new Course;
-    group_course.get<Button>("Participants")->onClick(&onParticipants , ref(group_course) ,ref(curCourse));
-    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears , ref(curCourse) , neededStudent);
+    curCourse1 = new Course;
+    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears, ref(curCourse1), neededStudent);
+    group_course.get<Button>("Participants")->onClick(&onParticipants , ref(group_course) ,ref(curCourse1));
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
@@ -229,6 +231,17 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
+
+    for (SchoolYear* i = schoolYears; i; i = i->nextSchoolYear) {
+        for (Semester* j = i->nowSemester; j; j = j->nextSemester) {
+            for (Course* k = j->nowCourse; k; k = k->nextCourse) {
+                for (Student* nowStudent = k->nxtStudent; nowStudent; nowStudent = nowStudent->nextStudent) {
+                    cout << nowStudent->studentID << '\n';
+                }
+            }
+        }
+    }
+
     addComponents(gui, schoolYears, studentID, *group_course, *group_student, *group_scoreboard, *group_studentInfo);
     gui.add(group_course);
     gui.add(group_student);

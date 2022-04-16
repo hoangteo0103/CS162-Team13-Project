@@ -88,6 +88,10 @@ void Course::addNewStudentClass(SpecificClass* nowClass, string curDir) {
 	
 	ifstream fin;
 	fin.open(curDir);
+	if (!fin.good()) {
+		//cout << "Okay this is shit\n";
+		return;
+	}
 
 	string line, word;
 	int num = 0;
@@ -119,6 +123,7 @@ void Course::addNewStudentClass(SpecificClass* nowClass, string curDir) {
 					stdName[i] = word[i];
 				}
 				stdName[word.length()] = '\0';
+				//cerr << stdName << '\n';
 				break;
 			case 4:
 				stoint >> mTerm;
@@ -143,10 +148,10 @@ void Course::addNewStudentClass(SpecificClass* nowClass, string curDir) {
 				studentName += ' ';
 				studentName += j->lastName;
 
-				//cerr << j->firstName << '\n';
+				//cerr << stdName << '\n';
 
 				if (!studentName.compare(stdName)) {
-
+					//cerr << 1 << '\n';
 					if (!this->nxtStudent) {
 						this->nxtStudent = new Student(j->No, j->studentID, j->firstName, j->lastName, j->gender, j->DoB, j->socialID, j->specificClass, j->totalCredits);
 						this->nxtStudent->nextStudent = nullptr;

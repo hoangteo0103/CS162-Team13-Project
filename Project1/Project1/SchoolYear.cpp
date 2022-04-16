@@ -204,16 +204,16 @@ void SchoolYear::loadListofSemester(int amount, string year) {
 			Course* course = new Course(ID, cName, tName, credit, ss1, ss1Day, ss2, ss2Day, mStudent);
 			//cerr << 1 << '\n';
 			course->addNewStudentClass(this->nowClass, curDir + course->courseName + ".csv");
-
+			//cerr << (course->nxtStudent == nullptr);
 			//cerr << 1 << '\n';
+
+			//cerr << course->courseName << ' ' << (course->nxtStudent == nullptr) << '\n';
 
 			/*for (Student* i = course->nxtStudent; i; i = i->nextStudent) {
 				cerr << i->firstName << ' ' << i->lastName << '\n';
 			}*/
 
 			semester->addNewCourse(course);
-
-			//cerr << "Lmao haha ded vl\n";
 		}
 
 		this->addNewSemester(semester);

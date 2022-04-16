@@ -1,5 +1,6 @@
 #include "MainMenuState.h"      
 
+Course* curCourse2;
 
 bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String teacherName, tgui::Group& group_course,
     tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo, tgui::Group& group_create)
@@ -49,9 +50,9 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     vc->push_back(&group_scoreboard);
     vc->push_back(&group_studentInfo);
     vc->push_back(&group_create);
-    Course* curCourse = new Course;
-    group_course.get<Button>("Participants")->onClick(&onParticipants, ref(group_course), ref(curCourse));
-    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected2, ref(group_course), schoolYears, ref(curCourse));
+    curCourse2 = new Course;
+    group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected2, ref(group_course), schoolYears, ref(curCourse2));
+    group_course.get<Button>("Participants")->onClick(&onParticipants, ref(group_course), ref(curCourse2));
     //group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     //group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     group_student.get<tgui::Button>("Create")->onClick(&onCreateSelected, ref(group_create), ref(group_student));
@@ -109,6 +110,17 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
+
+    /*for (SchoolYear* i = schoolYears; i; i = i->nextSchoolYear) {
+        for (Semester* j = i->nowSemester; j; j = j->nextSemester) {
+            for (Course* k = j->nowCourse; k; k = k->nextCourse) {
+                for (Student* nowStudent = k->nxtStudent; nowStudent; nowStudent = nowStudent->nextStudent) {
+                    cout << nowStudent->studentID << '\n';
+                }
+            }
+        }
+    }*/
+
     addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentInfo, *group_create);
     gui.add(group_course);
     gui.add(group_student);

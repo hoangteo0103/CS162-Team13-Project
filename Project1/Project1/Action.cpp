@@ -132,6 +132,7 @@ void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course*
                 if (!sItem.compare(k->courseName)) {
                     check = true;
                     curCourse = k;
+                    //cerr << curCourse->courseName << '\n';
                     group_course.get<Label>("Course Name")->setTextSize(30);
                     group_course.get<Label>("Course Name")->setText(k->courseName);
                     group_course.get<Label>("Teacher Name")->setTextSize(13);
