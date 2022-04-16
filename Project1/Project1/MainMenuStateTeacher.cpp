@@ -1,4 +1,4 @@
-#include "MainMenuState.h"      
+#include "MainMenuStateTeacher.h"      
 
 Course* curCourse2;
 
@@ -39,6 +39,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     }
 
     loadcreatewidget(group_create);
+    loadScoreBoardWidget(group_scoreboard, schoolYears);
 
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
@@ -53,7 +54,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     curCourse2 = new Course;
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected2, ref(group_course), schoolYears, ref(curCourse2));
     group_course.get<Button>("Participants")->onClick(&onParticipants, ref(group_course), ref(curCourse2));
-    //group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
+    group_student.get<tgui::Button>("ScoreBoard")->onClick(&onTeacherScoreboardSelected, ref(group_scoreboard), ref(group_student));
     //group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     group_student.get<tgui::Button>("Create")->onClick(&onCreateSelected, ref(group_create), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected2, ref(gui), curSelectedTab, vc);
@@ -108,6 +109,7 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
     auto group_create = tgui::Group::create();
     group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
+    group_scoreboard->loadWidgetsFromFile("TeacherScoreboardForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
 

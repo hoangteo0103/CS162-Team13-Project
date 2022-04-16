@@ -232,7 +232,7 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
 
-    for (SchoolYear* i = schoolYears; i; i = i->nextSchoolYear) {
+    /*for (SchoolYear* i = schoolYears; i; i = i->nextSchoolYear) {
         for (Semester* j = i->nowSemester; j; j = j->nextSemester) {
             for (Course* k = j->nowCourse; k; k = k->nextCourse) {
                 for (Student* nowStudent = k->nxtStudent; nowStudent; nowStudent = nowStudent->nextStudent) {
@@ -240,7 +240,7 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
                 }
             }
         }
-    }
+    }*/
 
     addComponents(gui, schoolYears, studentID, *group_course, *group_student, *group_scoreboard, *group_studentInfo);
     gui.add(group_course);
