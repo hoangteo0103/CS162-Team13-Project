@@ -3,7 +3,7 @@
 Course* curCourse2;
 
 bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String teacherName, tgui::Group& group_course,
-    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo, tgui::Group& group_create)
+    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo, tgui::Group& group_small_studentInfo, tgui::Group& group_create)
 {
     tgui::Theme theme{ "themes/Black.txt" };
 
@@ -40,6 +40,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
 
     loadcreatewidget(group_create);
     loadScoreBoardWidget(group_scoreboard, schoolYears);
+    loadStudentWidget(group_studentInfo, schoolYears);
 
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
@@ -50,12 +51,14 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     vc->push_back(&group_student);
     vc->push_back(&group_scoreboard);
     vc->push_back(&group_studentInfo);
+    vc->push_back(&group_small_studentInfo);
     vc->push_back(&group_create);
     curCourse2 = new Course;
+    group_studentInfo.get<tgui::ListView>("ListView1")->onDoubleClick(&onItemDoubleClick, ref(group_studentInfo), ref(group_small_studentInfo), schoolYears);
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected2, ref(group_course), schoolYears, ref(curCourse2));
     group_course.get<Button>("Participants")->onClick(&onParticipants, ref(group_course), ref(curCourse2));
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onTeacherScoreboardSelected, ref(group_scoreboard), ref(group_student));
-    //group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
+    group_student.get<tgui::Button>("Teacher Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     group_student.get<tgui::Button>("Create")->onClick(&onCreateSelected, ref(group_create), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected2, ref(gui), curSelectedTab, vc);
     gui.get<Button>("Logout")->onClick(&onClickedLogout, ref(gui));
@@ -107,32 +110,26 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
     auto group_scoreboard = tgui::Group::create();
     auto group_studentInfo = tgui::Group::create();
     auto group_create = tgui::Group::create();
+    auto group_small_studentInfo = tgui::Group::create();
     group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     group_scoreboard->loadWidgetsFromFile("TeacherScoreboardForm.txt");
+    group_small_studentInfo->loadWidgetsFromFile("StudentInfoForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
 
-    /*for (SchoolYear* i = schoolYears; i; i = i->nextSchoolYear) {
-        for (Semester* j = i->nowSemester; j; j = j->nextSemester) {
-            for (Course* k = j->nowCourse; k; k = k->nextCourse) {
-                for (Student* nowStudent = k->nxtStudent; nowStudent; nowStudent = nowStudent->nextStudent) {
-                    cout << nowStudent->studentID << '\n';
-                }
-            }
-        }
-    }*/
-
-    addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentInfo, *group_create);
+    addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentInfo, *group_small_studentInfo, *group_create);
     gui.add(group_course);
     gui.add(group_student);
     gui.add(group_scoreboard);
     gui.add(group_studentInfo);
     gui.add(group_create);
+    gui.add(group_small_studentInfo);
     group_course->setVisible(true);
     group_student->setVisible(false);
     group_scoreboard->setVisible(false);
     group_studentInfo->setVisible(false);
+    group_small_studentInfo->setVisible(false);
     group_create->setVisible(false);
     hideGroupCourseTeacher(*group_course);
 }
