@@ -11,11 +11,11 @@ void onParticipants(Group& group_course, Course*& curCourse)
     group_course.get<ListView>("PaList")->setVisible(true);
     group_course.get<ListView>("PaList")->removeAllColumns();
     group_course.get<ListView>("PaList")->removeAllItems();
-    group_course.get<ListView>("PaList")->addColumn("First" + tgui::String("\n") + "Name", 100);
-    group_course.get<ListView>("PaList")->addColumn("Last" + tgui::String("\n") + "Name", 100);
-    group_course.get<ListView>("PaList")->addColumn("Class", 80);
-    group_course.get<ListView>("PaList")->addColumn("StudentID", 120);
-    group_course.get<ListView>("PaList")->addColumn("Roles", 70);
+    group_course.get<ListView>("PaList")->addColumn("First Name", 140, tgui::ListView::ColumnAlignment::Center);
+    group_course.get<ListView>("PaList")->addColumn("Last Name", 130, tgui::ListView::ColumnAlignment::Center);
+    group_course.get<ListView>("PaList")->addColumn("Class", 100, tgui::ListView::ColumnAlignment::Center);
+    group_course.get<ListView>("PaList")->addColumn("StudentID", 140, tgui::ListView::ColumnAlignment::Center);
+    group_course.get<ListView>("PaList")->addColumn("Roles", 70, tgui::ListView::ColumnAlignment::Center);
     // Date 
     group_course.get<Label>("Date")->setVisible(false);
     group_course.get<Picture>("Picture3")->setVisible(false);

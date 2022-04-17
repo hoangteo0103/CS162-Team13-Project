@@ -1,0 +1,54 @@
+ListView.ListView1 {
+    ExpandLastColumn = 0;
+    HeaderHeight = 0;
+    HeaderSeparatorHeight = 0;
+    HeaderVisible = true;
+    ItemHeight = 20;
+    Position = (100, 280);
+    SeparatorWidth = 1;
+    ShowVerticalGridLines = 1;
+    Size = (1100, 437);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorHover = white;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        HeaderBackgroundColor = #E6E6E6;
+        HeaderTextColor = black;
+        Padding = (0, 0, 0, 0);
+        SelectedBackgroundColor = #006EFF;
+        SelectedBackgroundColorHover = #1E96FF;
+        SelectedTextColor = white;
+        SeparatorColor = #C8C8C8;
+        TextColor = #3C3C3C;
+        TextColorHover = black;
+    }
+}
+
+ComboBox.ComboBox1 {
+    ChangeItemOnScroll = false;
+    ItemsToDisplay = 0;
+    MaximumItems = 0;
+    Position = (110, 210);
+    Size = (180, 32);
+    TextSize = 13;
+
+    Renderer {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        BackgroundColor = #F5F5F5;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        Padding = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextureArrow = None;
+        TextureArrowDisabled = None;
+        TextureArrowHover = None;
+        TextureBackground = None;
+        TextureBackgroundDisabled = None;
+    }
+}

@@ -5,14 +5,16 @@ ListView.ListView1 {
     HeaderSeparatorHeight = 0;
     HeaderVisible = true;
     ItemHeight = 50;
-    Position = (120, 210);
+    Position = (100, 210);
     SeparatorWidth = 2;
     ShowVerticalGridLines = 1;
-    Size = (1020, 537);
+    Size = (1100, 537);
     TextSize = 13;
     UserData = "";
 
     Renderer {
+        Borders = (1, 1, 1, 1);
+
         Scrollbar {
             ArrowBackgroundColor = #F5F5F5;
             ArrowBackgroundColorHover = white;

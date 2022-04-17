@@ -1,7 +1,7 @@
 ScrollablePanel.ScrollablePanel1 {
     ContentSize = (550, 420);
-    Position = (420, 190);
-    Size = (780, 610);
+    Position = (350, 150);
+    Size = (950, 600);
 
     Renderer {
         BackgroundColor = white;
@@ -30,11 +30,13 @@ Label.Date {
 
 TreeView.TreeView1 {
     ItemHeight = 30;
-    Position = (40, 190);
-    Size = (380, 611);
+    Position = (0, 150);
+    Size = (300, 600);
     TextSize = 13;
 
     Renderer {
+        BorderColor = black;
+        Borders = (2, 2, 2, 2);
         TextureBranchCollapsed = None;
         TextureBranchExpanded = None;
         TextureLeaf = None;
@@ -42,7 +44,7 @@ TreeView.TreeView1 {
 }
 
 Label."Course Name" {
-    Position = (440, 210);
+    Position = (375, 180);
     ScrollbarPolicy = Never;
     Size = (757.2, 110);
     TextSize = 40;
@@ -52,6 +54,7 @@ Label."Course Name" {
         BackgroundColor = transparent;
         BorderColor = #E5E5E5;
         Borders = (2, 2, 2, 2);
+        Padding = (20, 0, 0, 0);
         TextColor = #117A65;
         TextureBackground = None;
 
@@ -76,8 +79,8 @@ Label."Course Name" {
 }
 
 Label.People {
-    Position = (920, 360);
-    Size = (267.2, 48);
+    Position = (1000, 360);
+    Size = (298, 48);
     Text = "  People";
     TextSize = 20;
     VerticalAlignment = Center;
@@ -94,9 +97,9 @@ Label.People {
 TextArea.TextArea1 {
     HorizontalScrollbarPolicy = Never;
     MaximumCharacters = 0;
-    Position = (920, 400);
+    Position = (1000, 400);
     ReadOnly = true;
-    Size = (268, 155);
+    Size = (298, 155);
     Text = " Teacher\n\n\n\n Participants\n";
     TextSize = 18;
 
@@ -116,7 +119,7 @@ TextArea.TextArea1 {
 }
 
 Button.Participants {
-    Position = (970, 515);
+    Position = (1070, 515);
     Size = (168, 20);
     Text = "Show participants list";
     TextSize = 14;
@@ -147,8 +150,8 @@ Button.Participants {
 }
 
 Picture.Picture1 {
-    Position = (920, 514.737);
-    Size = (48, 25.2632);
+    Position = (1020, 510);
+    Size = (40, 40);
 
     Renderer {
         Texture = "images/participants.PNG" Smooth;
@@ -157,8 +160,8 @@ Picture.Picture1 {
 }
 
 Picture.Picture2 {
-    Position = (930, 430);
-    Size = (42, 36);
+    Position = (1020, 430);
+    Size = (40, 40);
 
     Renderer {
         Texture = "images/teacher.PNG" Smooth;
@@ -167,7 +170,7 @@ Picture.Picture2 {
 }
 
 Label."Teacher Name" {
-    Position = (970, 440);
+    Position = (1070, 440);
     ScrollbarPolicy = Never;
     Size = (217.2, 18);
     TextSize = 13;
@@ -177,6 +180,7 @@ Label."Teacher Name" {
         BorderColor = #3C3C3C;
         Borders = (0, 0, 0, 0);
         TextColor = #3C3C3C;
+        TextStyle = Regular;
         TextureBackground = None;
     }
 }
@@ -186,13 +190,13 @@ ListView.PaList {
     GridLinesWidth = 0;
     HeaderHeight = 60;
     HeaderSeparatorHeight = 0;
-    HeaderTextSize = 30;
+    HeaderTextSize = 20;
     HeaderVisible = true;
     ItemHeight = 20;
-    Position = (440, 360);
+    Position = (375, 300);
     SeparatorWidth = 0;
     ShowVerticalGridLines = 0;
-    Size = (430, 437);
+    Size = (600, 400);
     TextSize = 13;
 
     Renderer {
@@ -213,7 +217,7 @@ ListView.PaList {
 }
 
 Picture.Picture3 {
-    Position = (450, 365);
+    Position = (375, 320);
     Size = (29, 32);
 
     Renderer {
@@ -225,9 +229,9 @@ Picture.Picture3 {
 TextArea.TextArea2 {
     HorizontalScrollbarPolicy = Never;
     MaximumCharacters = 0;
-    Position = (440, 400);
+    Position = (375, 370);
     ReadOnly = true;
-    Size = (474.2, 205);
+    Size = (600, 220);
     Text = "";
     TextSize = 15;
     VerticalScrollbarPolicy = Never;
@@ -239,7 +243,7 @@ TextArea.TextArea2 {
         CaretColor = black;
         CaretWidth = 1;
         DefaultTextColor = #A0A0A0;
-        Padding = (0, 0, 0, 0);
+        Padding = (20, 0, 0, 0);
         SelectedTextBackgroundColor = #006EFF;
         SelectedTextColor = white;
         TextColor = #FF6600;

@@ -1,43 +1,84 @@
-Renderer.1 {
-    TextColor = rgb(190, 190, 190);
-    TextColorHover = rgb(250, 250, 250);
-    Texture = "themes/Black.png" Part(50, 22, 45, 50) Middle(10, 0) Smooth;
-    TextureDisabled = None;
-    TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
-    TextureDownFocused = None;
-    TextureDownHover = None;
-    TextureFocused = "themes/Black.png" Part(47, 74, 45, 50) Middle(10, 0) Smooth;
-    TextureHover = "themes/Black.png" Part(0, 126, 45, 50) Middle(10, 0) Smooth;
-}
-
 Button.ScoreBoard {
-    Position = (190, 190);
-    Renderer = &1;
-    Size = (340, 114);
+    Position = (275, 200);
+    Size = (300, 120);
     Text = ScoreBoard;
-    TextSize = 13;
+    TextSize = 18;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = transparent;
+        Borders = (0, 0, 0, 0);
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+    }
 }
 
 Button."Student Info" {
-    Position = (190, 350);
-    Renderer = &1;
-    Size = (340, 114);
+    Position = (275, 400);
+    Size = (300, 120);
     Text = "Student Info";
-    TextSize = 13;
+    TextSize = 18;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = transparent;
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+    }
 }
 
 Button."Course Registration" {
-    Position = (640, 190);
-    Renderer = &1;
-    Size = (340, 114);
+    Position = (725, 200);
+    Size = (300, 120);
     Text = "Course Registration";
-    TextSize = 13;
+    TextSize = 18;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = transparent;
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+    }
 }
 
 Button.Button3 {
-    Position = (640, 350);
-    Renderer = &1;
-    Size = (340, 114);
+    Position = (725, 400);
+    Size = (300, 120);
     Text = Button;
-    TextSize = 13;
+    TextSize = 18;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = transparent;
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+    }
 }

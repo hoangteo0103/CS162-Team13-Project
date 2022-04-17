@@ -3,7 +3,7 @@
 map <tgui::String, vector<vector<tgui::String>>> mpInfo;
 
 void init_student_info(Group& group_studentInfo) {
-	group_studentInfo.loadWidgetsFromFile("TeacherStudentInfo.txt");
+	group_studentInfo.loadWidgetsFromFile("TeacherStudentInfoForm.txt");
 }
 
 void onItemDoubleClick(Group& group_studentInfo, Group& group_small_studentInfo, SchoolYear* curSchoolYear) {
@@ -40,14 +40,14 @@ void onComboBoxesSelected(Group& group_studentInfo, tgui::String getSelectedItem
 			group_studentInfo.get<tgui::ListView>("ListView1")->addMultipleItems(t.second);
 
 		}
-		group_studentInfo.get<tgui::ListView>("ListView1")->setSize(1020, min(50 * width + 80LL, 600LL));
+		group_studentInfo.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 600LL));
 
 	}
 	else {
-		group_studentInfo.get<tgui::ListView>("ListView1")->setSize(1020, 50);
+		group_studentInfo.get<tgui::ListView>("ListView1")->setSize(1100, 50);
 		group_studentInfo.get<tgui::ListView>("ListView1")->removeAllItems();
 		group_studentInfo.get<tgui::ListView>("ListView1")->addMultipleItems(mpInfo[getSelectedItem]);
-		group_studentInfo.get<tgui::ListView>("ListView1")->setSize(1020, min(50LL * long long(mpInfo[getSelectedItem].size()) + 80, 600LL));
+		group_studentInfo.get<tgui::ListView>("ListView1")->setSize(1100, min(50LL * long long(mpInfo[getSelectedItem].size()) + 80, 600LL));
 
 	}
 }
@@ -55,8 +55,8 @@ void onComboBoxesSelected(Group& group_studentInfo, tgui::String getSelectedItem
 void loadStudentWidget(Group& group_studentInfo, SchoolYear*& curSchoolYear) {
 	init_student_info(group_studentInfo);
 
-	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Class", 100);
-	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Student ID", 200);
+	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Class", 100, tgui::ListView::ColumnAlignment::Center);
+	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Student ID", 200, tgui::ListView::ColumnAlignment::Center);
 	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Student's Name", 700);
 
 	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->addItem("All Semesters");
