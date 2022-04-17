@@ -1,4 +1,3 @@
-﻿  TeacherScoreboard.cpp
-D:\Project - CS162\Project1\Project1\TeacherScoreboard.cpp(19,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-D:\Project - CS162\Project1\Project1\TeacherScoreboard.cpp(48,39): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+﻿  CreateRegistration.cpp
+D:\Project - CS162\Project1\Project1\CreateRegistration.cpp(189,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
