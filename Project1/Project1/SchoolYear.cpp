@@ -1,4 +1,5 @@
 #include "SchoolYear.h"
+#include "direct.h"
 
 SchoolYear::SchoolYear(int startYear, int endYear)
 {
@@ -6,6 +7,15 @@ SchoolYear::SchoolYear(int startYear, int endYear)
 	this->endYear = endYear;
 	this->nowSemester = nullptr; 
 	this->nowClass = nullptr;
+}
+
+bool SchoolYear::createNewSchoolYear()
+{
+	string year = "D:/Project - CS162/Project1/Project1/SchoolYears/" + to_string(this->startYear) + "-" + to_string(this->endYear);
+	if (_mkdir(year.c_str()) == -1)
+		return false;
+	return true;
+
 }
 
 void SchoolYear::addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)

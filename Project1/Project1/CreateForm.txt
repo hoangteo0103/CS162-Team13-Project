@@ -195,7 +195,7 @@ Button.Button2 {
 }
 
 Panel.Panel2 {
-    Position = (510, 170);
+    Position = (510, 180);
     Renderer = &2;
     Size = (640, 600);
 
@@ -331,7 +331,7 @@ Panel.Panel2 {
     }
 
     Label.File {
-        Position = (230, 160);
+        Position = (220, 160);
         ScrollbarPolicy = Never;
         Size = (157.2, 18);
         TextSize = 13;
@@ -406,6 +406,13 @@ Panel.Panel2 {
         Position = (220, 120);
         Renderer = &4;
         Size = (250, 22);
+        TextSize = 13;
+    }
+
+    Button.AddSchoolYear {
+        Position = (230, 550);
+        Renderer = &3;
+        Text = "Add School Year";
         TextSize = 13;
     }
 }

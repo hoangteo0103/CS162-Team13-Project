@@ -13,6 +13,7 @@ public:
     Semester* nowSemester = nullptr;
     SpecificClass* nowClass = nullptr;
     SchoolYear(int startYear, int endYear);
+    bool createNewSchoolYear();
     void addNewSemester(Semester*& semester);
     void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearclass);
     void createNewSemester(Semester *&nowSemester, int startDate, int endDate);

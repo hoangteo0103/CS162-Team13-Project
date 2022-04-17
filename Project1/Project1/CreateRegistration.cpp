@@ -3,6 +3,7 @@
 #include "Student.h"
 
 SpecificClass* Class ;
+SchoolYear* schoolyear;
 
 void addNewClassToList(SpecificClass* &now)
 {
@@ -181,6 +182,13 @@ void onAddClass(Group& group_create)
 	createListOfClasses(group_create);
 }
 
+void onAddSchoolYear(Group& group_create)
+{
+	schoolyear = new SchoolYear(2000 , 2001);
+	if(!schoolyear->createNewSchoolYear())
+		cout << "OCHOS";
+}
+
 void onLoad(Group& group_create)
 {
 	string file_path = Get_path();
@@ -221,5 +229,6 @@ void loadcreatewidget(Group& group_create)
 	group_create.get<Label>("Error")->setVisible(false);
 	group_create.get<tgui::Button>("Load")->onClick(&onLoad, ref(group_create));
 	group_create.get<tgui::Button>("AddClass")->onClick(&onAddClass , ref(group_create));
+	group_create.get<tgui::Button>("AddSchoolYear")->onClick(&onAddSchoolYear, ref(group_create));
 	createListOfClasses(group_create);
 }
