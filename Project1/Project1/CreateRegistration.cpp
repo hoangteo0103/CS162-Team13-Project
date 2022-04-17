@@ -19,16 +19,9 @@ void addNewClassToList(SpecificClass* &now)
 
 void delListClass(SpecificClass* &delClass)
 {
-	Student* student = delClass->classStudent;
-	if (student == nullptr) return; 
-	while (student->nextStudent)
-	{
-		Student* delptr = student->nextStudent;
-		student->nextStudent = delptr->nextStudent;
-		delete delptr;
-	}
-	delete student;
-	delClass->classStudent = nullptr;
+	SpecificClass* delptr = delClass;
+	delClass = delClass->nextClass;
+	delete delptr;
 }
 
 void createListOfClasses(Group& group_create)
@@ -70,6 +63,7 @@ void createListView(Group& group_create)
 	for (Student* cur = Class->classStudent; cur; cur = cur->nextStudent)
 	{;
 		cnt++; 
+		strcpy( cur->specificClass ,  Class->className );
 		tgui::String gender  = cur->gender == 0 ? "male" : "female";
 		tgui::String dob = tgui::String(cur->DoB.date) + "/" + tgui::String(cur->DoB.month) + "/" + tgui::String(cur->DoB.year);
 		group_create.get<ListView>("ListView1")->addItem({ tgui::String(cnt) , tgui::String(cur->studentID) , cur->firstName , cur->lastName , gender , dob , tgui::String(cur->socialID) });
@@ -77,7 +71,7 @@ void createListView(Group& group_create)
 	group_create.get<ListView>("ListView1")->setSize(570, cnt * 25 + 25);
 }
 
-bool inputFileFromCSV(string file_path)
+bool inputFileFromCSV(string file_path )
 {
 	if (file_path.find(".csv") == string::npos) return false;
 	ifstream fin(file_path);
@@ -168,25 +162,29 @@ void onCreateSelected(Group& group_create, Group& group_student)
 
 void onAddClass(Group& group_create)
 {
-	group_create.get<ListView>("ListView1")->setVisible(false); 
-	group_create.get<Button>("AddClass")->setVisible(false); 
-	group_create.get<ListView>("ListClasses")->setVisible(true);
 	string classname =group_create.get<tgui::EditBox>("ClassName")->getText().toStdString();
+	if (classname == "")
+	{
+		group_create.get<Label>("Error")->setVisible(true);
+		group_create.get<Label>("Error")->setText("Error : Please enter classname");
+		return;
+	}
 	if (!okClassName(classname.c_str()))
 	{
 		group_create.get<Label>("Error")->setVisible(true);
 		group_create.get<Label>("Error")->setText("Error : Already loaded class");
 		return;
 	}
+	group_create.get<ListView>("ListView1")->setVisible(false);
+	group_create.get<Button>("AddClass")->setVisible(false);
+	group_create.get<ListView>("ListClasses")->setVisible(true);
 	strcpy(Class->classCODE , classname.c_str());
 	createListOfClasses(group_create);
 }
 
 void onAddSchoolYear(Group& group_create)
 {
-	schoolyear = new SchoolYear(2000 , 2001);
-	if(!schoolyear->createNewSchoolYear())
-		cout << "OCHOS";
+	schoolyear->createNewSchoolYear();
 }
 
 void onLoad(Group& group_create)
@@ -220,6 +218,14 @@ void init_group_create(Group& group_create)
 {
 	group_create.loadWidgetsFromFile("CreateForm.txt");
 	Class = nullptr;
+	ifstream fin("SchoolYears/ListSchoolYear.txt");
+	int year;
+	while (fin >> year)
+	{
+	}
+	year++;
+	schoolyear = new SchoolYear(year, year + 1);
+	group_create.get<Label>("NumYear")->setText(tgui::String(year) + "-" +  tgui::String(year + 1));
 }
 
 void loadcreatewidget(Group& group_create)

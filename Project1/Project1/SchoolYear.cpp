@@ -1,6 +1,7 @@
 #include "SchoolYear.h"
 #include "direct.h"
-
+#include <filesystem>
+using namespace std;
 SchoolYear::SchoolYear(int startYear, int endYear)
 {
 	this->startYear = startYear;
@@ -9,13 +10,28 @@ SchoolYear::SchoolYear(int startYear, int endYear)
 	this->nowClass = nullptr;
 }
 
+void copyfile(string source_filename, string dest_filename)
+{
+	std::ifstream  src(source_filename, std::ios::binary);
+	std::ofstream  dst(dest_filename, std::ios::binary);
+	dst << src.rdbuf();
+}
+
 bool SchoolYear::createNewSchoolYear()
 {
 	string year = "D:/Project - CS162/Project1/Project1/SchoolYears/" + to_string(this->startYear) + "-" + to_string(this->endYear);
-	if (_mkdir(year.c_str()) == -1)
-		return false;
-	return true;
-
+	string previous_year = "D:/Project - CS162/Project1/Project1/SchoolYears/" + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
+	if(_mkdir(year.c_str()) == -1)
+		return false ;
+	ofstream fout("D:/Project - CS162/Project1/Project1/SchoolYears/ListSchoolYear.txt" , ios_base::app | ios_base::out);
+	fout << this->startYear;
+	ofstream f1(year + "/ListOfCLassCode.txt");
+	ofstream f2(year + "/ListOfSemester.txt");
+	string null = "";
+	f1 << null;
+	f2 << 0;
+	copyfile(previous_year +"/ListOfCLassCode.txt" , year + "/ListOfCLassCode.txt");
+	return true; 
 }
 
 void SchoolYear::addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)
