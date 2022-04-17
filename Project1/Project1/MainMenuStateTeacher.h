@@ -5,6 +5,7 @@
 #include "Action.h"
 #include "CreateRegistration.h"
 #include "TeacherScoreboard.h"
+#include "TeacherStudentInfo.h"
 
 using namespace sf;
 using namespace tgui;
@@ -16,4 +17,4 @@ void addSpecificClass(SpecificClass*& nowClass, char classCode[], string year);
 void loadListofSpecificClasses(SpecificClass*& nowClass, string className);
 
 bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String teacherName, tgui::Group& group_course,
-    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo, tgui::Group& group_create);
+    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo, tgui::Group& group_small_studentInfo, tgui::Group& group_create);

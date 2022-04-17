@@ -1,3 +1,14 @@
-﻿  CreateRegistration.cpp
-D:\Project - CS162\Project1\Project1\CreateRegistration.cpp(189,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
+﻿  Action.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Core.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  LoginState.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MainMenuState.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MainMenuStateTeacher.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  TeacherStudentInfo.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\TeacherStudentInfo.cpp(39,26): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Project1.vcxproj -> C:\Work\CS162\Group_Project\Project1\x64\Debug\Project1.exe
