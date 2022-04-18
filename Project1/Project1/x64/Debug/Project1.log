@@ -1,2 +1,4 @@
-﻿  CreateSemester.cpp
-  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
+﻿  ClassScoreboard.cpp
+C:\Work\CS162\Group_Project\Project1\Project1\ClassScoreboard.cpp(28,39): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Work\CS162\Group_Project\Project1\Project1\ClassScoreboard.cpp(62,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Project1.vcxproj -> C:\Work\CS162\Group_Project\Project1\x64\Debug\Project1.exe

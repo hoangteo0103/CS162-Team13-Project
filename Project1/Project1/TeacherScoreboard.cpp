@@ -166,16 +166,19 @@ void loadScoreBoardWidget(Group& group_scoreboard, SchoolYear*& schoolYear) {
                     vector<tgui::String> tmp;
                     tgui::String item = k->courseName;
                     for (Student* curStudent = k->nxtStudent; curStudent; curStudent = curStudent->nextStudent) {
-                        tmp = { curSemesterStr + "/" + curYears, item, tgui::String(curStudent->studentID),tgui::String(k->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) ,tgui::String(k->score) ,   "4" ,  "A"};
-                        mpx[curSemesterStr + "/" + curYears].push_back(tmp);
-                        mpc[curSemesterStr + "/" + curYears + k->courseName].push_back(tmp);
-                        group_scoreboard.get<tgui::ListView>("ListView1")->addItem(tmp);
+                        if (curStudent->studentID == stdID) {
+                            tmp = { curSemesterStr + "/" + curYears, item, tgui::String(curStudent->studentID),tgui::String(k->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) ,tgui::String(k->score) , "4" ,  "A" };
+                            mpx[curSemesterStr + "/" + curYears].push_back(tmp);
+                            mpc[curSemesterStr + "/" + curYears + k->courseName].push_back(tmp);
+                            group_scoreboard.get<tgui::ListView>("ListView1")->addItem(tmp);
+                            break;
+                        }
                     }
                 }
             }
         }
     }
-    cout << mpc.size() << endl;
+    //cout << mpc.size() << endl;
     
     group_scoreboard.get<tgui::ComboBox>("ComboBox1")->onItemSelect(&onComboBoxSemesterSelected, ref(group_scoreboard));
     group_scoreboard.get<tgui::ComboBox>("ComboBox2")->onItemSelect(&onComboBoxCourseSelected, ref(group_scoreboard));
