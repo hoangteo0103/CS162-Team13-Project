@@ -25,17 +25,26 @@ bool SchoolYear::createNewSchoolYear()
 		return false ;
 	ofstream fout("D:/Project - CS162/Project1/Project1/SchoolYears/ListSchoolYear.txt" , ios_base::app | ios_base::out);
 	fout << endl <<this->startYear;
-	ofstream f1(year + "/ListOfCLassCode.txt");
+	ofstream f1(year + "/ListOfClassCode.txt");
 	ofstream f2(year + "/ListOfSemester.txt");
 	string null = "";
 	f1 << null;
 	f2 << 0;
-	copyfile(previous_year +"/ListOfCLassCode.txt" , year + "/ListOfCLassCode.txt");
+	copyfile(previous_year +"/ListOfClassCode.txt" , year + "/ListOfClassCode.txt");
+	ifstream fin_class(previous_year + "/ListOfClassCode.txt");
+	string class_code; 
+	while (fin_class >> class_code)
+	{
+		string ext = "/" + class_code + ".csv"; 
+		ofstream f_create(year + ext);
+		f_create << null;
+		copyfile(previous_year + ext, year + ext);
+	}
 	return true; 
 }
 
 void SchoolYear::addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearClass)
-{
+{	
 	if(!nowClass)
 	{
 		nowClass = firstYearClass;

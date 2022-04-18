@@ -11,6 +11,7 @@ using namespace sf;
 using namespace tgui;
 using namespace std;
 
+void onReloadSelected(BackendGui& gui, tgui::String username);
 void onParticipants(Group& group_course, Course*& curCourse);
 void onClickedLogout(BackendGui& gui);
 void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<tgui::Group*>* vc, tgui::String selectedTab);

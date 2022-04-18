@@ -187,6 +187,10 @@ void onAddSchoolYear(Group& group_create)
 {
 	schoolyear->createNewSchoolYear();
 	group_create.get<Label>("Message")->setVisible(true);
+	group_create.get<ChildWindow>("MessageWindow")->setVisible(true);
+	group_create.get<Label>("Message")->setText("Create School Year " + tgui::String(schoolyear->startYear) + "-" + tgui::String(schoolyear->endYear) + " successfully");
+	group_create.get<ChildWindow>("MessageWindow")->moveToFront();
+	//roup_create.get<Button>("Reload")->
 }
 
 void onLoad(Group& group_create)

@@ -15,6 +15,32 @@ Renderer.1 {
 }
 
 Renderer.2 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+
+    Scrollbar {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        TextureArrowDown = None;
+        TextureArrowDownHover = None;
+        TextureArrowUp = None;
+        TextureArrowUpHover = None;
+        TextureThumb = None;
+        TextureThumbHover = None;
+        TextureTrack = None;
+        TextureTrackHover = None;
+        ThumbColor = #DCDCDC;
+        ThumbColorHover = #E6E6E6;
+        TrackColor = #F5F5F5;
+    }
+}
+
+Renderer.3 {
     BackgroundColor = #F5F5F5;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorDown = #EBEBEB;
@@ -87,111 +113,36 @@ Panel.PanelYear {
     Label.Year {
         HorizontalAlignment = Center;
         Position = (40, 42);
+        Renderer = &2;
         ScrollbarPolicy = Never;
         Size = (177.2, 18);
         Text = "New School Year";
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = transparent;
-            BorderColor = #3C3C3C;
-            Borders = (0, 0, 0, 0);
-            TextColor = #3C3C3C;
-            TextureBackground = None;
-
-            Scrollbar {
-                ArrowBackgroundColor = #F5F5F5;
-                ArrowBackgroundColorHover = white;
-                ArrowColor = #3C3C3C;
-                ArrowColorHover = black;
-                TextureArrowDown = None;
-                TextureArrowDownHover = None;
-                TextureArrowUp = None;
-                TextureArrowUpHover = None;
-                TextureThumb = None;
-                TextureThumbHover = None;
-                TextureTrack = None;
-                TextureTrackHover = None;
-                ThumbColor = #DCDCDC;
-                ThumbColorHover = #E6E6E6;
-                TrackColor = #F5F5F5;
-            }
-        }
     }
 
     Label.CreateClass {
         HorizontalAlignment = Center;
         Position = (30, 122);
+        Renderer = &2;
         ScrollbarPolicy = Never;
         Size = (187.2, 18);
         Text = "Create New Class";
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = transparent;
-            BorderColor = #3C3C3C;
-            Borders = (0, 0, 0, 0);
-            TextColor = #3C3C3C;
-            TextureBackground = None;
-
-            Scrollbar {
-                ArrowBackgroundColor = #F5F5F5;
-                ArrowBackgroundColorHover = white;
-                ArrowColor = #3C3C3C;
-                ArrowColorHover = black;
-                TextureArrowDown = None;
-                TextureArrowDownHover = None;
-                TextureArrowUp = None;
-                TextureArrowUpHover = None;
-                TextureThumb = None;
-                TextureThumbHover = None;
-                TextureTrack = None;
-                TextureTrackHover = None;
-                ThumbColor = #DCDCDC;
-                ThumbColorHover = #E6E6E6;
-                TrackColor = #F5F5F5;
-            }
-        }
     }
 
     Label.Import {
         HorizontalAlignment = Center;
         Position = (40, 162);
+        Renderer = &2;
         ScrollbarPolicy = Never;
         Size = (157.2, 18);
         Text = "Import CSV File";
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = transparent;
-            BorderColor = #3C3C3C;
-            Borders = (0, 0, 0, 0);
-            TextColor = #3C3C3C;
-            TextureBackground = None;
-
-            Scrollbar {
-                ArrowBackgroundColor = #F5F5F5;
-                ArrowBackgroundColorHover = white;
-                ArrowColor = #3C3C3C;
-                ArrowColorHover = black;
-                TextureArrowDown = None;
-                TextureArrowDownHover = None;
-                TextureArrowUp = None;
-                TextureArrowUpHover = None;
-                TextureThumb = None;
-                TextureThumbHover = None;
-                TextureTrack = None;
-                TextureTrackHover = None;
-                ThumbColor = #DCDCDC;
-                ThumbColorHover = #E6E6E6;
-                TrackColor = #F5F5F5;
-            }
-        }
     }
 
     Button.Load {
         Position = (350, 160);
-        Renderer = &2;
+        Renderer = &3;
         Size = (74, 22);
         Text = "Load FIle";
         TextSize = 13;
@@ -199,35 +150,10 @@ Panel.PanelYear {
 
     Label.File {
         Position = (220, 160);
+        Renderer = &2;
         ScrollbarPolicy = Never;
         Size = (157.2, 18);
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = transparent;
-            BorderColor = #3C3C3C;
-            Borders = (0, 0, 0, 0);
-            TextColor = #3C3C3C;
-            TextureBackground = None;
-
-            Scrollbar {
-                ArrowBackgroundColor = #F5F5F5;
-                ArrowBackgroundColorHover = white;
-                ArrowColor = #3C3C3C;
-                ArrowColorHover = black;
-                TextureArrowDown = None;
-                TextureArrowDownHover = None;
-                TextureArrowUp = None;
-                TextureArrowUpHover = None;
-                TextureThumb = None;
-                TextureThumbHover = None;
-                TextureTrack = None;
-                TextureTrackHover = None;
-                ThumbColor = #DCDCDC;
-                ThumbColorHover = #E6E6E6;
-                TrackColor = #F5F5F5;
-            }
-        }
     }
 
     ListView.ListClasses {
@@ -262,7 +188,7 @@ Panel.PanelYear {
 
     Button.AddClass {
         Position = (270, 400);
-        Renderer = &2;
+        Renderer = &3;
         Size = (100, 22);
         Text = Add;
         TextSize = 13;
@@ -299,7 +225,7 @@ Panel.PanelYear {
 
     Button.AddSchoolYear {
         Position = (260, 550);
-        Renderer = &2;
+        Renderer = &3;
         Text = "Add School Year";
         TextSize = 13;
     }
@@ -307,34 +233,9 @@ Panel.PanelYear {
     Label.NumYear {
         HorizontalAlignment = Center;
         Position = (220, 40);
+        Renderer = &2;
         ScrollbarPolicy = Never;
         Size = (247.2, 18);
         TextSize = 15;
-
-        Renderer {
-            BackgroundColor = transparent;
-            BorderColor = #3C3C3C;
-            Borders = (0, 0, 0, 0);
-            TextColor = #3C3C3C;
-            TextureBackground = None;
-        }
-    }
-
-    Label.Message {
-        AutoSize = true;
-        Position = (410, 550);
-        ScrollbarPolicy = Never;
-        Size = (184.2, 18);
-        Text = "Add SchoolYear successfully";
-        TextSize = 13;
-        VerticalAlignment = Center;
-
-        Renderer {
-            BackgroundColor = transparent;
-            BorderColor = #3C3C3C;
-            Borders = (0, 0, 0, 0);
-            TextColor = #50FF24;
-            TextureBackground = None;
-        }
     }
 }

@@ -20,6 +20,7 @@ void loadcreatewidget(Group& group_create)
 	init_group_create(group_create);
 	group_create.get<Panel>("PanelYear")->setVisible(false);
 	group_create.get<Panel>("PanelSemester")->setVisible(false);
+	group_create.get<ChildWindow>("MessageWindow")->setVisible(false);
 	group_create.get<Button>("Create School Year")->onClick(&onCreateYearSelected, ref(group_create));
 	group_create.get<Button>("Create Semester")->onClick(&onCreateSemesterSelected, ref(group_create));
 }

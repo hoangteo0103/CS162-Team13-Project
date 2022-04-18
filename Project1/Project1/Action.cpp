@@ -5,6 +5,12 @@ void onClickedLogout(BackendGui& gui)
     run_login(gui);
 }
 
+void onReloadSelected(BackendGui& gui,tgui::String username)
+{
+    gui.removeAllWidgets();
+    run_mainmenu_teacher(gui, username);
+}
+
 void onParticipants(Group& group_course, Course*& curCourse)
 {
 

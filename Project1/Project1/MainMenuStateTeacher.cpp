@@ -22,7 +22,12 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
         int curSemester = 4;
 
         tgui::String curDirectory = "SchoolYears/" + tgui::String(curSchoolYear->startYear) + "-" + tgui::String(curSchoolYear->endYear);
+        cout << curYears << endl;
+        if (curSchoolYear->nowSemester == NULL)
+        {
+            group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears });
 
+        }
         for (Semester* i = curSchoolYear->nowSemester; i; i = i->nextSemester) {
             curSemester--;
             tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
@@ -60,6 +65,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onTeacherScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Teacher Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     group_student.get<tgui::Button>("Create")->onClick(&onCreateSelected, ref(group_create), ref(group_student));
+    group_create.get<tgui::Button>("Reload")->onClick(&onReloadSelected, ref(gui) , teacherName);
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected2, ref(gui), curSelectedTab, vc);
     gui.get<Button>("Logout")->onClick(&onClickedLogout, ref(gui));
     return true;

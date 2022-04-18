@@ -146,3 +146,95 @@ Panel.Panel1 {
         }
     }
 }
+
+ChildWindow.MessageWindow {
+    KeepInParent = true;
+    Position = (230, 310);
+    PositionLocked = true;
+    Size = (850, 140);
+    TitleAlignment = Center;
+    TitleButtons = None;
+    TitleTextSize = 13;
+
+    Renderer {
+        BackgroundColor = rgb(230, 230, 230);
+        BorderColor = White;
+        Borders = (2, 0, 2, 2);
+        DistanceToSide = 3;
+        PaddingBetweenButtons = 1;
+        ShowTextOnTitleButtons = false;
+        TextureBackground = None;
+        TextureTitleBar = "themes/BabyBlue.png" Part(317, 2, 62, 31) Middle(10, 0, 42, 31) Smooth;
+        TitleColor = rgb(100, 100, 100);
+
+        MaximizeButton {
+            Texture = "themes/BabyBlue.png" Part(2, 90, 25, 25) Smooth;
+            TextureDown = "themes/BabyBlue.png" Part(56, 90, 25, 25) Smooth;
+            TextureHover = "themes/BabyBlue.png" Part(29, 90, 25, 25) Smooth;
+        }
+
+        MinimizeButton {
+            Texture = "themes/BabyBlue.png" Part(83, 90, 25, 25) Smooth;
+            TextureDown = "themes/BabyBlue.png" Part(137, 90, 25, 25) Smooth;
+            TextureHover = "themes/BabyBlue.png" Part(110, 90, 25, 25) Smooth;
+        }
+
+        CloseButton {
+            Texture = "themes/BabyBlue.png" Part(96, 2, 25, 25) Smooth;
+            TextureDown = "themes/BabyBlue.png" Part(150, 2, 25, 25) Smooth;
+            TextureHover = "themes/BabyBlue.png" Part(123, 2, 25, 25) Smooth;
+        }
+    }
+
+    Button.Reload {
+        Position = (360, 70);
+        Text = Reload;
+        TextSize = 13;
+
+        Renderer {
+            TextColor = rgb(100, 100, 100);
+            Texture = "themes/BabyBlue.png" Part(269, 40, 90, 60) Middle(30, 0, 30, 60) Smooth;
+            TextureDisabled = None;
+            TextureDown = "themes/BabyBlue.png" Part(177, 40, 90, 60) Middle(30, 0, 30, 60) Smooth;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = "themes/BabyBlue.png" Part(361, 40, 90, 60) Middle(30, 0, 30, 60) Smooth;
+        }
+    }
+
+    Label.Message {
+        HorizontalAlignment = Center;
+        Position = (180, 30);
+        ScrollbarPolicy = Never;
+        Size = (427.2, 18);
+        TextSize = 15;
+        VerticalAlignment = Center;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #FF0021;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+}

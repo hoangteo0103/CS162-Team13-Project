@@ -20,27 +20,20 @@ void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
 }
 
 void loadListofSchoolYears(SchoolYear*& schoolYear) {
-    string year;
-    ifstream yearInput("SchoolYears.txt");
+    int year;
+    ifstream yearInput("SchoolYears/ListSchoolYear.txt");
     while (!yearInput.eof()) {
         yearInput >> year;
+        string year_string = to_string(year) + "-" + to_string(year + 1);
 
-        bool check = false; //get constructor value for SchoolYear
-        int yearStart = 0, yearEnd = 0;
-        for (int i = 0; i < year.size(); i++) {
-            if (year[i] == '-') { check = true; continue; }
-            if (!check) { yearStart *= 10; yearStart += year[i] - '0'; }
-            else { yearEnd *= 10; yearEnd += year[i] - '0'; }
-        }
-
-        ifstream fin1("SchoolYears/" + year + "/ListOfSemester.txt");
+        ifstream fin1("SchoolYears/" + year_string + "/ListOfSemester.txt");
         int amount;
         fin1 >> amount;
         fin1.close();
 
-        SchoolYear* tmpYear = new SchoolYear(yearStart, yearEnd);
-        tmpYear->loadListofSpecificClasses(year);
-        tmpYear->loadListofSemester(amount, year);
+        SchoolYear* tmpYear = new SchoolYear(year, year + 1);
+        tmpYear->loadListofSpecificClasses(year_string);
+        tmpYear->loadListofSemester(amount, year_string);
 
         if (!schoolYear) {
             schoolYear = tmpYear;
