@@ -20,6 +20,7 @@
     <ClCompile Include="OpenFile.cpp" />
     <ClCompile Include="TeacherScoreboard.cpp" />
     <ClCompile Include="TeacherStudentInfo.cpp" />
+    <ClCompile Include="CreateSchoolYear.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="OpenFile.h" />
     <ClInclude Include="TeacherScoreboard.h" />
     <ClInclude Include="TeacherStudentInfo.h" />
+    <ClInclude Include="CreateSchoolYear.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />

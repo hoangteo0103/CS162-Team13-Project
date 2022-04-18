@@ -38,9 +38,9 @@ Button."Teacher Info" {
 
 Button.Create {
     Position = (725, 200);
-    Size = (400, 120);
+    Size = (300, 120);
     Text = "Create SchoolYear/Semester/Course";
-    TextSize = 18;
+    TextSize = 15;
 
     Renderer {
         TextColor = black;
