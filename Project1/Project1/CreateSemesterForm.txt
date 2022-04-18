@@ -1,12 +1,4 @@
 Renderer.1 {
-    BackgroundColor = transparent;
-    BorderColor = #3C3C3C;
-    Borders = (0, 0, 0, 0);
-    TextColor = #3C3C3C;
-    TextureBackground = None;
-}
-
-Renderer.2 {
     ArrowBackgroundColor = #F5F5F5;
     ArrowBackgroundColorHover = white;
     ArrowColor = #3C3C3C;
@@ -21,6 +13,36 @@ Renderer.2 {
     TextureArrowHover = None;
     TextureBackground = None;
     TextureBackgroundDisabled = None;
+}
+
+Renderer.2 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    CaretColor = black;
+    CaretWidth = 1;
+    DefaultTextColor = #A0A0A0;
+    Padding = (0, 0, 0, 0);
+    SelectedTextBackgroundColor = #006EFF;
+    SelectedTextColor = white;
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    Texture = None;
+    TextureDisabled = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+Renderer.3 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
 }
 
 Panel.PanelSemester {
@@ -39,14 +61,14 @@ Panel.PanelSemester {
         ItemsToDisplay = 0;
         MaximumItems = 0;
         Position = (200, 40);
-        Renderer = &2;
+        Renderer = &1;
         Size = (160, 22);
         TextSize = 13;
     }
 
     Label.CreateSemes {
         Position = (50, 40);
-        Renderer = &1;
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (177.2, 18);
         Text = "Create Semester";
@@ -56,7 +78,7 @@ Panel.PanelSemester {
 
     Label.StartDate {
         Position = (0, 90);
-        Renderer = &1;
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (187.6, 14);
         Text = "Start Date(dd/mm/yy)";
@@ -65,79 +87,30 @@ Panel.PanelSemester {
 
     EditBox.GetStart {
         Position = (140, 90);
+        Renderer = &2;
         Size = (150, 22);
         TextSize = 11;
-
-        Renderer {
-            BackgroundColor = #F5F5F5;
-            BackgroundColorDisabled = #E6E6E6;
-            BackgroundColorHover = white;
-            BorderColor = #3C3C3C;
-            BorderColorDisabled = #7D7D7D;
-            BorderColorHover = black;
-            Borders = (1, 1, 1, 1);
-            CaretColor = black;
-            CaretWidth = 1;
-            DefaultTextColor = #A0A0A0;
-            Padding = (0, 0, 0, 0);
-            SelectedTextBackgroundColor = #006EFF;
-            SelectedTextColor = white;
-            TextColor = #3C3C3C;
-            TextColorDisabled = #7D7D7D;
-            Texture = None;
-            TextureDisabled = None;
-            TextureFocused = None;
-            TextureHover = None;
-        }
     }
 
     Label.EndDate {
         Position = (300, 90);
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (177, 17);
         Text = "End Date(dd/mm/yy)";
         TextSize = 11;
-
-        Renderer {
-            BackgroundColor = transparent;
-            BorderColor = #3C3C3C;
-            Borders = (0, 0, 0, 0);
-            TextColor = #3C3C3C;
-            TextureBackground = None;
-        }
     }
 
     EditBox.GetEnd {
         Position = (460, 90);
+        Renderer = &2;
         Size = (150, 22);
         TextSize = 11;
-
-        Renderer {
-            BackgroundColor = #F5F5F5;
-            BackgroundColorDisabled = #E6E6E6;
-            BackgroundColorHover = white;
-            BorderColor = #3C3C3C;
-            BorderColorDisabled = #7D7D7D;
-            BorderColorHover = black;
-            Borders = (1, 1, 1, 1);
-            CaretColor = black;
-            CaretWidth = 1;
-            DefaultTextColor = #A0A0A0;
-            Padding = (0, 0, 0, 0);
-            SelectedTextBackgroundColor = #006EFF;
-            SelectedTextColor = white;
-            TextColor = #3C3C3C;
-            TextColorDisabled = #7D7D7D;
-            Texture = None;
-            TextureDisabled = None;
-            TextureFocused = None;
-            TextureHover = None;
-        }
     }
 
     Label.Label3 {
         Position = (40, 140);
-        Renderer = &1;
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (167.2, 18);
         Text = "Choose School Year";
@@ -149,8 +122,39 @@ Panel.PanelSemester {
         ItemsToDisplay = 0;
         MaximumItems = 0;
         Position = (210, 140);
-        Renderer = &2;
+        Renderer = &1;
         Size = (160, 22);
         TextSize = 13;
+    }
+
+    Button.AddCourse {
+        Position = (270, 420);
+        Size = (90, 22);
+        Text = "Add Course";
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
     }
 }

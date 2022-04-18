@@ -6,6 +6,7 @@
 void onCreateSemesterSelected(Group& group_create)
 {
 	group_create.get<Panel>("PanelYear")->setVisible(false);
+	group_create.get<ChildWindow>("CourseWindow")->setVisible(false);
 	group_create.get<Panel>("PanelSemester")->setVisible(true);
 }
 void init_group_create_semester(Group& group_create)

@@ -158,6 +158,7 @@ bool okClassName(string classname)
 void onCreateYearSelected(Group& group_create)
 {
 	group_create.get<Panel>("PanelYear")->setVisible(true);
+	group_create.get<ChildWindow>("CourseWindow")->setVisible(false);
 	group_create.get<Panel>("PanelSemester")->setVisible(false);
 }
 
