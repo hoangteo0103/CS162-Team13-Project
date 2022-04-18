@@ -1,3 +1,43 @@
-﻿  MainMenuStateTeacher.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
+﻿  AccountList.cpp
+  Action.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Button.cpp
+  ClassScoreboard.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\ClassScoreboard.cpp(28,39): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\ClassScoreboard.cpp(62,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\ClassScoreboard.cpp(121,34): warning C4101: 'tmpID': unreferenced local variable
+  Core.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Courses.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\Courses.cpp(6,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  CreateCourse.cpp
+  CreateRegistration.cpp
+  CreateSchoolYear.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\CreateSchoolYear.cpp(201,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  CreateSemester.cpp
+  LoginState.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MainMenuState.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MainMenuStateTeacher.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  OpenFile.cpp
+  SchoolYear.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  Scoreboard.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\Scoreboard.cpp(13,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Semester.cpp
+  Source.cpp
+  State.cpp
+  Student.cpp
+  Generating Code...
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\OpenFile.cpp(45): warning C4715: 'Get_path': not all control paths return a value
+  Compiling...
+  StudentInfo.cpp
+  TeacherScoreboard.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\TeacherScoreboard.cpp(19,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\TeacherScoreboard.cpp(48,39): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  TeacherStudentInfo.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\TeacherStudentInfo.cpp(39,26): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Project1.vcxproj -> C:\Work\CS162\Group_Project_2.0\Project1\x64\Debug\Project1.exe
