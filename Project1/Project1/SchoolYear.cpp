@@ -24,7 +24,7 @@ bool SchoolYear::createNewSchoolYear()
 	if(_mkdir(year.c_str()) == -1)
 		return false ;
 	ofstream fout("D:/Project - CS162/Project1/Project1/SchoolYears/ListSchoolYear.txt" , ios_base::app | ios_base::out);
-	fout << this->startYear;
+	fout << endl <<this->startYear;
 	ofstream f1(year + "/ListOfCLassCode.txt");
 	ofstream f2(year + "/ListOfSemester.txt");
 	string null = "";

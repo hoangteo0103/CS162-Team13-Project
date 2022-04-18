@@ -21,6 +21,7 @@
     <ClCompile Include="TeacherScoreboard.cpp" />
     <ClCompile Include="TeacherStudentInfo.cpp" />
     <ClCompile Include="CreateSchoolYear.cpp" />
+    <ClCompile Include="CreateSemester.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -44,6 +45,7 @@
     <ClInclude Include="TeacherScoreboard.h" />
     <ClInclude Include="TeacherStudentInfo.h" />
     <ClInclude Include="CreateSchoolYear.h" />
+    <ClInclude Include="CreateSemester.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />

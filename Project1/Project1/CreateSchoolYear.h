@@ -10,6 +10,6 @@ using namespace sf;
 using namespace tgui;
 using namespace std;
 
-void onCreateYearSelected(Group& group_create, Group& group_student);
+void onCreateYearSelected(Group& group_create);
 void init_group_create_year(Group& group_create);
 void loadcreateYearwidget(Group& group_create);

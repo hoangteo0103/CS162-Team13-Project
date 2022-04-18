@@ -155,10 +155,10 @@ bool okClassName(string classname)
 	return true;
 }
 
-void onCreateYearSelected(Group& group_create, Group& group_student)
+void onCreateYearSelected(Group& group_create)
 {
-	group_create.setVisible(true);
-	group_student.setVisible(false);
+	group_create.get<Panel>("PanelYear")->setVisible(true);
+	group_create.get<Panel>("PanelSemester")->setVisible(false);
 }
 
 void onAddClass(Group& group_create)
@@ -186,6 +186,7 @@ void onAddClass(Group& group_create)
 void onAddSchoolYear(Group& group_create)
 {
 	schoolyear->createNewSchoolYear();
+	group_create.get<Label>("Message")->setVisible(true);
 }
 
 void onLoad(Group& group_create)
@@ -237,6 +238,7 @@ void loadcreateYearwidget(Group& group_create)
 	init_group_create_year(group_create);
 	group_create.get<ListView>("ListView1")->setVisible(false);
 	group_create.get<Label>("Error")->setVisible(false);
+	group_create.get<Label>("Message")->setVisible(false);
 	group_create.get<tgui::Button>("Load")->onClick(&onLoad, ref(group_create));
 	group_create.get<tgui::Button>("AddClass")->onClick(&onAddClass, ref(group_create));
 	group_create.get<tgui::Button>("AddSchoolYear")->onClick(&onAddSchoolYear, ref(group_create));

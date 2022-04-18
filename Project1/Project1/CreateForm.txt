@@ -78,7 +78,7 @@ Panel.Panel1 {
         }
     }
 
-    Button.Button2 {
+    Button."Create Semester" {
         Position = (50, 180);
         Size = (260, 52);
         Text = "Create Semester";
@@ -112,7 +112,7 @@ Panel.Panel1 {
         }
     }
 
-    Button.Button1 {
+    Button."Create Course" {
         Position = (50, 270);
         Size = (260, 62);
         Text = "Create Course";

@@ -298,7 +298,7 @@ Panel.PanelYear {
     }
 
     Button.AddSchoolYear {
-        Position = (230, 550);
+        Position = (260, 550);
         Renderer = &2;
         Text = "Add School Year";
         TextSize = 13;
@@ -316,6 +316,24 @@ Panel.PanelYear {
             BorderColor = #3C3C3C;
             Borders = (0, 0, 0, 0);
             TextColor = #3C3C3C;
+            TextureBackground = None;
+        }
+    }
+
+    Label.Message {
+        AutoSize = true;
+        Position = (410, 550);
+        ScrollbarPolicy = Never;
+        Size = (184.2, 18);
+        Text = "Add SchoolYear successfully";
+        TextSize = 13;
+        VerticalAlignment = Center;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #50FF24;
             TextureBackground = None;
         }
     }
