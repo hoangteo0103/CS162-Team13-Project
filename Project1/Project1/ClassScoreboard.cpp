@@ -18,7 +18,7 @@ void onComboBoxClassSelected(Group& group_studentSB, tgui::String getSelectedIte
     tgui::String getSelectedItem1 = group_studentSB.get<ComboBox>("ComboBox1")->getSelectedItem();
     if (getSelectedItem == "All Classes")
     {
-        if (getSelectedItem1 == "All Courses")
+        if (getSelectedItem1 == "All Semesters")
         {
             group_studentSB.get<tgui::ListView>("ListView1")->removeAllItems();
             int width = 0;
@@ -50,8 +50,8 @@ void onComboBoxClassSelected(Group& group_studentSB, tgui::String getSelectedIte
     }
 }
 
-void onComboBoxCoursesSelected(Group& group_studentSB, tgui::String getSelectedItem) {
-    if (getSelectedItem == "All Courses")
+void onComboBoxSemestersSelected(Group& group_studentSB, tgui::String getSelectedItem) {
+    if (getSelectedItem == "All Semesters")
     {
         group_studentSB.get<tgui::ListView>("ListView1")->removeAllItems();
         group_studentSB.get<tgui::ComboBox>("ComboBox2")->setSelectedItem("All Classes");
@@ -78,17 +78,17 @@ void onComboBoxCoursesSelected(Group& group_studentSB, tgui::String getSelectedI
 void loadSBWidgets(Group& group_studentSB, SchoolYear*& schoolYear) {
     init_groupSB(group_studentSB);
 
+    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Semester", 210, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Courses", 210, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Class", 100, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("StudentID", 110, tgui::ListView::ColumnAlignment::Center);
-    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("StudentName", 210, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("GPA", 100, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("10", 60, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("ABC", 60, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("4", 60, tgui::ListView::ColumnAlignment::Center);
 
-    group_studentSB.get<tgui::ComboBox>("ComboBox1")->addItem("All Courses");
-    group_studentSB.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("All Courses");
+    group_studentSB.get<tgui::ComboBox>("ComboBox1")->addItem("All Semesters");
+    group_studentSB.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("All Semesters");
     group_studentSB.get<tgui::ComboBox>("ComboBox2")->addItem("All Classes");
     group_studentSB.get<tgui::ComboBox>("ComboBox2")->setSelectedItem("All Classes");
 
@@ -105,14 +105,14 @@ void loadSBWidgets(Group& group_studentSB, SchoolYear*& schoolYear) {
 
         for (Semester* j = i->nowSemester; j; j = j->nextSemester) {
             curSemester--;
-            //group_studentSB.get<tgui::ComboBox>("ComboBox1")->addItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(i->startYear) + "-" + tgui::String(i->endYear));
-            //group_studentSB.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(i->startYear) + "-" + tgui::String(i->endYear));
+            group_studentSB.get<tgui::ComboBox>("ComboBox1")->addItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(i->startYear) + "-" + tgui::String(i->endYear));
+            group_studentSB.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("Semester " + tgui::String(curSemester) + "/" + tgui::String(i->startYear) + "-" + tgui::String(i->endYear));
             tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
             string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
 
             for (Course* k = j->nowCourse; k; k = k->nextCourse) {
 
-                group_studentSB.get<tgui::ComboBox>("ComboBox1")->addItem(tgui::String(k->courseName));
+                //group_studentSB.get<tgui::ComboBox>("ComboBox1")->addItem(tgui::String(k->courseName));
                 string cName = curDir + k->courseName;
                 ifstream fin;
                 fin.open(cName + ".csv");
@@ -193,17 +193,15 @@ void loadSBWidgets(Group& group_studentSB, SchoolYear*& schoolYear) {
                     tgui::String item = k->courseName;
                     for (Student* curStudent = k->nxtStudent; curStudent; curStudent = curStudent->nextStudent) {
                         if (curStudent->studentID == stdID) {
-                            tgui::String curStudentName = curStudent->firstName;
-                            curStudentName += ' ';
-                            curStudentName += curStudent->lastName;
                             //cerr << curStudentName << '\n';
                             int on4 = 4 * tMark / 10;
                             //cerr << tgui::String(k->convertoABC(tMark));
                             //cerr << item << ' ' << className << ' ' << tgui::String(curStudent->studentID) << ' ' << curStudentName << ' ' << gpa << ' ' << tgui::String(k->convertoABC(tMark)) << ' ' << tgui::String(on4) << '\n';
 
-                            tmp = { item, className, tgui::String(curStudent->studentID), curStudentName, gpa, gpa, tgui::String(k->convertoABC(tMark)), tgui::String(on4) };
-                            mpa[item].push_back(tmp);
-                            mpb[item + "/" + className].push_back(tmp);
+                            tmp = { curSemesterStr + "/" + curYears, item, className, tgui::String(curStudent->studentID), gpa, gpa, tgui::String(k->convertoABC(tMark)), tgui::String(on4) };
+                            mpa[curSemesterStr + "/" + curYears].push_back(tmp);
+                            mpb[curSemesterStr + "/" + curYears + "/" + className].push_back(tmp);
+                            mpb["All Semesters/" + className].push_back(tmp);
                             group_studentSB.get<tgui::ListView>("ListView1")->addItem(tmp);
                         }
                     }
@@ -213,6 +211,6 @@ void loadSBWidgets(Group& group_studentSB, SchoolYear*& schoolYear) {
     }
     //cout << mpc.size() << endl;
 
-    group_studentSB.get<tgui::ComboBox>("ComboBox1")->onItemSelect(&onComboBoxCoursesSelected, ref(group_studentSB));
+    group_studentSB.get<tgui::ComboBox>("ComboBox1")->onItemSelect(&onComboBoxSemestersSelected, ref(group_studentSB));
     group_studentSB.get<tgui::ComboBox>("ComboBox2")->onItemSelect(&onComboBoxClassSelected, ref(group_studentSB));
 }
