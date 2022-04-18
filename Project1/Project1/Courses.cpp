@@ -324,6 +324,7 @@ string Course::convertoABC(int score)
 	if (score >= 8.5) return "A";
 	if (score >= 7.5) return "B+"; 
 
+	return "C";
 }
 void importScoreBoard();
 void viewScourBoard();

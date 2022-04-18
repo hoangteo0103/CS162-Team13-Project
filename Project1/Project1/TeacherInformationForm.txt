@@ -55,10 +55,10 @@ Button.Create {
     }
 }
 
-Button.Button3 {
+Button."Class ScoreBoard" {
     Position = (725, 400);
     Size = (300, 120);
-    Text = Button;
+    Text = "Class ScoreBoard";
     TextSize = 18;
 
     Renderer {

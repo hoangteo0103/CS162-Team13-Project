@@ -22,7 +22,11 @@
     <ClCompile Include="TeacherStudentInfo.cpp" />
     <ClCompile Include="CreateSchoolYear.cpp" />
     <ClCompile Include="CreateSemester.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="CreateCourse.cpp" />
+=======
+    <ClCompile Include="ClassScoreboard.cpp" />
+>>>>>>> 0904cc0a25ffb9d0a5fa03625d1e78c29654c371
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -47,7 +51,11 @@
     <ClInclude Include="TeacherStudentInfo.h" />
     <ClInclude Include="CreateSchoolYear.h" />
     <ClInclude Include="CreateSemester.h" />
+<<<<<<< HEAD
     <ClInclude Include="CreateCourse.h" />
+=======
+    <ClInclude Include="ClassScoreboard.h" />
+>>>>>>> 0904cc0a25ffb9d0a5fa03625d1e78c29654c371
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />

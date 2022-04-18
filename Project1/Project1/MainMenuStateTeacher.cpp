@@ -3,7 +3,7 @@
 Course* curCourse2;
 
 bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String teacherName, tgui::Group& group_course,
-    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo, tgui::Group& group_small_studentInfo, tgui::Group& group_create)
+    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentSB, tgui::Group& group_studentInfo, tgui::Group& group_small_studentInfo, tgui::Group& group_create)
 {
     tgui::Theme theme{ "themes/Black.txt" };
 
@@ -46,6 +46,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     loadcreatewidget(group_create);
     loadScoreBoardWidget(group_scoreboard, schoolYears);
     loadStudentWidget(group_studentInfo, schoolYears);
+    loadSBWidgets(group_studentSB, schoolYears);
 
     gui.get<Tabs>("Tabs1")->select("Courses Information");
     tgui::String* curSelectedTab = new tgui::String;
@@ -55,6 +56,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     vc->push_back(&group_course);
     vc->push_back(&group_student);
     vc->push_back(&group_scoreboard);
+    vc->push_back(&group_studentSB);
     vc->push_back(&group_studentInfo);
     vc->push_back(&group_small_studentInfo);
     vc->push_back(&group_create);
@@ -64,6 +66,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     group_course.get<Button>("Participants")->onClick(&onParticipants, ref(group_course), ref(curCourse2));
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onTeacherScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Teacher Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
+    group_student.get<tgui::Button>("Class ScoreBoard")->onClick(&onStudentInfoSelected, ref(group_studentSB), ref(group_student));
     group_student.get<tgui::Button>("Create")->onClick(&onCreateSelected, ref(group_create), ref(group_student));
     group_create.get<tgui::Button>("Reload")->onClick(&onReloadSelected, ref(gui) , teacherName);
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected2, ref(gui), curSelectedTab, vc);
@@ -117,6 +120,7 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
     auto group_studentInfo = tgui::Group::create();
     auto group_create = tgui::Group::create();
     auto group_small_studentInfo = tgui::Group::create();
+    auto group_studentSB = tgui::Group::create();
     group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     group_scoreboard->loadWidgetsFromFile("TeacherScoreboardForm.txt");
@@ -124,18 +128,20 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
 
-    addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentInfo, *group_small_studentInfo, *group_create);
+    addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentSB, *group_studentInfo, *group_small_studentInfo, *group_create);
     gui.add(group_course);
     gui.add(group_student);
     gui.add(group_scoreboard);
     gui.add(group_studentInfo);
     gui.add(group_create);
     gui.add(group_small_studentInfo);
+    gui.add(group_studentSB);
     group_course->setVisible(true);
     group_student->setVisible(false);
     group_scoreboard->setVisible(false);
     group_studentInfo->setVisible(false);
     group_small_studentInfo->setVisible(false);
     group_create->setVisible(false);
+    group_studentSB->setVisible(false);
     hideGroupCourseTeacher(*group_course);
 }
