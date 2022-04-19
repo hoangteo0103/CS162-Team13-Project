@@ -1,1 +1,2 @@
-﻿  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
+﻿Semester.obj : error LNK2019: unresolved external symbol "public: __cdecl Date::Date(void)" (??0Date@@QEAA@XZ) referenced in function "public: __cdecl Semester::Semester(struct Date,struct Date)" (??0Semester@@QEAA@UDate@@0@Z)
+D:\Project - CS162\Project1\x64\Debug\Project1.exe : fatal error LNK1120: 1 unresolved externals

@@ -13,7 +13,7 @@ void Semester::viewCourseList()
 
 }
 
-Semester::Semester(int startDate , int endDate)
+Semester::Semester(Date startDate , Date endDate)
 {
 	this->startDate = startDate;
 	this->endDate = endDate; 

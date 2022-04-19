@@ -17,15 +17,27 @@ class ScoreBoard
 };
 
 
+struct Date {
+    int day, month, year;
+    Date();
+    Date(int day_z, int month_z, int year_z)
+    {
+        day = day_z;
+        month = month_z;
+        year = year_z;
+    };
+
+};
+
 class Semester
 {
     private:
-        int No;
-        int startDate, endDate;
-        int startSchoolYear, endSchoolYear;
  
     public:
-        Semester(int startDate , int endDate);
+        int No;
+        Date startDate, endDate;
+        int startSchoolYear, endSchoolYear;
+        Semester(Date startDate , Date endDate);
         Semester* nextSemester = nullptr;
         Course* nowCourse = nullptr;
         void viewCourseList();

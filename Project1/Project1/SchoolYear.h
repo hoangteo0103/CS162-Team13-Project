@@ -16,7 +16,7 @@ public:
     bool createNewSchoolYear();
     void addNewSemester(Semester*& semester);
     void addFirstYearClass(SpecificClass*& nowClass, SpecificClass* firstYearclass);
-    void createNewSemester(Semester *&nowSemester, int startDate, int endDate);
+    void createNewSemester(Semester *&nowSemester, Date startDate, Date endDate);
     void delListSemester(Semester*& nowSemester);
     void deleteSemester(Semester*& nowSemester, Semester* semester);
     void addSpecificCLass(SpecificClass*& nowClass, char classCode[], string year);

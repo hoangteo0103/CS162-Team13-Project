@@ -62,7 +62,7 @@ void SchoolYear::outputClassedInfo() {
 	}
 }
 
-void SchoolYear::createNewSemester(Semester *&nowSemester , int startDate , int endDate )
+void SchoolYear::createNewSemester(Semester *&nowSemester , Date startDate , Date endDate )
 {
 	if (!nowSemester)
 	{
@@ -168,7 +168,7 @@ void SchoolYear::loadListofSemester(int amount, string year) {
 
 	for (int i = 1; i <= amount; i++) {
 
-		Semester* semester = new Semester(startYear, endYear);
+		Semester* semester = new Semester(Date(0, 0 ,startYear), Date(0 , 0 , endYear));
 
 		string curDir = "SchoolYears/" + year + "/Semester" + (char)(i + '0') + "/Courses/";
 		//cerr << curDir << '\n';

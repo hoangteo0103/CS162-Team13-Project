@@ -10,7 +10,6 @@ void init_group_create(Group& group_create)
 	group_create.loadWidgetsFromFile("CreateForm.txt");
 	loadcreateYearwidget(group_create);
 	loadcreateSemesterwidget(group_create);
-	loadcreateCoursewidget(group_create);
 }
 void onCreateSelected(Group& group_create, Group& group_student)
 {

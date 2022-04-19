@@ -1,7 +1,7 @@
 #include "CreateSemester.h"
-#include "CreateSchoolYear.h"
-#include "Scoreboard.h"
-#include "Student.h"
+
+
+Semester* semester = new Semester(Date(0,0,0), Date(0,0,0));
 
 void onCreateSemesterSelected(Group& group_create)
 {
@@ -9,6 +9,23 @@ void onCreateSemesterSelected(Group& group_create)
 	group_create.get<ChildWindow>("CourseWindow")->setVisible(false);
 	group_create.get<Panel>("PanelSemester")->setVisible(true);
 }
+
+void onComboYearSelected(Group& group_create)
+{
+	string selectedItem = group_create.get<ComboBox>("ComboYear")->getSelectedItem().toStdString();
+	int year = atoi(selectedItem.substr(0, 4).c_str());
+	semester->startSchoolYear = year; 
+	semester->endSchoolYear = year + 1;
+}
+
+void onComboNoSelected(Group& group_create)
+{
+	string selectedItem = group_create.get<ComboBox>("ComboSemester")->getSelectedItem().toStdString();
+	int no = atoi(selectedItem.c_str());
+	semester->No = no;
+}
+
+
 void init_group_create_semester(Group& group_create)
 {
 
@@ -28,4 +45,6 @@ void init_group_create_semester(Group& group_create)
 void loadcreateSemesterwidget(Group& group_create)
 {
 	init_group_create_semester(group_create);
+	loadcreateCoursewidget(group_create , ref(semester));
+	group_create.get<ComboBox>("ComboYear")->onItemSelect(&onComboYearSelected, ref(group_create));
 }

@@ -67,7 +67,7 @@ Panel.PanelSemester {
     }
 
     Label.CreateSemes {
-        Position = (50, 70);
+        Position = (30, 70);
         Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (177.2, 18);
@@ -109,7 +109,7 @@ Panel.PanelSemester {
     }
 
     Label.Label3 {
-        Position = (50, 30);
+        Position = (30, 30);
         Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (167.2, 18);

@@ -22,7 +22,6 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
         int curSemester = 4;
 
         tgui::String curDirectory = "SchoolYears/" + tgui::String(curSchoolYear->startYear) + "-" + tgui::String(curSchoolYear->endYear);
-        cout << curYears << endl;
         if (curSchoolYear->nowSemester == NULL)
         {
             group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears });
