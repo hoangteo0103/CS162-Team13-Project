@@ -1,4 +1,12 @@
 Renderer.1 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+}
+
+Renderer.2 {
     ArrowBackgroundColor = #F5F5F5;
     ArrowBackgroundColorHover = white;
     ArrowColor = #3C3C3C;
@@ -15,7 +23,7 @@ Renderer.1 {
     TextureBackgroundDisabled = None;
 }
 
-Renderer.2 {
+Renderer.3 {
     BackgroundColor = #F5F5F5;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorHover = white;
@@ -37,16 +45,8 @@ Renderer.2 {
     TextureHover = None;
 }
 
-Renderer.3 {
-    BackgroundColor = transparent;
-    BorderColor = #3C3C3C;
-    Borders = (0, 0, 0, 0);
-    TextColor = #3C3C3C;
-    TextureBackground = None;
-}
-
 Panel.PanelSemester {
-    Position = (510, 180);
+    Position = (490, 170);
     Size = (640, 600);
 
     Renderer {
@@ -60,15 +60,15 @@ Panel.PanelSemester {
         Items = [1, 2, 3];
         ItemsToDisplay = 0;
         MaximumItems = 0;
-        Position = (200, 40);
-        Renderer = &1;
+        Position = (200, 70);
+        Renderer = &2;
         Size = (160, 22);
         TextSize = 13;
     }
 
     Label.CreateSemes {
-        Position = (50, 40);
-        Renderer = &3;
+        Position = (50, 70);
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (177.2, 18);
         Text = "Create Semester";
@@ -77,8 +77,8 @@ Panel.PanelSemester {
     }
 
     Label.StartDate {
-        Position = (0, 90);
-        Renderer = &3;
+        Position = (10, 130);
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (187.6, 14);
         Text = "Start Date(dd/mm/yy)";
@@ -86,15 +86,15 @@ Panel.PanelSemester {
     }
 
     EditBox.GetStart {
-        Position = (140, 90);
-        Renderer = &2;
+        Position = (150, 130);
+        Renderer = &3;
         Size = (150, 22);
         TextSize = 11;
     }
 
     Label.EndDate {
-        Position = (300, 90);
-        Renderer = &3;
+        Position = (310, 130);
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (177, 17);
         Text = "End Date(dd/mm/yy)";
@@ -102,15 +102,15 @@ Panel.PanelSemester {
     }
 
     EditBox.GetEnd {
-        Position = (460, 90);
-        Renderer = &2;
+        Position = (450, 130);
+        Renderer = &3;
         Size = (150, 22);
         TextSize = 11;
     }
 
     Label.Label3 {
-        Position = (40, 140);
-        Renderer = &3;
+        Position = (50, 30);
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (167.2, 18);
         Text = "Choose School Year";
@@ -121,8 +121,8 @@ Panel.PanelSemester {
         ChangeItemOnScroll = false;
         ItemsToDisplay = 0;
         MaximumItems = 0;
-        Position = (210, 140);
-        Renderer = &1;
+        Position = (200, 30);
+        Renderer = &2;
         Size = (160, 22);
         TextSize = 13;
     }
@@ -155,6 +155,45 @@ Panel.PanelSemester {
             TextureDownHover = None;
             TextureFocused = None;
             TextureHover = None;
+        }
+    }
+
+    Label.Label1 {
+        HorizontalAlignment = Center;
+        Position = (210, 200);
+        Renderer = &1;
+        ScrollbarPolicy = Never;
+        Size = (197.2, 18);
+        Text = "List of Courses";
+        TextSize = 15;
+    }
+
+    ListView.ListView1 {
+        ExpandLastColumn = 0;
+        HeaderHeight = 0;
+        HeaderSeparatorHeight = 0;
+        HeaderVisible = true;
+        ItemHeight = 20;
+        Position = (70, 220);
+        SeparatorWidth = 1;
+        ShowVerticalGridLines = 1;
+        Size = (520, 177);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorHover = white;
+            BorderColor = black;
+            Borders = (1, 1, 1, 1);
+            HeaderBackgroundColor = #E6E6E6;
+            HeaderTextColor = black;
+            Padding = (0, 0, 0, 0);
+            SelectedBackgroundColor = #006EFF;
+            SelectedBackgroundColorHover = #1E96FF;
+            SelectedTextColor = white;
+            SeparatorColor = #C8C8C8;
+            TextColor = #3C3C3C;
+            TextColorHover = black;
         }
     }
 }
