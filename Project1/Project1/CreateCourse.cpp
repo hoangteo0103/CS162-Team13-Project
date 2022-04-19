@@ -81,21 +81,41 @@ int check_intersect(Group& group_create, Semester*& semester)
 	return 2;
 }
 
-int check_intersect2(Group& group_create, Semester*& semester , Course*& course)
+int check_intersect2(Group& group_create, Semester*& semester ,Course*& course)
 {
-	if (semester == nullptr || course == nullptr)
+	int session1, session1day, session2, session2day;
+	for (int i = 1; i <= 4; i++)
 	{
-		cout << "OC";
-		exit(0);
+		if (group_create.get<RadioButton>("RadioButton" + tgui::String(2 * i - 1))->isChecked() == true)
+		{
+			session1 = i;
+			break;
+		}
 	}
-	if (!semester->nowCourse )
-		return 2;
-	for (Course* cur = semester->nowCourse; cur; cur = cur->nextCourse)
+
+	for (int i = 1; i <= 4; i++)
 	{
-		cout << "DMDM";
-		if (cur == course) continue;
-		pair<int, int > day1 = { course->session1, course->session1Day };
-		pair<int, int > day2 = { course-> session2, course->session2Day };
+		if (group_create.get<RadioButton>("RadioButton" + tgui::String(2 * i))->isChecked() == true)
+		{
+			session2 = i;
+			break;
+		}
+	}
+	session1day = group_create.get<ComboBox>("ComboBox1")->getSelectedItemIndex() + 2;
+	session2day = group_create.get<ComboBox>("ComboBox2")->getSelectedItemIndex() + 2;
+	pair<int, int > day1 = { session1 , session1day };
+	pair<int, int > day2 = { session2 , session2day };
+	if (day1 == day2)
+	{
+		return 0;
+	}
+
+	if (!semester->nowCourse)
+		return 2;
+	for (Course* &cur = semester->nowCourse; cur; cur = cur->nextCourse)
+	{
+		pair<int, int > day1 = { session1 , session1day };
+		pair<int, int > day2 = { session2 , session2day };
 		pair<int, int > day3 = { cur->session1 , cur->session1Day };
 		pair<int, int > day4 = { cur->session2 , cur->session2Day };
 		if (day1 == day2)
@@ -124,14 +144,13 @@ void createCourseListView(Group& group_create, Semester*& semester)
 	group_create.get<ListView>("ListCourse")->addColumn("MaximumStudent", 120);
 	if (semester->nowCourse == nullptr)
 	{
-		group_create.get<ListView>("ListCourse")->setSize(610, 60);
+		group_create.get<ListView>("ListCourse")->setSize(610, 150);
 		return; 
 	}
 	group_create.get<ListView>("ListCourse")->setTextSize(11);
 
 	for (Course* cur = semester->nowCourse; cur ; cur = cur->nextCourse)
 	{
-		cout << cur->getSecondSessionDate() << endl;
 		group_create.get<ListView>("ListCourse")->addItem({ tgui::String(cur->courseID), cur->courseName, cur->teacherName, tgui::String(cur->credits), cur->getFirstSessionDate(), cur->getSecondSessionDate(), tgui::String(cur->maximumStudentNum) });
 	}
 	
@@ -155,8 +174,8 @@ void LoadModifyCourse(Group& group_create, Course*& cur)
 	{
 		group_create.get<RadioButton>("RadioButton" + tgui::String(i))->setChecked(false);
 	}
-	group_create.get<RadioButton>("RadioButton" + tgui::String(cur->session1))->setChecked(true); 
-	group_create.get<RadioButton>("RadioButton" + tgui::String(cur->session2))->setChecked(true); 
+	group_create.get<RadioButton>("RadioButton" + tgui::String(2 * cur->session1 - 1))->setChecked(true); 
+	group_create.get<RadioButton>("RadioButton" + tgui::String(2 * cur->session2))->setChecked(true); 
 
 }
 void onChangeSelected(Group& group_create , Semester*& semester , Course* & course)
@@ -167,7 +186,7 @@ void onChangeSelected(Group& group_create , Semester*& semester , Course* & cour
 		group_create.get<Label>("ErrorMessage")->setText("Enter all information");
 		return;
 	}
-	int check = check_intersect2(ref(group_create), ref(semester) , ref(course));
+	int check = check_intersect(ref(group_create), ref(semester) );
 	if (check == 0)
 	{
 		group_create.get<Label>("ErrorMessage")->setVisible(true);
@@ -202,7 +221,6 @@ void onChangeSelected(Group& group_create , Semester*& semester , Course* & cour
 	}
 	session1day = group_create.get<ComboBox>("ComboBox1")->getSelectedItemIndex() + 2;
 	session2day = group_create.get<ComboBox>("ComboBox2")->getSelectedItemIndex() + 2;
-
 	int id = atoi(group_create.get<EditBox>("GetID")->getText().toStdString().c_str());
 	int credit = atoi(group_create.get<EditBox>("GetCredit")->getText().toStdString().c_str());
 	int Max = atoi(group_create.get<EditBox>("GetMax")->getText().toStdString().c_str());
@@ -214,16 +232,26 @@ void onChangeSelected(Group& group_create , Semester*& semester , Course* & cour
 	group_create.get<ChildWindow>("CourseWindow")->setVisible(false);
 	createCourseListView(ref(group_create), ref(semester));
 }
+
+void onDeleteSelected(Group& group_create, Semester*& semester, Course*& course , int index)
+{
+	group_create.get<ChildWindow>("CourseWindow")->setVisible(false);
+	semester->deleteCourse(ref(semester->nowCourse), course);
+	createCourseListView(ref(group_create), ref(semester));
+
+}
+
 void ModifyCourse(Group& group_create, Semester*& semester, int index)
 {
 	if (!semester->nowCourse)
 		return; 
 	int cnt = 0;
-	for (Course* cur = semester->nowCourse; cur; cur = cur->nextCourse)
+	for (Course*&cur = semester->nowCourse; cur; cur = cur->nextCourse)
 	{
 		if (cnt == index)
 		{
 			LoadModifyCourse(ref(group_create), ref(cur));
+			group_create.get<Button>("Delete")->onClick(&onDeleteSelected, ref(group_create), ref(semester), ref(cur), index);
 			group_create.get<Button>("Change")->onClick(&onChangeSelected, ref(group_create) ,ref(semester) , ref(cur));
 			break; 
 		}

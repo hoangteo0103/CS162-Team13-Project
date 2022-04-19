@@ -42,24 +42,39 @@ Renderer.2 {
 }
 
 Renderer.3 {
-    BackgroundColor = rgba(160, 160, 160, 215);
-    BackgroundColorHover = rgba(170, 170, 170, 215);
-    BorderColor = rgba(240, 240, 240, 215);
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
     Borders = (1, 1, 1, 1);
-    CaretColor = rgba(255, 255, 255, 215);
-    DefaultTextColor = rgba(240, 240, 240, 175);
-    SelectedTextBackgroundColor = rgba(0, 110, 200, 130);
-    SelectedTextColor = rgba(255, 255, 255, 245);
-    TextColor = rgba(255, 255, 255, 215);
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
     Texture = None;
     TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
     TextureFocused = None;
     TextureHover = None;
 }
 
 Renderer.4 {
-    BackgroundColor = rgb(230, 230, 230);
+    TextColor = rgb(100, 100, 100);
     TextureBackground = None;
+
+    Scrollbar {
+        TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
+        TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
+        TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
+        TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
+    }
 }
 
 Renderer.5 {
@@ -89,15 +104,24 @@ Renderer.5 {
 }
 
 Renderer.6 {
-    TextColor = rgb(100, 100, 100);
+    BackgroundColor = rgb(230, 230, 230);
     TextureBackground = None;
+}
 
-    Scrollbar {
-        TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
-        TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
-        TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
-        TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
-    }
+Renderer.7 {
+    BackgroundColor = rgba(160, 160, 160, 215);
+    BackgroundColorHover = rgba(170, 170, 170, 215);
+    BorderColor = rgba(240, 240, 240, 215);
+    Borders = (1, 1, 1, 1);
+    CaretColor = rgba(255, 255, 255, 215);
+    DefaultTextColor = rgba(240, 240, 240, 175);
+    SelectedTextBackgroundColor = rgba(0, 110, 200, 130);
+    SelectedTextColor = rgba(255, 255, 255, 245);
+    TextColor = rgba(255, 255, 255, 215);
+    Texture = None;
+    TextureDisabled = None;
+    TextureFocused = None;
+    TextureHover = None;
 }
 
 ChildWindow.CourseWindow {
@@ -140,7 +164,7 @@ ChildWindow.CourseWindow {
 
     EditBox.GetID {
         Position = (220, 40);
-        Renderer = &3;
+        Renderer = &7;
         Size = (160, 22);
         TextSize = 13;
     }
@@ -167,7 +191,7 @@ ChildWindow.CourseWindow {
 
     Label.CourseName {
         Position = (90, 80);
-        Renderer = &6;
+        Renderer = &4;
         ScrollbarPolicy = Never;
         Size = (127.2, 20);
         Text = "Course Name";
@@ -177,14 +201,14 @@ ChildWindow.CourseWindow {
 
     EditBox.GetName {
         Position = (220, 80);
-        Renderer = &3;
+        Renderer = &7;
         Size = (160, 22);
         TextSize = 13;
     }
 
     Label.TeacherName {
         Position = (80, 120);
-        Renderer = &6;
+        Renderer = &4;
         ScrollbarPolicy = Never;
         Size = (127.2, 18);
         Text = "Teacher Name";
@@ -194,14 +218,14 @@ ChildWindow.CourseWindow {
 
     EditBox.GetTeacherName {
         Position = (220, 120);
-        Renderer = &3;
+        Renderer = &7;
         Size = (160, 22);
         TextSize = 13;
     }
 
     Label.Credit {
         Position = (50, 160);
-        Renderer = &6;
+        Renderer = &4;
         ScrollbarPolicy = Never;
         Size = (200, 20);
         Text = "Number of Credits";
@@ -211,14 +235,14 @@ ChildWindow.CourseWindow {
 
     EditBox.GetCredit {
         Position = (220, 160);
-        Renderer = &3;
+        Renderer = &7;
         Size = (160, 22);
         TextSize = 13;
     }
 
     Label.Label1 {
         Position = (50, 200);
-        Renderer = &6;
+        Renderer = &4;
         ScrollbarPolicy = Never;
         Size = (200, 20);
         Text = "Maximum Number";
@@ -228,7 +252,7 @@ ChildWindow.CourseWindow {
 
     EditBox.GetMax {
         Position = (220, 200);
-        Renderer = &3;
+        Renderer = &7;
         Size = (160, 22);
         Text = 50;
         TextSize = 13;
@@ -236,7 +260,7 @@ ChildWindow.CourseWindow {
 
     Label.Session1 {
         Position = (10, 270);
-        Renderer = &6;
+        Renderer = &4;
         ScrollbarPolicy = Never;
         Size = (127.2, 20);
         Text = "Session 1";
@@ -246,7 +270,7 @@ ChildWindow.CourseWindow {
 
     Label.Session2 {
         Position = (10, 310);
-        Renderer = &6;
+        Renderer = &4;
         ScrollbarPolicy = Never;
         Size = (127.2, 20);
         Text = "Session 2";
@@ -339,37 +363,14 @@ ChildWindow.CourseWindow {
 
     Button.AddToList {
         Position = (250, 370);
+        Renderer = &3;
         Text = Add;
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = #F5F5F5;
-            BackgroundColorDisabled = #E6E6E6;
-            BackgroundColorDown = #EBEBEB;
-            BackgroundColorHover = white;
-            BorderColor = #3C3C3C;
-            BorderColorDisabled = #7D7D7D;
-            BorderColorDown = black;
-            BorderColorFocused = #1E1EB4;
-            BorderColorHover = black;
-            Borders = (1, 1, 1, 1);
-            TextColor = #3C3C3C;
-            TextColorDisabled = #7D7D7D;
-            TextColorDown = black;
-            TextColorHover = black;
-            Texture = None;
-            TextureDisabled = None;
-            TextureDown = None;
-            TextureDownFocused = None;
-            TextureDownHover = None;
-            TextureFocused = None;
-            TextureHover = None;
-        }
     }
 
     Panel.PanelHe1 {
         Position = (260, 270);
-        Renderer = &4;
+        Renderer = &6;
         Size = (300, 30);
 
         RadioButton.RadioButton1 {
@@ -403,7 +404,7 @@ ChildWindow.CourseWindow {
 
     Panel.PanelHe2 {
         Position = (260, 300);
-        Renderer = &4;
+        Renderer = &6;
         Size = (300, 40);
 
         RadioButton.RadioButton2 {
@@ -592,7 +593,7 @@ ChildWindow.CourseWindow {
     }
 
     Label.ErrorMessage {
-        Position = (310, 370);
+        Position = (210, 400);
         ScrollbarPolicy = Never;
         Size = (257.2, 18);
         Text = "Enter all information";
@@ -609,62 +610,16 @@ ChildWindow.CourseWindow {
 
     Button.Delete {
         Position = (160, 370);
+        Renderer = &3;
         Text = Delete;
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = #F5F5F5;
-            BackgroundColorDisabled = #E6E6E6;
-            BackgroundColorDown = #EBEBEB;
-            BackgroundColorHover = white;
-            BorderColor = #3C3C3C;
-            BorderColorDisabled = #7D7D7D;
-            BorderColorDown = black;
-            BorderColorFocused = #1E1EB4;
-            BorderColorHover = black;
-            Borders = (1, 1, 1, 1);
-            TextColor = #3C3C3C;
-            TextColorDisabled = #7D7D7D;
-            TextColorDown = black;
-            TextColorHover = black;
-            Texture = None;
-            TextureDisabled = None;
-            TextureDown = None;
-            TextureDownFocused = None;
-            TextureDownHover = None;
-            TextureFocused = None;
-            TextureHover = None;
-        }
     }
 
     Button.Change {
         Position = (320, 370);
+        Renderer = &3;
         Size = (62, 22);
         Text = Change;
         TextSize = 13;
-
-        Renderer {
-            BackgroundColor = #F5F5F5;
-            BackgroundColorDisabled = #E6E6E6;
-            BackgroundColorDown = #EBEBEB;
-            BackgroundColorHover = white;
-            BorderColor = #3C3C3C;
-            BorderColorDisabled = #7D7D7D;
-            BorderColorDown = black;
-            BorderColorFocused = #1E1EB4;
-            BorderColorHover = black;
-            Borders = (1, 1, 1, 1);
-            TextColor = #3C3C3C;
-            TextColorDisabled = #7D7D7D;
-            TextColorDown = black;
-            TextColorHover = black;
-            Texture = None;
-            TextureDisabled = None;
-            TextureDown = None;
-            TextureDownFocused = None;
-            TextureDownHover = None;
-            TextureFocused = None;
-            TextureHover = None;
-        }
     }
 }

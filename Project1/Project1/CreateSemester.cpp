@@ -2,7 +2,6 @@
 
 
 Semester* semester = new Semester(Date(0,0,0), Date(0,0,0));
-int index = -1;
 
 void onCourseDoubleClick(Group& group_create , Semester* &semester)
 {
