@@ -1,1 +1,5 @@
-﻿  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
+﻿  ClassScoreboard.cpp
+E:\Study\CS162\FinalProject\Project1\Project1\ClassScoreboard.cpp(28,39): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+E:\Study\CS162\FinalProject\Project1\Project1\ClassScoreboard.cpp(62,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+E:\Study\CS162\FinalProject\Project1\Project1\ClassScoreboard.cpp(121,36): warning C4101: 'tmpID': unreferenced local variable
+  Project1.vcxproj -> E:\Study\CS162\FinalProject\Project1\x64\Debug\Project1.exe

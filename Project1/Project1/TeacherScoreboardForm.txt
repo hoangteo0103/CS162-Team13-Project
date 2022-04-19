@@ -31,7 +31,7 @@ ComboBox.ComboBox2 {
     MaximumItems = 0;
     Position = (420, 160);
     Renderer = &1;
-    Size = (260, 32);
+    Size = (270, 32);
     TextSize = 13;
 }
 

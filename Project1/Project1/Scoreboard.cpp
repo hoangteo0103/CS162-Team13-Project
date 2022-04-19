@@ -108,7 +108,8 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
                     stringstream str(line);
                     int cnt = 0;
 
-                    int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0, tMark = 0;
+                    int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0;
+                    float tMark = 0;
                     char stdName[FULLNAMELENGTH];
 
                     while (getline(str, word, ',')) {
@@ -149,7 +150,7 @@ void loadwidget(Group& group_scoreboard, queue<pair<SchoolYear*, int>> curSchool
                     vector<tgui::String> tmp;
                     if (!studentName.compare(stdName)) {
                         tgui::String item = j->courseName;
-                        tmp = { curSemesterStr + "/" + curYears, tgui::String(j->courseID) , item ,tgui::String(j->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) ,tgui::String(j->score) ,   "4" ,  "A" };
+                        tmp = { curSemesterStr + "/" + curYears, tgui::String(j->courseID) , item ,tgui::String(j->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(j->round(tMark)) ,tgui::String(j->convertoABC(tMark)) , tgui::String(j->converto4(tMark))};
                         mp[curSemesterStr + "/" + curYears].push_back(tmp);
                         group_scoreboard.get<tgui::ListView>("ListView1")->addItem(tmp);
                     }

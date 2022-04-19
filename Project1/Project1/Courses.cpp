@@ -318,14 +318,35 @@ bool Course::findStudent(string curDir, string studentID) {
 
 	return check;
 }
-string Course::convertoABC(int score)
+string Course::convertoABC(float score)
 {
 	if (score >= 9.5) return "A+";
 	if (score >= 8.5) return "A";
-	if (score >= 7.5) return "B+"; 
-
-	return "C";
+	if (score >= 8) return "B+"; 
+	if (score >= 7) return "B";
+	if (score >= 6.5) return "C+";
+	if (score > 5.5) return "C";
+	return "D";
 }
+
+int Course::converto4(float score)
+{
+	if (score >= 8.5) return 4;
+	if (score >= 7) return 3;
+	if (score >= 5.5) return 2;
+	return 1;
+}
+
+float Course::round(float var)
+{
+	float value;
+	if (int(var * 100) % 10 >= 5)
+		value = (int)(var * 100 + .5);
+	else
+		value = (int)(var * 100);
+	return (float)value / 100;
+}
+
 void importScoreBoard();
 void viewScourBoard();
 void updateResult();

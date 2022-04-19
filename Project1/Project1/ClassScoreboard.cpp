@@ -78,14 +78,14 @@ void onComboBoxSemestersSelected(Group& group_studentSB, tgui::String getSelecte
 void loadSBWidgets(Group& group_studentSB, SchoolYear*& schoolYear) {
     init_groupSB(group_studentSB);
 
-    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Semester", 210, tgui::ListView::ColumnAlignment::Center);
+    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Semester", 220, tgui::ListView::ColumnAlignment::Center);
     //group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Courses", 210, tgui::ListView::ColumnAlignment::Center);
-    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Class", 100, tgui::ListView::ColumnAlignment::Center);
-    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("StudentID", 110, tgui::ListView::ColumnAlignment::Center);
+    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("StudentID", 130, tgui::ListView::ColumnAlignment::Center);
+    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Student Name", 270, tgui::ListView::ColumnAlignment::Center);
+    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("Class", 110, tgui::ListView::ColumnAlignment::Center);
     group_studentSB.get<tgui::ListView>("ListView1")->addColumn("GPA", 100, tgui::ListView::ColumnAlignment::Center);
-    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("10", 60, tgui::ListView::ColumnAlignment::Center);
-    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("ABC", 60, tgui::ListView::ColumnAlignment::Center);
-    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("4", 60, tgui::ListView::ColumnAlignment::Center);
+    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("ABC", 80, tgui::ListView::ColumnAlignment::Center);
+    group_studentSB.get<tgui::ListView>("ListView1")->addColumn("4", 80, tgui::ListView::ColumnAlignment::Center);
 
     group_studentSB.get<tgui::ComboBox>("ComboBox1")->addItem("All Semesters");
     group_studentSB.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("All Semesters");
@@ -117,8 +117,8 @@ void loadSBWidgets(Group& group_studentSB, SchoolYear*& schoolYear) {
                 for (Student* curStudent = k->classStudent; curStudent; curStudent = curStudent->nextStudent) {
 
                     //string strID = "";
-                    int GPA = 0;
-                    int cnt = 0, tmpID;
+                    float GPA = 0;
+                    float cnt = 0, tmpID;
 
                     for (Course* curCourse = j->nowCourse; curCourse; curCourse = curCourse->nextCourse) {
                         cnt++;
@@ -185,9 +185,12 @@ void loadSBWidgets(Group& group_studentSB, SchoolYear*& schoolYear) {
                     GPA /= cnt;
 
                     vector<tgui::String> tmp;
-                    int on4 = 4 * GPA / 10;
 
-                    tmp = { tgui::String(curSemesterStr + "/" + curYears), tgui::String(k->classCODE), tgui::String(curStudent->studentID), tgui::String(GPA), tgui::String(GPA), tgui::String(j->nowCourse->convertoABC(GPA)), tgui::String(on4) };
+                    tgui::String name = curStudent->firstName;
+                    name += ' ';
+                    name += curStudent->lastName;
+
+                    tmp = { tgui::String(curSemesterStr + "/" + curYears), tgui::String(curStudent->studentID), name, tgui::String(k->classCODE), tgui::String(j->nowCourse->round(GPA)), tgui::String(j->nowCourse->convertoABC(GPA)), tgui::String(j->nowCourse->converto4(GPA))};
                     mpa[curSemesterStr + "/" + curYears].push_back(tmp);
                     mpb[curSemesterStr + "/" + curYears + "/" + tgui::String(k->classCODE)].push_back(tmp);
                     mpb[tgui::String("All Semesters/") + tgui::String(k->classCODE)].push_back(tmp);

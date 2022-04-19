@@ -42,7 +42,9 @@ public:
     void importScoreBoard();
     void viewScourBoard();
     void updateResult();
-    string convertoABC(int score); 
+    string convertoABC(float score); 
+    int converto4(float score);
+    float round(float var);
     string getFirstSessionDate();
     string getSecondSessionDate();
     DateofBirth getDoB(string* dob);
