@@ -183,7 +183,7 @@ void updateTextSizeMainMenu(tgui::BackendGui& gui)
 {
     // Update the text size of all widgets in the gui, based on the current window height
     const float windowHeight = gui.getView().getRect().height;
-    gui.setTextSize(static_cast<unsigned int>(0.02f * windowHeight)); // 2% of 
+    //gui.setTextSize(static_cast<unsigned int>(0.02f * windowHeight)); // 2% of 
 }
 
 void loadWidgetsMainMenu(tgui::BackendGui& gui)

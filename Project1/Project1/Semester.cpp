@@ -4,6 +4,12 @@ using namespace std;
 
 #include "Semester.h"
 
+Date::Date()
+{
+	this->day = 1;
+	this->month = 1;
+	this->year = 1;
+}
 void ScoreBoard::editScoreBoard()
 {
 
@@ -23,6 +29,7 @@ Semester::Semester(Date startDate , Date endDate)
 void Semester::deleteCourse(Course *&nowCourse ,Course* course)
 {
 	if (!nowCourse) return; 
+	numCourse--;
 	if (nowCourse == course)
 	{
 		Course* delptr = nowCourse;
@@ -58,6 +65,7 @@ void Semester::delListCourse(Course*& nowCourse)
 
 void Semester::addNewCourse(Course* course)
 {
+	this->numCourse++;
 	//cerr << 1 << '\n';
 	if (!this->nowCourse)
 	{

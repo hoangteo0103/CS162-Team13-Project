@@ -22,9 +22,9 @@ struct Date {
     Date();
     Date(int day_z, int month_z, int year_z)
     {
-        day = day_z;
-        month = month_z;
-        year = year_z;
+        this->day = day_z;
+        this->month = month_z;
+        this->year = year_z;
     };
 
 };
@@ -37,6 +37,7 @@ class Semester
         int No;
         Date startDate, endDate;
         int startSchoolYear, endSchoolYear;
+        int numCourse = 0;
         Semester(Date startDate , Date endDate);
         Semester* nextSemester = nullptr;
         Course* nowCourse = nullptr;

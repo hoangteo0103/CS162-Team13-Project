@@ -1,4 +1,29 @@
 Renderer.1 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+}
+
+Renderer.2 {
+    ArrowBackgroundColor = #F5F5F5;
+    ArrowBackgroundColorHover = white;
+    ArrowColor = #3C3C3C;
+    ArrowColorHover = black;
+    BackgroundColor = #F5F5F5;
+    BorderColor = black;
+    Borders = (1, 1, 1, 1);
+    Padding = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureArrow = None;
+    TextureArrowDisabled = None;
+    TextureArrowHover = None;
+    TextureBackground = None;
+    TextureBackgroundDisabled = None;
+}
+
+Renderer.3 {
     BackgroundColor = #F5F5F5;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorHover = white;
@@ -20,31 +45,6 @@ Renderer.1 {
     TextureHover = None;
 }
 
-Renderer.2 {
-    BackgroundColor = transparent;
-    BorderColor = #3C3C3C;
-    Borders = (0, 0, 0, 0);
-    TextColor = #3C3C3C;
-    TextureBackground = None;
-}
-
-Renderer.3 {
-    ArrowBackgroundColor = #F5F5F5;
-    ArrowBackgroundColorHover = white;
-    ArrowColor = #3C3C3C;
-    ArrowColorHover = black;
-    BackgroundColor = #F5F5F5;
-    BorderColor = black;
-    Borders = (1, 1, 1, 1);
-    Padding = (0, 0, 0, 0);
-    TextColor = #3C3C3C;
-    TextureArrow = None;
-    TextureArrowDisabled = None;
-    TextureArrowHover = None;
-    TextureBackground = None;
-    TextureBackgroundDisabled = None;
-}
-
 Panel.PanelSemester {
     Position = (490, 170);
     Size = (640, 600);
@@ -61,14 +61,14 @@ Panel.PanelSemester {
         ItemsToDisplay = 0;
         MaximumItems = 0;
         Position = (230, 70);
-        Renderer = &3;
+        Renderer = &2;
         Size = (160, 22);
         TextSize = 13;
     }
 
     Label.CreateSemes {
         Position = (50, 70);
-        Renderer = &2;
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (200, 20);
         Text = "Create Semester";
@@ -78,7 +78,7 @@ Panel.PanelSemester {
 
     Label.StartDate {
         Position = (50, 130);
-        Renderer = &2;
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (200, 20);
         Text = "Start Date(dd/mm/yy)";
@@ -87,14 +87,14 @@ Panel.PanelSemester {
 
     EditBox.GetStart {
         Position = (230, 130);
-        Renderer = &1;
+        Renderer = &3;
         Size = (150, 22);
         TextSize = 11;
     }
 
     Label.EndDate {
         Position = (50, 170);
-        Renderer = &2;
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (200, 20);
         Text = "End Date(dd/mm/yy)";
@@ -103,14 +103,14 @@ Panel.PanelSemester {
 
     EditBox.GetEnd {
         Position = (230, 170);
-        Renderer = &1;
+        Renderer = &3;
         Size = (150, 22);
         TextSize = 11;
     }
 
     Label.Label3 {
         Position = (50, 30);
-        Renderer = &2;
+        Renderer = &1;
         ScrollbarPolicy = Never;
         Size = (200, 20);
         Text = "Choose School Year";
@@ -122,7 +122,7 @@ Panel.PanelSemester {
         ItemsToDisplay = 0;
         MaximumItems = 0;
         Position = (230, 30);
-        Renderer = &3;
+        Renderer = &2;
         Size = (160, 22);
         TextSize = 13;
     }
@@ -176,17 +176,18 @@ Panel.PanelSemester {
         }
     }
 
-    ListView.ListView1 {
+    ListView.ListCourse {
         ExpandLastColumn = 0;
         HeaderHeight = 0;
         HeaderSeparatorHeight = 0;
+        HeaderTextSize = 13;
         HeaderVisible = true;
         ItemHeight = 20;
-        Position = (70, 250);
+        Position = (20, 250);
         SeparatorWidth = 1;
         ShowVerticalGridLines = 1;
-        Size = (520, 177);
-        TextSize = 13;
+        Size = (610, 177);
+        TextSize = 10;
 
         Renderer {
             BackgroundColor = #F5F5F5;

@@ -2,6 +2,19 @@
 
 
 Semester* semester = new Semester(Date(0,0,0), Date(0,0,0));
+int index = -1;
+
+void onCourseDoubleClick(Group& group_create , Semester* &semester)
+{
+	int id = group_create.get<tgui::ListView>("ListCourse")->getSelectedItemIndex();
+	if (semester->nowCourse == nullptr)
+	{
+		return;
+	}
+	ModifyCourse(ref(group_create), ref(semester), id);
+	
+}
+
 
 void onCreateSemesterSelected(Group& group_create)
 {
@@ -47,4 +60,5 @@ void loadcreateSemesterwidget(Group& group_create)
 	init_group_create_semester(group_create);
 	loadcreateCoursewidget(group_create , ref(semester));
 	group_create.get<ComboBox>("ComboYear")->onItemSelect(&onComboYearSelected, ref(group_create));
+	group_create.get<ListView>("ListCourse")->onDoubleClick(&onCourseDoubleClick, ref(group_create), ref(semester));
 }

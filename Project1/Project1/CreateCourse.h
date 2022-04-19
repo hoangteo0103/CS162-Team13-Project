@@ -13,7 +13,7 @@ using namespace tgui;
 using namespace std;
 
 
-
+void ModifyCourse(Group& group_create, Semester*& semester, int index);
 void onCreateCourseSelected(Group& group_create);
 void init_group_create_course(Group& group_create); 
 void loadcreateCoursewidget(Group& group_create, Semester*& semester);
