@@ -170,10 +170,10 @@ Picture.Picture2 {
 }
 
 Label."Teacher Name" {
-    Position = (1070, 440);
+    Position = (1070, 430);
     ScrollbarPolicy = Never;
     Size = (217.2, 18);
-    TextSize = 13;
+    TextSize = 14;
 
     Renderer {
         BackgroundColor = transparent;
@@ -248,5 +248,15 @@ TextArea.TextArea2 {
         SelectedTextColor = white;
         TextColor = #FF6600;
         TextureBackground = None;
+    }
+}
+
+Picture.Picture4 {
+    Position = (1070, 450);
+    Size = (15, 15);
+
+    Renderer {
+        Texture = "images/teacherEmailIcon.png" Smooth;
+        TransparentTexture = false;
     }
 }

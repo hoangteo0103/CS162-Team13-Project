@@ -44,7 +44,7 @@ ListView.ListView1 {
     Position = (100, 225);
     SeparatorWidth = 1;
     ShowVerticalGridLines = 1;
-    Size = (1100, 522);
+    Size = (1100, 550);
     TextSize = 13;
 
     Renderer {

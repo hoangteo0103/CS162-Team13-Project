@@ -29,14 +29,14 @@ void onComboBoxClassSelected(Group& group_studentSB, tgui::String getSelectedIte
                 group_studentSB.get<tgui::ListView>("ListView1")->addMultipleItems(t.second);
 
             }
-            group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 600LL));
+            group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 550LL));
 
         }
         else {
             group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, 50);
             group_studentSB.get<tgui::ListView>("ListView1")->removeAllItems();
             group_studentSB.get<tgui::ListView>("ListView1")->addMultipleItems(mpa[getSelectedItem1]);
-            group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(50LL * long long(mpa[getSelectedItem1].size()) + 80, 600LL));
+            group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(20LL * long long(mpa[getSelectedItem1].size()) + 40, 550LL));
 
         }
 
@@ -45,7 +45,7 @@ void onComboBoxClassSelected(Group& group_studentSB, tgui::String getSelectedIte
         //cout << getSelectedItem1 + '/' + getSelectedItem << endl;
         group_studentSB.get<tgui::ListView>("ListView1")->removeAllItems();
         group_studentSB.get<tgui::ListView>("ListView1")->addMultipleItems(mpb[getSelectedItem1 + "/" + getSelectedItem]);
-        group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(80LL * long long(mpb[getSelectedItem1 + getSelectedItem].size()) + 80, 600LL));
+        group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(20LL * long long(mpb[getSelectedItem1 + '/' + getSelectedItem].size()) + 40, 550LL));
 
     }
 }
@@ -63,7 +63,7 @@ void onComboBoxSemestersSelected(Group& group_studentSB, tgui::String getSelecte
             group_studentSB.get<tgui::ListView>("ListView1")->addMultipleItems(t.second);
 
         }
-        group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 600LL));
+        group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 550LL));
 
     }
     else {
@@ -71,7 +71,7 @@ void onComboBoxSemestersSelected(Group& group_studentSB, tgui::String getSelecte
         group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, 50);
         group_studentSB.get<tgui::ListView>("ListView1")->removeAllItems();
         group_studentSB.get<tgui::ListView>("ListView1")->addMultipleItems(mpa[getSelectedItem]);
-        group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(50LL * long long(mpa[getSelectedItem].size()) + 80, 600LL));
+        group_studentSB.get<tgui::ListView>("ListView1")->setSize(1100, min(20LL * long long(mpa[getSelectedItem].size()) + 40, 550LL));
     }
 }
 

@@ -73,6 +73,7 @@ void showGroupCourse(Group& group_course, bool check)
     group_course.get<TextArea>("TextArea1")->setVisible(check);
     group_course.get<TextArea>("TextArea2")->setVisible(check);
     group_course.get<Button>("Participants")->setVisible(check);
+    group_course.get<Picture>("Picture4")->setVisible(check);
 }
 
 void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course*& curCourse, Student student, tgui::String selectedItem) {
@@ -88,7 +89,7 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course*&
                     curCourse = k;
                     group_course.get<Label>("Course Name")->setTextSize(30);
                     group_course.get<Label>("Course Name")->setText(k->courseName + tgui::String("  -  ") + student.specificClass);
-                    group_course.get<Label>("Teacher Name")->setTextSize(15);
+                    group_course.get<Label>("Teacher Name")->setTextSize(14);
                     group_course.get<Label>("Teacher Name")->setText(k->teacherName);
                     courseInformation += '\n' + tgui::String(k->getFirstSessionDate()) + '\n' + '\n' + '\n';
                     courseInformation += tgui::String(k->getSecondSessionDate()) + '\n';
@@ -141,7 +142,7 @@ void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course*
                     //cerr << curCourse->courseName << '\n';
                     group_course.get<Label>("Course Name")->setTextSize(30);
                     group_course.get<Label>("Course Name")->setText(k->courseName);
-                    group_course.get<Label>("Teacher Name")->setTextSize(13);
+                    group_course.get<Label>("Teacher Name")->setTextSize(14);
                     group_course.get<Label>("Teacher Name")->setText(k->teacherName);
                     courseInformation += '\n' + tgui::String(k->getFirstSessionDate()) + '\n' + '\n' + '\n';
                     courseInformation += tgui::String(k->getSecondSessionDate()) + '\n';

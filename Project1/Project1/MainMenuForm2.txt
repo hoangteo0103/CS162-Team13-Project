@@ -64,3 +64,13 @@ Picture.Picture3 {
         TransparentTexture = false;
     }
 }
+
+Picture.Picture4 {
+    Position = (30, 15);
+    Size = (20, 20);
+
+    Renderer {
+        Texture = "images/staffIcon.png" Smooth;
+        TransparentTexture = false;
+    }
+}

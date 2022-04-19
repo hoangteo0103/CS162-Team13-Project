@@ -20,7 +20,7 @@ void onComboBoxSemesterSelected(Group& group_scoreboard, tgui::String getSelecte
             group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(t.second);
 
         }
-        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 600LL));
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 550LL));
 
     }
     else {
@@ -28,7 +28,7 @@ void onComboBoxSemesterSelected(Group& group_scoreboard, tgui::String getSelecte
         group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, 50);
         group_scoreboard.get<tgui::ListView>("ListView1")->removeAllItems();
         group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(mpx[getSelectedItem]);
-        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(50LL * long long(mpx[getSelectedItem].size()) + 80, 600LL));
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(20LL * long long(mpx[getSelectedItem].size()) + 40, 550LL));
 
     }
 }
@@ -49,14 +49,14 @@ void onComboBoxCourseSelected(Group& group_scoreboard, tgui::String getSelectedI
                 group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(t.second);
 
             }
-            group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 600LL));
+            group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(50 * width + 80LL, 550LL));
 
         }
         else {
             group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, 50);
             group_scoreboard.get<tgui::ListView>("ListView1")->removeAllItems();
             group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(mpx[getSelectedItem1]);
-            group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(50LL * long long(mpx[getSelectedItem1].size()) + 80, 600LL));
+            group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(20LL * long long(mpx[getSelectedItem1].size()) + 40, 550LL));
 
         }
 
@@ -65,7 +65,7 @@ void onComboBoxCourseSelected(Group& group_scoreboard, tgui::String getSelectedI
         cout << getSelectedItem1 + '/' + getSelectedItem << endl;
         group_scoreboard.get<tgui::ListView>("ListView1")->removeAllItems();
         group_scoreboard.get<tgui::ListView>("ListView1")->addMultipleItems(mpc[getSelectedItem1 + "/" + getSelectedItem]);
-        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(50LL * long long(mpc[getSelectedItem1 + getSelectedItem].size()) + 80, 600LL));
+        group_scoreboard.get<tgui::ListView>("ListView1")->setSize(1100, min(20LL * long long(mpc[getSelectedItem1 + '/' + getSelectedItem].size()) + 40, 550LL));
 
     }
 }
@@ -169,7 +169,7 @@ void loadScoreBoardWidget(Group& group_scoreboard, SchoolYear*& schoolYear) {
                         if (curStudent->studentID == stdID) {
                             tmp = { curSemesterStr + "/" + curYears, item, tgui::String(curStudent->studentID),tgui::String(k->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) ,tgui::String(k->score) , "4" ,  "A" };
                             mpx[curSemesterStr + "/" + curYears].push_back(tmp);
-                            mpc[curSemesterStr + "/" + curYears + k->courseName].push_back(tmp);
+                            mpc[curSemesterStr + "/" + curYears + '/' + k->courseName].push_back(tmp);
                             mpc[tgui::String("All Semesters/") + k->courseName].push_back(tmp);
                             group_scoreboard.get<tgui::ListView>("ListView1")->addItem(tmp);
                             break;

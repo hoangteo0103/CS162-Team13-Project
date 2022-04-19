@@ -66,7 +66,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     auto label = tgui::Label::create();
     label->setRenderer(theme.getRenderer("Label"));
     label->setSize(150, 150);
-    label->setPosition(1020, 10);
+    label->setPosition(60, 15);
     label->setTextSize(20);
 
     tgui::String className;
@@ -208,6 +208,7 @@ void hideGroupCourse(Group& group_course)
     group_course.get<Picture>("Picture1")->setVisible(false);
     group_course.get<Picture>("Picture2")->setVisible(false);
     group_course.get<Picture>("Picture3")->setVisible(false);
+    group_course.get<Picture>("Picture4")->setVisible(false);
     group_course.get<TextArea>("TextArea1")->setVisible(false);
     group_course.get<Button>("Participants")->setVisible(false);
     group_course.get<ListView>("PaList")->setVisible(false);

@@ -10,7 +10,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     auto label = tgui::Label::create();
     label->setRenderer(theme.getRenderer("Label"));
     label->setText(teacherName);
-    label->setPosition(10, 10);
+    label->setPosition(60, 15);
     label->setTextSize(20);
     group_course.add(label);
     if (!schoolYears) return false;

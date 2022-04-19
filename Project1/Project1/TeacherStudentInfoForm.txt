@@ -4,10 +4,10 @@ ListView.ListView1 {
     HeaderSeparatorHeight = 0;
     HeaderVisible = true;
     ItemHeight = 20;
-    Position = (100, 280);
+    Position = (100, 225);
     SeparatorWidth = 1;
     ShowVerticalGridLines = 1;
-    Size = (1100, 437);
+    Size = (1100, 550);
     TextSize = 13;
 
     Renderer {
@@ -31,8 +31,8 @@ ComboBox.ComboBox1 {
     ChangeItemOnScroll = false;
     ItemsToDisplay = 0;
     MaximumItems = 0;
-    Position = (110, 210);
-    Size = (180, 32);
+    Position = (100, 160);
+    Size = (200, 32);
     TextSize = 13;
 
     Renderer {
