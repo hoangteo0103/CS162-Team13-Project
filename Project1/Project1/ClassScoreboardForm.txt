@@ -19,9 +19,9 @@ ComboBox.ComboBox1 {
     ChangeItemOnScroll = false;
     ItemsToDisplay = 0;
     MaximumItems = 0;
-    Position = (110, 160);
+    Position = (100, 160);
     Renderer = &1;
-    Size = (180, 32);
+    Size = (200, 32);
     TextSize = 13;
 }
 
@@ -31,7 +31,7 @@ ComboBox.ComboBox2 {
     MaximumItems = 0;
     Position = (430, 160);
     Renderer = &1;
-    Size = (180, 32);
+    Size = (200, 32);
     TextSize = 13;
 }
 
@@ -41,10 +41,10 @@ ListView.ListView1 {
     HeaderSeparatorHeight = 0;
     HeaderVisible = true;
     ItemHeight = 20;
-    Position = (110, 241.375);
+    Position = (100, 225);
     SeparatorWidth = 1;
     ShowVerticalGridLines = 1;
-    Size = (1030, 495.625);
+    Size = (1030, 550);
     TextSize = 13;
 
     Renderer {

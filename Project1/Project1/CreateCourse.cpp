@@ -16,6 +16,7 @@ void init_group_create_course(Group& group_create)
 
 	auto group_create_course = tgui::Group::create();
 	group_create_course->loadWidgetsFromFile("CreateCourseForm.txt");
+	//group_create_course->get<ChildWindow>("CourseWindow")->setTextSize(11);
 	group_create.add(group_create_course->get<ChildWindow>("CourseWindow"));
 }
 

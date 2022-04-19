@@ -78,7 +78,7 @@ void loadScoreBoardWidget(Group& group_scoreboard, SchoolYear*& schoolYear) {
     init_scoreboard_group(group_scoreboard);
 
     group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Semester", 210, tgui::ListView::ColumnAlignment::Center);
-    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course", 270);
+    group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Course", 270, tgui::ListView::ColumnAlignment::Center);
     group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("StudentID", 110, tgui::ListView::ColumnAlignment::Center);
     group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Credit", 70, tgui::ListView::ColumnAlignment::Center);
     group_scoreboard.get<tgui::ListView>("ListView1")->addColumn("Midterm", 90, tgui::ListView::ColumnAlignment::Center);
@@ -128,7 +128,8 @@ void loadScoreBoardWidget(Group& group_scoreboard, SchoolYear*& schoolYear) {
                     stringstream str(line);
                     int cnt = 0;
 
-                    int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0, tMark = 0;
+                    int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0;
+                    float tMark = 0;
                     char stdName[FULLNAMELENGTH];
 
                     while (getline(str, word, ',')) {
@@ -167,7 +168,7 @@ void loadScoreBoardWidget(Group& group_scoreboard, SchoolYear*& schoolYear) {
                     tgui::String item = k->courseName;
                     for (Student* curStudent = k->nxtStudent; curStudent; curStudent = curStudent->nextStudent) {
                         if (curStudent->studentID == stdID) {
-                            tmp = { curSemesterStr + "/" + curYears, item, tgui::String(curStudent->studentID),tgui::String(k->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(tMark) ,tgui::String(k->score) , "4" ,  "A" };
+                            tmp = { curSemesterStr + "/" + curYears, item, tgui::String(curStudent->studentID),tgui::String(k->credits) ,tgui::String(mTerm), tgui::String(fMark), tgui::String(oMark), tgui::String(k->round(tMark)), tgui::String(k->convertoABC(tMark)), tgui::String(k->converto4(tMark)) };
                             mpx[curSemesterStr + "/" + curYears].push_back(tmp);
                             mpc[curSemesterStr + "/" + curYears + '/' + k->courseName].push_back(tmp);
                             mpc[tgui::String("All Semesters/") + k->courseName].push_back(tmp);

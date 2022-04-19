@@ -104,6 +104,7 @@ void hideGroupCourseTeacher(Group& group_course)
 
     group_course.get<Picture>("Picture1")->setVisible(false);
     group_course.get<Picture>("Picture2")->setVisible(false);
+    group_course.get<Picture>("Picture4")->setVisible(false);
 
     group_course.get<TextArea>("TextArea1")->setVisible(false);
     group_course.get<Button>("Participants")->setVisible(false);
