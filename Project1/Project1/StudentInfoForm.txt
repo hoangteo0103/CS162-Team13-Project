@@ -1,3 +1,34 @@
+Renderer.1 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextStyle = Bold;
+    TextureBackground = None;
+}
+
+Renderer.2 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorHover = transparent;
+    BorderColor = transparent;
+    BorderColorDisabled = transparent;
+    BorderColorHover = transparent;
+    Borders = (1, 1, 1, 1);
+    CaretColor = black;
+    CaretWidth = 1;
+    DefaultTextColor = #A0A0A0;
+    Padding = (0, 0, 0, 0);
+    SelectedTextBackgroundColor = #006EFF;
+    SelectedTextColor = white;
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    Texture = "stuInfoImage_Ver2.png" Smooth;
+    TextureDisabled = None;
+    TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
+    TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+}
+
 Panel.Panel1 {
     Position = (100, 150);
     Size = (1100, 610);
@@ -28,7 +59,6 @@ Panel.Panel1 {
     EditBox.StudentIDBox {
         Alignment = Center;
         Position = (150, 70);
-        ReadOnly = true;
         Size = (250, 32);
         TextSize = 13;
 
@@ -140,11 +170,12 @@ Panel.Panel1 {
         }
     }
 
-    Button.UpdateButton {
-        Position = (715, 450);
+    Button.ChangePassword {
+        Position = (635, 550);
         Size = (220, 52);
-        Text = "Update Infomation";
+        Text = "Change Password";
         TextSize = 15;
+        Visible = false;
 
         Renderer {
             BackgroundColor = #F5F5F5;
@@ -190,7 +221,6 @@ Panel.Panel1 {
     EditBox.FirstNameBox {
         Alignment = Center;
         Position = (150, 160);
-        ReadOnly = true;
         Size = (250, 32);
         TextSize = 13;
 
@@ -220,7 +250,6 @@ Panel.Panel1 {
     EditBox.LastNameBox {
         Alignment = Center;
         Position = (150, 250);
-        ReadOnly = true;
         Size = (250, 32);
         TextSize = 13;
 
@@ -250,7 +279,6 @@ Panel.Panel1 {
     EditBox.GenderBox {
         Alignment = Center;
         Position = (150, 340);
-        ReadOnly = true;
         Size = (250, 32);
         TextSize = 13;
 
@@ -280,7 +308,6 @@ Panel.Panel1 {
     EditBox.SocialIDBox {
         Alignment = Center;
         Position = (150, 430);
-        ReadOnly = true;
         Size = (250, 32);
         TextSize = 13;
 
@@ -310,7 +337,6 @@ Panel.Panel1 {
     EditBox.DoBBox {
         Alignment = Center;
         Position = (150, 520);
-        ReadOnly = true;
         Size = (250, 32);
         TextSize = 13;
 
@@ -340,7 +366,6 @@ Panel.Panel1 {
     EditBox.CreditBox {
         Alignment = Center;
         Position = (700, 360);
-        ReadOnly = true;
         Size = (250, 32);
         TextSize = 13;
 
@@ -364,6 +389,111 @@ Panel.Panel1 {
             TextureDisabled = None;
             TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
             TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+        }
+    }
+
+    Label.CurrentPassword {
+        Position = (495, 430);
+        Renderer = &1;
+        ScrollbarPolicy = Never;
+        Size = (160, 20);
+        Text = "Current Password";
+        TextSize = 15;
+        Visible = false;
+    }
+
+    EditBox.GetCur {
+        Alignment = Center;
+        Position = (700, 420);
+        Renderer = &2;
+        Size = (250, 32);
+        TextSize = 13;
+        Visible = false;
+    }
+
+    Label.NewPassword {
+        Position = (495, 470);
+        Renderer = &1;
+        ScrollbarPolicy = Never;
+        Size = (160, 20);
+        Text = "New Password";
+        TextSize = 15;
+        Visible = false;
+    }
+
+    EditBox.GetNew {
+        Alignment = Center;
+        Position = (700, 460);
+        Renderer = &2;
+        Size = (250, 32);
+        TextSize = 13;
+        Visible = false;
+    }
+
+    Label.ConfirmPassword {
+        Position = (495, 510);
+        Renderer = &1;
+        ScrollbarPolicy = Never;
+        Size = (210, 20);
+        Text = "Confirm New Password";
+        TextSize = 15;
+        Visible = false;
+    }
+
+    EditBox.GetConfirm {
+        Alignment = Center;
+        Position = (700, 500);
+        Renderer = &2;
+        Size = (250, 32);
+        TextSize = 13;
+        Visible = false;
+    }
+
+    Button.UpdateInformation {
+        Position = (715, 430);
+        Size = (220, 52);
+        Text = "Update Information";
+        TextSize = 15;
+
+        Renderer {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = transparent;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = transparent;
+            Borders = (1, 1, 1, 1);
+            TextColor = white;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = white;
+            Texture = "loginImage.png" Smooth;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = "loginImage2.png" Smooth;
+        }
+    }
+
+    Label.InfoUpdate {
+        Position = (730, 390);
+        ScrollbarPolicy = Never;
+        Size = (217.2, 18);
+        Text = "Change Info Successfully";
+        TextSize = 14;
+        Visible = false;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #7CFF06;
+            TextureBackground = None;
         }
     }
 }

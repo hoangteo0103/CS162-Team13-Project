@@ -111,6 +111,26 @@ void hideGroupCourseTeacher(Group& group_course)
     group_course.get<ListView>("PaList")->setVisible(false);
 }
 
+void hideGroupSmallStudentInfo(Group& group_info)
+{
+    group_info.get<Button>("UpdateInformation")->setVisible(true);
+    group_info.get<Button>("ChangePassword")->setVisible(false);
+    group_info.get<Label>("CurrentPassword")->setVisible(false);
+    group_info.get<Label>("InfoUpdate")->setVisible(false);
+    group_info.get<Label>("NewPassword")->setVisible(false);
+    group_info.get<Label>("ConfirmPassword")->setVisible(false);
+    group_info.get<EditBox>("GetCur")->setVisible(false);
+    group_info.get<EditBox>("GetNew")->setVisible(false);
+    group_info.get<EditBox>("GetConfirm")->setVisible(false);
+    group_info.get<EditBox>("StudentIDBox")->setReadOnly(false);
+    group_info.get<EditBox>("FirstNameBox")->setReadOnly(false);
+    group_info.get<EditBox>("LastNameBox")->setReadOnly(false);
+    group_info.get<EditBox>("GenderBox")->setReadOnly(false);
+    group_info.get<EditBox>("SocialIDBox")->setReadOnly(false);
+    group_info.get<EditBox>("DoBBox")->setReadOnly(false);
+    group_info.get<EditBox>("CreditBox")->setReadOnly(false);
+}
+
 void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
 {
     loadWidgetsMainMenuTeacher(gui);
@@ -143,5 +163,6 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName)
     group_small_studentInfo->setVisible(false);
     group_create->setVisible(false);
     group_studentSB->setVisible(false);
-    hideGroupCourseTeacher(*group_course);
+    hideGroupCourseTeacher(ref( * group_course));
+    hideGroupSmallStudentInfo(ref( * group_small_studentInfo));
 }

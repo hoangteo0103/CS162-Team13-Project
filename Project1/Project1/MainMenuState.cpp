@@ -134,7 +134,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
         reverse(strID.begin(), strID.end());
 
         tgui::String curYears = tgui::String(cSYear->startYear) + '-' + tgui::String(cSYear->endYear);
-
+        if (curYears == "2022-2023") continue;
         //cerr << curYears << '\n';
 
         int curSemester = 4;
@@ -214,6 +214,26 @@ void hideGroupCourse(Group& group_course)
     group_course.get<ListView>("PaList")->setVisible(false);
 }
 
+void showGroupSmallStudentInfo(Group& group_info)
+{
+    group_info.get<Label>("InfoUpdate")->setVisible(false);
+    group_info.get<Button>("UpdateInformation")->setVisible(false);
+    group_info.get<Button>("ChangePassword")->setVisible(true);
+    group_info.get<Label>("CurrentPassword")->setVisible(true);
+    group_info.get<Label>("NewPassword")->setVisible(true);
+    group_info.get<Label>("ConfirmPassword")->setVisible(true);
+    group_info.get<EditBox>("GetCur")->setVisible(true);
+    group_info.get<EditBox>("GetNew")->setVisible(true);
+    group_info.get<EditBox>("GetConfirm")->setVisible(true);
+    group_info.get<EditBox>("GetConfirm")->setVisible(true);
+    group_info.get<EditBox>("StudentIDBox")->setReadOnly(true);
+    group_info.get<EditBox>("FirstNameBox")->setReadOnly(true);
+    group_info.get<EditBox>("LastNameBox")->setReadOnly(true);
+    group_info.get<EditBox>("GenderBox")->setReadOnly(true);
+    group_info.get<EditBox>("SocialIDBox")->setReadOnly(true);
+    group_info.get<EditBox>("DoBBox")->setReadOnly(true);
+    group_info.get<EditBox>("CreditBox")->setReadOnly(true);
+}
 void run_mainmenu(BackendGui& gui, tgui::String studentID)
 {
     loadWidgetsMainMenu(gui);
@@ -235,7 +255,6 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
             }
         }
     }*/
-
     addComponents(gui, schoolYears, studentID, *group_course, *group_student, *group_scoreboard, *group_studentInfo);
     gui.add(group_course);
     gui.add(group_student);
@@ -245,5 +264,6 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     group_student->setVisible(false);
     group_scoreboard->setVisible(false);
     group_studentInfo->setVisible(false);
-    hideGroupCourse(*group_course);
+    hideGroupCourse(ref(*group_course));
+    showGroupSmallStudentInfo(ref(*group_studentInfo));
 }
