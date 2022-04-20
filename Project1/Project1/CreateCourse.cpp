@@ -263,6 +263,7 @@ void ModifyCourse(Group& group_create, Semester*& semester, int index)
 void onCreateCourseSelected(Group& group_create )
 {
 	group_create.get<ChildWindow>("CourseWindow")->setVisible(true);
+	group_create.get<Button>("AddToList")->setVisible(true);
 	group_create.get<Button>("Change")->setVisible(false);
 	group_create.get<Button>("Delete")->setVisible(false);
 	group_create.get<EditBox>("GetID")->setText("");
