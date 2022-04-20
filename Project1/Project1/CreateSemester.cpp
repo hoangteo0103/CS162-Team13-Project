@@ -59,6 +59,12 @@ void create_course_file(Semester*& semester , string year )
 		create3 << cur->courseID << "," << cur->courseName + string(" - ") + year.substr(0, 4) << "," << cur->teacherName << ",";
 		create3 << cur->maximumStudentNum << "," << cur->credits << "," << cur->session1 << "," << cur->session1Day << "," << cur->session2 << "," << cur->session2Day << endl;
 	}
+	for (Course* cur = semester->nowCourse; cur; cur = cur->nextCourse)
+	{
+		string name_course = "SchoolYears/" + year + "/Semester" + to_string(semester->No) + "/Courses Registration/" + cur->courseName + " - " + year.substr(0, 4);
+		ofstream create(name_course + ".txt");
+		create << NULL;
+	}
 }
 
 void onAddSemesterSelected(Group& group_create, Semester*& semester)
