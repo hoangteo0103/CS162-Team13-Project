@@ -58,7 +58,7 @@ void loadListofSpecificClasses(SpecificClass*& nowClass, string year)
 }
 
 bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID, tgui::Group& group_course,
-    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo)
+    tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_registration, tgui::Group& group_studentInfo)
 {
 
     tgui::Theme theme{ "themes/Black.txt" };
@@ -114,6 +114,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     // Create some pictures to place inside the scrollable panel
     loadwidget(group_scoreboard, curSchoolYear, studentName);
     loadInfoWidget(group_studentInfo, neededStudent);
+    loadRegistrationWidget(group_registration, curSchoolYear, neededStudent);
 
     //cerr << group_studentInfo.get<tgui::Label>("Label1")->getText() << '\n';
 
@@ -134,12 +135,17 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
         reverse(strID.begin(), strID.end());
 
         tgui::String curYears = tgui::String(cSYear->startYear) + '-' + tgui::String(cSYear->endYear);
-        if (curYears == "2022-2023") continue;
+        //if (curYears == "2022-2023") continue;
         //cerr << curYears << '\n';
 
-        int curSemester = 4;
+        int curSemester;
 
         tgui::String curDirectory = "SchoolYears/" + tgui::String(cSYear->startYear) + "-" + tgui::String(cSYear->endYear);
+
+        ifstream finTmp;
+        finTmp.open(curDirectory.toStdString() + "/ListofSemester.txt");
+        finTmp >> curSemester; curSemester++;
+        finTmp.close();
 
         for (Semester* i = cSYear->nowSemester; i; i = i->nextSemester) {
             curSemester--;
@@ -168,12 +174,14 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
     vc->push_back(&group_course);
     vc->push_back(&group_student);
     vc->push_back(&group_scoreboard);
+    vc->push_back(&group_registration);
     vc->push_back(&group_studentInfo);
     curCourse1 = new Course;
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected, ref(group_course), schoolYears, ref(curCourse1), neededStudent);
     group_course.get<Button>("Participants")->onClick(&onParticipants , ref(group_course) ,ref(curCourse1));
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Student Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
+    group_student.get<tgui::Button>("Course Registration")->onClick(&onStudentInfoSelected, ref(group_registration), ref(group_student));
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected, ref(gui), curSelectedTab, vc);
     gui.get<Button>("Logout")->onClick(&onClickedLogout, ref(gui));
     return true;
@@ -241,29 +249,23 @@ void run_mainmenu(BackendGui& gui, tgui::String studentID)
     auto group_student = tgui::Group::create();
     auto group_scoreboard = tgui::Group::create();
     auto group_studentInfo = tgui::Group::create();
+    auto group_registration = tgui::Group::create();
     group_student->loadWidgetsFromFile("StudentInformationForm.txt");
     group_course->loadWidgetsFromFile("CourseInformationForm.txt");
     SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
 
-    /*for (SchoolYear* i = schoolYears; i; i = i->nextSchoolYear) {
-        for (Semester* j = i->nowSemester; j; j = j->nextSemester) {
-            for (Course* k = j->nowCourse; k; k = k->nextCourse) {
-                for (Student* nowStudent = k->nxtStudent; nowStudent; nowStudent = nowStudent->nextStudent) {
-                    cout << nowStudent->studentID << '\n';
-                }
-            }
-        }
-    }*/
-    addComponents(gui, schoolYears, studentID, *group_course, *group_student, *group_scoreboard, *group_studentInfo);
+    addComponents(gui, schoolYears, studentID, *group_course, *group_student, *group_scoreboard, *group_registration, * group_studentInfo);
     gui.add(group_course);
     gui.add(group_student);
     gui.add(group_scoreboard);
     gui.add(group_studentInfo);
+    gui.add(group_registration);
     group_course->setVisible(true);
     group_student->setVisible(false);
     group_scoreboard->setVisible(false);
     group_studentInfo->setVisible(false);
+    group_registration->setVisible(false);
     hideGroupCourse(ref(*group_course));
     showGroupSmallStudentInfo(ref(*group_studentInfo));
 }

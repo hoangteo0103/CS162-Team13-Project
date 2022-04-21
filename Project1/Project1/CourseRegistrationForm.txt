@@ -1,0 +1,94 @@
+Renderer.1 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    CheckColor = #3C3C3C;
+    CheckColorDisabled = #7D7D7D;
+    CheckColorHover = black;
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorHover = black;
+    TextDistanceRatio = 0.2;
+    TextureChecked = None;
+    TextureCheckedDisabled = None;
+    TextureCheckedFocused = None;
+    TextureCheckedHover = None;
+    TextureUnchecked = None;
+    TextureUncheckedDisabled = None;
+    TextureUncheckedFocused = None;
+    TextureUncheckedHover = None;
+}
+
+ListView.ListView1 {
+    ExpandLastColumn = 0;
+    HeaderHeight = 0;
+    HeaderSeparatorHeight = 0;
+    HeaderVisible = true;
+    ItemHeight = 20;
+    Position = (80, 227);
+    SeparatorWidth = 1;
+    ShowVerticalGridLines = 1;
+    Size = (990, 470);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorHover = white;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        HeaderBackgroundColor = #E6E6E6;
+        HeaderTextColor = black;
+        Padding = (0, 0, 0, 0);
+        SelectedBackgroundColor = #006EFF;
+        SelectedBackgroundColorHover = #1E96FF;
+        SelectedTextColor = white;
+        SeparatorColor = #C8C8C8;
+        TextColor = #3C3C3C;
+        TextColorHover = black;
+    }
+}
+
+CheckBox.CheckBox1 {
+    Position = (1110, 260);
+    Renderer = &1;
+    Size = (18, 18);
+    TextSize = 13;
+    Visible = false;
+}
+
+CheckBox.CheckBox2 {
+    Position = (1110, 300);
+    Renderer = &1;
+    Size = (18, 18);
+    TextSize = 13;
+    Visible = false;
+}
+
+CheckBox.CheckBox3 {
+    Position = (1110, 340);
+    Renderer = &1;
+    Size = (18, 18);
+    TextSize = 13;
+    Visible = false;
+}
+
+CheckBox.CheckBox4 {
+    Position = (1110, 380);
+    Renderer = &1;
+    Size = (18, 18);
+    TextSize = 13;
+    Visible = false;
+}
+
+CheckBox.CheckBox5 {
+    Position = (1110, 420);
+    Renderer = &1;
+    Size = (18, 18);
+    TextSize = 13;
+    Visible = false;
+}

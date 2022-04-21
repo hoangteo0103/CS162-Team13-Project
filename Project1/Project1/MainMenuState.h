@@ -7,6 +7,7 @@
 #include "SchoolYear.h"
 #include "Scoreboard.h"
 #include "StudentInfo.h"
+#include "CourseRegistration.h"
 #include "Action.h"
 using namespace sf;
 using namespace tgui;
@@ -19,4 +20,4 @@ void addSpecificClass(SpecificClass*& nowClass, char classCode[], string year);
 void loadListofSpecificClasses(SpecificClass*& nowClass, string className);
 
 bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String studentID, tgui::Group& group_course, 
-				tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_studentInfo);
+				tgui::Group& group_student, tgui::Group& group_scoreboard, tgui::Group& group_registration, tgui::Group& group_studentInfo);

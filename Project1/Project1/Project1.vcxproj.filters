@@ -2,60 +2,56 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="AccountList.cpp" />
+    <ClCompile Include="Action.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ClassScoreboard.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Courses.cpp" />
+    <ClCompile Include="CreateCourse.cpp" />
+    <ClCompile Include="CreateRegistration.cpp" />
+    <ClCompile Include="CreateSchoolYear.cpp" />
+    <ClCompile Include="CreateSemester.cpp" />
     <ClCompile Include="LoginState.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="MainMenuStateTeacher.cpp" />
+    <ClCompile Include="OpenFile.cpp" />
+    <ClCompile Include="SchoolYear.cpp" />
+    <ClCompile Include="Scoreboard.cpp" />
     <ClCompile Include="Semester.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="State.cpp" />
-    <ClCompile Include="Courses.cpp" />
     <ClCompile Include="Student.cpp" />
-    <ClCompile Include="SchoolYear.cpp" />
-    <ClCompile Include="MainMenuStateTeacher.cpp" />
-    <ClCompile Include="Scoreboard.cpp" />
     <ClCompile Include="StudentInfo.cpp" />
-    <ClCompile Include="Action.cpp" />
-    <ClCompile Include="CreateRegistration.cpp" />
-    <ClCompile Include="OpenFile.cpp" />
     <ClCompile Include="TeacherScoreboard.cpp" />
     <ClCompile Include="TeacherStudentInfo.cpp" />
-    <ClCompile Include="CreateSchoolYear.cpp" />
-    <ClCompile Include="CreateSemester.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="CreateCourse.cpp" />
-=======
-    <ClCompile Include="ClassScoreboard.cpp" />
->>>>>>> 0904cc0a25ffb9d0a5fa03625d1e78c29654c371
+    <ClCompile Include="CourseRegistration.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="ClassScoreboard.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="AccountList.h" />
+    <ClInclude Include="Courses.h" />
+    <ClInclude Include="CreateCourse.h" />
+    <ClInclude Include="CreateRegistration.h" />
+    <ClInclude Include="CreateSchoolYear.h" />
+    <ClInclude Include="CreateSemester.h" />
+    <ClInclude Include="OpenFile.h" />
+    <ClInclude Include="OpenFileDialog.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="MainMenuStateTeacher.h" />
+    <ClInclude Include="SchoolYear.h" />
+    <ClInclude Include="Scoreboard.h" />
+    <ClInclude Include="Semester.h" />
+    <ClInclude Include="Student.h" />
+    <ClInclude Include="StudentInfo.h" />
+    <ClInclude Include="TeacherScoreboard.h" />
+    <ClInclude Include="TeacherStudentInfo.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="LoginState.h" />
     <ClInclude Include="State.h" />
-    <ClInclude Include="Courses.h" />
-    <ClInclude Include="Student.h" />
-    <ClInclude Include="SchoolYear.h" />
-    <ClInclude Include="Semester.h" />
-    <ClInclude Include="MainMenuStateTeacher.h" />
-    <ClInclude Include="Scoreboard.h" />
-    <ClInclude Include="StudentInfo.h" />
-    <ClInclude Include="Action.h" />
-    <ClInclude Include="CreateRegistration.h" />
-    <ClInclude Include="OpenFileDialog.h" />
-    <ClInclude Include="OpenFile.h" />
-    <ClInclude Include="TeacherScoreboard.h" />
-    <ClInclude Include="TeacherStudentInfo.h" />
-    <ClInclude Include="CreateSchoolYear.h" />
-    <ClInclude Include="CreateSemester.h" />
-<<<<<<< HEAD
-    <ClInclude Include="CreateCourse.h" />
-=======
-    <ClInclude Include="ClassScoreboard.h" />
->>>>>>> 0904cc0a25ffb9d0a5fa03625d1e78c29654c371
+    <ClInclude Include="CourseRegistration.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />
