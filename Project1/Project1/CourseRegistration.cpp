@@ -5,7 +5,31 @@ void onCorseRegistrationSelected(tgui::Group& group_registration, tgui::Group& g
 	group_student.setVisible(false);
 }
 
+bool checkSameSchedule(tgui::Group& group_registration, Course* nowCourse) {
+	int cnt1 = 0;
+	for (Course* i = nowCourse; i; i = i->nextCourse) {
+		cnt1++;
+		int cnt2 = 0;
+		for (Course* j = nowCourse; j; j = j->nextCourse) {
+			cnt2++;
+			if (cnt1 == cnt2) continue;
+
+			pair<int, int> a = { i->session1, i->session1Day };
+			pair<int, int> b = { j->session2, j->session2Day };
+
+			if (a == b) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 void onButtonSelected(tgui::Group& group_registration, string curDir, Course* nowCourse, Student curStudent) {
+	if (!checkSameSchedule(group_registration, nowCourse)) {
+		cout << "Not good bro\n";
+		return;
+	}
 
 	int cntHeight = 0;
 	for (Course* i = nowCourse; i; i = i->nextCourse) {

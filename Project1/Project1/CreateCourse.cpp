@@ -27,7 +27,7 @@ bool check(Group& group_create)
 	for (int i = 1; i <= 4; i++)
 	{
 		if (group_create.get<RadioButton>("RadioButton" + tgui::String(2 * i))->isChecked() == true)
-			ok = true;
+			ok = true; 
 	}
 	if (!ok) return false;
 	return true;
