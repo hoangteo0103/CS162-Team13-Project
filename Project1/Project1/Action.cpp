@@ -8,7 +8,7 @@ void onClickedLogout(BackendGui& gui)
 void onReloadSelected(BackendGui& gui,tgui::String username)
 {
     gui.removeAllWidgets();
-    run_mainmenu_teacher(gui, username);
+    run_mainmenu_teacher(gui, username , 1);
 }
 
 void onParticipants(Group& group_course, Course*& curCourse)

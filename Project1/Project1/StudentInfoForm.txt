@@ -481,9 +481,9 @@ Panel.Panel1 {
     }
 
     Label.InfoUpdate {
-        Position = (730, 390);
+        Position = (670, 390);
         ScrollbarPolicy = Never;
-        Size = (217.2, 18);
+        Size = (317.2, 18);
         Text = "Change Info Successfully";
         TextSize = 14;
         Visible = false;

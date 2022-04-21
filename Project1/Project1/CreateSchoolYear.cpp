@@ -186,6 +186,7 @@ void onAddClass(Group& group_create)
 
 void onAddSchoolYear(Group& group_create)
 {
+	schoolyear->nowClass = Class; 
 	schoolyear->createNewSchoolYear();
 	group_create.get<Label>("Message")->setVisible(true);
 	group_create.get<ChildWindow>("MessageWindow")->setVisible(true);

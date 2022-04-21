@@ -42,7 +42,7 @@ void login(BackendGui& gui, tgui::EditBox::Ptr username, tgui::EditBox::Ptr pass
         //cout << "Chuan rui\n";
         if (gui.get<tgui::CheckBox>("CheckBox_RememberUser")->isChecked())
             saveToFile(usrnme, psswrd);
-        run_mainmenu_teacher(gui , usrnme);
+        run_mainmenu_teacher(gui , usrnme , 0);
     }
     else {
         gui.get<tgui::TextArea>("TextArea_WrongLogin")->showWithEffect(tgui::ShowEffectType::Fade, sf::milliseconds(0));

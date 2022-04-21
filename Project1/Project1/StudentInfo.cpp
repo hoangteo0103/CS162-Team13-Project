@@ -39,27 +39,53 @@ void onChangePasswordSelected(Group& group_studentInfo, Student& student)
     int id; 
     char pass[30];
     ifstream fin_acc("StudentAccount.txt" );
-    fstream fin_pass("StudentPassword.txt" , ios::in || ios::out || ios::binary);
+    fstream fin_pass("StudentPassword.txt");
     int stId = atoi(group_studentInfo.get<EditBox>("StudentIDBox")->getText().toStdString().c_str());
     while (fin_acc >> id)
     {
-        fin_pass.read((char*)&pass, sizeof(pass));
-        cout << curPass << ' ' << id << ' ' << pass << endl;
+        string s;
+        fin_pass >> s;
+        strcpy_s(pass, s.c_str());
+        cout << curPass << ' ' << stId << ' ' <<  id << ' ' << pass << endl;
         if (id == stId)
         {
             if (strcmp(pass , curPass) == 0)
             {
+                cout << "DM" << endl;
                 if (strcmp(newPass, confirmPass) != 0 )
                 {
+                    
+                    cout << newPass << ' ' << confirmPass << endl;
                     group_studentInfo.get<Label>("InfoUpdate")->setText("Wrong Confirm Password");
                     group_studentInfo.get<Label>("InfoUpdate")->setVisible(true);
                     return;
                 }
-                fin_pass.seekp((long)fin_pass.tellg() - sizeof(pass), ios::beg);
+                if (group_studentInfo.get<EditBox>("GetNew")->getText() == "")
+                {
+                    return;
+                }
                 strcpy_s(pass, newPass);
-                fin_pass.write((char*)&pass, sizeof(pass));
                 group_studentInfo.get<Label>("InfoUpdate")->setText("Change Password Succesfully");
                 group_studentInfo.get<Label>("InfoUpdate")->setVisible(true);
+                group_studentInfo.get<EditBox>("GetNew")->setText("");
+                group_studentInfo.get<EditBox>("GetCur")->setText("");
+                group_studentInfo.get<EditBox>("GetConfirm")->setText("");
+                ifstream fin_change("StudentPassword.txt");
+                string ss;
+                vector<string> vc;
+                while (fin_change >> ss)
+                {
+                    vc.push_back(ss); 
+                }
+                ofstream fout_change("StudentPassword.txt");
+                for (string i : vc)
+                {
+                    if (i == s)
+                    {
+                        fout_change << group_studentInfo.get<EditBox>("GetNew")->getText().toStdString() << endl;
+                    }
+                    else fout_change << i << endl;
+                }
 
             }
             else {

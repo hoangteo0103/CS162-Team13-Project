@@ -12,7 +12,7 @@ using namespace sf;
 using namespace tgui;
 using namespace std;
 
-void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName);
+void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName, int dm);
 void loadListofSchoolYears(SchoolYear*& schoolYear);
 void addSpecificClass(SpecificClass*& nowClass, char classCode[], string year);
 void loadListofSpecificClasses(SpecificClass*& nowClass, string className);

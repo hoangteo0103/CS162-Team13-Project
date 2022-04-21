@@ -40,6 +40,22 @@ bool SchoolYear::createNewSchoolYear()
 		f_create << null;
 		copyfile(previous_year + ext, year + ext);
 	}
+	ofstream fout1(year + "/ListOfClassCode.txt", ios_base::app | ios_base::out);
+	for (SpecificClass* cur = this->nowClass; cur; cur = cur->nextClass)
+	{
+		string ext = "/" + string(cur->classCODE) + ".csv";
+		ofstream f_create(year + ext);
+		f_create << "No,Student ID,First Name,Last Name,Gender,Date of Birth,Social ID,Class,Credit" << endl;
+		int cnt = 0;
+		for (Student* curStudent = cur->classStudent; curStudent; curStudent = curStudent->nextStudent)
+		{
+			cnt++; 
+			string dob = to_string(curStudent->DoB.date) + "/" + to_string(curStudent->DoB.month) + "/" + to_string(curStudent->DoB.year);
+			f_create << cnt << ',' << curStudent->studentID << ',' << curStudent->firstName << ',' << curStudent->lastName << ',' << curStudent->gender << ',' << dob << ',' << curStudent->socialID << ',' << curStudent->specificClass << ',' << curStudent->totalCredits << endl;
+		}
+		fout1 << endl << string(cur->classCODE);
+	}
+
 	return true; 
 }
 
