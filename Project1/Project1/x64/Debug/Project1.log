@@ -1,3 +1,3 @@
-﻿  MainMenuState.cpp
-E:\Study\CS162\FinalProject\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Project1.vcxproj -> E:\Study\CS162\FinalProject\Project1\x64\Debug\Project1.exe
+﻿  SchoolYear.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe

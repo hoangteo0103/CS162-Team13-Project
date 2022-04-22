@@ -19,11 +19,11 @@ void copyfile(string source_filename, string dest_filename)
 
 bool SchoolYear::createNewSchoolYear()
 {
-	string year = "D:/Project - CS162/Project1/Project1/SchoolYears/" + to_string(this->startYear) + "-" + to_string(this->endYear);
-	string previous_year = "D:/Project - CS162/Project1/Project1/SchoolYears/" + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
+	string year = "SchoolYears/" + to_string(this->startYear) + "-" + to_string(this->endYear);
+	string previous_year = "SchoolYears/" + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
 	if(_mkdir(year.c_str()) == -1)
 		return false ;
-	ofstream fout("D:/Project - CS162/Project1/Project1/SchoolYears/ListSchoolYear.txt" , ios_base::app | ios_base::out);
+	ofstream fout("SchoolYears/ListSchoolYear.txt" , ios_base::app | ios_base::out);
 	fout << endl <<this->startYear;
 	ofstream f1(year + "/ListOfClassCode.txt");
 	ofstream f2(year + "/ListOfSemester.txt");
