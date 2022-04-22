@@ -133,7 +133,8 @@ void hideGroupSmallStudentInfo(Group& group_info)
 
 void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
 {
-    if(dm == 0 )
+    //if(dm == 0 )
+    //curCourse2 = nullptr;
         loadWidgetsMainMenuTeacher(gui);
     auto group_course = tgui::Group::create();
     auto group_student = tgui::Group::create();
@@ -143,18 +144,18 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
     auto group_small_studentInfo = tgui::Group::create();
     auto group_studentSB = tgui::Group::create();
     
-    if (dm == 0)
-    {
+    //if (dm == 0)
+    //{
         group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
         group_course->loadWidgetsFromFile("CourseInformationForm.txt");
         group_scoreboard->loadWidgetsFromFile("TeacherScoreboardForm.txt");
         group_small_studentInfo->loadWidgetsFromFile("StudentInfoForm.txt");
-    }
+    //}
     SchoolYear* schoolYears = nullptr;
-    if (dm == 1)
-    {
-        return;
-    }
+    //if (dm == 1)
+    //{
+    //    return;
+    //}
     loadListofSchoolYears(schoolYears);
     
     addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentSB, *group_studentInfo, *group_small_studentInfo, *group_create);

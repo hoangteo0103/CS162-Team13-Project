@@ -7,6 +7,7 @@ void onClickedLogout(BackendGui& gui)
 
 void onReloadSelected(BackendGui& gui,tgui::String username)
 {
+    //exit(0);
     gui.removeAllWidgets();
     run_mainmenu_teacher(gui, username , 1);
 }

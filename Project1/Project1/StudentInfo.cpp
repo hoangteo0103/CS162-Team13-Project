@@ -65,17 +65,13 @@ void onChangePasswordSelected(Group& group_studentInfo, Student& student)
                     return;
                 }
                 strcpy_s(pass, newPass);
-                group_studentInfo.get<Label>("InfoUpdate")->setText("Change Password Succesfully");
-                group_studentInfo.get<Label>("InfoUpdate")->setVisible(true);
-                group_studentInfo.get<EditBox>("GetNew")->setText("");
-                group_studentInfo.get<EditBox>("GetCur")->setText("");
-                group_studentInfo.get<EditBox>("GetConfirm")->setText("");
+
                 ifstream fin_change("StudentPassword.txt");
                 string ss;
                 vector<string> vc;
                 while (fin_change >> ss)
                 {
-                    vc.push_back(ss); 
+                    vc.push_back(ss);
                 }
                 ofstream fout_change("StudentPassword.txt");
                 for (string i : vc)
@@ -86,6 +82,13 @@ void onChangePasswordSelected(Group& group_studentInfo, Student& student)
                     }
                     else fout_change << i << endl;
                 }
+
+                group_studentInfo.get<Label>("InfoUpdate")->setText("Change Password Succesfully");
+                group_studentInfo.get<Label>("InfoUpdate")->setVisible(true);
+                group_studentInfo.get<EditBox>("GetNew")->setText("");
+                group_studentInfo.get<EditBox>("GetCur")->setText("");
+                group_studentInfo.get<EditBox>("GetConfirm")->setText("");
+                
 
             }
             else {
