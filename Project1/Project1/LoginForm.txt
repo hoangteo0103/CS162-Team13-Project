@@ -36,10 +36,10 @@ EditBox.EditBox_Usename {
         TextColor = black;
         TextColorDisabled = transparent;
         TextColorFocused = transparent;
-        Texture = "accountImage.png" Smooth;
+        Texture = "images/accountImage.png" Smooth;
         TextureDisabled = None;
-        TextureFocused = "accountImages2.png" Smooth;
-        TextureHover = "accountImages2.png" Smooth;
+        TextureFocused = "images/accountImages2.png" Smooth;
+        TextureHover = "images/accountImages2.png" Smooth;
     }
 }
 
@@ -58,10 +58,10 @@ EditBox.EditBox_Password {
         SelectedTextBackgroundColor = rgb( 10, 110, 255);
         SelectedTextColor = White;
         TextColor = black;
-        Texture = "passwordImage.png" Smooth;
+        Texture = "images/passwordImage.png" Smooth;
         TextureDisabled = None;
-        TextureFocused = "passwordImage2.png" Smooth;
-        TextureHover = "passwordImage2.png" Smooth;
+        TextureFocused = "images/passwordImage2.png" Smooth;
+        TextureHover = "images/passwordImage2.png" Smooth;
     }
 }
 
@@ -74,22 +74,22 @@ Button.Button_Login {
     Renderer {
         BorderColor = transparent;
         TextColor = white;
-        Texture = "loginImage.png" Smooth;
+        Texture = "images/loginImage.png" Smooth;
         TextureDisabled = None;
-        TextureDown = "loginImage.png" Smooth;
+        TextureDown = "images/loginImage.png" Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
         TextureFocused = None;
-        TextureHover = "loginImage2.png" Smooth;
+        TextureHover = "images/loginImage2.png" Smooth;
     }
 }
 
 Picture.Picture_CenterLogo {
     Position = (350, 153.889);
-    Size = (600, 257.917);
+    Size = (600, 258);
 
     Renderer {
-        Texture = "logo4.png" Smooth;
+        Texture = "images/logo4.png" Smooth;
         TransparentTexture = false;
     }
 }
@@ -110,7 +110,7 @@ TextArea.TextArea_WrongLogin {
         SelectedTextBackgroundColor = rgb( 10, 110, 255);
         SelectedTextColor = White;
         TextColor = black;
-        TextureBackground = "loginFailImage.png" Smooth;
+        TextureBackground = "images/loginFailImage.png" Smooth;
 
         Scrollbar {
             TextureArrowDown = "themes/Black.png" Part(0, 0, 20, 20) Middle(0, 1, 20, 19) Smooth;
@@ -168,7 +168,7 @@ Picture.Picture_LeftCornerLogo {
     Size = (190, 154);
 
     Renderer {
-        Texture = "logo3.png" Smooth;
+        Texture = "images/logo3.png" Smooth;
         TransparentTexture = false;
     }
 }

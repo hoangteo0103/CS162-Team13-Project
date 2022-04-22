@@ -1,6 +1,30 @@
 Renderer.1 {
     BackgroundColor = #F5F5F5;
     BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
+    Texture = None;
+    TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+Renderer.2 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
     BackgroundColorHover = white;
     BorderColor = #3C3C3C;
     BorderColorDisabled = #7D7D7D;
@@ -24,7 +48,7 @@ Renderer.1 {
     TextureUncheckedHover = None;
 }
 
-Renderer.2 {
+Renderer.3 {
     ArrowBackgroundColor = #F5F5F5;
     ArrowBackgroundColorHover = white;
     ArrowColor = #3C3C3C;
@@ -39,30 +63,6 @@ Renderer.2 {
     TextureArrowHover = None;
     TextureBackground = None;
     TextureBackgroundDisabled = None;
-}
-
-Renderer.3 {
-    BackgroundColor = #F5F5F5;
-    BackgroundColorDisabled = #E6E6E6;
-    BackgroundColorDown = #EBEBEB;
-    BackgroundColorHover = white;
-    BorderColor = #3C3C3C;
-    BorderColorDisabled = #7D7D7D;
-    BorderColorDown = black;
-    BorderColorFocused = #1E1EB4;
-    BorderColorHover = black;
-    Borders = (1, 1, 1, 1);
-    TextColor = #3C3C3C;
-    TextColorDisabled = #7D7D7D;
-    TextColorDown = black;
-    TextColorHover = black;
-    Texture = None;
-    TextureDisabled = None;
-    TextureDown = None;
-    TextureDownFocused = None;
-    TextureDownHover = None;
-    TextureFocused = None;
-    TextureHover = None;
 }
 
 Renderer.4 {
@@ -284,7 +284,7 @@ ChildWindow.CourseWindow {
         ItemsToDisplay = 0;
         MaximumItems = 0;
         Position = (100, 270);
-        Renderer = &2;
+        Renderer = &3;
         Size = (150, 22);
         TextSize = 13;
     }
@@ -295,7 +295,7 @@ ChildWindow.CourseWindow {
         ItemsToDisplay = 0;
         MaximumItems = 0;
         Position = (100, 310);
-        Renderer = &2;
+        Renderer = &3;
         Size = (150, 22);
         TextSize = 13;
     }
@@ -362,10 +362,11 @@ ChildWindow.CourseWindow {
     }
 
     Button.AddToList {
-        Position = (250, 370);
-        Renderer = &3;
+        Position = (260, 360);
+        Renderer = &1;
+        Size = (60, 30);
         Text = Add;
-        TextSize = 13;
+        TextSize = 16;
     }
 
     Panel.PanelHe1 {
@@ -375,28 +376,28 @@ ChildWindow.CourseWindow {
 
         RadioButton.RadioButton1 {
             Position = (15, 1);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
 
         RadioButton.RadioButton3 {
             Position = (90, 1);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
 
         RadioButton.RadioButton5 {
             Position = (165, 1);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
 
         RadioButton.RadioButton7 {
             Position = (240, 1);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
@@ -409,28 +410,28 @@ ChildWindow.CourseWindow {
 
         RadioButton.RadioButton2 {
             Position = (15, 11);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
 
         RadioButton.RadioButton4 {
             Position = (90, 11);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
 
         RadioButton.RadioButton6 {
             Position = (165, 11);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
 
         RadioButton.RadioButton8 {
             Position = (240, 11);
-            Renderer = &1;
+            Renderer = &2;
             Size = (20, 20);
             TextSize = 13;
         }
@@ -597,7 +598,7 @@ ChildWindow.CourseWindow {
         ScrollbarPolicy = Never;
         Size = (257.2, 18);
         Text = "Enter all information";
-        TextSize = 13;
+        TextSize = 16;
 
         Renderer {
             BackgroundColor = #FF330D00;
@@ -609,17 +610,18 @@ ChildWindow.CourseWindow {
     }
 
     Button.Delete {
-        Position = (160, 370);
-        Renderer = &3;
+        Position = (140, 360);
+        Renderer = &1;
+        Size = (80, 30);
         Text = Delete;
-        TextSize = 13;
+        TextSize = 16;
     }
 
     Button.Change {
-        Position = (320, 370);
-        Renderer = &3;
-        Size = (62, 22);
+        Position = (350, 360);
+        Renderer = &1;
+        Size = (80, 30);
         Text = Change;
-        TextSize = 13;
+        TextSize = 16;
     }
 }

@@ -23,10 +23,10 @@ Renderer.2 {
     SelectedTextColor = white;
     TextColor = #3C3C3C;
     TextColorDisabled = #7D7D7D;
-    Texture = "stuInfoImage_Ver2.png" Smooth;
+    Texture = "images/stuInfoImage_Ver2.png" Smooth;
     TextureDisabled = None;
-    TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-    TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+    TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+    TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
 }
 
 Panel.Panel1 {
@@ -78,10 +78,10 @@ Panel.Panel1 {
             SelectedTextColor = white;
             TextColor = #3C3C3C;
             TextColorDisabled = #7D7D7D;
-            Texture = "stuInfoImage_Ver2.png" Smooth;
+            Texture = "images/stuInfoImage_Ver2.png" Smooth;
             TextureDisabled = None;
-            TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-            TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+            TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+            TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
         }
     }
 
@@ -192,13 +192,13 @@ Panel.Panel1 {
             TextColorDisabled = #7D7D7D;
             TextColorDown = black;
             TextColorHover = white;
-            Texture = "loginImage.png" Smooth;
+            Texture = "images/loginImage.png" Smooth;
             TextureDisabled = None;
             TextureDown = None;
             TextureDownFocused = None;
             TextureDownHover = None;
             TextureFocused = None;
-            TextureHover = "loginImage2.png" Smooth;
+            TextureHover = "images/loginImage2.png" Smooth;
         }
     }
 
@@ -240,10 +240,10 @@ Panel.Panel1 {
             SelectedTextColor = white;
             TextColor = #3C3C3C;
             TextColorDisabled = #7D7D7D;
-            Texture = "stuInfoImage_Ver2.png" Smooth;
+            Texture = "images/stuInfoImage_Ver2.png" Smooth;
             TextureDisabled = None;
-            TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-            TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+            TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+            TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
         }
     }
 
@@ -269,10 +269,10 @@ Panel.Panel1 {
             SelectedTextColor = white;
             TextColor = #3C3C3C;
             TextColorDisabled = #7D7D7D;
-            Texture = "stuInfoImage_Ver2.png" Smooth;
+            Texture = "images/stuInfoImage_Ver2.png" Smooth;
             TextureDisabled = None;
-            TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-            TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+            TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+            TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
         }
     }
 
@@ -298,10 +298,10 @@ Panel.Panel1 {
             SelectedTextColor = white;
             TextColor = #3C3C3C;
             TextColorDisabled = #7D7D7D;
-            Texture = "stuInfoImage_Ver2.png" Smooth;
+            Texture = "images/stuInfoImage_Ver2.png" Smooth;
             TextureDisabled = None;
-            TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-            TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+            TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+            TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
         }
     }
 
@@ -327,10 +327,10 @@ Panel.Panel1 {
             SelectedTextColor = white;
             TextColor = #3C3C3C;
             TextColorDisabled = #7D7D7D;
-            Texture = "stuInfoImage_Ver2.png" Smooth;
+            Texture = "images/stuInfoImage_Ver2.png" Smooth;
             TextureDisabled = None;
-            TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-            TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+            TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+            TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
         }
     }
 
@@ -356,10 +356,10 @@ Panel.Panel1 {
             SelectedTextColor = white;
             TextColor = #3C3C3C;
             TextColorDisabled = #7D7D7D;
-            Texture = "stuInfoImage_Ver2.png" Smooth;
+            Texture = "images/stuInfoImage_Ver2.png" Smooth;
             TextureDisabled = None;
-            TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-            TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+            TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+            TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
         }
     }
 
@@ -385,10 +385,10 @@ Panel.Panel1 {
             SelectedTextColor = white;
             TextColor = #3C3C3C;
             TextColorDisabled = #7D7D7D;
-            Texture = "stuInfoImage_Ver2.png" Smooth;
+            Texture = "images/stuInfoImage_Ver2.png" Smooth;
             TextureDisabled = None;
-            TextureFocused = "stuInfoHoverImage_Ver2.png" Smooth;
-            TextureHover = "stuInfoHoverImage_Ver2.png" Smooth;
+            TextureFocused = "images/stuInfoHoverImage_Ver2.png" Smooth;
+            TextureHover = "images/stuInfoHoverImage_Ver2.png" Smooth;
         }
     }
 
@@ -470,13 +470,13 @@ Panel.Panel1 {
             TextColorDisabled = #7D7D7D;
             TextColorDown = black;
             TextColorHover = white;
-            Texture = "loginImage.png" Smooth;
+            Texture = "images/loginImage.png" Smooth;
             TextureDisabled = None;
             TextureDown = None;
             TextureDownFocused = None;
             TextureDownHover = None;
             TextureFocused = None;
-            TextureHover = "loginImage2.png" Smooth;
+            TextureHover = "images/loginImage2.png" Smooth;
         }
     }
 

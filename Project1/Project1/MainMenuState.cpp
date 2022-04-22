@@ -65,7 +65,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     auto label = tgui::Label::create();
     label->setRenderer(theme.getRenderer("Label"));
-    label->setSize(150, 150);
+    label->setSize(300, 150);
     label->setPosition(60, 15);
     label->setTextSize(20);
 

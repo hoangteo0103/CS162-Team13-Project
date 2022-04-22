@@ -1,28 +1,27 @@
-Renderer.1 {
-    ArrowBackgroundColor = #F5F5F5;
-    ArrowBackgroundColorHover = white;
-    ArrowColor = #3C3C3C;
-    ArrowColorHover = black;
-    BackgroundColor = #F5F5F5;
-    BorderColor = black;
-    Borders = (1, 1, 1, 1);
-    Padding = (0, 0, 0, 0);
-    TextColor = #3C3C3C;
-    TextureArrow = None;
-    TextureArrowDisabled = None;
-    TextureArrowHover = None;
-    TextureBackground = None;
-    TextureBackgroundDisabled = None;
-}
-
 ComboBox.ComboBox1 {
     ChangeItemOnScroll = false;
     ItemsToDisplay = 0;
     MaximumItems = 0;
     Position = (100, 160);
-    Renderer = &1;
     Size = (200, 32);
     TextSize = 13;
+
+    Renderer {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        BackgroundColor = #F5F5F5;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        Padding = (1, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextureArrow = None;
+        TextureArrowDisabled = None;
+        TextureArrowHover = None;
+        TextureBackground = None;
+        TextureBackgroundDisabled = None;
+    }
 }
 
 ComboBox.ComboBox2 {
@@ -30,9 +29,25 @@ ComboBox.ComboBox2 {
     ItemsToDisplay = 0;
     MaximumItems = 0;
     Position = (430, 160);
-    Renderer = &1;
     Size = (200, 32);
     TextSize = 13;
+
+    Renderer {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        BackgroundColor = #F5F5F5;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        Padding = (1, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextureArrow = None;
+        TextureArrowDisabled = None;
+        TextureArrowHover = None;
+        TextureBackground = None;
+        TextureBackgroundDisabled = None;
+    }
 }
 
 ListView.ListView1 {
@@ -44,7 +59,7 @@ ListView.ListView1 {
     Position = (100, 225);
     SeparatorWidth = 1;
     ShowVerticalGridLines = 1;
-    Size = (1030, 550);
+    Size = (1100, 550);
     TextSize = 13;
 
     Renderer {

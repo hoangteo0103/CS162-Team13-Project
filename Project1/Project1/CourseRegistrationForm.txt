@@ -25,26 +25,27 @@ Renderer.1 {
 }
 
 Panel.Panel1 {
-    Position = (1070, 230);
-    Size = (90, 460);
+    Position = (1100, 230);
+    Size = (100, 330);
 
     Renderer {
         BackgroundColor = white;
         BorderColor = black;
+        Borders = (0, 1, 1, 1);
         TextureBackground = None;
     }
 }
 
 ListView.ListView1 {
     ExpandLastColumn = 0;
-    HeaderHeight = 0;
+    HeaderHeight = 65;
     HeaderSeparatorHeight = 0;
     HeaderVisible = true;
-    ItemHeight = 20;
-    Position = (80, 227);
+    ItemHeight = 50;
+    Position = (100, 230);
     SeparatorWidth = 1;
     ShowVerticalGridLines = 1;
-    Size = (990, 470);
+    Size = (1000, 330);
     TextSize = 13;
 
     Renderer {
@@ -65,47 +66,47 @@ ListView.ListView1 {
 }
 
 CheckBox.CheckBox1 {
-    Position = (1110, 260);
+    Position = (1140, 310);
     Renderer = &1;
-    Size = (18, 18);
+    Size = (20, 20);
     TextSize = 13;
     Visible = false;
 }
 
 CheckBox.CheckBox2 {
-    Position = (1110, 300);
+    Position = (1140, 360);
     Renderer = &1;
-    Size = (18, 18);
+    Size = (20, 20);
     TextSize = 13;
     Visible = false;
 }
 
 CheckBox.CheckBox3 {
-    Position = (1110, 340);
+    Position = (1140, 410);
     Renderer = &1;
-    Size = (18, 18);
+    Size = (20, 20);
     TextSize = 13;
     Visible = false;
 }
 
 CheckBox.CheckBox4 {
-    Position = (1110, 380);
+    Position = (1140, 460);
     Renderer = &1;
-    Size = (18, 18);
+    Size = (20, 20);
     TextSize = 13;
     Visible = false;
 }
 
 CheckBox.CheckBox5 {
-    Position = (1110, 420);
+    Position = (1140, 510);
     Renderer = &1;
-    Size = (18, 18);
+    Size = (20, 20);
     TextSize = 13;
     Visible = false;
 }
 
 Button.Button1 {
-    Position = (1010, 730);
+    Position = (1040, 630);
     Size = (160, 32);
     Text = "Confirm Changes";
     TextSize = 13;

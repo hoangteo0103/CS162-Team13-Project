@@ -1,5 +1,5 @@
 Panel.Panel1 {
-    Position = (110, 180);
+    Position = (50, 180);
     Size = (360, 590);
 
     Renderer {

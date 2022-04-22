@@ -10,13 +10,13 @@ Button.ScoreBoard {
         Borders = (0, 0, 0, 0);
         TextColor = black;
         TextColorHover = #13BCFF;
-        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
         TextureDisabled = None;
         TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
-        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
-        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
     }
 }
 
@@ -31,13 +31,13 @@ Button."Student Info" {
         BorderColor = transparent;
         TextColor = black;
         TextColorHover = #13BCFF;
-        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
         TextureDisabled = None;
         TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
-        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
-        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
     }
 }
 
@@ -52,13 +52,13 @@ Button."Course Registration" {
         BorderColor = transparent;
         TextColor = black;
         TextColorHover = #13BCFF;
-        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
         TextureDisabled = None;
         TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
-        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
-        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
     }
 }
 
@@ -73,12 +73,12 @@ Button.Button3 {
         BorderColor = transparent;
         TextColor = black;
         TextColorHover = #13BCFF;
-        Texture = "buttonBorderImage_Ver3.png" Smooth;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
         TextureDisabled = None;
         TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
-        TextureFocused = "buttonBorderHoverImage_Ver3.png" Smooth;
-        TextureHover = "buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
     }
 }

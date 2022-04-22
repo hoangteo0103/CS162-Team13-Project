@@ -1,5 +1,29 @@
 Renderer.1 {
     BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
+    Texture = None;
+    TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+Renderer.2 {
+    BackgroundColor = #F5F5F5;
     BackgroundColorHover = white;
     BorderColor = black;
     Borders = (1, 1, 1, 1);
@@ -14,7 +38,7 @@ Renderer.1 {
     TextColorHover = black;
 }
 
-Renderer.2 {
+Renderer.3 {
     BackgroundColor = transparent;
     BorderColor = #3C3C3C;
     Borders = (0, 0, 0, 0);
@@ -40,33 +64,9 @@ Renderer.2 {
     }
 }
 
-Renderer.3 {
-    BackgroundColor = #F5F5F5;
-    BackgroundColorDisabled = #E6E6E6;
-    BackgroundColorDown = #EBEBEB;
-    BackgroundColorHover = white;
-    BorderColor = #3C3C3C;
-    BorderColorDisabled = #7D7D7D;
-    BorderColorDown = black;
-    BorderColorFocused = #1E1EB4;
-    BorderColorHover = black;
-    Borders = (1, 1, 1, 1);
-    TextColor = #3C3C3C;
-    TextColorDisabled = #7D7D7D;
-    TextColorDown = black;
-    TextColorHover = black;
-    Texture = None;
-    TextureDisabled = None;
-    TextureDown = None;
-    TextureDownFocused = None;
-    TextureDownHover = None;
-    TextureFocused = None;
-    TextureHover = None;
-}
-
 Panel.PanelYear {
-    Position = (510, 180);
-    Size = (640, 600);
+    Position = (450, 170);
+    Size = (785, 600);
 
     Renderer {
         BackgroundColor = white;
@@ -76,11 +76,11 @@ Panel.PanelYear {
 
     Label.Error {
         HorizontalAlignment = Center;
-        Position = (330, 155);
+        Position = (210, 450);
         ScrollbarPolicy = Never;
-        Size = (397.2, 32.5161);
+        Size = (397.2, 33);
         Text = "Error : Unindentified file";
-        TextSize = 12;
+        TextSize = 16;
         VerticalAlignment = Center;
 
         Renderer {
@@ -112,45 +112,45 @@ Panel.PanelYear {
 
     Label.Year {
         HorizontalAlignment = Center;
-        Position = (40, 42);
-        Renderer = &2;
+        Position = (50, 50);
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (177.2, 18);
         Text = "New School Year";
-        TextSize = 13;
+        TextSize = 16;
     }
 
     Label.CreateClass {
         HorizontalAlignment = Center;
-        Position = (30, 122);
-        Renderer = &2;
+        Position = (45, 100);
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (187.2, 18);
         Text = "Create New Class";
-        TextSize = 13;
+        TextSize = 16;
     }
 
     Label.Import {
         HorizontalAlignment = Center;
-        Position = (40, 162);
-        Renderer = &2;
+        Position = (65, 150);
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (157.2, 18);
         Text = "Import CSV File";
-        TextSize = 13;
+        TextSize = 16;
     }
 
     Button.Load {
-        Position = (350, 160);
-        Renderer = &3;
-        Size = (74, 22);
+        Position = (380, 145);
+        Renderer = &1;
+        Size = (90, 30);
         Text = "Load FIle";
-        TextSize = 13;
+        TextSize = 16;
     }
 
     Label.File {
-        Position = (220, 160);
-        Renderer = &2;
+        Position = (250, 150);
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (157.2, 18);
         TextSize = 13;
@@ -164,10 +164,10 @@ Panel.PanelYear {
         HeaderVisible = true;
         ItemHeight = 20;
         Position = (30, 200);
-        Renderer = &1;
+        Renderer = &2;
         SeparatorWidth = 1;
         ShowVerticalGridLines = 1;
-        Size = (570, 67);
+        Size = (725, 67);
         TextSize = 13;
         Visible = false;
     }
@@ -179,25 +179,25 @@ Panel.PanelYear {
         HeaderVisible = true;
         ItemHeight = 20;
         Position = (30, 200);
-        Renderer = &1;
+        Renderer = &2;
         SeparatorWidth = 1;
         ShowVerticalGridLines = 1;
-        Size = (570, 67);
+        Size = (725, 67);
         TextSize = 13;
     }
 
     Button.AddClass {
-        Position = (270, 400);
-        Renderer = &3;
-        Size = (100, 22);
+        Position = (325, 400);
+        Renderer = &1;
+        Size = (100, 30);
         Text = Add;
         TextSize = 13;
         Visible = false;
     }
 
     EditBox.ClassName {
-        Position = (220, 120);
-        Size = (250, 22);
+        Position = (290, 95);
+        Size = (250, 30);
         TextSize = 13;
 
         Renderer {
@@ -224,16 +224,17 @@ Panel.PanelYear {
     }
 
     Button.AddSchoolYear {
-        Position = (260, 550);
-        Renderer = &3;
+        Position = (340, 520);
+        Renderer = &1;
+        Size = (150, 35);
         Text = "Add School Year";
-        TextSize = 13;
+        TextSize = 16;
     }
 
     Label.NumYear {
         HorizontalAlignment = Center;
-        Position = (220, 40);
-        Renderer = &2;
+        Position = (290, 50);
+        Renderer = &3;
         ScrollbarPolicy = Never;
         Size = (247.2, 18);
         TextSize = 15;

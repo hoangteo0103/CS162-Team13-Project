@@ -135,19 +135,19 @@ void createCourseListView(Group& group_create, Semester*& semester)
 {
 	group_create.get<ListView>("ListCourse")->removeAllColumns();
 	group_create.get<ListView>("ListCourse")->removeAllItems();
-	group_create.get<ListView>("ListCourse")->addColumn("ID", 30);
-	group_create.get<ListView>("ListCourse")->addColumn("Name", 100);
-	group_create.get<ListView>("ListCourse")->addColumn("TeacherName", 100);
-	group_create.get<ListView>("ListCourse")->addColumn("Credit", 50);
-	group_create.get<ListView>("ListCourse")->addColumn("Session1", 100);
-	group_create.get<ListView>("ListCourse")->addColumn("Session2", 100);
-	group_create.get<ListView>("ListCourse")->addColumn("MaximumStudent", 120);
+	group_create.get<ListView>("ListCourse")->addColumn("ID", 40, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListCourse")->addColumn("Name", 120, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListCourse")->addColumn("TeacherName", 120, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListCourse")->addColumn("Credit", 66, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListCourse")->addColumn("Session1", 115, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListCourse")->addColumn("Session2", 115, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListCourse")->addColumn("MaximumStudent", 140, tgui::ListView::ColumnAlignment::Center);
 	if (semester->nowCourse == nullptr)
 	{
-		group_create.get<ListView>("ListCourse")->setSize(610, 150);
+		group_create.get<ListView>("ListCourse")->setSize(725, 150);
 		return; 
 	}
-	group_create.get<ListView>("ListCourse")->setTextSize(11);
+	//group_create.get<ListView>("ListCourse")->setTextSize(11);
 
 	for (Course* cur = semester->nowCourse; cur ; cur = cur->nextCourse)
 	{

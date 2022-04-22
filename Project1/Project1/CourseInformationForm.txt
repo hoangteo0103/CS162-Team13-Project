@@ -46,7 +46,7 @@ TreeView.TreeView1 {
 Label."Course Name" {
     Position = (375, 180);
     ScrollbarPolicy = Never;
-    Size = (757.2, 110);
+    Size = (800, 110);
     TextSize = 40;
     VerticalAlignment = Center;
 
@@ -217,7 +217,7 @@ ListView.PaList {
 }
 
 Picture.Picture3 {
-    Position = (375, 320);
+    Position = (375, 300);
     Size = (29, 32);
 
     Renderer {

@@ -47,6 +47,7 @@ ComboBox.ComboBox1 {
         BackgroundColor = rgb(210, 210, 210);
         BorderColor = White;
         Borders = (2, 2, 2, 2);
+        Padding = (1, 0, 0, 0);
         TextColor = rgb(100, 100, 100);
         TextureArrow = "themes/BabyBlue.png" Part(177, 2, 20, 26) Smooth;
         TextureArrowDisabled = None;

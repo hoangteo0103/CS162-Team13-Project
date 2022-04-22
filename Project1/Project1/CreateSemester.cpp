@@ -130,8 +130,8 @@ void init_group_create_semester(Group& group_create)
 	auto group_create_semester = tgui::Group::create();
 	group_create_semester->loadWidgetsFromFile("CreateSemesterForm.txt");
 	group_create.add(group_create_semester->get<Panel>("PanelSemester"));
-	group_create.get<Label>("StartDate")->setTextSize(11);
-	group_create.get<Label>("EndDate")->setTextSize(11);
+	//group_create.get<Label>("StartDate")->setTextSize(11);
+	//group_create.get<Label>("EndDate")->setTextSize(11);
 	ifstream fin("SchoolYears/ListSchoolYear.txt");
 	int year;
 	while (fin >> year)

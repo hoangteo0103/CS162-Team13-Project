@@ -169,11 +169,11 @@ void init_group_registration(Group& group_registration) {
 void loadRegistrationWidget(Group& group_registration, queue<pair<SchoolYear*, int>>& curSchoolYear, Student& neededStudent) {
 	init_group_registration(group_registration);
 
-	group_registration.get<tgui::ListView>("ListView1")->addColumn("Course ID", 100, tgui::ListView::ColumnAlignment::Center);
-	group_registration.get<tgui::ListView>("ListView1")->addColumn("Course", 210, tgui::ListView::ColumnAlignment::Center);
-	group_registration.get<tgui::ListView>("ListView1")->addColumn("1st Schedule", 150, tgui::ListView::ColumnAlignment::Center);
-	group_registration.get<tgui::ListView>("ListView1")->addColumn("2nd Schedule", 150, tgui::ListView::ColumnAlignment::Center);
-	group_registration.get<tgui::ListView>("ListView1")->addColumn("Teacher", 380, tgui::ListView::ColumnAlignment::Center);
+	group_registration.get<tgui::ListView>("ListView1")->addColumn("Course ID", 103, tgui::ListView::ColumnAlignment::Center);
+	group_registration.get<tgui::ListView>("ListView1")->addColumn("Course", 220, tgui::ListView::ColumnAlignment::Center);
+	group_registration.get<tgui::ListView>("ListView1")->addColumn("1st Schedule", 165, tgui::ListView::ColumnAlignment::Center);
+	group_registration.get<tgui::ListView>("ListView1")->addColumn("2nd Schedule", 165, tgui::ListView::ColumnAlignment::Center);
+	group_registration.get<tgui::ListView>("ListView1")->addColumn("Teacher", 340, tgui::ListView::ColumnAlignment::Center);
 
 	SchoolYear* schoolYear = curSchoolYear.front().first;
 	Semester* curSemester = schoolYear->nowSemester;

@@ -28,7 +28,7 @@ void createListOfClasses(Group& group_create)
 {
 	group_create.get<ListView>("ListClasses")->removeAllColumns();
 	group_create.get<ListView>("ListClasses")->removeAllItems();
-	group_create.get<ListView>("ListClasses")->addColumn("List of First-Year Classes", 570, ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListClasses")->addColumn("List of First-Year Classes", 722, ListView::ColumnAlignment::Center);
 	group_create.get<ListView>("ListClasses")->setVisible(true);
 	if (Class == nullptr)
 	{
@@ -40,7 +40,7 @@ void createListOfClasses(Group& group_create)
 		cnt++;
 		group_create.get<ListView>("ListClasses")->addItem(cur->classCODE);
 	}
-	group_create.get<ListView>("ListClasses")->setSize(570, 25 + 20 * (cnt + 1));
+	group_create.get<ListView>("ListClasses")->setSize(725, 25 + 20 * (cnt + 1));
 }
 
 void createListView(Group& group_create)
@@ -48,13 +48,13 @@ void createListView(Group& group_create)
 	group_create.get<ListView>("ListView1")->setVisible(true);
 	group_create.get<ListView>("ListView1")->removeAllColumns();
 	group_create.get<ListView>("ListView1")->removeAllItems();
-	group_create.get<ListView>("ListView1")->addColumn("No", 30);
-	group_create.get<ListView>("ListView1")->addColumn("StudentID ", 90);
-	group_create.get<ListView>("ListView1")->addColumn("Firt Name", 100);
-	group_create.get<ListView>("ListView1")->addColumn("Last Name", 100);
-	group_create.get<ListView>("ListView1")->addColumn("Gender", 70);
-	group_create.get<ListView>("ListView1")->addColumn("DOB", 100);
-	group_create.get<ListView>("ListView1")->addColumn("SocialId", 80);
+	group_create.get<ListView>("ListView1")->addColumn("No", 40, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListView1")->addColumn("StudentID ", 110, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListView1")->addColumn("Firt Name", 140, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListView1")->addColumn("Last Name", 120, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListView1")->addColumn("Gender", 95, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListView1")->addColumn("DOB", 121, tgui::ListView::ColumnAlignment::Center);
+	group_create.get<ListView>("ListView1")->addColumn("SocialId", 90, tgui::ListView::ColumnAlignment::Center);
 	int cnt = 0;
 	if (Class == nullptr)
 	{
@@ -69,7 +69,7 @@ void createListView(Group& group_create)
 		tgui::String dob = tgui::String(cur->DoB.date) + "/" + tgui::String(cur->DoB.month) + "/" + tgui::String(cur->DoB.year);
 		group_create.get<ListView>("ListView1")->addItem({ tgui::String(cnt) , tgui::String(cur->studentID) , cur->firstName , cur->lastName , gender , dob , tgui::String(cur->socialID) });
 	}
-	group_create.get<ListView>("ListView1")->setSize(570, cnt * 25 + 25);
+	group_create.get<ListView>("ListView1")->setSize(725, cnt * 25 + 25);
 }
 
 bool inputFileFromCSV(string file_path)

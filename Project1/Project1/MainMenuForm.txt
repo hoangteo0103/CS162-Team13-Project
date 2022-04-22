@@ -12,7 +12,7 @@ Picture.Picture2 {
     Size = (1300, 130);
 
     Renderer {
-        Texture = "mainmenuBackgroundImage.png" Smooth;
+        Texture = "images/mainmenuBackgroundImage.png" Smooth;
         TransparentTexture = false;
     }
 }
@@ -29,10 +29,10 @@ Tabs.Tabs1 {
         SelectedTextColor = White;
         TextColor = white;
         TextureDisabledTab = None;
-        TextureSelectedTab = "mainmenuTabHoverImage.png" Smooth;
+        TextureSelectedTab = "images/mainmenuTabHoverImage.png" Smooth;
         TextureSelectedTabHover = None;
-        TextureTab = "mainmenuTabImage.png" Smooth;
-        TextureTabHover = "mainmenuTabHoverImage.png" Smooth;
+        TextureTab = "images/mainmenuTabImage.png" Smooth;
+        TextureTabHover = "images/mainmenuTabHoverImage.png" Smooth;
     }
 }
 
@@ -45,13 +45,13 @@ Button.Logout {
     Renderer {
         TextColor = rgb(190, 190, 190);
         TextColorHover = #4FA2FF;
-        Texture = "logoutBackground.png" Smooth;
+        Texture = "images/logoutBackground.png" Smooth;
         TextureDisabled = None;
-        TextureDown = "logoutBackground.png" Smooth;
+        TextureDown = "images/logoutBackground.png" Smooth;
         TextureDownFocused = None;
         TextureDownHover = None;
-        TextureFocused = "logoutBackground.png" Smooth;
-        TextureHover = "logoutBackground.png" Smooth;
+        TextureFocused = "images/logoutBackground.png" Smooth;
+        TextureHover = "images/logoutBackground.png" Smooth;
     }
 }
 
@@ -60,7 +60,7 @@ Picture.Picture3 {
     Size = (20, 20);
 
     Renderer {
-        Texture = "logoutIcon.png" Smooth;
+        Texture = "images/logoutIcon.png" Smooth;
         TransparentTexture = false;
     }
 }
