@@ -1,6 +1,6 @@
 #include "SchoolYear.h"
 #include "direct.h"
-#include <filesystem>
+#include <Windows.h>
 using namespace std;
 SchoolYear::SchoolYear(int startYear, int endYear)
 {
@@ -16,14 +16,39 @@ void copyfile(string source_filename, string dest_filename)
 	std::ofstream  dst(dest_filename, std::ios::binary);
 	dst << src.rdbuf();
 }
+string GetLastWinError()
+{
+	LPVOID lpMsgBuf = 0;
+	LPVOID lpDisplayBuf = 0;
+	DWORD dw = GetLastError();
+
+	FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, NULL, dw,
+		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&lpMsgBuf,
+		0, NULL);
+
+	std::ostringstream oss;
+	oss << "Windows Error ";
+	oss << dw << " :" << (LPCSTR)lpMsgBuf;
+
+	LocalFree(lpMsgBuf);
+
+	return oss.str();
+
+}
 
 bool SchoolYear::createNewSchoolYear()
 {
-	string year = "SchoolYears/" + to_string(this->startYear) + "-" + to_string(this->endYear);
-	string previous_year = "SchoolYears/" + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
-	if(_mkdir(year.c_str()) == -1)
-		return false ;
-	ofstream fout("SchoolYears/ListSchoolYear.txt" , ios_base::app | ios_base::out);
+	string year = "D:/Project - CS162/Project1/Project1/SchoolYears/" + to_string(this->startYear) + "-" + to_string(this->endYear);
+	string previous_year = "D:/Project - CS162/Project1/Project1/SchoolYears/" + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
+	cout << year.c_str();
+	if (CreateDirectoryA(year.c_str(), 0))
+	{
+
+	}
+	else {
+		cout << GetLastWinError() << endl;
+	}
+	ofstream fout("D:/Project - CS162/Project1/Project1/SchoolYears/ListSchoolYear.txt", ios_base::app | ios_base::out);
 	fout << endl <<this->startYear;
 	ofstream f1(year + "/ListOfClassCode.txt");
 	ofstream f2(year + "/ListOfSemester.txt");

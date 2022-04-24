@@ -80,10 +80,9 @@ void updateTextSizeMainMenuTeacher(tgui::BackendGui& gui)
     //gui.setTextSize(static_cast<unsigned int>(0.02f * windowHeight)); // 2% of 
 }
 
-void loadWidgetsMainMenuTeacher(tgui::BackendGui& gui)
-{
+void loadWidgetsMainMenuTeacher(tgui::BackendGui& gui , int dm )
+{   
     gui.loadWidgetsFromFile("MainMenuForm2.txt");
-
     // Specify an initial text size instead of using the default value
     updateTextSizeMainMenuTeacher(gui);
 
@@ -133,8 +132,7 @@ void hideGroupSmallStudentInfo(Group& group_info)
 
 void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
 {
-    if(dm == 0 )
-        loadWidgetsMainMenuTeacher(gui);
+    loadWidgetsMainMenuTeacher(gui , dm );   
     auto group_course = tgui::Group::create();
     auto group_student = tgui::Group::create();
     auto group_scoreboard = tgui::Group::create();
@@ -143,7 +141,7 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
     auto group_small_studentInfo = tgui::Group::create();
     auto group_studentSB = tgui::Group::create();
     
-    if (dm == 0)
+    if(true)
     {
         group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
         group_course->loadWidgetsFromFile("CourseInformationForm.txt");
@@ -151,12 +149,7 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
         group_small_studentInfo->loadWidgetsFromFile("StudentInfoForm.txt");
     }
     SchoolYear* schoolYears = nullptr;
-    if (dm == 1)
-    {
-        return;
-    }
     loadListofSchoolYears(schoolYears);
-    
     addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentSB, *group_studentInfo, *group_small_studentInfo, *group_create);
     gui.add(group_course);
     gui.add(group_student);

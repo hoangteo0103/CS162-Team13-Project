@@ -188,10 +188,10 @@ void onAddSchoolYear(Group& group_create)
 {
 	schoolyear->nowClass = Class; 
 	schoolyear->createNewSchoolYear();
-	group_create.get<Label>("Message")->setVisible(true);
-	group_create.get<ChildWindow>("MessageWindow")->setVisible(true);
-	group_create.get<Label>("Message")->setText("Create School Year " + tgui::String(schoolyear->startYear) + "-" + tgui::String(schoolyear->endYear) + " successfully");
-	group_create.get<ChildWindow>("MessageWindow")->moveToFront();
+	group_create.get<Label>("MessageYear")->setVisible(true);
+	group_create.get<ChildWindow>("MessageWindowYear")->setVisible(true);
+	group_create.get<Label>("MessageYear")->setText("Create School Year " + tgui::String(schoolyear->startYear) + "-" + tgui::String(schoolyear->endYear) + " successfully");
+	group_create.get<ChildWindow>("MessageWindowYear")->moveToFront();
 	//roup_create.get<Button>("Reload")->
 }
 
@@ -228,6 +228,7 @@ void init_group_create_year(Group& group_create)
 	auto group_create_year = tgui::Group::create();
 	group_create_year->loadWidgetsFromFile("CreateSchoolYearForm.txt");
 	group_create.add(group_create_year->get<Panel>("PanelYear"));
+	group_create.add(group_create_year->get<ChildWindow>("MessageWindowYear"));
 	Class = nullptr;
 	ifstream fin("SchoolYears/ListSchoolYear.txt");
 	int year;
@@ -239,6 +240,18 @@ void init_group_create_year(Group& group_create)
 	group_create.get<Label>("NumYear")->setText(tgui::String(year) + "-" + tgui::String(year + 1));
 }
 
+void onReloadYear(Group& group_create)
+{
+	group_create.get<Label>("File")->setText("");
+	group_create.get<Label>("NumYear")->setText("");
+	group_create.get<EditBox>("ClassName")->setText("");
+	group_create.get<ListView>("ListView1")->removeAllColumns(); 
+	group_create.get<ListView>("ListView1")->removeAllItems(); 
+
+	group_create.get<Label>("MessageYear")->setVisible(false);
+	group_create.get<ChildWindow>("MessageWindowYear")->setVisible(false);
+}
+
 void loadcreateYearwidget(Group& group_create)
 {
 	init_group_create_year(group_create);
@@ -248,5 +261,6 @@ void loadcreateYearwidget(Group& group_create)
 	group_create.get<tgui::Button>("Load")->onClick(&onLoad, ref(group_create));
 	group_create.get<tgui::Button>("AddClass")->onClick(&onAddClass, ref(group_create));
 	group_create.get<tgui::Button>("AddSchoolYear")->onClick(&onAddSchoolYear, ref(group_create));
+	group_create.get<tgui::Button>("ReloadYear")->onClick(&onReloadYear, ref(group_create));
 	createListOfClasses(group_create);
 }
