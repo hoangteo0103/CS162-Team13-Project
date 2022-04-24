@@ -67,7 +67,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     group_student.get<tgui::Button>("Teacher Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
     group_student.get<tgui::Button>("Class ScoreBoard")->onClick(&onStudentInfoSelected, ref(group_studentSB), ref(group_student));
     group_student.get<tgui::Button>("Create")->onClick(&onCreateSelected, ref(group_create), ref(group_student));
-    group_create.get<tgui::Button>("Reload")->onClick(&onReloadSelected, ref(gui) , teacherName);
+    group_create.get<tgui::Button>("Reload")->onClick(&onReloadSelected, ref(gui), teacherName);
     gui.get<Tabs>("Tabs1")->onTabSelect(&onTabSelected2, ref(gui), curSelectedTab, vc);
     gui.get<Button>("Logout")->onClick(&onClickedLogout, ref(gui));
     return true;
@@ -80,8 +80,8 @@ void updateTextSizeMainMenuTeacher(tgui::BackendGui& gui)
     //gui.setTextSize(static_cast<unsigned int>(0.02f * windowHeight)); // 2% of 
 }
 
-void loadWidgetsMainMenuTeacher(tgui::BackendGui& gui , int dm )
-{   
+void loadWidgetsMainMenuTeacher(tgui::BackendGui& gui, int dm)
+{
     gui.loadWidgetsFromFile("MainMenuForm2.txt");
     // Specify an initial text size instead of using the default value
     updateTextSizeMainMenuTeacher(gui);
@@ -130,9 +130,9 @@ void hideGroupSmallStudentInfo(Group& group_info)
     group_info.get<EditBox>("CreditBox")->setReadOnly(false);
 }
 
-void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
+void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName, int dm)
 {
-    loadWidgetsMainMenuTeacher(gui , dm );   
+    loadWidgetsMainMenuTeacher(gui, dm);
     auto group_course = tgui::Group::create();
     auto group_student = tgui::Group::create();
     auto group_scoreboard = tgui::Group::create();
@@ -140,8 +140,8 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
     auto group_create = tgui::Group::create();
     auto group_small_studentInfo = tgui::Group::create();
     auto group_studentSB = tgui::Group::create();
-    
-    if(true)
+
+    if (true)
     {
         group_student->loadWidgetsFromFile("TeacherInformationForm.txt");
         group_course->loadWidgetsFromFile("CourseInformationForm.txt");
@@ -165,7 +165,7 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName , int dm)
     group_small_studentInfo->setVisible(false);
     group_create->setVisible(false);
     group_studentSB->setVisible(false);
-    
-    hideGroupCourseTeacher(ref( * group_course));
-    hideGroupSmallStudentInfo(ref( * group_small_studentInfo));
+
+    hideGroupCourseTeacher(ref(*group_course));
+    hideGroupSmallStudentInfo(ref(*group_small_studentInfo));
 }

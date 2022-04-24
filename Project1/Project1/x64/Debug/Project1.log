@@ -1,3 +1,3 @@
-﻿  CreateSchoolYear.cpp
-D:\Project - CS162\Project1\Project1\CreateSchoolYear.cpp(202,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  SchoolYear.cpp
+  The contents of <filesystem> are available only with C++17 or later.
   Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe
