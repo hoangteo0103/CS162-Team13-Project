@@ -39,6 +39,7 @@ public:
     void outputToScreenClassInfo();
     void exportStudentList(fstream& fout);
     bool findStudent(string curDir, string studentID);
+    bool findStudentName(string curDir, string studentName);
     void importScoreBoard();
     void viewScourBoard();
     void updateResult();

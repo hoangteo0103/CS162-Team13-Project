@@ -75,7 +75,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
 
     string studentName;
 
-    Student neededStudent  ;
+    Student neededStudent;
 
     for (SchoolYear* i = schoolYears; i != nullptr; i = i->nextSchoolYear) {
         bool findCheck = false;
@@ -126,7 +126,6 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
         int sID = curSchoolYear.front().second;
         curSchoolYear.pop();
 
-
         string strID = "";
         while (sID) {
             strID += (char)((sID % 10) + '0');
@@ -156,7 +155,7 @@ bool addComponents(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::String
             for (Course* j = i->nowCourse; j; j = j->nextCourse) {
 
 
-                if (j->findStudent(curDir, strID)) {
+                if (j->findStudentName(curDir, studentName)) {
                     //cerr << 1 << '\n';
                     tgui::String item = j->courseName;
                     group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });

@@ -299,11 +299,74 @@ string Course::getSecondSessionDate() {
 	return ans;
 }
 
+bool Course::findStudentName(string curDir, string studentName) {
+	ifstream fin;
+	fin.open(curDir + this->courseName + ".csv");
+	
+	string line, word;
+	int num = 0;
+
+	bool check = false;
+	while (getline(fin, line)) {
+		num++;
+		if (num == 1) {
+			continue;
+		}
+
+		stringstream str(line);
+		int cnt = 0;
+
+		int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0, tMark = 0;
+		char stdName[FULLNAMELENGTH];
+
+		while (getline(str, word, ',')) {
+			cnt++;
+			stringstream stoint(word);
+			switch (cnt) {
+			case 1:
+				stoint >> no;
+				break;
+			case 2:
+				stoint >> stdID;
+				break;
+			case 3:
+				for (int i = 0; i < word.length(); i++) {
+					stdName[i] = word[i];
+				}
+				stdName[word.length()] = '\0';
+				//cerr << stdName << '\n';
+				break;
+			case 4:
+				stoint >> mTerm;
+				break;
+			case 5:
+				stoint >> fMark;
+				break;
+			case 6:
+				stoint >> oMark;
+				break;
+			case 7:
+				stoint >> tMark;
+				break;
+			default:
+				break;
+			}
+		}
+
+		check = check || (studentName == stdName);
+	}
+
+	fin.close();
+	
+	return check;
+}
+
 bool Course::findStudent(string curDir, string studentID) {
 	ifstream fin;
 	//std::cerr << curDir + this->courseName + ".txt" << '\n';
 	fin.open(curDir + this->courseName + ".txt");
 	long val = 0;
+	//cerr << studentID << '\n';
 	for (int i = 0; i < studentID.length(); i++) {
 		val *= 10;
 		val += studentID[i] - '0';
@@ -311,7 +374,8 @@ bool Course::findStudent(string curDir, string studentID) {
 	bool check = false;
 	while (!fin.eof()) {
 		int num;
-		fin >> num;
+		fin >> num;	
+		//cerr << num << ' ' << val << '\n';
 		check = check || (num == val);
 	}
 	fin.close();
