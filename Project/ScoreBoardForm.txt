@@ -1,0 +1,74 @@
+ListView.ListView1 {
+    ExpandLastColumn = 1;
+    GridLinesWidth = 6;
+    HeaderHeight = 70;
+    HeaderSeparatorHeight = 0;
+    HeaderVisible = true;
+    ItemHeight = 50;
+    Position = (100, 210);
+    SeparatorWidth = 2;
+    ShowVerticalGridLines = 1;
+    Size = (1100, 537);
+    TextSize = 13;
+    UserData = "";
+
+    Renderer {
+        Borders = (1, 1, 1, 1);
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}
+
+ComboBox.ComboBox1 {
+    ChangeItemOnScroll = false;
+    ItemsToDisplay = 0;
+    MaximumItems = 0;
+    Position = (120, 150);
+    Size = (220, 34.75);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = rgb(210, 210, 210);
+        BorderColor = White;
+        Borders = (2, 2, 2, 2);
+        Padding = (1, 0, 0, 0);
+        TextColor = rgb(100, 100, 100);
+        TextureArrow = "themes/BabyBlue.png" Part(177, 2, 20, 26) Smooth;
+        TextureArrowDisabled = None;
+        TextureArrowHover = None;
+        TextureBackground = None;
+        TextureBackgroundDisabled = None;
+
+        ListBox {
+            BackgroundColor = rgb(210, 210, 210);
+            BorderColor = White;
+            Borders = (2, 2, 2, 2);
+            SelectedBackgroundColor = rgb(190, 225, 235);
+            SelectedTextColor = rgb(150, 150, 150);
+            TextColor = rgb(100, 100, 100);
+
+            Scrollbar {
+                TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
+                TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
+                TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
+                TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
+            }
+        }
+    }
+}

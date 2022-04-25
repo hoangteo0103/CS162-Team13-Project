@@ -1,0 +1,174 @@
+Picture.Picture_border1 {
+    Position = (250, 180);
+    Size = (800, 600);
+
+    Renderer {
+        Texture = "borderImage1.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Picture.Picture_border2 {
+    Position = (250, 180);
+    Size = (800, 200);
+
+    Renderer {
+        Texture = "borderImage2.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+EditBox.EditBox_Usename {
+    Alignment = Center;
+    DefaultText = Username;
+    Position = (510, 480);
+    Size = (280, 40);
+    TextSize = 15;
+
+    Renderer {
+        BackgroundColorFocused = None;
+        BorderColorFocused = None;
+        CaretColor = rgb(110, 110, 255);
+        DefaultTextColor = rgb(120, 120, 120);
+        Padding = (6, 4, 6, 4);
+        SelectedTextBackgroundColor = rgb( 10, 110, 255);
+        SelectedTextColor = White;
+        TextColor = black;
+        TextColorDisabled = transparent;
+        TextColorFocused = transparent;
+        Texture = "images/accountImage.png" Smooth;
+        TextureDisabled = None;
+        TextureFocused = "images/accountImages2.png" Smooth;
+        TextureHover = "images/accountImages2.png" Smooth;
+    }
+}
+
+EditBox.EditBox_Password {
+    Alignment = Center;
+    DefaultText = Password;
+    PasswordCharacter = "*";
+    Position = (510, 540);
+    Size = (280, 40);
+    TextSize = 15;
+
+    Renderer {
+        CaretColor = rgb(110, 110, 255);
+        DefaultTextColor = rgb(120, 120, 120);
+        Padding = (6, 4, 6, 4);
+        SelectedTextBackgroundColor = rgb( 10, 110, 255);
+        SelectedTextColor = White;
+        TextColor = black;
+        Texture = "images/passwordImage.png" Smooth;
+        TextureDisabled = None;
+        TextureFocused = "images/passwordImage2.png" Smooth;
+        TextureHover = "images/passwordImage2.png" Smooth;
+    }
+}
+
+Button.Button_Login {
+    Position = (540, 648.625);
+    Size = (220, 53.375);
+    Text = "Log in";
+    TextSize = 20;
+
+    Renderer {
+        BorderColor = transparent;
+        TextColor = white;
+        Texture = "images/loginImage.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "images/loginImage.png" Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = "images/loginImage2.png" Smooth;
+    }
+}
+
+Picture.Picture_CenterLogo {
+    Position = (350, 153.889);
+    Size = (600, 258);
+
+    Renderer {
+        Texture = "images/logo4.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+TextArea.TextArea_WrongLogin {
+    DefaultText = "Login failed. Please try again";
+    HorizontalScrollbarPolicy = Never;
+    MaximumCharacters = 0;
+    Position = (450, 400);
+    ReadOnly = true;
+    Size = (400, 50);
+    Text = "";
+    TextSize = 15;
+
+    Renderer {
+        CaretColor = rgb(110, 110, 255);
+        Padding = (3, 3, 3, 3);
+        SelectedTextBackgroundColor = rgb( 10, 110, 255);
+        SelectedTextColor = White;
+        TextColor = black;
+        TextureBackground = "images/loginFailImage.png" Smooth;
+
+        Scrollbar {
+            TextureArrowDown = "themes/Black.png" Part(0, 0, 20, 20) Middle(0, 1, 20, 19) Smooth;
+            TextureArrowDownHover = "themes/Black.png" Part(22, 0, 20, 20) Middle(0, 1, 20, 19) Smooth;
+            TextureArrowUp = "themes/Black.png" Part(44, 0, 20, 20) Middle(0, 0, 20, 19) Smooth;
+            TextureArrowUpHover = "themes/Black.png" Part(66, 0, 20, 20) Middle(0, 0, 20, 19) Smooth;
+            TextureThumb = "themes/Black.png" Part(68, 465, 20, 20) Smooth;
+            TextureThumbHover = "themes/Black.png" Part(90, 465, 20, 20) Smooth;
+            TextureTrack = "themes/Black.png" Part(0, 499, 20, 20) Smooth;
+            TextureTrackHover = "themes/Black.png" Part(22, 499, 20, 20) Smooth;
+        }
+    }
+}
+
+Label."Remember Username" {
+    Position = (530, 590);
+    ScrollbarPolicy = Never;
+    Size = (217.2, 19.8256);
+    Text = "Remember Username";
+    TextSize = 16;
+
+    Renderer {
+        TextColor = rgb(100, 100, 100);
+        TextureBackground = None;
+
+        Scrollbar {
+            TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
+            TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
+            TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
+            TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
+        }
+    }
+}
+
+CheckBox.CheckBox_RememberUser {
+    Position = (510, 590);
+    Size = (18, 18);
+    TextSize = 13;
+
+    Renderer {
+        TextColor = rgb(100, 100, 100);
+        TextureChecked = "themes/BabyBlue.png" Part(48, 40, 34, 36) Smooth;
+        TextureCheckedDisabled = None;
+        TextureCheckedFocused = None;
+        TextureCheckedHover = None;
+        TextureUnchecked = "themes/BabyBlue.png" Part(381, 2, 31, 31) Smooth;
+        TextureUncheckedDisabled = None;
+        TextureUncheckedFocused = None;
+        TextureUncheckedHover = None;
+    }
+}
+
+Picture.Picture_LeftCornerLogo {
+    Position = (10, 10);
+    Size = (190, 154);
+
+    Renderer {
+        Texture = "images/logo3.png" Smooth;
+        TransparentTexture = false;
+    }
+}

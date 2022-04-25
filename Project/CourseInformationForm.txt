@@ -1,0 +1,262 @@
+ScrollablePanel.ScrollablePanel1 {
+    ContentSize = (550, 420);
+    Position = (350, 150);
+    Size = (950, 600);
+
+    Renderer {
+        BackgroundColor = white;
+        Borders = (2, 2, 2, 2);
+        Padding = (0, 0, 0, 0);
+        TextureBackground = None;
+    }
+}
+
+Label.Date {
+    Position = (440, 360);
+    ScrollbarPolicy = Never;
+    Size = (474.2, 39.4605);
+    Text = "       Date";
+    TextSize = 20;
+    VerticalAlignment = Center;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #E5E5E5;
+        Borders = (1, 1, 1, 1);
+        TextColor = #3C3C3C;
+        TextureBackground = None;
+    }
+}
+
+TreeView.TreeView1 {
+    ItemHeight = 30;
+    Position = (0, 150);
+    Size = (300, 600);
+    TextSize = 13;
+
+    Renderer {
+        BorderColor = black;
+        Borders = (2, 2, 2, 2);
+        TextureBranchCollapsed = None;
+        TextureBranchExpanded = None;
+        TextureLeaf = None;
+    }
+}
+
+Label."Course Name" {
+    Position = (375, 180);
+    ScrollbarPolicy = Never;
+    Size = (800, 110);
+    TextSize = 40;
+    VerticalAlignment = Center;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #E5E5E5;
+        Borders = (2, 2, 2, 2);
+        Padding = (20, 0, 0, 0);
+        TextColor = #117A65;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}
+
+Label.People {
+    Position = (1000, 360);
+    Size = (298, 48);
+    Text = "  People";
+    TextSize = 20;
+    VerticalAlignment = Center;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #E5E5E5;
+        Borders = (2, 2, 2, 2);
+        TextColor = #117A65;
+        TextureBackground = None;
+    }
+}
+
+TextArea.TextArea1 {
+    HorizontalScrollbarPolicy = Never;
+    MaximumCharacters = 0;
+    Position = (1000, 400);
+    ReadOnly = true;
+    Size = (298, 155);
+    Text = " Teacher\n\n\n\n Participants\n";
+    TextSize = 18;
+
+    Renderer {
+        BackgroundColor = #F4F4F4;
+        BorderColor = #E5E5E5;
+        Borders = (2, 2, 2, 2);
+        CaretColor = black;
+        CaretWidth = 1;
+        DefaultTextColor = #A0A0A0;
+        Padding = (0, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #117A65;
+        TextureBackground = None;
+    }
+}
+
+Button.Participants {
+    Position = (1070, 515);
+    Size = (168, 20);
+    Text = "Show participants list";
+    TextSize = 14;
+
+    Renderer {
+        BackgroundColor = #F4F4F4;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (0, 0, 0, 0);
+        TextColor = #FF6600;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Picture.Picture1 {
+    Position = (1020, 510);
+    Size = (40, 40);
+
+    Renderer {
+        Texture = "images/participants.PNG" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Picture.Picture2 {
+    Position = (1020, 430);
+    Size = (40, 40);
+
+    Renderer {
+        Texture = "images/teacher.PNG" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Label."Teacher Name" {
+    Position = (1070, 430);
+    ScrollbarPolicy = Never;
+    Size = (217.2, 18);
+    TextSize = 14;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextStyle = Regular;
+        TextureBackground = None;
+    }
+}
+
+ListView.PaList {
+    ExpandLastColumn = 0;
+    GridLinesWidth = 0;
+    HeaderHeight = 60;
+    HeaderSeparatorHeight = 0;
+    HeaderTextSize = 20;
+    HeaderVisible = true;
+    ItemHeight = 20;
+    Position = (375, 300);
+    SeparatorWidth = 0;
+    ShowVerticalGridLines = 0;
+    Size = (600, 400);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorHover = white;
+        BorderColor = black;
+        Borders = (0, 0, 0, 0);
+        HeaderBackgroundColor = #117A65;
+        HeaderTextColor = white;
+        Padding = (0, 0, 0, 0);
+        SelectedBackgroundColor = #006EFF;
+        SelectedBackgroundColorHover = #1E96FF;
+        SelectedTextColor = white;
+        SeparatorColor = #C8C8C8;
+        TextColor = #3C3C3C;
+        TextColorHover = black;
+    }
+}
+
+Picture.Picture3 {
+    Position = (375, 300);
+    Size = (29, 32);
+
+    Renderer {
+        Texture = "images/calendar.PNG" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+TextArea.TextArea2 {
+    HorizontalScrollbarPolicy = Never;
+    MaximumCharacters = 0;
+    Position = (375, 370);
+    ReadOnly = true;
+    Size = (600, 220);
+    Text = "";
+    TextSize = 15;
+    VerticalScrollbarPolicy = Never;
+
+    Renderer {
+        BackgroundColor = white;
+        BorderColor = #E5E5E5;
+        Borders = (1, 1, 1, 1);
+        CaretColor = black;
+        CaretWidth = 1;
+        DefaultTextColor = #A0A0A0;
+        Padding = (20, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #FF6600;
+        TextureBackground = None;
+    }
+}
+
+Picture.Picture4 {
+    Position = (1070, 450);
+    Size = (15, 15);
+
+    Renderer {
+        Texture = "images/teacherEmailIcon.png" Smooth;
+        TransparentTexture = false;
+    }
+}

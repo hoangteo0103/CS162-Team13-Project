@@ -1,0 +1,75 @@
+Button.ScoreBoard {
+    Position = (275, 200);
+    Size = (300, 120);
+    Text = ScoreBoard;
+    TextSize = 18;
+
+    Renderer {
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+    }
+}
+
+Button."Teacher Info" {
+    Position = (275, 400);
+    Size = (300, 120);
+    Text = "Teacher Info";
+    TextSize = 18;
+
+    Renderer {
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+    }
+}
+
+Button.Create {
+    Position = (725, 200);
+    Size = (300, 120);
+    Text = "Create SchoolYear/Semester/Course";
+    TextSize = 15;
+
+    Renderer {
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+    }
+}
+
+Button."Class ScoreBoard" {
+    Position = (725, 400);
+    Size = (300, 120);
+    Text = "Class ScoreBoard";
+    TextSize = 18;
+
+    Renderer {
+        TextColor = black;
+        TextColorHover = #13BCFF;
+        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
+    }
+}

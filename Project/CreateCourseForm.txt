@@ -1,0 +1,627 @@
+Renderer.1 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
+    Texture = None;
+    TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+Renderer.2 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    CheckColor = #3C3C3C;
+    CheckColorDisabled = #7D7D7D;
+    CheckColorHover = black;
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorHover = black;
+    TextDistanceRatio = 0.2;
+    TextureChecked = None;
+    TextureCheckedDisabled = None;
+    TextureCheckedFocused = None;
+    TextureCheckedHover = None;
+    TextureUnchecked = None;
+    TextureUncheckedDisabled = None;
+    TextureUncheckedFocused = None;
+    TextureUncheckedHover = None;
+}
+
+Renderer.3 {
+    ArrowBackgroundColor = #F5F5F5;
+    ArrowBackgroundColorHover = white;
+    ArrowColor = #3C3C3C;
+    ArrowColorHover = black;
+    BackgroundColor = #F5F5F5;
+    BorderColor = black;
+    Borders = (1, 1, 1, 1);
+    Padding = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureArrow = None;
+    TextureArrowDisabled = None;
+    TextureArrowHover = None;
+    TextureBackground = None;
+    TextureBackgroundDisabled = None;
+}
+
+Renderer.4 {
+    TextColor = rgb(100, 100, 100);
+    TextureBackground = None;
+
+    Scrollbar {
+        TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
+        TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
+        TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
+        TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
+    }
+}
+
+Renderer.5 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+
+    Scrollbar {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        TextureArrowDown = None;
+        TextureArrowDownHover = None;
+        TextureArrowUp = None;
+        TextureArrowUpHover = None;
+        TextureThumb = None;
+        TextureThumbHover = None;
+        TextureTrack = None;
+        TextureTrackHover = None;
+        ThumbColor = #DCDCDC;
+        ThumbColorHover = #E6E6E6;
+        TrackColor = #F5F5F5;
+    }
+}
+
+Renderer.6 {
+    BackgroundColor = rgb(230, 230, 230);
+    TextureBackground = None;
+}
+
+Renderer.7 {
+    BackgroundColor = rgba(160, 160, 160, 215);
+    BackgroundColorHover = rgba(170, 170, 170, 215);
+    BorderColor = rgba(240, 240, 240, 215);
+    Borders = (1, 1, 1, 1);
+    CaretColor = rgba(255, 255, 255, 215);
+    DefaultTextColor = rgba(240, 240, 240, 175);
+    SelectedTextBackgroundColor = rgba(0, 110, 200, 130);
+    SelectedTextColor = rgba(255, 255, 255, 245);
+    TextColor = rgba(255, 255, 255, 215);
+    Texture = None;
+    TextureDisabled = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+ChildWindow.CourseWindow {
+    Position = (340, 240);
+    Size = (580, 460);
+    Title = "Add Course";
+    TitleAlignment = Center;
+    TitleButtons = Close;
+    TitleTextSize = 13;
+
+    Renderer {
+        BackgroundColor = rgb(230, 230, 230);
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        DistanceToSide = 3;
+        PaddingBetweenButtons = 1;
+        ShowTextOnTitleButtons = false;
+        TextureBackground = None;
+        TextureTitleBar = "themes/BabyBlue.png" Part(317, 2, 62, 31) Middle(10, 0, 42, 31) Smooth;
+        TitleColor = rgb(100, 100, 100);
+
+        MaximizeButton {
+            Texture = "themes/BabyBlue.png" Part(2, 90, 25, 25) Smooth;
+            TextureDown = "themes/BabyBlue.png" Part(56, 90, 25, 25) Smooth;
+            TextureHover = "themes/BabyBlue.png" Part(29, 90, 25, 25) Smooth;
+        }
+
+        MinimizeButton {
+            Texture = "themes/BabyBlue.png" Part(83, 90, 25, 25) Smooth;
+            TextureDown = "themes/BabyBlue.png" Part(137, 90, 25, 25) Smooth;
+            TextureHover = "themes/BabyBlue.png" Part(110, 90, 25, 25) Smooth;
+        }
+
+        CloseButton {
+            Texture = "themes/BabyBlue.png" Part(96, 2, 25, 25) Smooth;
+            TextureDown = "themes/BabyBlue.png" Part(150, 2, 25, 25) Smooth;
+            TextureHover = "themes/BabyBlue.png" Part(123, 2, 25, 25) Smooth;
+        }
+    }
+
+    EditBox.GetID {
+        Position = (220, 40);
+        Renderer = &7;
+        Size = (160, 22);
+        TextSize = 13;
+    }
+
+    Label.CourseID {
+        Position = (120, 40);
+        ScrollbarPolicy = Never;
+        Size = (127.2, 20);
+        Text = "Course ID";
+        TextSize = 16;
+
+        Renderer {
+            TextColor = rgb(100, 100, 100);
+            TextureBackground = None;
+
+            Scrollbar {
+                TextureArrowDown = "themes/BabyBlue.png" Part(20, 2, 16, 16) Smooth;
+                TextureArrowUp = "themes/BabyBlue.png" Part(2, 2, 16, 16) Smooth;
+                TextureThumb = "themes/BabyBlue.png" Part(414, 2, 16, 32) Smooth;
+                TextureTrack = "themes/BabyBlue.png" Part(432, 2, 16, 32) Smooth;
+            }
+        }
+    }
+
+    Label.CourseName {
+        Position = (90, 80);
+        Renderer = &4;
+        ScrollbarPolicy = Never;
+        Size = (127.2, 20);
+        Text = "Course Name";
+        TextSize = 16;
+        VerticalAlignment = Center;
+    }
+
+    EditBox.GetName {
+        Position = (220, 80);
+        Renderer = &7;
+        Size = (160, 22);
+        TextSize = 13;
+    }
+
+    Label.TeacherName {
+        Position = (80, 120);
+        Renderer = &4;
+        ScrollbarPolicy = Never;
+        Size = (127.2, 18);
+        Text = "Teacher Name";
+        TextSize = 16;
+        VerticalAlignment = Center;
+    }
+
+    EditBox.GetTeacherName {
+        Position = (220, 120);
+        Renderer = &7;
+        Size = (160, 22);
+        TextSize = 13;
+    }
+
+    Label.Credit {
+        Position = (50, 160);
+        Renderer = &4;
+        ScrollbarPolicy = Never;
+        Size = (200, 20);
+        Text = "Number of Credits";
+        TextSize = 16;
+        VerticalAlignment = Center;
+    }
+
+    EditBox.GetCredit {
+        Position = (220, 160);
+        Renderer = &7;
+        Size = (160, 22);
+        TextSize = 13;
+    }
+
+    Label.Label1 {
+        Position = (50, 200);
+        Renderer = &4;
+        ScrollbarPolicy = Never;
+        Size = (200, 20);
+        Text = "Maximum Number";
+        TextSize = 16;
+        VerticalAlignment = Center;
+    }
+
+    EditBox.GetMax {
+        Position = (220, 200);
+        Renderer = &7;
+        Size = (160, 22);
+        Text = 50;
+        TextSize = 13;
+    }
+
+    Label.Session1 {
+        Position = (10, 270);
+        Renderer = &4;
+        ScrollbarPolicy = Never;
+        Size = (127.2, 20);
+        Text = "Session 1";
+        TextSize = 16;
+        VerticalAlignment = Center;
+    }
+
+    Label.Session2 {
+        Position = (10, 310);
+        Renderer = &4;
+        ScrollbarPolicy = Never;
+        Size = (127.2, 20);
+        Text = "Session 2";
+        TextSize = 16;
+        VerticalAlignment = Center;
+    }
+
+    ComboBox.ComboBox1 {
+        ChangeItemOnScroll = false;
+        Items = [MON, TUE, WED, THUR, FRI, SAT];
+        ItemsToDisplay = 0;
+        MaximumItems = 0;
+        Position = (100, 270);
+        Renderer = &3;
+        Size = (150, 22);
+        TextSize = 13;
+    }
+
+    ComboBox.ComboBox2 {
+        ChangeItemOnScroll = false;
+        Items = [MON, TUE, WED, THUR, FRI, SAT];
+        ItemsToDisplay = 0;
+        MaximumItems = 0;
+        Position = (100, 310);
+        Renderer = &3;
+        Size = (150, 22);
+        TextSize = 13;
+    }
+
+    Label.S1 {
+        Position = (275, 240);
+        ScrollbarPolicy = Never;
+        Size = (30, 21);
+        Text = S1;
+        TextSize = 16;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    Label.S2 {
+        Position = (350, 240);
+        Renderer = &5;
+        ScrollbarPolicy = Never;
+        Size = (30, 21);
+        Text = S2;
+        TextSize = 16;
+    }
+
+    Label.S3 {
+        Position = (425, 240);
+        Renderer = &5;
+        ScrollbarPolicy = Never;
+        Size = (30, 21);
+        Text = S3;
+        TextSize = 16;
+    }
+
+    Label.S4 {
+        Position = (500, 240);
+        Renderer = &5;
+        ScrollbarPolicy = Never;
+        Size = (30, 21);
+        Text = S4;
+        TextSize = 16;
+    }
+
+    Button.AddToList {
+        Position = (260, 360);
+        Renderer = &1;
+        Size = (60, 30);
+        Text = Add;
+        TextSize = 16;
+    }
+
+    Panel.PanelHe1 {
+        Position = (260, 270);
+        Renderer = &6;
+        Size = (300, 30);
+
+        RadioButton.RadioButton1 {
+            Position = (15, 1);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+
+        RadioButton.RadioButton3 {
+            Position = (90, 1);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+
+        RadioButton.RadioButton5 {
+            Position = (165, 1);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+
+        RadioButton.RadioButton7 {
+            Position = (240, 1);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+    }
+
+    Panel.PanelHe2 {
+        Position = (260, 300);
+        Renderer = &6;
+        Size = (300, 40);
+
+        RadioButton.RadioButton2 {
+            Position = (15, 11);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+
+        RadioButton.RadioButton4 {
+            Position = (90, 11);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+
+        RadioButton.RadioButton6 {
+            Position = (165, 11);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+
+        RadioButton.RadioButton8 {
+            Position = (240, 11);
+            Renderer = &2;
+            Size = (20, 20);
+            TextSize = 13;
+        }
+    }
+
+    Label.Label2 {
+        AutoSize = true;
+        Position = (440, 40);
+        ScrollbarPolicy = Never;
+        Size = (82.8, 21);
+        Text = "S1 = 7:30";
+        TextSize = 16;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    Label.Label3 {
+        AutoSize = true;
+        Position = (440, 80);
+        ScrollbarPolicy = Never;
+        Size = (82.8, 21);
+        Text = "S2 = 9:30";
+        TextSize = 16;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    Label.Label4 {
+        AutoSize = true;
+        Position = (440, 120);
+        ScrollbarPolicy = Never;
+        Size = (92.8, 21);
+        Text = "S3 = 13:30";
+        TextSize = 16;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    Label.Label5 {
+        AutoSize = true;
+        Position = (440, 160);
+        ScrollbarPolicy = Never;
+        Size = (92.8, 21);
+        Text = "S4 = 15:30";
+        TextSize = 16;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = #DCDCDC;
+                ThumbColorHover = #E6E6E6;
+                TrackColor = #F5F5F5;
+            }
+        }
+    }
+
+    Label.Label6 {
+        AutoSize = true;
+        Position = (460, 10);
+        Size = (43.8, 21);
+        Text = Note;
+        TextSize = 16;
+
+        Renderer {
+            BackgroundColor = transparent;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #3C3C3C;
+            TextureBackground = None;
+        }
+    }
+
+    Label.ErrorMessage {
+        Position = (210, 400);
+        ScrollbarPolicy = Never;
+        Size = (257.2, 18);
+        Text = "Enter all information";
+        TextSize = 16;
+
+        Renderer {
+            BackgroundColor = #FF330D00;
+            BorderColor = #3C3C3C;
+            Borders = (0, 0, 0, 0);
+            TextColor = #FF2338;
+            TextureBackground = None;
+        }
+    }
+
+    Button.Delete {
+        Position = (140, 360);
+        Renderer = &1;
+        Size = (80, 30);
+        Text = Delete;
+        TextSize = 16;
+    }
+
+    Button.Change {
+        Position = (350, 360);
+        Renderer = &1;
+        Size = (80, 30);
+        Text = Change;
+        TextSize = 16;
+    }
+}

@@ -1,0 +1,76 @@
+Picture.Picture1 {
+    Position = (-40, 30);
+    Size = (1900, 1000);
+
+    Renderer {
+        Texture = "images/KHTN.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Picture.Picture2 {
+    Size = (1300, 130);
+
+    Renderer {
+        Texture = "images/mainmenuBackgroundImage.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Tabs.Tabs1 {
+    AutoSize = 0;
+    Position = (150, 70);
+    Size = (400, 40);
+    Tabs = ["Courses Information", "Student Information"];
+    TextSize = 16;
+
+    Renderer {
+        DistanceToSide = 8;
+        SelectedTextColor = White;
+        TextColor = white;
+        TextureDisabledTab = None;
+        TextureSelectedTab = "images/mainmenuTabHoverImage.png" Smooth;
+        TextureSelectedTabHover = None;
+        TextureTab = "images/mainmenuTabImage.png" Smooth;
+        TextureTabHover = "images/mainmenuTabHoverImage.png" Smooth;
+    }
+}
+
+Button.Logout {
+    Position = (1200, 15);
+    Size = (80, 20);
+    Text = "Log out";
+    TextSize = 13;
+
+    Renderer {
+        TextColor = rgb(190, 190, 190);
+        TextColorHover = #4FA2FF;
+        Texture = "images/logoutBackground.png" Smooth;
+        TextureDisabled = None;
+        TextureDown = "images/logoutBackground.png" Smooth;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = "images/logoutBackground.png" Smooth;
+        TextureHover = "images/logoutBackground.png" Smooth;
+    }
+}
+
+Picture.Picture3 {
+    Position = (1185, 15);
+    Size = (20, 20);
+
+    Renderer {
+        Texture = "images/logoutIcon.png" Smooth;
+        TransparentTexture = false;
+    }
+}
+
+Picture.Picture4 {
+    Position = (30, 15);
+    Size = (20, 20);
+
+    Renderer {
+        Texture = "images/studentIcon.png" Smooth;
+        TransparentTexture = false;
+    }
+}
