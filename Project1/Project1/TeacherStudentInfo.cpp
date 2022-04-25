@@ -29,7 +29,7 @@ void onItemDoubleClick(Group& group_studentInfo, Group& group_small_studentInfo,
 }
 
 void onComboBoxesSelected(Group& group_studentInfo, tgui::String getSelectedItem) {
-	if (getSelectedItem == "All Classes")
+	if (getSelectedItem == "All Semesters")
 	{
 		group_studentInfo.get<tgui::ListView>("ListView1")->removeAllItems();
 		int width = 0;
@@ -55,17 +55,17 @@ void onComboBoxesSelected(Group& group_studentInfo, tgui::String getSelectedItem
 void loadStudentWidget(Group& group_studentInfo, SchoolYear*& curSchoolYear) {
 	init_student_info(group_studentInfo);
 
-	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Class", 100, tgui::ListView::ColumnAlignment::Center);
+	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Class", 200, tgui::ListView::ColumnAlignment::Center);
 	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Student ID", 200, tgui::ListView::ColumnAlignment::Center);
 	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Student's Name", 700);
 
-	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->addItem("All Classes");
-	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("All Classes");
+	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->addItem("All Class");
+	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("All Class");
 
 	for (SchoolYear* i = curSchoolYear; i; i = i->nextSchoolYear) {
 		//cerr << i->startYear << ' ' << i->endYear << '\n';
 		for (SpecificClass* j = i->nowClass; j; j = j->nextClass) {
-			group_studentInfo.get<tgui::ComboBox>("ComboBox1")->addItem(tgui::String(j->classCODE));
+			group_studentInfo.get<tgui::ComboBox>("ComboBox1")->addItem(tgui::String(j->classCODE) + "-" + tgui::String(i->startYear));
 
 			vector<tgui::String> tmp;
 			for (Student* k = j->classStudent; k; k = k->nextStudent) {
@@ -73,8 +73,8 @@ void loadStudentWidget(Group& group_studentInfo, SchoolYear*& curSchoolYear) {
 				name += ' ';
 				name += k->lastName;
 
-				tmp = { tgui::String(j->classCODE), tgui::String(k->studentID), name };
-				mpInfo[tgui::String(j->classCODE)].push_back(tmp);
+				tmp = { tgui::String(j->classCODE) + "-" + tgui::String(i->startYear), tgui::String(k->studentID), name};
+				mpInfo[tgui::String(j->classCODE) + "-" + tgui::String(i->startYear)].push_back(tmp);
 				group_studentInfo.get<tgui::ListView>("ListView1")->addItem(tmp);
 			}
 		}

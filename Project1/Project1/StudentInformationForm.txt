@@ -21,7 +21,7 @@ Button.ScoreBoard {
 }
 
 Button."Student Info" {
-    Position = (275, 400);
+    Position = (505, 400);
     Size = (300, 120);
     Text = "Student Info";
     TextSize = 18;
@@ -45,27 +45,6 @@ Button."Course Registration" {
     Position = (725, 200);
     Size = (300, 120);
     Text = "Course Registration";
-    TextSize = 18;
-
-    Renderer {
-        BackgroundColor = transparent;
-        BorderColor = transparent;
-        TextColor = black;
-        TextColorHover = #13BCFF;
-        Texture = "images/buttonBorderImage_Ver3.png" Smooth;
-        TextureDisabled = None;
-        TextureDown = "themes/Black.png" Part(0, 74, 45, 50) Middle(10, 0) Smooth;
-        TextureDownFocused = None;
-        TextureDownHover = None;
-        TextureFocused = "images/buttonBorderHoverImage_Ver3.png" Smooth;
-        TextureHover = "images/buttonBorderHoverImage_Ver3.png" Smooth;
-    }
-}
-
-Button.Button3 {
-    Position = (725, 400);
-    Size = (300, 120);
-    Text = Button;
     TextSize = 18;
 
     Renderer {
