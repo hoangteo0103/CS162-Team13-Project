@@ -29,7 +29,7 @@ void onItemDoubleClick(Group& group_studentInfo, Group& group_small_studentInfo,
 }
 
 void onComboBoxesSelected(Group& group_studentInfo, tgui::String getSelectedItem) {
-	if (getSelectedItem == "All Semesters")
+	if (getSelectedItem == "All Classes")
 	{
 		group_studentInfo.get<tgui::ListView>("ListView1")->removeAllItems();
 		int width = 0;
@@ -59,8 +59,8 @@ void loadStudentWidget(Group& group_studentInfo, SchoolYear*& curSchoolYear) {
 	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Student ID", 200, tgui::ListView::ColumnAlignment::Center);
 	group_studentInfo.get<tgui::ListView>("ListView1")->addColumn("Student's Name", 700);
 
-	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->addItem("All Semesters");
-	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("All Semesters");
+	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->addItem("All Classes");
+	group_studentInfo.get<tgui::ComboBox>("ComboBox1")->setSelectedItem("All Classes");
 
 	for (SchoolYear* i = curSchoolYear; i; i = i->nextSchoolYear) {
 		//cerr << i->startYear << ' ' << i->endYear << '\n';

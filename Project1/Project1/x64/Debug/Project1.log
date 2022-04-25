@@ -1,6 +1,6 @@
-﻿  MainMenuState.cpp
-C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  MainMenuStateTeacher.cpp
-C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  CreateSchoolYear.cpp
+D:\Project - CS162\Project1\Project1\CreateSchoolYear.cpp(203,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  TeacherStudentInfo.cpp
+D:\Project - CS162\Project1\Project1\TeacherStudentInfo.cpp(39,26): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
-  Project1.vcxproj -> C:\Work\CS162\Group_Project_2.0\Project1\x64\Debug\Project1.exe
+  Project1.vcxproj -> D:\Project - CS162\Project1\x64\Debug\Project1.exe

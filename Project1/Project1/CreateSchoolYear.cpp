@@ -177,6 +177,7 @@ void onAddClass(Group& group_create)
 		group_create.get<Label>("Error")->setText("Error : Already loaded class");
 		return;
 	}
+	group_create.get<Label>("Error")->setVisible(false);
 	group_create.get<ListView>("ListView1")->setVisible(false);
 	group_create.get<Button>("AddClass")->setVisible(false);
 	group_create.get<ListView>("ListClasses")->setVisible(true);
