@@ -1,3 +1,6 @@
 ﻿  MainMenuState.cpp
 C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MainMenuStateTeacher.cpp
+C:\Work\CS162\Group_Project_2.0\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
   Project1.vcxproj -> C:\Work\CS162\Group_Project_2.0\Project1\x64\Debug\Project1.exe

@@ -22,11 +22,17 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
         int curSemester = 4;
 
         tgui::String curDirectory = "SchoolYears/" + tgui::String(curSchoolYear->startYear) + "-" + tgui::String(curSchoolYear->endYear);
+
+        ifstream finTmp;
+        finTmp.open(curDirectory.toStdString() + "/ListofSemester.txt");
+        finTmp >> curSemester; curSemester++;
+        finTmp.close();
+
         if (curSchoolYear->nowSemester == NULL)
         {
             group_course.get<tgui::TreeView>("TreeView1")->addItem({ curYears });
-
         }
+
         for (Semester* i = curSchoolYear->nowSemester; i; i = i->nextSemester) {
             curSemester--;
             tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
