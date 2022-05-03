@@ -136,8 +136,49 @@ void hideGroupSmallStudentInfo(Group& group_info)
     group_info.get<EditBox>("CreditBox")->setReadOnly(false);
 }
 
+
 void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName, int dm)
 {
+    SchoolYear* schoolYears = nullptr;
+    loadListofSchoolYears(schoolYears);
+    
+    if (dm == 1)
+    {   
+        gui.get<Group>("group_course")->get<TreeView>("TreeView1")->removeAllItems();
+        for (SchoolYear* curSchoolYear = schoolYears; curSchoolYear; curSchoolYear = curSchoolYear->nextSchoolYear)
+        {
+            tgui::String curYears = tgui::String(curSchoolYear->startYear) + '-' + tgui::String(curSchoolYear->endYear);
+
+            int curSemester = 4;
+
+            tgui::String curDirectory = "SchoolYears/" + tgui::String(curSchoolYear->startYear) + "-" + tgui::String(curSchoolYear->endYear);
+
+            ifstream finTmp;
+            finTmp.open(curDirectory.toStdString() + "/ListofSemester.txt");
+            finTmp >> curSemester; curSemester++;
+            finTmp.close();
+
+            if (curSchoolYear->nowSemester == NULL)
+            {
+                gui.get<Group>("group_course")->get<TreeView>("TreeView1")->addItem({ curYears });
+            }
+
+            for (Semester* i = curSchoolYear->nowSemester; i; i = i->nextSemester) {
+                curSemester--;
+                tgui::String curSemesterStr = "Semester " + tgui::String(curSemester);
+                string curDir = curDirectory.toStdString() + "/" + "Semester" + (char)(curSemester + '0') + "/Courses/";
+                gui.get<Group>("group_course")->get<TreeView>("TreeView1")->addItem({ curYears, curSemesterStr });
+                for (Course* j = i->nowCourse; j; j = j->nextCourse) {
+                    {
+                        tgui::String item = j->courseName;
+                        gui.get<Group>("group_course")->get<TreeView>("TreeView1")->addItem({ curYears, curSemesterStr, item });
+                    }
+                }
+
+            }
+        }
+        return; 
+    }
     loadWidgetsMainMenuTeacher(gui, dm);
     auto group_course = tgui::Group::create();
     auto group_student = tgui::Group::create();
@@ -154,14 +195,13 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName, int dm)
         group_scoreboard->loadWidgetsFromFile("TeacherScoreboardForm.txt");
         group_small_studentInfo->loadWidgetsFromFile("StudentInfoForm.txt");
     }
-    SchoolYear* schoolYears = nullptr;
     loadListofSchoolYears(schoolYears);
     addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentSB, *group_studentInfo, *group_small_studentInfo, *group_create);
-    gui.add(group_course);
-    gui.add(group_student);
-    gui.add(group_scoreboard);
+    gui.add(group_course , "group_course");
+    gui.add(group_student , "group_student");
+    gui.add(group_scoreboard , "group_scoreboard");
     gui.add(group_studentInfo);
-    gui.add(group_create);
+    gui.add(group_create , "group_create");
     gui.add(group_small_studentInfo);
     gui.add(group_studentSB);
     group_course->setVisible(true);

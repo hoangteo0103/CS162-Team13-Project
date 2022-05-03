@@ -1,48 +1,11 @@
-﻿  AccountList.cpp
-  Action.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Button.cpp
-  ClassScoreboard.cpp
-D:\Project - CS162\Project1\Project1\ClassScoreboard.cpp(28,39): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-D:\Project - CS162\Project1\Project1\ClassScoreboard.cpp(62,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-D:\Project - CS162\Project1\Project1\ClassScoreboard.cpp(121,36): warning C4101: 'tmpID': unreferenced local variable
-  Core.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  CourseRegistration.cpp
-  Courses.cpp
-D:\Project - CS162\Project1\Project1\Courses.cpp(6,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-D:\Project - CS162\Project1\Project1\Courses.cpp(408,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Project - CS162\Project1\Project1\Courses.cpp(410,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  CreateCourse.cpp
-  CreateRegistration.cpp
-  CreateSchoolYear.cpp
-D:\Project - CS162\Project1\Project1\CreateSchoolYear.cpp(203,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  CreateSemester.cpp
-  LoginState.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  MainMenuState.cpp
+﻿  Action.cpp
 D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   MainMenuStateTeacher.cpp
 D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  OpenFile.cpp
   SchoolYear.cpp
-  Scoreboard.cpp
-D:\Project - CS162\Project1\Project1\Scoreboard.cpp(13,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-  Semester.cpp
-  Source.cpp
-  State.cpp
-  Compiling...
-  Student.cpp
-  StudentInfo.cpp
-  TeacherScoreboard.cpp
-D:\Project - CS162\Project1\Project1\TeacherScoreboard.cpp(19,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-D:\Project - CS162\Project1\Project1\TeacherScoreboard.cpp(48,39): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-  TeacherStudentInfo.cpp
-D:\Project - CS162\Project1\Project1\TeacherStudentInfo.cpp(39,26): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
   Generating code
-D:\Project - CS162\Project1\Project1\OpenFile.cpp(45): warning C4715: 'Get_path': not all control paths return a value
-  1996 of 1996 functions (100.0%) were compiled.
-    1995 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  46 of 2002 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    19 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Project1.vcxproj -> D:\Project - CS162\Project1\x64\Release\Project1.exe

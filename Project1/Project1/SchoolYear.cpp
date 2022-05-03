@@ -48,7 +48,7 @@ bool SchoolYear::createNewSchoolYear()
 	else {
 		cout << GetLastWinError() << endl;
 	}
-	ofstream fout("C:/Work/CS162/Group_Project_2.0/Project1/Project1/SchoolYears/ListSchoolYear.txt", ios_base::app | ios_base::out);
+	ofstream fout("D:/Project - CS162/Project1/Project1/SchoolYears/ListSchoolYear.txt", ios_base::app | ios_base::out);
 	fout << endl <<this->startYear;
 	ofstream f1(year + "/ListOfClassCode.txt");
 	ofstream f2(year + "/ListOfSemester.txt");
