@@ -195,7 +195,6 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName, int dm)
         group_scoreboard->loadWidgetsFromFile("TeacherScoreboardForm.txt");
         group_small_studentInfo->loadWidgetsFromFile("StudentInfoForm.txt");
     }
-    loadListofSchoolYears(schoolYears);
     addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentSB, *group_studentInfo, *group_small_studentInfo, *group_create);
     gui.add(group_course , "group_course");
     gui.add(group_student , "group_student");

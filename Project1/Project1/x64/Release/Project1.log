@@ -1,11 +1,7 @@
-﻿  Action.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  MainMenuStateTeacher.cpp
-D:\Project - CS162\Project1\Project1\LoginState.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  SchoolYear.cpp
+﻿  CoureRegistrationResult.cpp
   Generating code
-  46 of 2002 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
+  1 of 2034 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    19 functions had inline decision re-evaluated but remain unchanged
+    9 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Project1.vcxproj -> D:\Project - CS162\Project1\x64\Release\Project1.exe

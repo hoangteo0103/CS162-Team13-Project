@@ -25,6 +25,7 @@
     <ClCompile Include="TeacherScoreboard.cpp" />
     <ClCompile Include="TeacherStudentInfo.cpp" />
     <ClCompile Include="CourseRegistration.cpp" />
+    <ClCompile Include="CoureRegistrationResult.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -52,6 +53,7 @@
     <ClInclude Include="LoginState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="CourseRegistration.h" />
+    <ClInclude Include="CoureRegistrationResult.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="StudentAccount.txt" />

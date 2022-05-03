@@ -169,6 +169,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ClassScoreboard.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="CoureRegistrationResult.cpp" />
     <ClCompile Include="CourseRegistration.cpp" />
     <ClCompile Include="Courses.cpp" />
     <ClCompile Include="CreateCourse.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="ClassScoreboard.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="AccountList.h" />
+    <ClInclude Include="CoureRegistrationResult.h" />
     <ClInclude Include="CourseRegistration.h" />
     <ClInclude Include="Courses.h" />
     <ClInclude Include="CreateCourse.h" />

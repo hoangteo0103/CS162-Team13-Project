@@ -183,7 +183,8 @@ void loadRegistrationWidget(Group& group_registration, queue<pair<SchoolYear*, i
 		cnt++;
 	}
 	
-	tgui::String curDir = "SchoolYears/" + tgui::String(schoolYear->startYear) + '-' + tgui::String(schoolYear->endYear) + '/';
+	tgui::String curDir = "SchoolYears/" 
++ tgui::String(schoolYear->startYear) + '-' + tgui::String(schoolYear->endYear) + '/';
 	curDir += "Semester" + tgui::String(cnt) + "/Courses/";
 
 	int curHeight = 0;

@@ -8,6 +8,7 @@
 #include "Scoreboard.h"
 #include "StudentInfo.h"
 #include "CourseRegistration.h"
+#include "CoureRegistrationResult.h"
 #include "Action.h"
 using namespace sf;
 using namespace tgui;
