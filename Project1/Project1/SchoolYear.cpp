@@ -35,11 +35,12 @@ string GetLastWinError()
 	return oss.str();
 
 }
-
+string vinh1 = "C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/";
+string hoang1 = "D:/Project - CS162/Project1/Project1/SchoolYears/";
 bool SchoolYear::createNewSchoolYear()
 {
-	string year = "C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/" + to_string(this->startYear) + "-" + to_string(this->endYear);
-	string previous_year = "C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/" + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
+	string year = hoang1 + to_string(this->startYear) + "-" + to_string(this->endYear);
+	string previous_year = hoang1 + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
 	cout << year.c_str();
 	if (CreateDirectoryA(year.c_str(), 0))
 	{
@@ -48,7 +49,7 @@ bool SchoolYear::createNewSchoolYear()
 	else {
 		cout << GetLastWinError() << endl;
 	}
-	ofstream fout("C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/ListSchoolYear.txt", ios_base::app | ios_base::out);
+	ofstream fout(hoang1 + "ListSchoolYear.txt", ios_base::app | ios_base::out);
 	fout << endl <<this->startYear;
 	ofstream f1(year + "/ListOfClassCode.txt");
 	ofstream f2(year + "/ListOfSemester.txt");

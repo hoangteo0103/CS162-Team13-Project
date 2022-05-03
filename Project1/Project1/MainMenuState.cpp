@@ -19,14 +19,16 @@ void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
     nowclass = newClass;
 }
 
+string vinh = "C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/";
+string hoang = "D:/Project - CS162/Project1/Project1/SchoolYears/";
 void loadListofSchoolYears(SchoolYear*& schoolYear) {
     int year;
-    ifstream yearInput("C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/ListSchoolYear.txt");
+    ifstream yearInput(hoang + "ListSchoolYear.txt");
     while (!yearInput.eof()) {
         yearInput >> year;
         string year_string = to_string(year) + "-" + to_string(year + 1);
 
-        ifstream fin1("C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/" + year_string + "/ListOfSemester.txt");
+        ifstream fin1(hoang + year_string + "/ListOfSemester.txt");
         int amount;
         fin1 >> amount;
         fin1.close();
