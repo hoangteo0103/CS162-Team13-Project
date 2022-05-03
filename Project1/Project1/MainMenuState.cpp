@@ -21,12 +21,12 @@ void addSpecificClass(SpecificClass*& nowclass, char classcode[], string year)
 
 void loadListofSchoolYears(SchoolYear*& schoolYear) {
     int year;
-    ifstream yearInput("D:/Project - CS162/Project1/Project1/SchoolYears/ListSchoolYear.txt");
+    ifstream yearInput("C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/ListSchoolYear.txt");
     while (!yearInput.eof()) {
         yearInput >> year;
         string year_string = to_string(year) + "-" + to_string(year + 1);
 
-        ifstream fin1("D:/Project - CS162/Project1/Project1/SchoolYears/" + year_string + "/ListOfSemester.txt");
+        ifstream fin1("C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/" + year_string + "/ListOfSemester.txt");
         int amount;
         fin1 >> amount;
         fin1.close();
@@ -207,6 +207,7 @@ void loadWidgetsMainMenu(tgui::BackendGui& gui)
 
 void hideGroupCourse(Group& group_course)
 {
+    group_course.get<Button>("ExportCourseButton")->setVisible(false);
     group_course.get<Label>("Course Name")->setVisible(false);
     group_course.get<Label>("Teacher Name")->setVisible(false);
     group_course.get<Label>("People")->setVisible(false);

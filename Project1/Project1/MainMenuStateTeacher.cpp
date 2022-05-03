@@ -15,8 +15,11 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     group_course.add(label);
     if (!schoolYears) return false;
 
+    int tmpCnt = 0;
+
     for (SchoolYear* curSchoolYear = schoolYears; curSchoolYear; curSchoolYear = curSchoolYear->nextSchoolYear)
     {
+        //cerr << ++tmpCnt << '\n';
         tgui::String curYears = tgui::String(curSchoolYear->startYear) + '-' + tgui::String(curSchoolYear->endYear);
 
         int curSemester = 4;
@@ -27,6 +30,8 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
         finTmp.open(curDirectory.toStdString() + "/ListofSemester.txt");
         finTmp >> curSemester; curSemester++;
         finTmp.close();
+
+        //cerr << curDirectory << ' ' << curSemester << '\n';
 
         if (curSchoolYear->nowSemester == NULL)
         {
@@ -68,6 +73,7 @@ bool addComponents2(tgui::BackendGui& gui, SchoolYear*& schoolYears, tgui::Strin
     curCourse2 = new Course;
     group_studentInfo.get<tgui::ListView>("ListView1")->onDoubleClick(&onItemDoubleClick, ref(group_studentInfo), ref(group_small_studentInfo), schoolYears);
     group_course.get<tgui::TreeView>("TreeView1")->onItemSelect(&onItemSelected2, ref(group_course), schoolYears, ref(curCourse2));
+    group_course.get<tgui::Button>("ExportCourseButton")->onClick(&onExportSelected, ref(group_course));
     group_course.get<Button>("Participants")->onClick(&onParticipants, ref(group_course), ref(curCourse2));
     group_student.get<tgui::Button>("ScoreBoard")->onClick(&onTeacherScoreboardSelected, ref(group_scoreboard), ref(group_student));
     group_student.get<tgui::Button>("Teacher Info")->onClick(&onStudentInfoSelected, ref(group_studentInfo), ref(group_student));
@@ -99,6 +105,7 @@ void loadWidgetsMainMenuTeacher(tgui::BackendGui& gui, int dm)
 
 void hideGroupCourseTeacher(Group& group_course)
 {
+    group_course.get<Button>("ExportCourseButton")->setVisible(false);
     group_course.get<Label>("Course Name")->setVisible(false);
     group_course.get<Label>("Teacher Name")->setVisible(false);
     group_course.get<Label>("People")->setVisible(false);
@@ -195,7 +202,7 @@ void run_mainmenu_teacher(BackendGui& gui, tgui::String teacherName, int dm)
         group_scoreboard->loadWidgetsFromFile("TeacherScoreboardForm.txt");
         group_small_studentInfo->loadWidgetsFromFile("StudentInfoForm.txt");
     }
-    loadListofSchoolYears(schoolYears);
+    //loadListofSchoolYears(schoolYears);
     addComponents2(gui, schoolYears, teacherName, *group_course, *group_student, *group_scoreboard, *group_studentSB, *group_studentInfo, *group_small_studentInfo, *group_create);
     gui.add(group_course , "group_course");
     gui.add(group_student , "group_student");

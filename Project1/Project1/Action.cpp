@@ -61,7 +61,7 @@ void onTabSelected(tgui::BackendGui& gui, tgui::String* curSelectedTab, vector<t
 
 void showGroupCourse(Group& group_course, bool check)
 {
-
+    group_course.get<Button>("ExportCourseButton")->setVisible(check);
     group_course.get<ListView>("PaList")->setVisible(false);
     group_course.get<Label>("Teacher Name")->setVisible(check);
     group_course.get<Label>("Course Name")->setVisible(check);
@@ -102,6 +102,7 @@ void onItemSelected(tgui::Group& group_course, SchoolYear* schoolYears, Course*&
         }
     }
     showGroupCourse(group_course, check);
+    group_course.get<Button>("ExportCourseButton")->setVisible(false);
 }
 
 // Teacher action
@@ -155,4 +156,91 @@ void onItemSelected2(tgui::Group& group_course, SchoolYear* schoolYears, Course*
         }
     }
     showGroupCourse(group_course, check);
+}
+
+void onExportSelected(tgui::Group& group_course) {
+    vector<tgui::String> need = group_course.get<tgui::TreeView>("TreeView1")->getSelectedItem();
+    string itemStr = need.back().toStdString();
+   
+    string curSemester = need[1].toStdString();
+
+    tgui::String curDir = "SchoolYears/" + need[0] + "/" + "Semester" + tgui::String((char)('0' + (curSemester.back() - '0'))) + "/Courses/" + need[2];
+    //cerr << curDir << '\n';
+
+    ifstream fin;
+    fin.open(curDir.toStdString() + ".csv");
+
+    ofstream fout;
+    fout.open("Exported_Files/" + itemStr + ".csv");
+
+    fout << "No" << ", "
+        << "StudentID" << ", "
+        << "Student Full Name" << ", "
+        << "Midterm Mark" << ", "
+        << "Final Mark" << ", "
+        << "Other Mark" << ", "
+        << "Total Mark"
+        << "\n";
+
+    string line, word;
+    int num = 0;
+
+    while (getline(fin, line)) {
+        num++;
+        if (num == 1) {
+            continue;
+        }
+
+        stringstream str(line);
+        int cnt = 0;
+
+        int no = 0, stdID = 0, mTerm = 0, fMark = 0, oMark = 0;
+        float tMark = 0;
+        char stdName[FULLNAMELENGTH];
+
+        while (getline(str, word, ',')) {
+            cnt++;
+            stringstream stoint(word);
+            switch (cnt) {
+            case 1:
+                stoint >> no;
+                break;
+            case 2:
+                stoint >> stdID;
+                break;
+            case 3:
+                for (int i = 0; i < word.length(); i++) {
+                    stdName[i] = word[i];
+                }
+                stdName[word.length()] = '\0';
+                break;
+            case 4:
+                stoint >> mTerm;
+                break;
+            case 5:
+                stoint >> fMark;
+                break;
+            case 6:
+                stoint >> oMark;
+                break;
+            case 7:
+                stoint >> tMark;
+                break;
+            default:
+                break;
+            }
+        }
+
+        fout << no << ", "
+            << stdID << ", "
+            << stdName << ", "
+            << mTerm << ", "
+            << fMark << ", "
+            << oMark << ", "
+            << tMark
+            << "\n";
+    }
+
+    fin.close();
+    fout.close();
 }
