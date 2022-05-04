@@ -5,13 +5,13 @@ void onCourseResultSelected(BackendGui& gui, SchoolYear *schoolYears, Student ne
 	gui.get<Group>("group_student")->setVisible(false); 
 	gui.get<Group>("group_registration_result")->setVisible(true);
 
-	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->removeAllColumns();
+	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->removeAllItems();
 	
-	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Course ID", 103, tgui::ListView::ColumnAlignment::Center);
-	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Course", 220, tgui::ListView::ColumnAlignment::Center);
-	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("1st Schedule", 165, tgui::ListView::ColumnAlignment::Center);
-	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("2nd Schedule", 165, tgui::ListView::ColumnAlignment::Center);
-	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Teacher", 240, tgui::ListView::ColumnAlignment::Center);
+	//gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Course ID", 103, tgui::ListView::ColumnAlignment::Center);
+	//gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Course", 220, tgui::ListView::ColumnAlignment::Center);
+	//gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("1st Schedule", 165, tgui::ListView::ColumnAlignment::Center);
+	//gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("2nd Schedule", 165, tgui::ListView::ColumnAlignment::Center);
+	//gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Teacher", 240, tgui::ListView::ColumnAlignment::Center);
 	queue<pair<SchoolYear*, int>> curSchoolYear;
 	string studentName = neededStudent.firstName;
 	studentName += ' ';
@@ -61,7 +61,7 @@ void loadRegistrationResultWidget(BackendGui& gui , queue<pair<SchoolYear*, int>
 	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Course", 220, tgui::ListView::ColumnAlignment::Center);
 	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("1st Schedule", 165, tgui::ListView::ColumnAlignment::Center);
 	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("2nd Schedule", 165, tgui::ListView::ColumnAlignment::Center);
-	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Teacher", 340, tgui::ListView::ColumnAlignment::Center);
+	gui.get<Group>("group_registration_result")->get<tgui::ListView>("ListResult")->addColumn("Teacher", 240, tgui::ListView::ColumnAlignment::Center);
 
 	SchoolYear* schoolYear = curSchoolYear.front().first;
 	Semester* curSemester = schoolYear->nowSemester;

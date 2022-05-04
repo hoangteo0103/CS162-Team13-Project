@@ -38,10 +38,11 @@ string GetLastWinError()
 string vinh1 = "C:/Work/CS162/Group_Project/Project1/Project1/SchoolYears/";
 string hoang1 = "D:/Project - CS162/Project1/Project1/SchoolYears/";
 string hao1 = "D:/Visual Studio 2022/Final Project/CS162-Team13-Project/Project1/Project1/SchoolYears/";
+string hao2 = "E:/Study/CS162/FinalProject/Project1/Project1/SchoolYears/";
 bool SchoolYear::createNewSchoolYear()
 {
-	string year = hao1 + to_string(this->startYear) + "-" + to_string(this->endYear);
-	string previous_year = hao1 + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
+	string year = hao2 + to_string(this->startYear) + "-" + to_string(this->endYear);
+	string previous_year = hao2 + to_string(this->startYear - 1) + "-" + to_string(this->endYear - 1);
 	cout << year.c_str();
 	if (CreateDirectoryA(year.c_str(), 0))
 	{
@@ -50,7 +51,7 @@ bool SchoolYear::createNewSchoolYear()
 	else {
 		cout << GetLastWinError() << endl;
 	}
-	ofstream fout(hao1 + "ListSchoolYear.txt", ios_base::app | ios_base::out);
+	ofstream fout(hao2 + "ListSchoolYear.txt", ios_base::app | ios_base::out);
 	fout << endl <<this->startYear;
 	ofstream f1(year + "/ListOfClassCode.txt");
 	ofstream f2(year + "/ListOfSemester.txt");
